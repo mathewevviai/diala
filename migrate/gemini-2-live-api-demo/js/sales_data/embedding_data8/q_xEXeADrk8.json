@@ -1,0 +1,30 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect uses a vague term like 'process' in an objection ('We're in the process of fixing that'), challenge the word by offering specific scenarios it could mean (e.g., ABC or something else structure).",
+      "speaker_perspective": "sales agent",
+      "notes": "Breaks down a vague stall into concrete possibilities to uncover the truth."
+    },
+    {
+      "type": "example",
+      "content": "Example challenge to 'in the process': 'When you say you're in the process, do you mean you've already appointed a third party and they're working on it? Do you mean you're looking at potentially getting a third party? Or do you just mean this is something you're thinking about that needs doing?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides specific options to clarify the prospect's vague statement and identify if there's a live opportunity."
+    },
+    {
+      "type": "technique",
+      "content": "Use a conditional closing question after a prospect relates to a problem you fix: 'If I could fix this, and you genuinely believed what we had could eliminate this for you, is there any reason you wouldn't invite me in for half an hour?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Moves from intellectual agreement on a problem to a conditional commitment for a meeting based on a potential solution."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Is there any reason you wouldn't invite me in for half an hour?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional closing phrase used to secure a meeting after establishing potential value."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

@@ -1,0 +1,358 @@
+Directory structure:
+└── backend/
+    ├── debug_api.py
+    ├── kaggle.json:Zone.Identifier
+    ├── monitor_hunter.py
+    ├── requirements.txt
+    ├── run_server.py
+    ├── tree.txt
+    ├── .env.example
+    ├── backenddocs/
+    │   ├── HUNTER_SEARCH_PRODUCTION_READY.md
+    │   ├── install_redis.sh
+    │   ├── jina_response_sample.json
+    │   ├── QUERY_FORMATTING_UPDATE.md
+    │   ├── README_SETUP.md
+    │   ├── SETUP.md
+    │   ├── TIKTOK_PREVIEW_API.md
+    │   ├── VOICE_CLONING_INTEGRATION.md
+    │   ├── VOICE_CLONING_JOB_QUEUE.md
+    │   ├── whisper_doc_extracted.json
+    │   ├── whisper_model_details.json
+    │   └── whisper_related_urls.json
+    ├── data/
+    │   ├── hunter_results.json
+    │   ├── query_cache.json
+    │   ├── checkpoints/
+    │   │   ├── search_1750403985057_s0ifn5280k/
+    │   │   │   └── phase_1_checkpoint.json
+    │   │   └── search_1750436115930_vrbtj2c2dfn/
+    │   │       └── phase_1_checkpoint.json
+    │   └── failed_webhooks/
+    │       ├── search_1750431559027_ccohidx0qt_20250620_145922.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_145925.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150323.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150326.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150329.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150458.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150501.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150504.json
+    │       ├── search_1750431559027_ccohidx0qt_20250620_150507.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155250.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155253.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155733.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155736.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155739.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155852.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155855.json
+    │       ├── search_1750434767630_h5wjnkqrqk_20250620_155858.json
+    │       └── search_1750434767630_h5wjnkqrqk_20250620_155901.json
+    ├── docker/
+    │   └── docker-compose.yml
+    ├── examples/
+    │   ├── convex_example.py
+    │   ├── EXTERNAL_SEARCH_README.md
+    │   ├── hunter_cancel_example.js
+    │   └── rag_external_search_example.py
+    ├── migrations/
+    │   └── create_voice_profiles_table.sql
+    ├── models/
+    │   └── sentiment_classifier/
+    │       ├── label_encoder.pkl
+    │       ├── scaler.pkl
+    │       └── sentiment_model.pkl
+    ├── src/
+    │   ├── __init__.py
+    │   ├── __main__.py
+    │   ├── download_models.py
+    │   ├── main.py
+    │   ├── api/
+    │   │   ├── __init__.py
+    │   │   ├── sentiment_api.py
+    │   │   ├── protected/
+    │   │   │   ├── __init__.py
+    │   │   │   └── example.py
+    │   │   └── public/
+    │   │       ├── __init__.py
+    │   │       ├── audio_transcripts.py
+    │   │       ├── bulk.py
+    │   │       ├── chatterbox_tts.py
+    │   │       ├── embedding_models.py
+    │   │       ├── hunter_leadgen.py
+    │   │       ├── instagram_content.py
+    │   │       ├── realtime_analysis_api.py
+    │   │       ├── tiktok_content.py
+    │   │       ├── twitch_content.py
+    │   │       ├── voice_onboarding.py
+    │   │       ├── youtube_content.py
+    │   │       └── youtube_transcripts.py
+    │   ├── api_gateway/
+    │   │   ├── __init__.py
+    │   │   └── main.py
+    │   ├── audio/
+    │   │   └── procedural_soundscape_generator.py
+    │   ├── automation/
+    │   │   ├── __init__.py
+    │   │   ├── api.py
+    │   │   ├── models.py
+    │   │   ├── services.py
+    │   │   └── setup.py
+    │   ├── chatterbox/
+    │   │   ├── __init__.py
+    │   │   ├── tts.py
+    │   │   └── streaming/
+    │   │       ├── README.md
+    │   │       ├── build.sh
+    │   │       ├── Dockerfile
+    │   │       ├── Dockerfile.cuda
+    │   │       ├── Dockerfile.universal
+    │   │       ├── example_for_mac.py
+    │   │       ├── example_tts_stream.py
+    │   │       ├── example_vc_stream.py
+    │   │       ├── gradio_tts_app.py
+    │   │       ├── gradio_vc_app.py
+    │   │       ├── grpo.py
+    │   │       ├── LICENSE
+    │   │       ├── loadandmergecheckpoint.py
+    │   │       ├── lora.py
+    │   │       ├── main.py
+    │   │       ├── MIGRATION_README.md
+    │   │       ├── pyproject.toml
+    │   │       ├── README_DUAL_BACKEND.md
+    │   │       ├── requirements.txt
+    │   │       ├── test_api.py
+    │   │       ├── voice_conversion.py
+    │   │       ├── .dockerignore
+    │   │       ├── src/
+    │   │       │   └── chatterbox/
+    │   │       │       ├── __init__.py
+    │   │       │       ├── tts.py
+    │   │       │       ├── vc.py
+    │   │       │       └── models/
+    │   │       │           ├── s3gen/
+    │   │       │           │   ├── __init__.py
+    │   │       │           │   ├── const.py
+    │   │       │           │   ├── decoder.py
+    │   │       │           │   ├── f0_predictor.py
+    │   │       │           │   ├── flow.py
+    │   │       │           │   ├── flow_matching.py
+    │   │       │           │   ├── hifigan.py
+    │   │       │           │   ├── s3gen.py
+    │   │       │           │   ├── xvector.py
+    │   │       │           │   ├── matcha/
+    │   │       │           │   │   ├── decoder.py
+    │   │       │           │   │   ├── flow_matching.py
+    │   │       │           │   │   ├── text_encoder.py
+    │   │       │           │   │   └── transformer.py
+    │   │       │           │   ├── transformer/
+    │   │       │           │   │   ├── __init__.py
+    │   │       │           │   │   ├── activation.py
+    │   │       │           │   │   ├── attention.py
+    │   │       │           │   │   ├── convolution.py
+    │   │       │           │   │   ├── embedding.py
+    │   │       │           │   │   ├── encoder_layer.py
+    │   │       │           │   │   ├── positionwise_feed_forward.py
+    │   │       │           │   │   ├── subsampling.py
+    │   │       │           │   │   └── upsample_encoder.py
+    │   │       │           │   └── utils/
+    │   │       │           │       ├── class_utils.py
+    │   │       │           │       ├── mask.py
+    │   │       │           │       └── mel.py
+    │   │       │           ├── s3tokenizer/
+    │   │       │           │   ├── __init__.py
+    │   │       │           │   └── s3tokenizer.py
+    │   │       │           ├── t3/
+    │   │       │           │   ├── __init__.py
+    │   │       │           │   ├── llama_configs.py
+    │   │       │           │   ├── t3.py
+    │   │       │           │   ├── inference/
+    │   │       │           │   │   ├── alignment_stream_analyzer.py
+    │   │       │           │   │   └── t3_hf_backend.py
+    │   │       │           │   └── modules/
+    │   │       │           │       ├── cond_enc.py
+    │   │       │           │       ├── learned_pos_emb.py
+    │   │       │           │       ├── perceiver.py
+    │   │       │           │       └── t3_config.py
+    │   │       │           ├── tokenizers/
+    │   │       │           │   ├── __init__.py
+    │   │       │           │   └── tokenizer.py
+    │   │       │           └── voice_encoder/
+    │   │       │               ├── __init__.py
+    │   │       │               ├── config.py
+    │   │       │               ├── melspec.py
+    │   │       │               └── voice_encoder.py
+    │   │       └── .github/
+    │   │           └── FUNDING.yml
+    │   ├── core/
+    │   │   ├── celery_app.py
+    │   │   ├── database.py
+    │   │   ├── dependencies.py
+    │   │   ├── logging.py
+    │   │   ├── orchestrator.py
+    │   │   ├── query_builder.py
+    │   │   ├── rate_limiting.py
+    │   │   ├── leadgen/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── API.md
+    │   │   │   ├── ASYNC_IMPROVEMENTS.md
+    │   │   │   ├── hunter_search_service.py
+    │   │   │   ├── jina_client.py
+    │   │   │   ├── phase1_search.py
+    │   │   │   ├── phase1_search_async.py
+    │   │   │   ├── phase2_extract_links.py
+    │   │   │   ├── phase3_extract_content.py
+    │   │   │   ├── phase4_save_content.py
+    │   │   │   ├── phase5_validate.py
+    │   │   │   ├── phase6_create_final_report.py
+    │   │   │   ├── PRODUCTION_IMPROVEMENTS.md
+    │   │   │   └── utils/
+    │   │   │       ├── __init__.py
+    │   │   │       ├── api_clients.py
+    │   │   │       ├── async_api_client.py
+    │   │   │       ├── data_processing.py
+    │   │   │       ├── generic_validation.py
+    │   │   │       ├── query_builder.py
+    │   │   │       └── validation.py
+    │   │   └── models/
+    │   │       └── voice_profile.py
+    │   ├── middleware/
+    │   │   └── auth.py
+    │   ├── models/
+    │   │   ├── prosody/
+    │   │   │   ├── __init__.py
+    │   │   │   └── prosody_encoder.py
+    │   │   └── tts/
+    │   │       ├── __init__.py
+    │   │       ├── chatterbox_model.py
+    │   │       └── fishspeech_model.py
+    │   ├── rag/
+    │   │   ├── __init__.py
+    │   │   ├── api.py
+    │   │   ├── external_search_service.py
+    │   │   ├── jina_service.py
+    │   │   ├── models.py
+    │   │   ├── schemas.py
+    │   │   └── services.py
+    │   ├── services/
+    │   │   ├── audio_preparation_service.py
+    │   │   ├── audio_processor.py
+    │   │   ├── audio_separation_service.py
+    │   │   ├── batch_embedding_service.py
+    │   │   ├── bulk_audio_processor.py
+    │   │   ├── bulk_job_manager.py
+    │   │   ├── BULK_JOB_MANAGER_USAGE.md
+    │   │   ├── bulk_processing_service.py
+    │   │   ├── bulk_workflow_orchestrator.py
+    │   │   ├── chatterbox_client.py
+    │   │   ├── chatterbox_service.py
+    │   │   ├── content_chunking_service.py
+    │   │   ├── droplet_manager.py
+    │   │   ├── eleven_labs_client.py
+    │   │   ├── instagram_service.py
+    │   │   ├── prosody_analysis_service.py
+    │   │   ├── realtime_analysis_service.py
+    │   │   ├── redis_client.py
+    │   │   ├── telnyx_client.py
+    │   │   ├── tiktok_service.py
+    │   │   ├── tts_manager.py
+    │   │   ├── tts_service.py
+    │   │   ├── twitch_service.py
+    │   │   ├── vector_database_examples.py
+    │   │   ├── vector_database_service.py
+    │   │   ├── vector_db_connectors.py
+    │   │   ├── voice_clone_jobs.py
+    │   │   ├── gemini/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── config.py
+    │   │   │   ├── embeddings_client.py
+    │   │   │   ├── embeddings_service.py
+    │   │   │   └── models.py
+    │   │   └── jina/
+    │   │       ├── __init__.py
+    │   │       ├── config.py
+    │   │       ├── embeddings_client.py
+    │   │       ├── embeddings_service.py
+    │   │       └── models.py
+    │   ├── tasks/
+    │   │   ├── __init__.py
+    │   │   ├── agent.py
+    │   │   ├── hunter.py
+    │   │   ├── rag.py
+    │   │   ├── swarm.py
+    │   │   ├── transcribe.py
+    │   │   └── voice.py
+    │   ├── trelis/
+    │   │   ├── Trelis_TTS_Fine_tuning_Worlds_Fair.ipynb
+    │   │   └── Trelis_TTS_Fine_tuning_Worlds_Fair.ipynb:Zone.Identifier
+    │   └── workers/
+    │       ├── __init__.py
+    │       ├── worker_default.py
+    │       └── worker_gpu.py
+    ├── tests/
+    │   ├── prosody_test.py
+    │   ├── stream_simulation.py
+    │   ├── test_audio_preparation.py
+    │   ├── test_audio_transcription.py
+    │   ├── test_background_task.py
+    │   ├── test_bulk_integration.py
+    │   ├── test_concurrent_search.py
+    │   ├── test_content_chunking.py
+    │   ├── test_convex_webhook.py
+    │   ├── test_enhanced_transcription.py
+    │   ├── test_external_search.py
+    │   ├── test_final_status.py
+    │   ├── test_improved_search.py
+    │   ├── test_integration_check.py
+    │   ├── test_jina_query_formatting.py
+    │   ├── test_jina_response.py
+    │   ├── test_phase1_async.py
+    │   ├── test_query_formatting.py
+    │   ├── test_rate_limits.py
+    │   ├── test_realtime_sentiment.py
+    │   ├── test_search.py
+    │   ├── test_tiktok_preview.py
+    │   ├── test_tiktok_ytdlp.py
+    │   ├── test_vector_database_service.py
+    │   ├── test_voice_cloning.py
+    │   ├── test_voice_cloning_queue.py
+    │   ├── train_sentiment_model.py
+    │   ├── train_sentiment_model_from_audio.py
+    │   └── data/
+    │       └── sentiment_datasets/
+    │           ├── Readme.md
+    │           ├── call_recordings.csv
+    │           ├── calls.csv
+    │           ├── customers.csv
+    │           ├── data_description.csv
+    │           ├── reason.csv
+    │           ├── sentiment_statistics.csv
+    │           └── test.csv
+    └── venv_broken/
+        ├── CHANGES.rst
+        ├── pyvenv.cfg
+        ├── README.rst
+        ├── include/
+        │   └── site/
+        │       └── python3.12/
+        │           └── greenlet/
+        │               └── greenlet.h
+        ├── lib64 -> lib
+        └── share/
+            ├── bash-completion/
+            │   └── completions/
+            │       └── yt-dlp
+            ├── doc/
+            │   └── yt_dlp/
+            │       └── README.txt
+            ├── fish/
+            │   └── vendor_completions.d/
+            │       └── yt-dlp.fish
+            ├── man/
+            │   └── man1/
+            │       ├── isympy.1
+            │       ├── ttx.1
+            │       └── yt-dlp.1
+            └── zsh/
+                └── site-functions/
+                    └── _yt-dlp
+

@@ -1,0 +1,45 @@
+{
+  "source_video": "J-T8zNRz-nM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions when the initial contact is unavailable or has left the company.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How's that fairly recently or ever?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify the recency of a contact's departure."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Who replaced [person's name] out of interest?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to identify the new contact or decision-maker."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Who runs the show now?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct question to find the current person in charge."
+    },
+    {
+      "type": "technique",
+      "content": "Probe for potential problems or root causes by asking hypothetical questions about fixing processes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If you could fix one thing about your sales process, what would it be out of interest?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct question to uncover a key pain point or desired improvement."
+    },
+    {
+      "type": "mindset",
+      "content": "Not sounding like a typical salesperson can make people more upfront with information, aiding discovery.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

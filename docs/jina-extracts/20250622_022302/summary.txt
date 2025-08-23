@@ -1,0 +1,10 @@
+Extraction Summary
+==================
+Source URL: https://platform.openai.com/docs/guides/speech-to-text
+Extraction Time: Sun Jun 22 02:23:06 UTC 2025
+Total URLs Found: 0
+0
+Relevant URLs: 0
+Keywords Used: whisper audio transcription
+
+Top 10 Relevant URLs:

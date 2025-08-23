@@ -1,0 +1,99 @@
+{
+  "source_video": "iXEZkEPIJ5A",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a simple and direct open: 'My name is [name], calling from [company].'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Immediately state the clear, specific purpose of your call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Anchor the conversation by asking for a small, specific amount of time: 'Do you have 30 seconds to understand why I'm calling?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets clear time expectation."
+    },
+    {
+      "type": "technique",
+      "content": "Use pattern interrupt questions in the opening to break routine responses.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the potential outcome clearly and neutrally: 'If by the end of this you don't see value, totally okay. If you do, great.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Removes pressure, gives an easy out."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for permission to continue the conversation: 'Does that sound like a fair deal for 30 seconds?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask targeted questions to understand the prospect's current situation and challenges early in the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on discovery, not pitching."
+    },
+    {
+      "type": "technique",
+      "content": "Connect your reason for calling directly to a potential problem the prospect might have.",
+      "speaker_perspective": "sales agent",
+      "notes": "Problem-centric opening."
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident, concise, and slightly faster-than-normal pace in the initial opening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Conveys professionalism and efficiency."
+    },
+    {
+      "type": "technique",
+      "content": "Shift tone and pace after the opening to a more conversational, slower rhythm for discovery.",
+      "speaker_perspective": "sales agent",
+      "notes": "Matches the transition from pitch to conversation."
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'Send me information' objection by asking qualifying questions about what information they'd find valuable.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids blindly sending info, seeks engagement."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions like 'What specifically would be helpful for me to send over?' to understand their interest level.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use bridging phrases to re-engage after an objection: 'Before I send that over, could I ask...' or 'Absolutely, and to make sure what I send is relevant...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Smoothly transitions back to discovery."
+    },
+    {
+      "type": "technique",
+      "content": "Politely push back on 'Send me information' if the prospect hasn't engaged, suggesting information isn't useful without context.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus on getting the prospect to speak and share information.",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery-driven approach."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases that show you value their time: 'I know I called out of the blue...'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asked 'How did you get my number?', respond honestly and briefly, then pivot back to the purpose.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

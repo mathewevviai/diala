@@ -1,0 +1,36 @@
+{
+  "source_video": "dccz_LIDhdY",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "It is a great myth that good salesmen can convince. A man convinced against his will is of the same opinion still.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the futility of direct persuasion, especially against an existing view or solution."
+    },
+    {
+      "type": "technique",
+      "content": "Good salesmen enable the prospect to discover they need what they have.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on facilitating prospect's self-realization of need/value rather than pushing."
+    },
+    {
+      "type": "example",
+      "content": "In the 'sell me this pen' scenario, demonstrating value by creating a situation where the prospect discovers they need the pen back.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates enabling discovery by temporarily removing the existing item."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Is there anything about this particular pen that you're particularly attracted to or have a particular affinity with?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to understand the prospect's attachment (or lack thereof) to their current solution without criticizing it."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You wouldn't care if you didn't have it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirms the prospect's low perceived value or attachment to the current solution."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

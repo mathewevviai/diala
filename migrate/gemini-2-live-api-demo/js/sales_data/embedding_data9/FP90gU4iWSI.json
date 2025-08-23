@@ -1,0 +1,48 @@
+{
+  "source_video": "FP90gU4iWSI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Probe softly when a prospect indicates hesitation or a preference to wait (e.g., due to holidays or timing). Ask questions that explore their current situation and future goals.",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrated by the agent asking about selling now vs. waiting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"to selling now versus waiting, would you want to know about that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A soft probe to gauge interest in exploring timing implications."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and validate the prospect's stated reasons for hesitation (e.g., holidays, busy schedule) before gently introducing potential consequences of waiting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Agent acknowledges holidays, then asks about market impact later."
+    },
+    {
+      "type": "mindset",
+      "content": "When a prospect expresses hesitation or loyalty to someone else, avoid fighting or trying to convince them they are wrong. Offer a new perspective gently.",
+      "speaker_perspective": "reviewer",
+      "notes": "Commentary on the agent's approach."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect mentions needing to consult a spouse or partner, probe gently about their perspective to diagnose potential obstacles. Ask what they think the spouse would say.",
+      "speaker_perspective": "reviewer",
+      "notes": "Suggested technique for handling the 'wife' objection as a form of soft resistance."
+    },
+    {
+      "type": "mindset",
+      "content": "The goal when facing soft resistance is to get the prospect to *want* the next step, not feel subtly strong-armed into it. Otherwise, they are likely to back out.",
+      "speaker_perspective": "reviewer",
+      "notes": "Analysis of why forcing a meeting after hesitation is ineffective."
+    },
+    {
+      "type": "technique",
+      "content": "Suggest a low-commitment next step (e.g., short meeting just to explore options) after probing, respecting their current position (e.g., loyalty to another).",
+      "speaker_perspective": "sales agent",
+      "notes": "Agent suggests a 10-15 minute meeting 'just to explore another option'."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

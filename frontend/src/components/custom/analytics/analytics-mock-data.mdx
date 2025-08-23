@@ -1,0 +1,397 @@
+# Analytics Components Mock Data
+
+This file contains all the mock data structures used by the analytics components extracted from the swarm overview modal.
+
+## Analytics Dashboard Header Component
+
+**Component**: `AnalyticsDashboardHeader`
+**Props**: 
+```typescript
+interface AnalyticsDashboardHeaderProps {
+  totalCalls: number;
+}
+```
+
+**Mock Data**:
+```javascript
+const dashboardHeaderData = {
+  totalCalls: 287, // Used to calculate objectives met and quality calls
+  objectivesMet: Math.floor(287 * 0.32), // 91
+  qualityCalls: Math.floor(287 * 0.68), // 195
+  avgRating: "4.8/5",
+  efficiency: "94%"
+};
+```
+
+## Call Volume Analysis Component
+
+**Component**: `CallVolumeAnalysis`
+**Props**: 
+```typescript
+interface CallVolumeAnalysisProps {
+  callsToday: number;
+  callsThisWeek: number;
+}
+```
+
+**Mock Data**:
+```javascript
+const callVolumeData = {
+  callsToday: 28, // Math.floor(swarmData.totalCalls * 0.1)
+  callsThisWeek: 86, // Math.floor(swarmData.totalCalls * 0.3)
+  peakHours: "10AM-2PM",
+  todayPerformanceIncrease: "+23%",
+  weeklyTrendIncrease: "+8%"
+};
+```
+
+## Conversation Quality Analysis Component
+
+**Component**: `ConversationQualityAnalysis`
+**Props**: None (uses static mock data)
+
+**Mock Data**:
+```javascript
+const qualityMetrics = {
+  scriptAdherence: 96,
+  objectiveCompletion: 84,
+  conversationFlow: 91,
+  responseQuality: 88,
+  qualityTrends: Array.from({ length: 14 }, (_, i) => ({
+    day: i + 1,
+    score: 75 + Math.sin(i * 0.5) * 15 + Math.random() * 10
+  })),
+  scoreDistribution: {
+    "1-2_stars": 2,
+    "3-4_stars": 8,
+    "5-6_stars": 22,
+    "7-8_stars": 38,
+    "9-10_stars": 30
+  }
+};
+```
+
+## Live Call Monitor Component
+
+**Component**: `LiveCallMonitor`
+**Props**: None (uses static mock data)
+
+**Mock Data**:
+```javascript
+const liveCallData = {
+  activeCalls: [
+    {
+      agent: "AI Agent Alpha",
+      prospect: "TechCorp CEO",
+      phase: "Discovery phase",
+      elapsed: "2m 34s",
+      progress: 45,
+      status: "LIVE",
+      statusColor: "green"
+    },
+    {
+      agent: "AI Agent Beta",
+      prospect: "Marketing Dir",
+      phase: "Objection handling",
+      elapsed: "4m 12s",
+      progress: 72,
+      status: "NEGO",
+      statusColor: "blue"
+    },
+    {
+      agent: "AI Agent Gamma",
+      prospect: "Enterprise VP",
+      phase: "Closing phase",
+      elapsed: "6m 45s",
+      progress: 91,
+      status: "CLOSE",
+      statusColor: "purple"
+    }
+  ],
+  activityTimeline: Array.from({ length: 60 }, (_, i) => ({
+    minute: i,
+    activity: Math.sin(i * 0.1) * 30 + 40 + Math.random() * 20
+  }))
+};
+```
+
+## Call Outcome Analytics Component
+
+**Component**: `CallOutcomeAnalytics`
+**Props**: 
+```typescript
+interface CallOutcomeAnalyticsProps {
+  totalCalls: number;
+}
+```
+
+**Mock Data**:
+```javascript
+const outcomeData = {
+  totalCalls: 287,
+  outcomes: {
+    demoScheduled: {
+      percentage: 32,
+      count: Math.floor(287 * 0.32), // 91
+      color: "green"
+    },
+    followUpNeeded: {
+      percentage: 25,
+      count: Math.floor(287 * 0.25), // 71
+      color: "blue"
+    },
+    infoProvided: {
+      percentage: 18,
+      count: Math.floor(287 * 0.18), // 51
+      color: "yellow"
+    },
+    notInterested: {
+      percentage: 15,
+      count: Math.floor(287 * 0.15), // 43
+      color: "red"
+    },
+    noAnswer: {
+      percentage: 10,
+      count: Math.floor(287 * 0.10), // 28
+      color: "gray"
+    }
+  },
+  successRateTrends: Array.from({ length: 30 }, (_, i) => ({
+    day: i,
+    successRate: 65 + Math.sin(i * 0.2) * 10 + Math.random() * 8
+  }))
+};
+```
+
+## Agent Performance Analytics Component
+
+**Component**: `AgentPerformanceAnalytics`
+**Props**: 
+```typescript
+interface Agent {
+  id: string;
+  name: string;
+  status: 'active' | 'paused';
+  calls: number;
+  success: number;
+  currentCall: string | null;
+}
+
+interface AgentPerformanceAnalyticsProps {
+  agents: Agent[];
+}
+```
+
+**Mock Data**:
+```javascript
+const agentData = {
+  agents: [
+    {
+      id: '1',
+      name: 'AI Agent Alpha',
+      status: 'active',
+      calls: 45,
+      success: 92,
+      currentCall: 'Michael Johnson',
+      avgCallTime: `${Math.floor(Math.random() * 2) + 2}m ${Math.floor(Math.random() * 60)}s`,
+      qualityScore: Math.floor(Math.random() * 15) + 85,
+      demosBooked: Math.floor(45 * (92 / 100) * 0.8) // 33
+    },
+    {
+      id: '2',
+      name: 'AI Agent Beta',
+      status: 'active',
+      calls: 38,
+      success: 85,
+      currentCall: null,
+      avgCallTime: `${Math.floor(Math.random() * 2) + 2}m ${Math.floor(Math.random() * 60)}s`,
+      qualityScore: Math.floor(Math.random() * 15) + 85,
+      demosBooked: Math.floor(38 * (85 / 100) * 0.8) // 25
+    },
+    {
+      id: '3',
+      name: 'AI Agent Gamma',
+      status: 'paused',
+      calls: 22,
+      success: 78,
+      currentCall: null,
+      avgCallTime: `${Math.floor(Math.random() * 2) + 2}m ${Math.floor(Math.random() * 60)}s`,
+      qualityScore: Math.floor(Math.random() * 15) + 85,
+      demosBooked: Math.floor(22 * (78 / 100) * 0.8) // 13
+    }
+  ]
+};
+```
+
+## Recent Calls Table Component
+
+**Component**: `RecentCallsTable`
+**Props**: 
+```typescript
+interface RecentCall {
+  time: string;
+  prospect: string;
+  outcome: string;
+  agent: string;
+}
+
+interface RecentCallsTableProps {
+  recentCalls: RecentCall[];
+}
+```
+
+**Mock Data**:
+```javascript
+const recentCallsData = {
+  recentCalls: [
+    { time: "14:23", prospect: "TechCorp Inc", outcome: "Demo Scheduled", agent: "Alpha" },
+    { time: "14:18", prospect: "StartupXYZ", outcome: "Follow-up Needed", agent: "Beta" },
+    { time: "14:12", prospect: "BigCorp Ltd", outcome: "Demo Scheduled", agent: "Gamma" },
+    { time: "14:05", prospect: "MediumBiz", outcome: "Info Provided", agent: "Alpha" },
+    { time: "13:58", prospect: "SmallCo", outcome: "Not Interested", agent: "Beta" },
+    { time: "13:52", prospect: "Enterprise Corp", outcome: "Demo Scheduled", agent: "Alpha" },
+    { time: "13:45", prospect: "Local Business", outcome: "Follow-up Needed", agent: "Gamma" },
+    { time: "13:38", prospect: "Tech Solutions", outcome: "Info Provided", agent: "Beta" }
+  ]
+};
+```
+
+## Platform Insights Component
+
+**Component**: `PlatformInsights`
+**Props**: 
+```typescript
+interface PerformanceData {
+  callsToday: number;
+  qualityScore: string;
+}
+
+interface PlatformInsightsProps {
+  totalCalls: number;
+  performanceData: PerformanceData;
+}
+```
+
+**Mock Data**:
+```javascript
+const platformInsightsData = {
+  totalCalls: 287,
+  performanceData: {
+    callsToday: 28,
+    qualityScore: "94"
+  },
+  insights: [
+    {
+      type: "optimal",
+      title: "OPTIMAL PERFORMANCE",
+      description: "Swarm is operating at 96% efficiency with consistent quality scores above platform average.",
+      color: "green"
+    },
+    {
+      type: "quality",
+      title: "CONVERSATION QUALITY",
+      description: "Agent responses maintain natural flow with 91% adherence to conversation guidelines.",
+      color: "blue"
+    },
+    {
+      type: "scaling",
+      title: "SCALING RECOMMENDATION",
+      description: "Performance metrics indicate readiness for 2x agent scaling during peak hours.",
+      color: "purple"
+    },
+    {
+      type: "optimization",
+      title: "OPTIMIZATION OPPORTUNITY",
+      description: "Consider adjusting script timing during objection handling phase for improved conversion.",
+      color: "yellow"
+    }
+  ],
+  metrics: {
+    callsProcessed: 28,
+    qualityScore: "94/100",
+    objectivesMet: Math.floor(287 * 0.32), // 91
+    platformUptime: "99.8%"
+  }
+};
+```
+
+## Analytics Summary Component
+
+**Component**: `AnalyticsSummary`
+**Props**: 
+```typescript
+interface AnalyticsSummaryProps {
+  successRate: number;
+  callsToday: number;
+  appointmentsBooked: number;
+}
+```
+
+**Mock Data**:
+```javascript
+const analyticsSummaryData = {
+  successRate: 85, // From swarmData.successRate
+  callsToday: 28, // From swarmDetails.performance.callsToday
+  appointmentsBooked: 22, // From swarmDetails.performance.appointmentsBooked
+  performanceHighlights: [
+    "85% success rate (↗ +12%)",
+    "28 calls completed today",
+    "22 demos scheduled",
+    "96% script adherence rate"
+  ],
+  optimizationInsights: [
+    "Peak hours: 10AM-2PM (+23% efficiency)",
+    "Optimal call length: 3-4 minutes",
+    "Best conversion: Tuesday-Thursday",
+    "Quality scores trending upward"
+  ],
+  nextActions: [
+    "Scale to 5 agents during peak hours",
+    "Optimize objection handling script",
+    "Focus on enterprise prospects",
+    "Implement advanced analytics"
+  ],
+  nextOptimization: `${Math.floor(Math.random() * 5) + 1} minutes`
+};
+```
+
+## Complete Mock Data Structure
+
+For easy import and use, here's the complete data structure that can be used across all components:
+
+```javascript
+export const analyticsData = {
+  // Main swarm data
+  swarmData: {
+    id: "swarm-001",
+    name: "Enterprise Discovery Campaign",
+    totalCalls: 287,
+    successRate: 85,
+    totalAgents: 3,
+    activeAgents: 2
+  },
+  
+  // Performance data
+  performance: {
+    callsToday: 28,
+    callsThisWeek: 86,
+    avgCallDuration: "3m 42s",
+    conversionRate: 85,
+    appointmentsBooked: 22,
+    qualityScore: "94"
+  },
+  
+  // All component data combined
+  dashboardHeader: dashboardHeaderData,
+  callVolume: callVolumeData,
+  qualityMetrics: qualityMetrics,
+  liveCalls: liveCallData,
+  outcomes: outcomeData,
+  agents: agentData,
+  recentCalls: recentCallsData,
+  platformInsights: platformInsightsData,
+  summary: analyticsSummaryData
+};
+```
+
+This data structure provides all the mock data needed to populate each analytics component with realistic, consistent data that matches the original swarm overview modal implementation.

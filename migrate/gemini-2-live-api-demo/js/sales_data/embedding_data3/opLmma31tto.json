@@ -1,0 +1,77 @@
+{
+  "source_video": "opLmma31tto",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When someone says 'I need to think about it,' ask 'What specifically do you need to think about?' to uncover the real hesitation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct question to probe deeper into the 'think about it' objection."
+    },
+    {
+      "type": "technique",
+      "content": "If they say 'I need to talk to my wife/partner,' ask 'Besides X (the solution), is there anything else holding you back?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Checks if there are other unspoken objections."
+    },
+    {
+      "type": "technique",
+      "content": "After asking 'What specifically...' or 'Besides X...', listen actively for their response. This reveals the true objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Key is listening after asking the probing question."
+    },
+    {
+      "type": "technique",
+      "content": "Common 'think about it' reasons are usually related to money, time, or needing more clarity on the solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps anticipate potential root causes of the objection."
+    },
+    {
+      "type": "technique",
+      "content": "When they state the real objection (e.g., money), acknowledge it and address that specific point directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on the identified root objection."
+    },
+    {
+      "type": "technique",
+      "content": "If the objection is price, pivot to value and ROI. Ask 'What would the cost of *not* doing this be?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes the cost objection in terms of potential loss or missed gain."
+    },
+    {
+      "type": "technique",
+      "content": "Ask permission to address their objection: 'Would it be okay if I shared how others have handled that particular concern?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Polite way to introduce your response to an objection."
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or examples of how others successfully overcame similar objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds confidence by showing the path has been cleared by others."
+    },
+    {
+      "type": "technique",
+      "content": "For a 'time' objection, ask 'What does your timeline look like?' or 'What needs to happen for you to make this a priority?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Probes the urgency and feasibility of the time constraint."
+    },
+    {
+      "type": "technique",
+      "content": "Clarify vague objections like 'I'm not sure' by asking clarifying questions: 'What part are you unsure about?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Breaks down a general objection into something specific."
+    },
+    {
+      "type": "technique",
+      "content": "Always maintain a helpful, non-pushy tone when handling objections. You are helping them overcome a hurdle.",
+      "speaker_perspective": "sales agent",
+      "notes": "Important mindset for effective objection handling."
+    },
+    {
+      "type": "technique",
+      "content": "Reconfirm understanding of the objection: 'So, if I understand correctly, your main concern is X?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures you are addressing the correct issue before responding."
+    }
+  ]
+}

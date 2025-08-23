@@ -1,0 +1,394 @@
+Directory structure:
+└── frontend/
+    ├── README.md
+    ├── backendtree.txt
+    ├── clear_cached_transcripts.ts
+    ├── components.json
+    ├── next.config.mjs
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.ts
+    ├── test-convex-connection.js
+    ├── test-hunter-integration.js
+    ├── tsconfig.json
+    ├── .env.local.example
+    ├── .eslintrc.json
+    ├── convex/
+    │   ├── audioTranscriptActions.ts
+    │   ├── bulkJobs.ts
+    │   ├── convex.config.ts
+    │   ├── http.ts
+    │   ├── hunterActions.ts
+    │   ├── hunterHttpEndpoints.ts
+    │   ├── hunterMutations.ts
+    │   ├── hunterQueries.ts
+    │   ├── initializeHunter.ts
+    │   ├── jinaIntegration.ts
+    │   ├── proceduralAudio.ts
+    │   ├── ragActions.ts
+    │   ├── ragMutations.ts
+    │   ├── ragQueries.ts
+    │   ├── ragSocialActions.ts
+    │   ├── rateLimitHelpers.ts
+    │   ├── scheduledFunctions.ts
+    │   ├── schema.ts
+    │   ├── telephonyActions.ts
+    │   ├── testSetup.ts
+    │   ├── voiceCloneJobs.ts
+    │   ├── youtubeContentActions.ts
+    │   ├── youtubeTranscriptActions.ts
+    │   ├── youtubeTranscripts.ts
+    │   ├── _generated/
+    │   │   ├── api.d.ts
+    │   │   ├── api.js
+    │   │   ├── dataModel.d.ts
+    │   │   ├── server.d.ts
+    │   │   └── server.js
+    │   ├── actions/
+    │   │   ├── instagramContent.ts
+    │   │   ├── tiktokContent.ts
+    │   │   └── twitchContent.ts
+    │   ├── mutations/
+    │   │   ├── audioTranscripts.ts
+    │   │   ├── callsPage.ts
+    │   │   ├── clearCachedTranscripts.ts
+    │   │   ├── instagramContent.ts
+    │   │   ├── telephony.ts
+    │   │   ├── tiktokContent.ts
+    │   │   ├── twitchContent.ts
+    │   │   ├── youtubeContent.ts
+    │   │   └── youtubeTranscripts.ts
+    │   └── queries/
+    │       ├── audioTranscripts.ts
+    │       ├── callsPage.ts
+    │       ├── debugYouTube.ts
+    │       ├── instagramContent.ts
+    │       ├── telephony.ts
+    │       ├── tiktokContent.ts
+    │       ├── twitchContent.ts
+    │       └── youtubeContent.ts
+    ├── data/
+    │   ├── query_cache.json
+    │   ├── search_results.json
+    │   └── debug/
+    │       ├── jina_request_20250620_081341_Roofing and Construc.json
+    │       ├── jina_request_20250620_081343_Roofing and Construc.json
+    │       ├── jina_request_20250620_081345_Roofing and Construc.json
+    │       ├── jina_request_20250620_081348_Roofing and Construc.json
+    │       ├── jina_request_20250620_081350_Roofing and Construc.json
+    │       ├── jina_request_20250620_081407_Roofing and Construc.json
+    │       ├── jina_request_20250620_081412_Roofing and Construc.json
+    │       ├── jina_request_20250620_081414_Roofing and Construc.json
+    │       └── jina_request_20250620_081416_Roofing and Construc.json
+    ├── public/
+    │   ├── 424f35f4c6837cba6f15.webp
+    │   ├── gr.png:Zone.Identifier
+    │   ├── gr2.png:Zone.Identifier
+    │   ├── gr3.png:Zone.Identifier
+    │   ├── instagram.svg:Zone.Identifier
+    │   ├── tiktok.svg:Zone.Identifier
+    │   ├── twitch.svg:Zone.Identifier
+    │   └── audio/
+    │       ├── CafeAudio.m4a
+    │       ├── CoworkingAudio.m4a
+    │       ├── CrowdedOfficeAudio.m4a
+    │       ├── LibraryAudio.m4a
+    │       └── TrainstationAudio.m4a
+    ├── src/
+    │   ├── app/
+    │   │   ├── layout.tsx
+    │   │   ├── page.tsx
+    │   │   ├── dashboard/
+    │   │   │   ├── layout.tsx
+    │   │   │   ├── page.tsx
+    │   │   │   ├── agents/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── analytics/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── auto-rag/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── automation/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── business-hunter/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── calls/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── customers/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── playground/
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── settings/
+    │   │   │   │   └── page.tsx
+    │   │   │   └── swarms/
+    │   │   │       ├── page.tsx
+    │   │   │       └── [id]/
+    │   │   │           └── page.tsx
+    │   │   └── onboarding/
+    │   │       ├── README.md
+    │   │       ├── ONBOARDING_RULES.md
+    │   │       ├── blog/
+    │   │       │   ├── page.tsx
+    │   │       │   └── [blogId]/
+    │   │       │       └── page.tsx
+    │   │       ├── bulk/
+    │   │       │   └── page.tsx
+    │   │       ├── calls/
+    │   │       │   ├── page.tsx
+    │   │       │   └── page.tsx.broken
+    │   │       ├── cloning/
+    │   │       │   ├── page-refactored.tsx
+    │   │       │   ├── page.tsx
+    │   │       │   └── page.tsx.backup
+    │   │       ├── courses/
+    │   │       │   └── page.tsx
+    │   │       ├── guides/
+    │   │       │   └── page.tsx
+    │   │       ├── hunter/
+    │   │       │   ├── page-original.tsx
+    │   │       │   ├── page-refactored.tsx
+    │   │       │   └── page.tsx
+    │   │       ├── procedural/
+    │   │       │   └── page.tsx
+    │   │       ├── rag/
+    │   │       │   ├── page.tsx
+    │   │       │   ├── types.ts
+    │   │       │   ├── utils.ts
+    │   │       │   └── components/
+    │   │       │       ├── InfoSectionStep1.tsx
+    │   │       │       ├── InfoSectionStep3.tsx
+    │   │       │       ├── SocialMediaVideoDisplay.tsx
+    │   │       │       ├── Step1ChooseSource.tsx
+    │   │       │       ├── Step2SourceDetails.tsx
+    │   │       │       ├── Step3ConfigureProcessing.tsx
+    │   │       │       ├── Step3VideoSelection.tsx
+    │   │       │       ├── Step4ProcessingProgress.tsx
+    │   │       │       ├── Step5Completion.tsx
+    │   │       │       └── VideoSelectionGrid.tsx
+    │   │       ├── rtc/
+    │   │       │   └── page.tsx
+    │   │       ├── transcribe/
+    │   │       │   ├── DragDropUpload.tsx
+    │   │       │   └── page.tsx
+    │   │       ├── transcripts/
+    │   │       │   └── page.tsx
+    │   │       └── voice/
+    │   │           └── page.tsx
+    │   ├── components/
+    │   │   ├── providers.tsx
+    │   │   ├── automation/
+    │   │   │   ├── CustomNode.tsx
+    │   │   │   ├── ExecutionHistory.tsx
+    │   │   │   ├── ExpressionEditor.tsx
+    │   │   │   ├── NodePanel.tsx
+    │   │   │   ├── NodePropertiesPanel.tsx
+    │   │   │   ├── WorkflowEditor.tsx
+    │   │   │   ├── WorkflowSettings.tsx
+    │   │   │   └── WorkflowTemplates.tsx
+    │   │   ├── custom/
+    │   │   │   ├── app.tsx
+    │   │   │   ├── audio-card.tsx
+    │   │   │   ├── call-analytics-card.tsx
+    │   │   │   ├── call-control-panel.tsx
+    │   │   │   ├── call-reasoning-card.tsx
+    │   │   │   ├── call-status-indicator.tsx
+    │   │   │   ├── calling-screen.tsx
+    │   │   │   ├── document-list-card.tsx
+    │   │   │   ├── file-upload-card.tsx
+    │   │   │   ├── info-section.tsx
+    │   │   │   ├── language-card.tsx
+    │   │   │   ├── live-waveform-panel.tsx
+    │   │   │   ├── loading-screen.tsx
+    │   │   │   ├── onboarding-footer.tsx
+    │   │   │   ├── onboarding-nav.tsx
+    │   │   │   ├── pitch-card.tsx
+    │   │   │   ├── playground-agent-modal.tsx
+    │   │   │   ├── playground-chat-interface.tsx
+    │   │   │   ├── playground-settings-panel.tsx
+    │   │   │   ├── premium-feature-card.tsx
+    │   │   │   ├── recent-calls-card.tsx
+    │   │   │   ├── simple-onboarding-nav.tsx
+    │   │   │   ├── stat-card.tsx
+    │   │   │   ├── swarm-overview-card.tsx
+    │   │   │   ├── transcript-skeleton.tsx
+    │   │   │   ├── voice-agent-card.tsx
+    │   │   │   ├── waveform-visualizer.tsx
+    │   │   │   ├── web-voice-interface.tsx
+    │   │   │   ├── welcome-card.tsx
+    │   │   │   ├── analytics/
+    │   │   │   │   ├── agent-card.tsx
+    │   │   │   │   ├── agent-performance-analytics.tsx
+    │   │   │   │   ├── analytics-dashboard-header.tsx
+    │   │   │   │   ├── analytics-mock-data.mdx
+    │   │   │   │   ├── analytics-summary.tsx
+    │   │   │   │   ├── call-objectives-monitor.tsx
+    │   │   │   │   ├── call-outcome-analytics.tsx
+    │   │   │   │   ├── call-volume-analysis.tsx
+    │   │   │   │   ├── conversation-quality-analysis.tsx
+    │   │   │   │   ├── daily-performance-leaderboard.tsx
+    │   │   │   │   ├── live-agent-activity.tsx
+    │   │   │   │   ├── live-call-monitor.tsx
+    │   │   │   │   ├── live-transcript-monitor.tsx
+    │   │   │   │   ├── platform-insights.tsx
+    │   │   │   │   ├── real-time-analytics-monitor.tsx
+    │   │   │   │   ├── recent-calls-table.tsx
+    │   │   │   │   ├── supervisor-controls-monitor.tsx
+    │   │   │   │   └── system-settings-monitor.tsx
+    │   │   │   ├── modals/
+    │   │   │   │   ├── agent-detail-modal.tsx
+    │   │   │   │   ├── AudioGenerationModal.tsx
+    │   │   │   │   ├── call-analytics-modal.tsx
+    │   │   │   │   ├── create-agent-modal.tsx
+    │   │   │   │   ├── create-rag-workflow-modal.tsx
+    │   │   │   │   ├── custom-pitch-modal.tsx
+    │   │   │   │   ├── delete-confirmation-modal.tsx
+    │   │   │   │   ├── hunt-configuration-modal.tsx
+    │   │   │   │   ├── live-call-monitor-modal-fixed.tsx
+    │   │   │   │   ├── live-call-monitor-modal.tsx
+    │   │   │   │   ├── settings-rag-workflow-modal.tsx
+    │   │   │   │   ├── settings-workflow-modal.tsx
+    │   │   │   │   ├── swarm-overview-modal.tsx
+    │   │   │   │   ├── verification-modal.tsx
+    │   │   │   │   ├── view-rag-workflow-modal.tsx
+    │   │   │   │   └── view-workflow-modal.tsx
+    │   │   │   └── rtc/
+    │   │   │       ├── rtc-completion.tsx
+    │   │   │       ├── rtc-introduction.tsx
+    │   │   │       ├── rtc-phone-dialer-fixed.tsx
+    │   │   │       ├── rtc-phone-dialer-realistic.tsx
+    │   │   │       └── rtc-phone-dialer.tsx
+    │   │   ├── onboarding/
+    │   │   │   ├── blog/
+    │   │   │   │   └── BlogCard.tsx
+    │   │   │   ├── bulk/
+    │   │   │   │   ├── ContentSelectionStep.tsx
+    │   │   │   │   ├── ContentSelectionStep.tsx.backup
+    │   │   │   │   ├── DocumentUploadStep.tsx
+    │   │   │   │   ├── ExportStep.tsx
+    │   │   │   │   ├── InputMethodStep.tsx
+    │   │   │   │   ├── ModelSelectionStep.tsx
+    │   │   │   │   ├── PlatformSelectionStep.tsx
+    │   │   │   │   ├── ProcessingStep.tsx
+    │   │   │   │   ├── types.ts
+    │   │   │   │   ├── VectorDbSelectionStep.tsx
+    │   │   │   │   └── VerificationStep.tsx
+    │   │   │   ├── cloning/
+    │   │   │   │   ├── ChannelSetupStep.tsx
+    │   │   │   │   ├── ContentSelectionStep.tsx
+    │   │   │   │   ├── IdentityVerificationStep.tsx
+    │   │   │   │   ├── ModelSelectionStep.tsx
+    │   │   │   │   ├── PlatformSelectionStep.tsx
+    │   │   │   │   ├── ReviewCompleteStep.tsx
+    │   │   │   │   ├── TextInputStep.tsx
+    │   │   │   │   ├── types.ts
+    │   │   │   │   └── VoiceSettingsStep.tsx
+    │   │   │   ├── courses/
+    │   │   │   │   └── CourseCard.tsx
+    │   │   │   ├── guides/
+    │   │   │   │   └── GuideCard.tsx
+    │   │   │   ├── hunter/
+    │   │   │   │   ├── CompanyDetailsStep.tsx
+    │   │   │   │   ├── ContactPreferencesStep.tsx
+    │   │   │   │   ├── IndustryLocationStep.tsx
+    │   │   │   │   ├── SearchDefinitionStep.tsx
+    │   │   │   │   ├── SearchKeywordsStep.tsx
+    │   │   │   │   ├── SearchPreviewStep.tsx
+    │   │   │   │   ├── SearchProgressStep.tsx
+    │   │   │   │   ├── SearchResultsStep.tsx
+    │   │   │   │   ├── types.ts
+    │   │   │   │   └── ValidationCriteriaStep.tsx
+    │   │   │   ├── modals/
+    │   │   │   │   ├── BulkDownloadModal.tsx
+    │   │   │   │   ├── ChatWithDialaModal.tsx
+    │   │   │   │   ├── CopyTranscriptModal.tsx
+    │   │   │   │   └── VoiceCloneModal.tsx
+    │   │   │   └── procedural/
+    │   │   │       └── AudioGenerationProgress.tsx
+    │   │   ├── providers/
+    │   │   │   └── convex-client-provider.tsx
+    │   │   ├── transcripts/
+    │   │   │   └── SpeakerTimeline.tsx
+    │   │   └── ui/
+    │   │       ├── accordion.tsx
+    │   │       ├── badge.tsx
+    │   │       ├── breadcrumb.tsx
+    │   │       ├── button.tsx
+    │   │       ├── card.tsx
+    │   │       ├── carousel.tsx
+    │   │       ├── chart.tsx
+    │   │       ├── checkbox.tsx
+    │   │       ├── drawer.tsx
+    │   │       ├── dropdown-menu.tsx
+    │   │       ├── image-card.tsx
+    │   │       ├── input-otp.tsx
+    │   │       ├── input.tsx
+    │   │       ├── progress.tsx
+    │   │       ├── resizable.tsx
+    │   │       ├── select.tsx
+    │   │       ├── separator.tsx
+    │   │       ├── slider.tsx
+    │   │       ├── sonner.tsx
+    │   │       ├── sonner.tsx.backup
+    │   │       ├── star.tsx
+    │   │       ├── switch.tsx
+    │   │       ├── tabs.tsx
+    │   │       ├── textarea.tsx
+    │   │       └── tooltip.tsx
+    │   ├── contexts/
+    │   │   └── VideoPreviewContext.tsx
+    │   ├── hooks/
+    │   │   ├── use-api-client.ts
+    │   │   ├── useApiErrorHandler.ts
+    │   │   ├── useBulkProcessing.ts
+    │   │   ├── useConvexErrorHandler.ts
+    │   │   ├── useEmbeddingModels.ts
+    │   │   ├── useHunterSearch.ts
+    │   │   ├── useInstagramContent.ts
+    │   │   ├── useRAGWorkflow.ts
+    │   │   ├── useTikTokContent.ts
+    │   │   ├── useTwitchContent.ts
+    │   │   ├── useVideoPreview.ts
+    │   │   ├── useVoiceCloning.ts
+    │   │   ├── useWaveformData.ts
+    │   │   ├── useWorkflowExecution.ts
+    │   │   └── useYouTubeContent.ts
+    │   ├── lib/
+    │   │   ├── api.ts
+    │   │   ├── convex-mock.ts
+    │   │   ├── rag-validator.ts
+    │   │   ├── utils.ts
+    │   │   ├── youtube-transcript-fetcher.ts
+    │   │   ├── youtube-transcript.ts
+    │   │   ├── api/
+    │   │   │   └── procedural-audio.ts
+    │   │   └── workflow/
+    │   │       ├── expression-evaluator.ts
+    │   │       ├── index.ts
+    │   │       ├── workflow-executor.ts
+    │   │       ├── WorkflowEngine.ts
+    │   │       ├── core/
+    │   │       │   ├── ExpressionError.ts
+    │   │       │   ├── ExpressionParser.ts
+    │   │       │   ├── Workflow.ts
+    │   │       │   ├── WorkflowDataProxy.ts
+    │   │       │   └── WorkflowExecute.ts
+    │   │       ├── nodes/
+    │   │       │   ├── BaseNode.ts
+    │   │       │   ├── CodeNode.ts
+    │   │       │   ├── DialaMakeCallNode.ts
+    │   │       │   ├── HttpRequestNode.ts
+    │   │       │   ├── IfNode.ts
+    │   │       │   ├── index.ts
+    │   │       │   ├── SetNode.ts
+    │   │       │   └── WebhookNode.ts
+    │   │       └── types/
+    │   │           └── index.ts
+    │   ├── styles/
+    │   │   ├── automation.css
+    │   │   └── globals.css
+    │   └── types/
+    │       ├── calls.ts
+    │       ├── index.ts
+    │       └── waveform.ts
+    └── .claude/
+        └── settings.local.json
+

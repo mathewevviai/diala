@@ -1,0 +1,64 @@
+{
+  "source_video": "iqVhUX4Vel8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a permission-based opening on calls instead of meaningless pleasantries or launching into the pitch.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Is this a bad time?\" (Used as a permission-based opening).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would you like to hang up or let me have 30 seconds?\" (Used as a permission-based opening).",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct, slightly unconventional approach."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I know I'm an interruption. Can I have a minute to tell you why I called?\" (Used as a permission-based opening).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use anchoring at the beginning of a meeting to reduce pressure on the prospect and make them comfortable.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If by the end of this meeting, you don't feel comfortable, that's perfectly okay.\" (Used for anchoring).",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps remove pressure."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If this is not a fit, I will be the first person to tell you.\" (Used for anchoring).",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions you as an advisor, not just a seller."
+    },
+    {
+      "type": "mindset",
+      "content": "In sales conversations, focus on discovering the prospect's needs and challenges rather than immediately trying to sell your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask many questions to understand the prospect's problems, goals, and challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the discovery process."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as personal rejections, but as questions or requests for more information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Approach sales conversations with the mindset of helping the prospect, not just selling them something.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

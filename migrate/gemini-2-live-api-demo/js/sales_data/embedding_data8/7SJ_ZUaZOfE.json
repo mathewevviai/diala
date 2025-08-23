@@ -1,0 +1,46 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle potential hesitation or 'think about it' by probing past attempts to solve the problem and current feelings of frustration or resignation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover the depth of the problem and the prospect's motivation for change."
+    },
+    {
+      "type": "technique",
+      "content": "Use conditional closing to propose a low-commitment next step (e.g., a short meeting) by stating the prospect can easily opt-out if they don't see value.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend I could [solve the problem]... is there any reason you wouldn't invite me in for half an hour 45 minutes... and at the end if you don't feel there's anything there you can tell me to slow...",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a conditional close for booking a meeting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "By the end of that meeting if you don't feel we're somebody you want to move forward with by all means tell us know.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces the opt-out condition after the proposed meeting."
+    },
+    {
+      "type": "technique",
+      "content": "Add reciprocity to the conditional close: state that you will also say no if you determine it's not a good fit or you cannot help.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "likewise if I don't feel we're a fit for you or we can actually help eliminate this I'll tell you know.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of stating the reciprocal opt-out condition."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the initial meeting as purely exploratory with no obligation to discuss current business or commit further, reducing pressure and the need for extensive 'thinking about it'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrases like 'literally to find out if we can help'."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

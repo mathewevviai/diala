@@ -1,0 +1,40 @@
+{
+  "source_video": "YMF77yffHSA",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are just requests for more information, not rejections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When someone says they're no longer with the company, act like you didn't know and ask who replaced them.",
+      "speaker_perspective": "sales agent",
+      "notes": "This approach frames the objection as a simple info request, not a rejection."
+    },
+    {
+      "type": "example",
+      "content": "\"Who replaced him? Sorry I can't remember the name of the person.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates how to naturally request replacement info without sounding salesy"
+    },
+    {
+      "type": "mindset",
+      "content": "Gatekeepers aren't obstacles - they're sources of information if you don't sound like a salesman.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When told someone isn't available, simply say you'll call back later rather than explaining your purpose.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids triggering defensive responses by treating the objection as temporary"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I just had a note to give him a call\" when asked about the purpose.",
+      "speaker_perspective": "sales agent",
+      "notes": "Neutral phrasing that treats objections as routine info requests"
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

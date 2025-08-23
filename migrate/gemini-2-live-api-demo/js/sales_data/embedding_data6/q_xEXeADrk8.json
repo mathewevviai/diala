@@ -1,0 +1,36 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Listen for specific words or vague language used by the prospect, as these often signal areas that need clarification.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies to the 'Listen' and 'Assess' parts of LAARC and the 'Clarify' part of Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge vague statements (e.g., 'in the process') to get to the truth of the situation. Don't accept surface-level answers.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to 'Assess' in LAARC and 'Clarify' in Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Use structured questioning, like the 'ABC or something else' structure, to clarify what a prospect means by a vague term.",
+      "speaker_perspective": "sales agent",
+      "notes": "Concrete example of the 'Clarify' step in Clarify-Isolate-Overcome and 'Assess' in LAARC."
+    },
+    {
+      "type": "mindset",
+      "content": "The job is to gather information and get to the truth, not just give information. You can't gather information if you don't ask the right questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Underpins the need for techniques like LAARC and Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Take the prospect on a short journey to move them from intellectual acknowledgment of a problem to feeling emotional or irritated by it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to uncovering pain/need, which is part of assessing the situation before responding, potentially leveraging empathy like in Feel-Felt-Found."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

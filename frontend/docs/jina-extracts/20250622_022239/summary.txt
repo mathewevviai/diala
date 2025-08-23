@@ -1,0 +1,14 @@
+Extraction Summary
+==================
+Source URL: https://platform.openai.com/docs/models/whisper-1
+Extraction Time: Sun Jun 22 02:22:57 UTC 2025
+Total URLs Found: 68
+Relevant URLs: 5
+Keywords Used: whisper audio transcription speech-to-text
+
+Top 10 Relevant URLs:
+1. https://cdn.openai.com/API/docs/images/model-page/model-icons/whisper-1.png
+2. https://platform.openai.com/docs/guides/audio)[Structured
+3. https://platform.openai.com/docs/guides/images-vision)[Audio
+4. https://platform.openai.com/docs/guides/realtime-transcription)[Voice
+5. https://platform.openai.com/docs/guides/speech-to-text)[Embeddings](https://platform.openai.com/docs/guides/embeddings)[Moderation](https://platform.openai.com/docs/guides/moderation

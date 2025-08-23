@@ -1,0 +1,67 @@
+{
+  "source_video": "8iuUqHcEqdE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Open a cold call by giving the prospect a choice to disengage or listen for a brief period, e.g., 'You can hang up or give me 30 seconds. Which do you prefer?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Grants prospect immediate control, disarms resistance, and gains attention."
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain detachment from the outcome of a sales interaction, focusing instead on executing the defined sales process correctly.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The primary goal of an initial sales call is solely to determine if the prospect is a good fit for your offering, not to make a sale.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "In initial conversations, focus questions on uncovering the prospect's specific problem, its significance, and quantify its impact (e.g., cost in time, money, opportunity).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Only propose a follow-up meeting or deeper conversation if your initial qualifying questions confirm a significant problem or need that aligns with your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Clearly state the singular objective of the call upfront to the prospect, such as assessing mutual fit or exploring potential problem-solving.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets expectations and helps prospect feel comfortable."
+    },
+    {
+      "type": "technique",
+      "content": "After framing the call's purpose or process, ask for the prospect's agreement, using a phrase like 'Does that sound fair?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds micro-commitments, gets permission, establishes the call's structure."
+    },
+    {
+      "type": "technique",
+      "content": "Prepare a concise core message or key questions designed to qualify the prospect within the initial limited time window agreed upon (e.g., 30 seconds).",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures productive use of brief attention spans."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect confirms they are not a good fit or their problem isn't significant, politely thank them for their time and end the call promptly without attempting to convince them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Maintains professionalism and efficiency."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Okay, cool. Hey, thanks so much for your time. Have a good one.",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase for politely ending a call with a prospect who is not a fit."
+    },
+    {
+      "type": "technique",
+      "content": "When proposing a next step, keep it low commitment and specific, such as suggesting a short follow-up meeting (e.g., 15 minutes).",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure and increases likelihood of acceptance."
+    }
+  ]
+}

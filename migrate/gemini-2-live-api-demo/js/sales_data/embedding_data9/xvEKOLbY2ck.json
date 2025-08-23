@@ -1,0 +1,30 @@
+{
+  "source_video": "xvEKOLbY2ck",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "When offering the prospect the option to hang up, if they don't immediately, ask: 'Well, you got to go first.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after the 'hang up or 30 seconds' opener if the prospect hesitates or is silent after saying no."
+    },
+    {
+      "type": "technique",
+      "content": "Use the prospect's likely negative perception of your industry/call type to open, then probe why they feel that way.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'If I told you this was about recruitment, would a little piece of you die?' followed by 'Why does everybody say that?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If a prospect still declines, ask: 'Last question then, is there any particular reason why?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct probe to understand the root cause of disinterest after other attempts."
+    },
+    {
+      "type": "technique",
+      "content": "Constantly give the prospect the feeling of an exit, but delay it, making it easier for them to keep talking.",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrases like 'before you hang up', 'one last thing', 'before I let you go' create perceived control for the prospect."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

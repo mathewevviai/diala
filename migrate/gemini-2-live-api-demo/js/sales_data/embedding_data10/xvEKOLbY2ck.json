@@ -1,0 +1,41 @@
+{
+  "source_video": "xvEKOLbY2ck",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's likely negative experience with your industry or typical callers in your space, without attacking competitors directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for industries with poor reputations (e.g., recruitment in the example)."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you that this call was about [Industry/Topic], would a little piece of you die?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to immediately tap into prospect's likely frustration with typical calls from that area."
+    },
+    {
+      "type": "technique",
+      "content": "Encourage the prospect to vent about their negative experiences with typical calls or competitors by asking 'Why does everybody say that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows prospect to release frustration, building rapport."
+    },
+    {
+      "type": "technique",
+      "content": "After the prospect vents about typical calls/competitors, acknowledge their frustration ('That must be very frustrating for you').",
+      "speaker_perspective": "sales agent",
+      "notes": "Validates their feelings and builds empathy."
+    },
+    {
+      "type": "technique",
+      "content": "Frame your value proposition by offering a guarantee that your interaction will be completely different from the negative competitive norm they just described.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I was to guarantee that the next 30 seconds would be completely different from every other call you got, would you hear me out?",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions the caller as uniquely different from the typical, frustrating competitive experience."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

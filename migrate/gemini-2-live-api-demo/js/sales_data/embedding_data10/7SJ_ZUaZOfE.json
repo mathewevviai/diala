@@ -1,0 +1,30 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame the conversation around common frustrations prospects experience with other providers, positioning your service as the solution to these widespread industry problems.",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses competitive landscape by focusing on prospect pain points caused by others, without attacking specific competitors."
+    },
+    {
+      "type": "technique",
+      "content": "Reference negative common practices in the industry (e.g., 'race to the bottom') that your service avoids or solves, highlighting the contrast.",
+      "speaker_perspective": "sales agent",
+      "notes": "Differentiates by contrasting against undesirable industry norms."
+    },
+    {
+      "type": "technique",
+      "content": "Imply a unique operational approach or process ('how we operate') that leads to better results, suggesting a key differentiator without direct comparison.",
+      "speaker_perspective": "sales agent",
+      "notes": "Suggests a unique value proposition based on method."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "We're not gonna become one of the same.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly addresses potential competitive objection by stating they are fundamentally different from the negative experiences the prospect has had."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

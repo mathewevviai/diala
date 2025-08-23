@@ -1,0 +1,30 @@
+{
+  "source_video": "ThNCnhk-Og0",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "I'd love to work with you, I've just got to see if my boss will pay.",
+      "speaker_perspective": "prospect",
+      "notes": "Common stall/condition related to needing approval for payment."
+    },
+    {
+      "type": "technique",
+      "content": "Automatically qualify out prospects who state they need boss approval to pay for personal development/training.",
+      "speaker_perspective": "sales agent",
+      "notes": "Speaker's specific policy/reaction to the 'boss will pay' stall, viewed as lack of commitment."
+    },
+    {
+      "type": "mindset",
+      "content": "There is a difference between a desire to get better and a commitment to get better. Commitment involves personal investment (cash, time, risk).",
+      "speaker_perspective": "sales agent",
+      "notes": "Underlying principle for disqualifying prospects needing boss approval for personal investment."
+    },
+    {
+      "type": "technique",
+      "content": "Make it a condition for engaging with an organization that their salespeople must contribute towards their own training cost.",
+      "speaker_perspective": "sales agent",
+      "notes": "Speaker's own conditional requirement for client engagement, based on principle of commitment."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

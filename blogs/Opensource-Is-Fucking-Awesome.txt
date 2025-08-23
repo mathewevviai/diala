@@ -1,0 +1,62 @@
+Of course, here is a Hacker News post.
+
+OPEN SOURCE IS FUCKING AWESOME
+
+(by Matthew Don)
+
+I'll repeat it again... OPEN SOURCE IS FUCKING AWESOME.
+
+I think we're in a development cycle where we're all juggling subscriptions: $20 for Cursor, $20 for ChatGPT, another $20 for Gemini, maybe $200 for Claude's API. If you're like me—a freelance contractor and digital nomad—these tools are incredibly useful, but the costs add up. Every month, a new shiny object comes out, and the subscription treadmill just gets faster. Meanwhile, the open-source world has been catching up at a staggering pace, and I'm here to tell you that it is, genuinely, fucking awesome.
+
+So, I'm Matt. I've worked with companies and traveled the world. I started messing with AI back in 2022, and when I first tried ChatGPT, my immediate thought was, "Wow, my university degree is going to be so fucking pointless." My first attempt at a startup was trying to build a scraper. I couldn't code. I was working freelance as a video editor for YouTubers, and that startup dream died miserably. But I never stopped playing with AI. I kept trying, managing to build small scripts that turned SRT files into staggered text layers in After Effects to speed up my subtitling work. A small win, but it was a start.
+
+I couldn't really code, but I quickly started using AI to automate short-form content for clients, acting like I was doing all the manual work. I kept forcing the AI to do what I needed, and as I pushed, the models got better and better. Then Cursor came out.
+
+I went all-in on Cursor, even winning a couple of hackathons with it. I felt like I was finally starting to get programming. This was before the cringe-worthy term "vibe-coder" existed (I still hate it—I'm not vibing, I'm developing). Having poured so much of my own money into these tools, I decided I wanted to truly understand the technology, not just consume it. I set a goal: build something that could make money and solve a real problem for me.
+
+As a video editor, my biggest pain was finding clients, which meant endless networking in Instagram DMs. Now, as an AI-focused developer, the problem was the same, just with a different skillset. So, I started working on something more advanced: voice agents.
+
+I had played with the ChatGPT Voice API and Google's Live API, which were cool, but my first real project started with a simple interface I found on GitHub. I tried to connect Google's API for the brain and ElevenLabs for the voice. My goal was to create a voice agent that sounded like me (Irish accent and all) to automate my own sales outreach. After creating about 50 different accounts to burn through free credits, the voice was still just... off. And I realized that if I were to actually use this as a tool, the cost of ElevenLabs credits would be astronomical.
+
+That's when I dove headfirst into open-source models.
+
+I found Kokoro, a lightweight model that produced convincingly good voices but lacked cloning. I tried Dia; it wasn't good. Then I started playing with a fork of Resemble AI's Chatterbox designed for streaming, and it was pretty fucking impressive. About a month and a half in, I was hooked. I was connecting different models, seeing what worked, and I had a profound realization: Open Source is Fucking Awesome.
+
+Yes, we rely on APIs, but with the generous support from communities like the AMD Team and ROCm, I got access to state-of-the-art hardware, like the AMD Instinct MI300X accelerators. Suddenly, I could achieve real-time voice cloning inference with my own voice. It was some of the most impressive stuff I'd ever personally achieved, but I couldn't stop there.
+
+I realized I could turn this experiment of plugging together open-source models into a real backend, host it myself, and drastically cut costs while getting close to the performance of major companies. So, I kept going. I started building out my project, which I call Diala, not just as a tool but as a full-fledged platform.
+
+I met a woman in Taiwan who was making $5k a month doing one simple thing: translating Traditional Chinese into Simplified Chinese. It was a lightbulb moment. Did someone who just wanted an AI to call on their behalf need all the complex features I was dreaming up? I stopped, simplified, and broke down my backend into distinct microservices, each tackling one part of the problem.
+
+The Knowledge: Making the Agent Smart
+
+To make a realistic voice agent that could rival the pros, it needed to be intelligent. It had to understand sales techniques from the best. So, I used my Jina AI API key (which I got for $20 for 1 billion credits—seriously, it's the only research API you'll ever need) to build a pipeline. I used yt-dlp to pull YouTube transcripts and fed them through Jina's embedding models. Just like that, I had a free YouTube transcription pipeline that could turn any video into a searchable knowledge base for my agent.
+
+This evolved into its own service within the platform. I built a system where you can give it any knowledge source—YouTube channels, PDFs, Word documents, website URLs, or even structured data like CSVs. It automatically processes the content, chunks it intelligently, creates vector embeddings, and builds a robust Retrieval-Augmented Generation (RAG) system. My agent now had a brain.
+
+The Hunt: Finding and Validating Leads
+
+With a smart agent, I now needed people to call. This led to the next service: the Hunter. I used Jina's Reader API, which turns any URL into clean, LLM-ready text, to build a lead generation agent.
+
+You can define your ideal customer profile: their industry, geographic location, company size, and even specific job titles or keywords. The Hunter then scours the web, B2B databases, and business directories. It doesn't just find leads; it validates them. It checks for active websites, contact info, and matches them against your custom rules. The end result? A list of thousands of highly qualified, validated leads with emails and phone numbers, ready for outreach. It's a full-stack lead-gen engine, powered by a real backend using Convex and Clerk for user management.
+
+The Voice: Perfect, Real-Time Voice Cloning
+
+The stock open-source voices were good, but they weren't me. So I built a complete voice cloning pipeline from the ground up, using only open-source models.
+
+Demucs for audio source separation.
+
+Whisper for high-accuracy transcription.
+
+emotion2vec for processing prosody and capturing the emotional nuance of speech.
+
+I integrated this into a service where you can take any content—a YouTube video, a TikTok, a Twitch stream, or just a three-minute audio file you upload—and clone a voice. Because it’s a backend function running on powerful hardware, it produces incredible results. The system I've built can achieve better voice cloning with most open-source models than you'd get out of the box, and I'm constantly adding new ones because I love this stuff.
+
+The Performance: Bringing It All to Life
+
+A sales call can't sound like it's happening in a vacuum. It needs to feel dynamic. I found a paper from Meta AI on AudioCraft, which uses their AudioGen model to turn text prompts into foley and soundscapes. I integrated an open-source version of this. Now, my voice agent can be making a call from a "virtual coffee shop." If the prospect says it's too loud, the agent can react in real-time: "Sorry about that, let me step outside," and the background audio dynamically shifts to a quieter street. I can run a thousand instances of this scenario, all with open-source software.
+
+And what if the agent hits a gatekeeper? Using emotion2vec, the agent can semantically label the gatekeeper's tone of voice. It then performs a vector search on all the knowledge it has—the sales techniques from YouTube, the key phrases from TikToks, the company info from the RAG database—and picks the perfect response to handle the objection.
+
+From a simple script to help me edit videos faster, I've built a system where an AI agent, using my own cloned voice, can run from 9 AM to 5 PM in any country, speaking any language, to book clients for me. And it's almost entirely open source. The more I build, the more I find incredible, emergent ways to solve my own problems.
+

@@ -1,0 +1,33 @@
+{
+  "source_video": "ci-FdcWiJiA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame initial value proposition around potential cost savings without knowing the current supplier or terms.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect indicates they are not looking now but might in the future, acknowledge their timeline and offer to be a resource.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Validate the prospect's current situation or supplier by stating you assume they are getting the best deal possible.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to disarm potential competitive tension and avoid attacking current providers."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I'm sure they're not looking to change anything today and I'm sure you're getting the best deal possible.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to preemptively address competitive objections by validating the status quo."
+    },
+    {
+      "type": "mindset",
+      "content": "Position yourself as a potential future resource even when the prospect is not ready to buy now.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

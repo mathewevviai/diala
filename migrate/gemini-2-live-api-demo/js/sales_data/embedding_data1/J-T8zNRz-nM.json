@@ -1,0 +1,42 @@
+{
+  "source_video": "J-T8zNRz-nM",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Ask for permission at the start of a cold call: 'Would you like to hang up or let me have 30 seconds?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Frame rejection as rejecting the proposition, not yourself.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Anchor meetings with 'If by the end of this, you don't feel comfortable, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to reduce pressure and set realistic expectations."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the call opening on gathering information, not selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use curiosity-based questions to engage the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Your role is to help the buyer buy, not to force a sale.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Handle 'send me information' by asking, 'What specifically would be helpful for you to see?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A common objection handling phrase."
+    }
+  ]
+}

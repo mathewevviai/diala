@@ -1,0 +1,107 @@
+{
+  "source_video": "ThWTOw93u3k",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When hearing an objection, pause briefly to allow it to land and avoid interrupting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows processing the objection."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the objection with empathy: 'I understand why you might feel that way' or 'That makes sense'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport and shows you're listening."
+    },
+    {
+      "type": "technique",
+      "content": "Ask a clarifying question after acknowledging an objection to understand its root: 'Could you tell me a little more about that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Uncovers the real concern behind the stated objection."
+    },
+    {
+      "type": "technique",
+      "content": "Reframe 'I need to think about it' by asking clarifying questions like 'What specifically concerns you?' or 'What information are you missing?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids taking 'think about it' at face value, pushes for specifics."
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'feel, felt, found' structure to address common objections by relating to their concern and sharing how others in a similar situation found success.",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides social proof and validation."
+    },
+    {
+      "type": "technique",
+      "content": "Address the underlying emotion behind an objection, not just the words spoken.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connects on a deeper level."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to confirm it's the *only* barrier: 'If we could solve X, would you be ready to move forward?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Tests the validity and completeness of the objection."
+    },
+    {
+      "type": "technique",
+      "content": "Handle price objections by reinforcing the value and ROI the client will receive, rather than just defending the cost.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from cost to benefit."
+    },
+    {
+      "type": "technique",
+      "content": "Listen intently when an objection is raised, without formulating your response while they are still speaking.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures full understanding of the objection."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid arguing with the prospect when they raise an objection; maintain a collaborative approach.",
+      "speaker_perspective": "sales agent",
+      "notes": "Preserves rapport and trust."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejections, but as requests for more information or clarification.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positive framing of objections."
+    },
+    {
+      "type": "technique",
+      "content": "After addressing an objection, check for understanding and agreement: 'Does that make sense?' or 'How does that sound?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures the response landed correctly and opens for further discussion."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Tell me more about that.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to probe deeper into an objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I understand completely.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase for acknowledging an objection empathetically."
+    },
+    {
+      "type": "technique",
+      "content": "Use past client examples to illustrate how others overcame the same objection and achieved desired results.",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides concrete social proof."
+    },
+    {
+      "type": "technique",
+      "content": "Bring the conversation back to the client's stated problem or goal after addressing an objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reconnects the solution to their needs."
+    },
+    {
+      "type": "technique",
+      "content": "If an objection is vague, help the prospect articulate the specific concern by offering potential reasons based on your experience.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps uncover hidden objections."
+    }
+  ]
+}

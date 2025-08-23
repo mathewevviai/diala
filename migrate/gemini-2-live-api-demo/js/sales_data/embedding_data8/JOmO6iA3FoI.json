@@ -1,0 +1,47 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle objections by responding in the form of a question to gain clarity or challenge the blanket statement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Prospect says 'We're fine, thanks'. Agent asks: 'Didn't you mean to say everything's perfect?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the 'fine' statement to see if it's truly perfect or if there's room for improvement."
+    },
+    {
+      "type": "technique",
+      "content": "Push a general objection to an extreme to test its validity.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to see if the prospect's 'no' is absolute or qualified."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Prospect says 'I'm not interested'. Agent asks: 'When you say you're not interested, did you mean to say never ever under any circumstances would you consider exploring what we do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Pushes 'not interested' to an absolute extreme ('never ever') to force clarification."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Prospect says 'We already have a supplier'. Agent asks: 'Would it be fair to say then that there is nothing anyone could say or do... you would never ever consider exploring it or looking into that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the existing supplier objection by pushing to an absolute 'never consider' extreme."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Prospect says 'I don't take cold calls'. Agent asks: 'What do you mean?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Simple question to get the prospect to clarify the specific reason behind the statement."
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions to establish if a prospect's statement is a hard fact or a smoke screen to end the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "The goal is to uncover the true nature of the objection."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

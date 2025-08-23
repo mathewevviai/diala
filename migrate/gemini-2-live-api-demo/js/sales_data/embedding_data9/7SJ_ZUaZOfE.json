@@ -1,0 +1,30 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start by being upfront about it being a sales call and offer a very short, low-commitment timeframe (e.g., 30 seconds) for the prospect to decide if they want to continue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Preemptively addresses potential disinterest by setting expectations and offering an easy opt-out."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Is there any reason you wouldn't invite me in for [short time]? At the end if you don't feel there's anything there you can tell me to slow my hoping you'll never hear from me ever again.",
+      "speaker_perspective": "sales agent",
+      "notes": "Uses a negative question to propose a low-risk next step and offers a clear, non-pressured exit if it's not a fit."
+    },
+    {
+      "type": "technique",
+      "content": "When proposing a next step (like a meeting), explicitly state that there is no obligation and the purpose is solely to determine if help is possible.",
+      "speaker_perspective": "sales agent",
+      "notes": "Minimizes perceived commitment and pressure, making it easier for the prospect to agree or reveal true disinterest."
+    },
+    {
+      "type": "technique",
+      "content": "Establish mutual agreement that either party can say 'no' at the end of the proposed next step if it's not a good fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces low pressure and builds trust, making it safe for the prospect to express disinterest later if necessary."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

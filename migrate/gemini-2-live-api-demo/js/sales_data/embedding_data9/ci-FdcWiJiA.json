@@ -1,0 +1,36 @@
+{
+  "source_video": "ci-FdcWiJiA",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "When prospect says 'not now, maybe next year', agent asks 'may I ask why your team is looking into vials?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft probe to understand the underlying reason or trigger for future interest, diagnosing timing vs. disinterest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I know you don't need anything, but may I have 30 seconds for me to tell you the reason why I called?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging initial 'not needing' to bypass the immediate brush-off and earn attention for the pitch."
+    },
+    {
+      "type": "mindset",
+      "content": "Lesson learned: Always get the meeting, even when the prospect indicates 'not now' or timing issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reflection on handling a 'timing' objection; suggests pushing past initial 'not now' for a future meeting."
+    },
+    {
+      "type": "mindset",
+      "content": "Agent reflects on not pushing for a meeting when prospect was about to jump into a meeting, questioning if being too respectful was a mistake.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the tension between respecting prospect's stated timing/availability and the goal of securing a meeting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I'm sure they're not looking to change anything today and I'm sure you're getting the best deal possible...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging potential disinterest or satisfaction upfront when asking for a referral, lowering pressure."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

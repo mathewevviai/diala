@@ -1,0 +1,24 @@
+{
+  "source_video": "wiqpT18ejLw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Present alternatives to your solution and ask the prospect to convince you why they won't pursue any of them. This clarifies their constraints and isolates the problem only your solution solves.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to the 'Clarify' and 'Isolate' steps of objection handling frameworks, applied to qualifying need."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Why not?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used as a follow-up question after a prospect dismisses an alternative solution, serving to clarify their reason or constraint."
+    },
+    {
+      "type": "mindset",
+      "content": "My job is to get them to convince me they need what I have. I'm here to figure out if I should sell to you; you need to convince me I should sell to you.",
+      "speaker_perspective": "sales agent",
+      "notes": "This mindset drives the technique of presenting alternatives and clarifying/isolating the need."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

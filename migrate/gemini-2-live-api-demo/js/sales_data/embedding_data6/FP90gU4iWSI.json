@@ -1,0 +1,54 @@
+{
+  "source_video": "FP90gU4iWSI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Never just offer a new perspective; don't fight with someone or try to convince them they're wrong when handling objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the principle behind Feel-Felt-Found/AAA - acknowledge first."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"You know that that makes perfect sense, you know I I hear that a lot, I understand...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of acknowledging/understanding the prospect's point (Feel/Listen/Acknowledge)."
+    },
+    {
+      "type": "technique",
+      "content": "Deal with the objection by reframing or reinforcing the prospect's own motivation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after acknowledging, relates to the 'Found' part or Overcoming."
+    },
+    {
+      "type": "technique",
+      "content": "Dig into objections like needing to talk to a spouse; don't dismiss them. Understand their perspective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to Assess (LAARC) or Clarify/Isolate (Clarify-Isolate-Overcome)."
+    },
+    {
+      "type": "technique",
+      "content": "Get the prospect to have a conversation with you about their potential objections (e.g., what their spouse might say).",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of assessing/clarifying the objection."
+    },
+    {
+      "type": "mindset",
+      "content": "A man convinced against his will is of the same opinion still. Avoid strong-arming prospects into agreeing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the goal of overcoming objections by getting prospect buy-in."
+    },
+    {
+      "type": "technique",
+      "content": "Get the prospect to surrender or ask to meet, rather than begging for the appointment.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to getting prospect buy-in after handling objections."
+    },
+    {
+      "type": "example",
+      "content": "Using a hypothetical scenario: 'Let's pretend you believed I had a solution and if we met, I could fix your problem. What would you want to do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example technique to get the prospect to agree to the next step themselves after handling underlying concerns."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

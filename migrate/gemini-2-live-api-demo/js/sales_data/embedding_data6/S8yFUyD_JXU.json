@@ -1,0 +1,42 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Clarify the prospect's main challenge by asking them to pick the single most important problem from a list you've presented.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the 'Isolate' step in Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Of those three things... if you could wave a wand and fix one... which would it be?",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrasing to isolate the core problem."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for clarification when the prospect uses vague terms to understand their specific meaning.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the 'Clarify' step in Clarify-Isolate-Overcome and 'Listen/Assess' in LAARC."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When you say [term], what do you mean exactly? Can you give me an example?",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrasing for clarification."
+    },
+    {
+      "type": "technique",
+      "content": "Proactively identify potential future objections or reasons for cancellation by asking directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to overcoming potential obstacles before they occur."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Can you think of any reason you might want to cancel?",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct question to uncover potential future objections."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

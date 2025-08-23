@@ -1,0 +1,32 @@
+{
+  "source_video": "zfrdQORbqUg",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When facing an objection like 'you can't sell X', challenge the generic statement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection: If the generic objection is challenged, it might be modified to 'you can't sell X in our world'. Challenge this too.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Guide the prospect (or yourself) to identify the personal root cause of the perceived objection: 'I can't sell X'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifting from external market constraint to internal skill/ability."
+    },
+    {
+      "type": "technique",
+      "content": "Once the root cause is identified as a personal inability ('I can't'), you can start dealing with the actual problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that 'you can't sell X' is often a reflection of 'I can't sell X' due to lack of skill or approach.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

@@ -1,0 +1,10 @@
+waiting for local backend to start...
+✔ Started running a deployment locally at http://127.0.0.1:3210 and saved its name as CONVEX_DEPLOYMENT to .env.local
+Run `npx convex login` at any time to create an account and link this deployment.
+
+Write your Convex functions in convex/
+Give us feedback at https://convex.dev/community or support@convex.dev
+View the Convex dashboard at http://127.0.0.1:6790/?d=anonymous-Diala
+
+- Preparing Convex functions...
+

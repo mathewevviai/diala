@@ -1,0 +1,84 @@
+{
+  "source_video": "48VZpmEebfs",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are not personal rejections; they are simply requests for more information or clarification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and seek to understand the root cause of an objection before attempting to respond.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and validate the prospect's objection to build rapport and show empathy.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to fully understand the specific nature of an objection, especially vague ones.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I hear you. It sounds like [rephrase their objection]. Is that right?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for acknowledging and clarifying an objection."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection: Confirm that this specific objection is the only thing preventing them from moving forward.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Besides [the stated objection], is there anything else that would keep us from moving forward?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to isolate the primary objection."
+    },
+    {
+      "type": "technique",
+      "content": "Reframe price objections by shifting the focus from cost to value, return on investment, or long-term benefits.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'I need to think about it' objection by probing for the specific area of hesitation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What specifically do you need to think about? Is it the investment, the timeline, or something else?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover the real reason behind 'I need to think about it'."
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or case studies to overcome skepticism or objections related to results.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address objections head-on and directly, rather than avoiding or minimizing them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Prevent common objections by proactively addressing potential concerns earlier in the sales conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel-Felt-Found' method: 'I understand how you feel... others have felt similarly... what they found was...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Framework for relating to and overcoming common concerns."
+    },
+    {
+      "type": "technique",
+      "content": "Don't argue with objections; collaborate with the prospect to find a solution or clarify misunderstanding.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

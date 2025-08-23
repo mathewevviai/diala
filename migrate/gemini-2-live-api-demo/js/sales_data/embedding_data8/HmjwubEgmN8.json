@@ -1,0 +1,29 @@
+{
+  "source_video": "HmjwubEgmN8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect asks a question, don't just answer it. Ask 'What do you mean?' or 'Why do you ask?' to understand the motivation behind the question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover underlying concerns or gather context before responding, preventing assumptions."
+    },
+    {
+      "type": "example",
+      "content": "Prospect: 'Have you ever worked with an insurance company before?' Sales Agent: 'Well, what do you mean?' This prompts the prospect to reveal their real concern (niche/regulated industry).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use conditional questions to test the validity of an objection or gauge commitment. Frame it as 'If X were true, would Y still be a problem?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps isolate the real issue and forces the prospect to consider if the stated objection is the *only* barrier."
+    },
+    {
+      "type": "example",
+      "content": "After prospect reveals concern about insurance experience: 'So you're telling me then that if you genuinely believed what I did could help you sell more, we can't work together if I have no insurance experience?'",
+      "speaker_perspective": "sales agent",
+      "notes": "This conditional question got the prospect to admit lack of sector experience wouldn't be a problem if they believed the solution worked."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

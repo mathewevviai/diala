@@ -1,0 +1,93 @@
+{
+  "source_video": "IJGzybTP9A0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When leaving a voicemail after an unsuccesful cold call, mention something specific from their LinkedIn profile or company to show you did research.",
+      "speaker_perspective": "sales agent",
+      "notes": "Adds personalization and credibility to the voicemail."
+    },
+    {
+      "type": "technique",
+      "content": "Reference your previous call or attempt to connect in the voicemail to provide context for why you're calling again.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a calm, confident, and slightly slower pace when speaking on cold calls.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids sounding rushed or nervous."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use permission-based openings like 'Would you be open to a quick chat about X?' or 'Would you be opposed to...?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Softens the ask and increases likelihood of engagement."
+    },
+    {
+      "type": "technique",
+      "content": "Shift the focus from yourself to the prospect immediately by asking a relevant question about their challenges or goals.",
+      "speaker_perspective": "sales agent",
+      "notes": "Makes the call about them, not you."
+    },
+    {
+      "type": "technique",
+      "content": "After the opening, state the reason for your call concisely, linking it to the prospect's potential needs or interests.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'Send me information' objection by asking clarifying questions about what specific information would be most helpful.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows you to tailor the info and potentially keep the conversation going."
+    },
+    {
+      "type": "technique",
+      "content": "Overcome the 'We're not interested' objection by acknowledging it and then pivoting to ask about their current process or challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Doesn't challenge their statement directly, instead probes for underlying reasons."
+    },
+    {
+      "type": "technique",
+      "content": "Use empathy and understanding when prospects raise objections, showing you've heard them before.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport and lowers defenses."
+    },
+    {
+      "type": "technique",
+      "content": "If asked how you got their name, be honest and mention the source (e.g., LinkedIn search, referral, industry event).",
+      "speaker_perspective": "sales agent",
+      "notes": "Maintains transparency and trust."
+    },
+    {
+      "type": "technique",
+      "content": "When scheduling a follow-up, be specific about the date and time, and send a calendar invitation immediately.",
+      "speaker_perspective": "sales agent",
+      "notes": "Increases the likelihood of the meeting happening."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect sounds rushed, offer to call back at a better time instead of trying to force the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Respects their time and leaves a positive impression."
+    },
+    {
+      "type": "technique",
+      "content": "Use 'if, then' statements to frame next steps. Example: 'If you're open to learning more, then the next step is a quick demo.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Clearly links prospect's decision to the action."
+    },
+    {
+      "type": "technique",
+      "content": "Practice active listening by summarizing what the prospect has said and asking clarifying questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows you are engaged and understanding their needs."
+    },
+    {
+      "type": "mindset",
+      "content": "View cold calls not as trying to sell immediately, but as an opportunity to learn about the prospect and identify potential fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure and shifts focus to discovery."
+    }
+  ]
+}

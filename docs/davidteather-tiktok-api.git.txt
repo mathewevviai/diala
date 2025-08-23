@@ -1,0 +1,5582 @@
+Directory structure:
+└── davidteather-tiktok-api.git/
+    ├── README.md
+    ├── _config.yml
+    ├── CITATION.cff
+    ├── Dockerfile
+    ├── LICENSE
+    ├── LICENSE.txt
+    ├── MANIFEST
+    ├── requirements.txt
+    ├── setup.cfg
+    ├── setup.py
+    ├── examples/
+    │   ├── comment_example.py
+    │   ├── hashtag_example.py
+    │   ├── playlist_example.py
+    │   ├── search_example.py
+    │   ├── sound_example.py
+    │   ├── trending_example.py
+    │   ├── user_example.py
+    │   └── video_example.py
+    ├── tests/
+    │   ├── __init__.py
+    │   ├── test_comments.py
+    │   ├── test_hashtag.py
+    │   ├── test_integration.py
+    │   ├── test_playlist.py
+    │   ├── test_search.py
+    │   ├── test_sound.py
+    │   ├── test_trending.py
+    │   ├── test_user.py
+    │   └── test_video.py
+    ├── TikTokApi/
+    │   ├── __init__.py
+    │   ├── exceptions.py
+    │   ├── helpers.py
+    │   ├── tiktok.py
+    │   ├── api/
+    │   │   ├── __init__.py
+    │   │   ├── comment.py
+    │   │   ├── hashtag.py
+    │   │   ├── playlist.py
+    │   │   ├── search.py
+    │   │   ├── sound.py
+    │   │   ├── trending.py
+    │   │   ├── user.py
+    │   │   └── video.py
+    │   └── stealth/
+    │       ├── __init__.py
+    │       ├── stealth.py
+    │       └── js/
+    │           ├── __init__.py
+    │           ├── chrome_app.py
+    │           ├── chrome_csi.py
+    │           ├── chrome_hairline.py
+    │           ├── chrome_load_times.py
+    │           ├── chrome_runtime.py
+    │           ├── generate_magic_arrays.py
+    │           ├── iframe_contentWindow.py
+    │           ├── media_codecs.py
+    │           ├── navigator_hardwareConcurrency.py
+    │           ├── navigator_languages.py
+    │           ├── navigator_permissions.py
+    │           ├── navigator_platform.py
+    │           ├── navigator_plugins.py
+    │           ├── navigator_userAgent.py
+    │           ├── navigator_vendor.py
+    │           ├── utils.py
+    │           ├── webgl_vendor.py
+    │           └── window_outerdimensions.py
+    ├── .devcontainer/
+    │   └── devcontainer.json
+    ├── .github/
+    │   ├── dependabot.yml
+    │   ├── FUNDING.yml
+    │   ├── stale.yml
+    │   ├── .documentation.yml
+    │   ├── ISSUE_TEMPLATE/
+    │   │   ├── bug_report.md
+    │   │   ├── feature_request.md
+    │   │   └── installation-help.md
+    │   └── workflows/
+    │       ├── docs.yml
+    │       ├── package-test.yml
+    │       └── python-publish.yml
+    └── .sphinx/
+        ├── README.md
+        ├── conf.py
+        ├── index.rst
+        ├── make.bat
+        ├── Makefile
+        ├── modules.rst
+        ├── TikTokApi.api.rst
+        ├── TikTokApi.rst
+        ├── TikTokApi.stealth.rst
+        ├── .gitignore
+        └── api/
+            ├── comment.rst
+            ├── hashtag.rst
+            ├── search.rst
+            ├── sound.rst
+            ├── trending.rst
+            ├── user.rst
+            └── video.rst
+
+================================================
+FILE: README.md
+================================================
+# Unofficial TikTok API in Python
+
+This is an unofficial api wrapper for TikTok.com in python. With this api you are able to call most trending and fetch specific user information as well as much more.
+
+[![DOI](https://zenodo.org/badge/188710490.svg)](https://zenodo.org/badge/latestdoi/188710490) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&style=flat-square)](https://www.linkedin.com/in/davidteather/) [![Sponsor Me](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/davidteather) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/davidteather/TikTok-Api)](https://github.com/davidteather/TikTok-Api/releases) [![GitHub](https://img.shields.io/github/license/davidteather/TikTok-Api)](https://github.com/davidteather/TikTok-Api/blob/main/LICENSE) [![Downloads](https://pepy.tech/badge/tiktokapi)](https://pypi.org/project/TikTokApi/) ![](https://visitor-badge.laobi.icu/badge?page_id=davidteather.TikTok-Api) [![Support Server](https://img.shields.io/discord/783108952111579166.svg?color=7289da&logo=discord&style=flat-square)](https://discord.gg/yyPhbfma6f)
+
+This api is designed to **retrieve data** TikTok. It **can not be used post or upload** content to TikTok on the behalf of a user. It has **no support for any user-authenticated routes**, if you can't access it while being logged out on their website you can't access it here.
+
+## Sponsors
+
+These sponsors have paid to be placed here or are my own affiliate links which I may earn a commission from, and beyond that I do not have any affiliation with them. The TikTokAPI package will always be free and open-source. If you wish to be a sponsor of this project check out my [GitHub sponsors page](https://github.com/sponsors/davidteather).
+
+<div align="center">
+    <a href="https://tikapi.io/?ref=davidteather" target="_blank">
+        <img src="https://raw.githubusercontent.com/davidteather/TikTok-Api/main/imgs/tikapi.png" width="100" alt="TikApi">
+        <div>
+            <b>TikAPI</b> is a paid TikTok API service providing a full out-of-the-box solution, making life easier for developers — trusted by 500+ companies.
+        </div>
+    </a>
+    <br>
+    <a href="https://www.ensembledata.com/?utm_source=github&utm_medium=githubpage&utm_campaign=david_thea_github&utm_id=david_thea_github" target="_blank">
+        <img src="https://raw.githubusercontent.com/davidteather/TikTok-Api/main/imgs/EnsembleData.png" width="100" alt="Ensemble Data">
+        <b></b>
+        <div>
+         <b>EnsembleData</b> is the leading API provider for scraping Tiktok, Instagram, Youtube, and more. <br> Trusted by the major influencer marketing and social media listening platforms.
+        </div>
+    </a>
+    <br>
+    <a href="https://www.sadcaptcha.com?ref=davidteather" target="_blank">
+        <img src="https://raw.githubusercontent.com/davidteather/TikTok-Api/main/imgs/tiktok_captcha_solver.png" width="100" alt="TikTok Captcha Solver">
+        <b></b>
+        <div>
+         <b>TikTok Captcha Solver: </b> Bypass any TikTok captcha in just two lines of code.<br> Scale your TikTok automation and get unblocked with SadCaptcha.
+        </div>
+    </a>
+    <br>
+    <a href="https://www.webshare.io/?referral_code=3x5812idzzzp" target="_blank">
+        <img src="https://raw.githubusercontent.com/davidteather/TikTok-Api/main/imgs/webshare.png" width="100" alt="TikTok Captcha Solver">
+        <b></b>
+        <div>
+         <b>Cheap, Reliable Proxies: </b> Supercharge your web scraping with fast, reliable proxies. Try 10 free datacenter proxies today!
+        </div>
+    </a>
+</div>
+
+## Table of Contents
+
+- [Documentation](#documentation)
+- [Getting Started](#getting-started)
+  - [How to Support The Project](#how-to-support-the-project)
+  - [Installing](#installing)
+  - [Common Issues](#common-issues)
+- [Quick Start Guide](#quick-start-guide)
+  - [Examples](https://github.com/davidteather/TikTok-Api/tree/main/examples)
+
+[**Upgrading from V5 to V6**](#upgrading-from-v5-to-v6)
+
+## Documentation
+
+You can find the full documentation [here](https://davidteather.github.io/TikTok-Api)
+
+## Getting Started
+
+To get started using this API follow the instructions below.
+
+**Note:** If you want to learn how to web scrape websites check my [free and open-source course for learning everything web scraping](https://github.com/davidteather/everything-web-scraping)
+
+### How to Support The Project
+
+- Star the repo 😎
+- Consider [sponsoring](https://github.com/sponsors/davidteather) me on GitHub
+- Send me an email or a [LinkedIn](https://www.linkedin.com/in/davidteather/) message telling me what you're using the API for, I really like hearing what people are using it for.
+- Submit PRs for issues :)
+
+### Installing
+
+**Note:** Installation requires python3.9+
+
+If you run into an issue please check the closed issues on the github, although feel free to re-open a new issue if you find an issue that's been closed for a few months. The codebase can and does run into similar issues as it has before, because TikTok changes things up.
+
+```sh
+pip install TikTokApi
+python -m playwright install
+```
+
+If you would prefer a video walk through of setting up this package [YouTube video](https://www.youtube.com/watch?v=-uCt1x8kINQ) just for that. (is a version out of date, installation is the same though)
+
+If you want a quick video to listen for [TikTok Live](https://www.youtube.com/watch?v=307ijmA3_lc) events in python.
+
+#### Docker Installation
+
+Clone this repository onto a local machine (or just the Dockerfile since it installs TikTokApi from pip) then run the following commands.
+
+```sh
+docker pull mcr.microsoft.com/playwright:focal
+docker build . -t tiktokapi:latest
+docker run -v TikTokApi --rm tiktokapi:latest python3 your_script.py
+```
+
+**Note** this assumes your script is named your_script.py and lives in the root of this directory.
+
+### Common Issues
+
+- **EmptyResponseException** - this means TikTok is blocking the request and detects you're a bot. This can be a problem with your setup or the library itself
+  - you may need a proxy to successfuly scrape TikTok, I've made a [web scraping lesson](https://github.com/davidteather/everything-web-scraping/tree/main/002-proxies) explaining the differences of "tiers" of proxies, I've personally had success with [webshare's residential proxies](https://www.webshare.io/?referral_code=3x5812idzzzp) (affiliate link), but you might have success on their free data center IPs or a cheaper competitor.
+
+- **Browser Has no Attribute** - make sure you ran `python3 -m playwright install`, if your error persists try the [playwright-python](https://github.com/microsoft/playwright-python) quickstart guide and diagnose issues from there.
+
+- **API methods returning Coroutine** - many of the API's methods are async so make sure your program awaits them for proper functionality
+
+## Quick Start Guide
+
+Here's a quick bit of code to get the most recent trending videos on TikTok. There's more examples in the [examples](https://github.com/davidteather/TikTok-Api/tree/main/examples) directory.
+
+**Note:** If you want to learn how to web scrape websites check my [free and open-source course for web scraping](https://github.com/davidteather/web-scraping-with-reverse-engineering)
+
+```py
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get("ms_token", None) # get your own ms_token from your cookies on tiktok.com
+
+async def trending_videos():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        async for video in api.trending.videos(count=30):
+            print(video)
+            print(video.as_dict)
+
+if __name__ == "__main__":
+    asyncio.run(trending_videos())
+```
+
+To directly run the example scripts from the repository root, use the `-m` option on python.
+
+```sh
+python -m examples.trending_example
+```
+
+You can access the full data dictionary the object was created from with `.as_dict`. On a video this may look like
+[this](https://gist.github.com/davidteather/7c30780bbc30772ba11ec9e0b909e99d). TikTok changes their structure from time to time so it's worth investigating the structure of the dictionary when you use this package.
+
+
+================================================
+FILE: _config.yml
+================================================
+theme: jekyll-theme-cayman
+
+
+================================================
+FILE: CITATION.cff
+================================================
+cff-version: 1.2.0
+authors:
+  - family-names: "Teather"
+    given-names: "David"
+    orcid: "https://orcid.org/0000-0002-9467-4676"
+title: "TikTokAPI"
+url: "https://github.com/davidteather/tiktok-api"
+version: 7.1.0
+date-released: 2025-04-13
+
+
+
+================================================
+FILE: Dockerfile
+================================================
+FROM mcr.microsoft.com/playwright:focal
+
+RUN apt-get update && apt-get install -y python3-pip
+COPY . .
+RUN pip3 install TikTokApi
+RUN python3 -m playwright install
+
+
+
+================================================
+FILE: LICENSE
+================================================
+MIT License
+
+Copyright (c) 2019 David Teather
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+================================================
+FILE: LICENSE.txt
+================================================
+MIT License
+
+Copyright (c) 2019 David Teather
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+================================================
+FILE: MANIFEST
+================================================
+# file GENERATED by distutils, do NOT edit
+setup.cfg
+setup.py
+TikTokApi\__init__.py
+TikTokApi\tiktok.py
+
+
+
+================================================
+FILE: requirements.txt
+================================================
+requests>=2.31.0,<3.0
+playwright>=1.36.0,<2.0
+httpx>=0.27.0,<1.0
+
+
+================================================
+FILE: setup.cfg
+================================================
+[metadata]
+description-file = README.md
+
+[flake8]
+max-line-length = 120
+
+
+
+================================================
+FILE: setup.py
+================================================
+from distutils.core import setup
+import os.path
+import setuptools
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="TikTokApi",
+    packages=setuptools.find_packages(),
+    version="7.1.0",
+    license="MIT",
+    description="The Unofficial TikTok API Wrapper in Python 3.",
+    author="David Teather",
+    author_email="contact.davidteather@gmail.com",
+    url="https://github.com/davidteather/tiktok-api",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    download_url="https://github.com/davidteather/TikTok-Api/tarball/main",
+    keywords=["tiktok", "python3", "api", "unofficial", "tiktok-api", "tiktok api"],
+    install_requires=["requests", "playwright", "httpx"],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Topic :: Software Development :: Build Tools",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+    ],
+    python_requires=">=3.9",
+)
+
+
+
+================================================
+FILE: examples/comment_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+video_id = 7248300636498890011
+ms_token = os.environ.get("ms_token", None)  # set your own ms_token
+
+
+async def get_comments():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        video = api.video(id=video_id)
+        count = 0
+        async for comment in video.comments(count=30):
+            print(comment)
+            print(comment.as_dict)
+
+
+if __name__ == "__main__":
+    asyncio.run(get_comments())
+
+
+
+================================================
+FILE: examples/hashtag_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get("ms_token", None)  # set your own ms_token
+
+
+async def get_hashtag_videos():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        tag = api.hashtag(name="funny")
+        async for video in tag.videos(count=30):
+            print(video)
+            print(video.as_dict)
+
+
+if __name__ == "__main__":
+    asyncio.run(get_hashtag_videos())
+
+
+
+================================================
+FILE: examples/playlist_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get(
+    "ms_token", None
+)  # set your own ms_token, think it might need to have visited a profile
+
+
+async def user_example():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3)
+        user = api.user("therock")
+
+        async for playlist in user.playlists(count=3):
+            print(playlist)
+            print(playlist.name)
+
+            async for video in playlist.videos(count=3):
+                print(video)
+                print(video.url)
+
+if __name__ == "__main__":
+    asyncio.run(user_example())
+
+
+
+================================================
+FILE: examples/search_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get(
+    "ms_token", None
+)  # set your own ms_token, needs to have done a search before for this to work
+
+
+async def search_users():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        async for user in api.search.users("david teather", count=10):
+            print(user)
+
+
+if __name__ == "__main__":
+    asyncio.run(search_users())
+
+
+
+================================================
+FILE: examples/sound_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get("ms_token", None)  # set your own ms_token
+sound_id = "7016547803243022337"
+
+
+async def sound_videos():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        async for sound in api.sound(id=sound_id).videos(count=30):
+            print(sound)
+            print(sound.as_dict)
+
+
+if __name__ == "__main__":
+    asyncio.run(sound_videos())
+
+
+
+================================================
+FILE: examples/trending_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get("ms_token", None)  # set your own ms_token
+
+
+async def trending_videos():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        async for video in api.trending.videos(count=30):
+            print(video)
+            print(video.as_dict)
+
+
+if __name__ == "__main__":
+    asyncio.run(trending_videos())
+
+
+
+================================================
+FILE: examples/user_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get(
+    "ms_token", None
+)  # set your own ms_token, think it might need to have visited a profile
+
+
+async def user_example():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        user = api.user("therock")
+        user_data = await user.info()
+        print(user_data)
+
+        async for video in user.videos(count=30):
+            print(video)
+            print(video.as_dict)
+
+        async for playlist in user.playlists():
+            print(playlist)
+
+
+if __name__ == "__main__":
+    asyncio.run(user_example())
+
+
+
+================================================
+FILE: examples/video_example.py
+================================================
+from TikTokApi import TikTokApi
+import asyncio
+import os
+
+ms_token = os.environ.get(
+    "ms_token", None
+)  # set your own ms_token, think it might need to have visited a profile
+
+
+async def get_video_example():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"))
+        video = api.video(
+            url="https://www.tiktok.com/@davidteathercodes/video/7074717081563942186"
+        )
+
+        async for related_video in video.related_videos(count=10):
+            print(related_video)
+            print(related_video.as_dict)
+
+        video_info = await video.info()  # is HTML request, so avoid using this too much
+        print(video_info)
+        video_bytes = await video.bytes()
+        with open("video.mp4", "wb") as f:
+            f.write(video_bytes)
+
+
+if __name__ == "__main__":
+    asyncio.run(get_video_example())
+
+
+
+================================================
+FILE: tests/__init__.py
+================================================
+
+
+
+================================================
+FILE: tests/test_comments.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+video_id = 7248300636498890011
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_comment_page():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        video = api.video(id=video_id)
+        count = 0
+        async for comment in video.comments(count=100):
+            count += 1
+
+        assert count >= 100
+
+
+
+================================================
+FILE: tests/test_hashtag.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import logging
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_hashtag_videos():
+    api = TikTokApi(logging_level=logging.INFO)
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        tag = api.hashtag(name="funny")
+        video_count = 0
+        async for video in tag.videos(count=30):
+            video_count += 1
+
+        assert video_count >= 30
+
+
+@pytest.mark.asyncio
+async def test_hashtag_videos_multi_page():
+    api = TikTokApi(logging_level=logging.INFO)
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        tag = api.hashtag(name="funny", id="5424")
+        video_count = 0
+        async for video in tag.videos(count=100):
+            video_count += 1
+
+        assert video_count >= 30
+
+
+@pytest.mark.asyncio
+async def test_hashtag_info():
+    api = TikTokApi(logging_level=logging.INFO)
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        tag = api.hashtag(name="funny")
+        await tag.info()
+
+        assert tag.id == "5424"
+        assert tag.name == "funny"
+
+
+@pytest.mark.asyncio
+async def test_non_latin1():
+    api = TikTokApi(logging_level=logging.INFO)
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        tag = api.hashtag(name="селфи")
+        await tag.info()
+
+        assert tag.name == "селфи"
+        assert tag.id == "4385126"
+
+
+
+================================================
+FILE: tests/test_integration.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_hashtag_videos():
+    async with TikTokApi() as api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        tag_name = "funny"
+        count = 0
+        async for video in api.hashtag(name=tag_name).videos(count=1):
+            count += 1
+            tag_included = False
+            for tag in video.hashtags:
+                if tag.name == tag_name:
+                    tag_included = True
+
+            assert tag_included
+
+            # Test sound on video.
+            assert video.sound is not None
+            assert video.sound.id is not None
+
+            # Test author.
+            assert video.author is not None
+            assert video.author.user_id is not None
+            assert video.author.sec_uid is not None
+
+        assert count > 0
+
+
+
+================================================
+FILE: tests/test_playlist.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+playlist_id="7281443725770476321"
+playlist_name="Doctor Who"
+playlist_creator="bbc"
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_playlist_info():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, headless=headless)
+        playlist = api.playlist(id=playlist_id)
+        await playlist.info()
+
+        assert playlist.id == playlist_id
+        assert playlist.name == playlist_name
+        assert playlist.creator.username == playlist_creator
+        assert playlist.video_count > 0
+        assert playlist.cover_url is not None
+        assert playlist.as_dict is not None
+
+@pytest.mark.asyncio
+async def test_playlist_videos():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, headless=headless)
+        playlist = api.playlist(id=playlist_id)
+
+        count = 0
+        async for video in playlist.videos(count=30):
+            count += 1
+
+        assert count >= 30
+
+
+
+================================================
+FILE: tests/test_search.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+@pytest.mark.asyncio
+async def test_users_single_page():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        count = 0
+        async for user in api.search.users("therock", count=10):
+            count += 1
+
+        assert count >= 10
+
+#@pytest.mark.asyncio
+@pytest.mark.skip(reason="Known issue, see #1088 (https://github.com/davidteather/TikTok-Api/issues/1088)")
+async def test_users_multi_page():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        count = 0
+        async for user in api.search.users("therock", count=50):
+            count += 1
+
+        assert count >= 50
+
+
+
+================================================
+FILE: tests/test_sound.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+song_id = "7016547803243022337"
+
+
+@pytest.mark.asyncio
+async def test_sound_videos():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        sound = api.sound(id=song_id)
+        video_count = 0
+        async for video in sound.videos(count=100):
+            video_count += 1
+
+        assert video_count >= 100
+
+
+@pytest.mark.asyncio
+async def test_sound_info():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        sound = api.sound(id=song_id)
+        await sound.info()
+        assert sound.id == song_id
+        assert sound.title == "Face Off - Dwayne Johnson"
+        assert sound.duration == 60
+
+
+
+================================================
+FILE: tests/test_trending.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_trending():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        count = 0
+        async for video in api.trending.videos(count=100):
+            count += 1
+
+        assert count >= 100
+
+
+
+================================================
+FILE: tests/test_user.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+username = "charlidamelio"
+user_id = "5831967"
+sec_uid = "MS4wLjABAAAA-VASjiXTh7wDDyXvjk10VFhMWUAoxr8bgfO1kAL1-9s"
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_user_info():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        user = api.user(username=username)
+        await user.info()
+
+        assert user.username == username
+        assert user.user_id == user_id
+        assert user.sec_uid == sec_uid
+
+@pytest.mark.asyncio
+async def test_user_videos():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        user = api.user(username=username, sec_uid=sec_uid, user_id=user_id)
+
+        count = 0
+        async for video in user.videos(count=30):
+            count += 1
+
+        assert count >= 30
+
+@pytest.mark.asyncio
+async def test_user_likes():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        user = api.user(
+            username="publicliketest",
+            sec_uid="MS4wLjABAAAAHjhwCIwmvzVZfRrDAZ2aZy74LciLnoyaPfM2rrX9N7bwbWMFuwTFG4YrByYvsH5c",
+        )
+
+        count = 0
+        async for video in user.liked(count=30):
+            count += 1
+
+        assert count >= 30
+
+@pytest.mark.asyncio
+async def test_user_playlists():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        user = api.user(username="mrbeast")
+
+        count = 0
+        async for playlist in user.playlists(count=5):
+            count += 1
+        
+        assert count >= 5
+
+
+
+================================================
+FILE: tests/test_video.py
+================================================
+from TikTokApi import TikTokApi
+import os
+import pytest
+
+ms_token = os.environ.get("ms_token", None)
+headless = os.environ.get("headless", "True").lower() == "true"
+
+
+@pytest.mark.asyncio
+async def test_video_id_from_url():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+
+        expected_id = "7074717081563942186"
+        video = api.video(
+            url="https://www.tiktok.com/@davidteathercodes/video/7074717081563942186"
+        )
+
+        assert video.id == expected_id
+
+        # mobile_url = "https://www.tiktok.com/t/ZT8LCfcUC/"
+        # video = api.video(url=mobile_url)
+
+        # assert video.id == expected_id
+
+
+@pytest.mark.asyncio
+async def test_video_info():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        video_id = "7074717081563942186"
+        video = api.video(
+            url="https://www.tiktok.com/@davidteathercodes/video/7074717081563942186"
+        )
+
+        data = await video.info()
+
+        assert data["id"] == video_id
+        video.author.username = "davidteathercodes"
+
+
+@pytest.mark.asyncio
+async def test_video_bytes():
+    pytest.skip("Not implemented yet")
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        video_id = "7107272719166901550"
+        video = api.video(id=video_id)
+
+        data = await video.bytes()
+        assert len(data) > 10000
+
+
+@pytest.mark.asyncio
+async def test_related_videos():
+    api = TikTokApi()
+    async with api:
+        await api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, browser=os.getenv("TIKTOK_BROWSER", "chromium"), headless=headless)
+        video_id = "7107272719166901550"
+        video = api.video(id=video_id)
+        count = 0
+        async for related_video in video.related_videos(count=10):
+            print(related_video)
+            count += 1
+
+        assert count >= 10
+
+
+
+================================================
+FILE: TikTokApi/__init__.py
+================================================
+from TikTokApi.tiktok import TikTokApi, TikTokPlaywrightSession
+
+
+
+================================================
+FILE: TikTokApi/exceptions.py
+================================================
+class TikTokException(Exception):
+    """Generic exception that all other TikTok errors are children of."""
+
+    def __init__(self, raw_response, message, error_code=None):
+        self.error_code = error_code
+        self.raw_response = raw_response
+        self.message = message
+        super().__init__(self.message)
+
+    def __str__(self):
+        return f"{self.error_code} -> {self.message}"
+
+
+class CaptchaException(TikTokException):
+    """TikTok is showing captcha"""
+
+
+class NotFoundException(TikTokException):
+    """TikTok indicated that this object does not exist."""
+
+
+class EmptyResponseException(TikTokException):
+    """TikTok sent back an empty response."""
+
+
+class SoundRemovedException(TikTokException):
+    """This TikTok sound has no id from being removed by TikTok."""
+
+
+class InvalidJSONException(TikTokException):
+    """TikTok returned invalid JSON."""
+
+
+class InvalidResponseException(TikTokException):
+    """The response from TikTok was invalid."""
+
+
+
+================================================
+FILE: TikTokApi/helpers.py
+================================================
+from .exceptions import *
+
+import requests
+import random
+
+
+def extract_video_id_from_url(url, headers={}, proxy=None):
+    url = requests.head(
+        url=url, allow_redirects=True, headers=headers, proxies=proxy
+    ).url
+    if "@" in url and "/video/" in url:
+        return url.split("/video/")[1].split("?")[0]
+    else:
+        raise TypeError(
+            "URL format not supported. Below is an example of a supported url.\n"
+            "https://www.tiktok.com/@therock/video/6829267836783971589"
+        )
+
+
+def random_choice(choices: list):
+    """Return a random choice from a list, or None if the list is empty"""
+    if choices is None or len(choices) == 0:
+        return None
+    return random.choice(choices)
+
+def requests_cookie_to_playwright_cookie(req_c):
+    c = {
+        'name': req_c.name,
+        'value': req_c.value,
+        'domain': req_c.domain,
+        'path': req_c.path,
+        'secure': req_c.secure
+    }
+    if req_c.expires:
+        c['expires'] = req_c.expires
+    return c
+
+
+
+================================================
+FILE: TikTokApi/tiktok.py
+================================================
+import asyncio
+import logging
+import dataclasses
+from typing import Any
+import random
+import time
+import json
+
+from playwright.async_api import async_playwright, TimeoutError
+from urllib.parse import urlencode, quote, urlparse
+from .stealth import stealth_async
+from .helpers import random_choice
+
+from .api.user import User
+from .api.video import Video
+from .api.sound import Sound
+from .api.hashtag import Hashtag
+from .api.comment import Comment
+from .api.trending import Trending
+from .api.search import Search
+from .api.playlist import Playlist
+
+from .exceptions import (
+    InvalidJSONException,
+    EmptyResponseException,
+)
+
+
+@dataclasses.dataclass
+class TikTokPlaywrightSession:
+    """A TikTok session using Playwright"""
+
+    context: Any
+    page: Any
+    proxy: str = None
+    params: dict = None
+    headers: dict = None
+    ms_token: str = None
+    base_url: str = "https://www.tiktok.com"
+
+
+class TikTokApi:
+    """The main TikTokApi class that contains all the endpoints.
+
+    Import With:
+        .. code-block:: python
+
+            from TikTokApi import TikTokApi
+            api = TikTokApi()
+    """
+
+    user = User
+    video = Video
+    sound = Sound
+    hashtag = Hashtag
+    comment = Comment
+    trending = Trending
+    search = Search
+    playlist = Playlist
+
+    def __init__(self, logging_level: int = logging.WARN, logger_name: str = None):
+        """
+        Create a TikTokApi object.
+
+        Args:
+            logging_level (int): The logging level you want to use.
+            logger_name (str): The name of the logger you want to use.
+        """
+        self.sessions = []
+
+        if logger_name is None:
+            logger_name = __name__
+        self.__create_logger(logger_name, logging_level)
+
+        User.parent = self
+        Video.parent = self
+        Sound.parent = self
+        Hashtag.parent = self
+        Comment.parent = self
+        Trending.parent = self
+        Search.parent = self
+        Playlist.parent = self
+
+    def __create_logger(self, name: str, level: int = logging.DEBUG):
+        """Create a logger for the class."""
+        self.logger: logging.Logger = logging.getLogger(name)
+        self.logger.setLevel(level)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
+
+    async def __set_session_params(self, session: TikTokPlaywrightSession):
+        """Set the session params for a TikTokPlaywrightSession"""
+        user_agent = await session.page.evaluate("() => navigator.userAgent")
+        language = await session.page.evaluate(
+            "() => navigator.language || navigator.userLanguage"
+        )
+        platform = await session.page.evaluate("() => navigator.platform")
+        device_id = str(random.randint(10**18, 10**19 - 1))  # Random device id
+        history_len = str(random.randint(1, 10))  # Random history length
+        screen_height = str(random.randint(600, 1080))  # Random screen height
+        screen_width = str(random.randint(800, 1920))  # Random screen width
+        timezone = await session.page.evaluate(
+            "() => Intl.DateTimeFormat().resolvedOptions().timeZone"
+        )
+
+        session_params = {
+            "aid": "1988",
+            "app_language": language,
+            "app_name": "tiktok_web",
+            "browser_language": language,
+            "browser_name": "Mozilla",
+            "browser_online": "true",
+            "browser_platform": platform,
+            "browser_version": user_agent,
+            "channel": "tiktok_web",
+            "cookie_enabled": "true",
+            "device_id": device_id,
+            "device_platform": "web_pc",
+            "focus_state": "true",
+            "from_page": "user",
+            "history_len": history_len,
+            "is_fullscreen": "false",
+            "is_page_visible": "true",
+            "language": language,
+            "os": platform,
+            "priority_region": "",
+            "referer": "",
+            "region": "US",  # TODO: TikTokAPI option
+            "screen_height": screen_height,
+            "screen_width": screen_width,
+            "tz_name": timezone,
+            "webcast_language": language,
+        }
+        session.params = session_params
+
+    async def __create_session(
+        self,
+        url: str = "https://www.tiktok.com",
+        ms_token: str = None,
+        proxy: str = None,
+        context_options: dict = {},
+        sleep_after: int = 1,
+        cookies: dict = None,
+        suppress_resource_load_types: list[str] = None,
+        timeout: int = 30000,
+    ):
+        try:
+            """Create a TikTokPlaywrightSession"""
+            if ms_token is not None:
+                if cookies is None:
+                    cookies = {}
+                cookies["msToken"] = ms_token
+    
+            context = await self.browser.new_context(proxy=proxy, **context_options)
+            if cookies is not None:
+                formatted_cookies = [
+                    {"name": k, "value": v, "domain": urlparse(url).netloc, "path": "/"}
+                    for k, v in cookies.items()
+                    if v is not None
+                ]
+                await context.add_cookies(formatted_cookies)
+            page = await context.new_page()
+            await stealth_async(page)
+    
+            # Get the request headers to the url
+            request_headers = None
+    
+            def handle_request(request):
+                nonlocal request_headers
+                request_headers = request.headers
+    
+            page.once("request", handle_request)
+    
+            if suppress_resource_load_types is not None:
+                await page.route(
+                    "**/*",
+                    lambda route, request: route.abort()
+                    if request.resource_type in suppress_resource_load_types
+                    else route.continue_(),
+                )
+            
+            # Set the navigation timeout
+            page.set_default_navigation_timeout(timeout)
+    
+            await page.goto(url)
+            await page.goto(url) # hack: tiktok blocks first request not sure why, likely bot detection
+            
+            # by doing this, we are simulate scroll event using mouse to `avoid` bot detection
+            x, y = random.randint(0, 50), random.randint(0, 50)
+            a, b = random.randint(1, 50), random.randint(100, 200)
+    
+            await page.mouse.move(x, y)
+            await page.wait_for_load_state("networkidle")
+            await page.mouse.move(a, b)
+    
+            session = TikTokPlaywrightSession(
+                context,
+                page,
+                ms_token=ms_token,
+                proxy=proxy,
+                headers=request_headers,
+                base_url=url,
+            )
+
+            if ms_token is None:
+                await asyncio.sleep(sleep_after)  # TODO: Find a better way to wait for msToken
+                cookies = await self.get_session_cookies(session)
+                ms_token = cookies.get("msToken")
+                session.ms_token = ms_token
+                if ms_token is None:
+                    self.logger.info(
+                        f"Failed to get msToken on session index {len(self.sessions)}, you should consider specifying ms_tokens"
+                    )
+            self.sessions.append(session)
+            await self.__set_session_params(session)
+        except Exception as e:
+            # clean up
+            self.logger.error(f"Failed to create session: {e}")
+            # Cleanup resources if they were partially created
+            if 'page' in locals():
+                await page.close()
+            if 'context' in locals():
+                await context.close()
+            raise  # Re-raise the exception after cleanup
+
+    async def create_sessions(
+        self,
+        num_sessions=5,
+        headless=True,
+        ms_tokens: list[str] = None,
+        proxies: list = None,
+        sleep_after=1,
+        starting_url="https://www.tiktok.com",
+        context_options: dict = {},
+        override_browser_args: list[dict] = None,
+        cookies: list[dict] = None,
+        suppress_resource_load_types: list[str] = None,
+        browser: str = "chromium",
+        executable_path: str = None,
+        timeout: int = 30000,
+    ):
+        """
+        Create sessions for use within the TikTokApi class.
+
+        These sessions are what will carry out requesting your data from TikTok.
+
+        Args:
+            num_sessions (int): The amount of sessions you want to create.
+            headless (bool): Whether or not you want the browser to be headless.
+            ms_tokens (list[str]): A list of msTokens to use for the sessions, you can get these from your cookies after visiting TikTok.
+                                   If you don't provide any, the sessions will try to get them themselves, but this is not guaranteed to work.
+            proxies (list): A list of proxies to use for the sessions
+            sleep_after (int): The amount of time to sleep after creating a session, this is to allow the msToken to be generated.
+            starting_url (str): The url to start the sessions on, this is usually https://www.tiktok.com.
+            context_options (dict): Options to pass to the playwright context.
+            override_browser_args (list[dict]): A list of dictionaries containing arguments to pass to the browser.
+            cookies (list[dict]): A list of cookies to use for the sessions, you can get these from your cookies after visiting TikTok.
+            suppress_resource_load_types (list[str]): Types of resources to suppress playwright from loading, excluding more types will make playwright faster.. Types: document, stylesheet, image, media, font, script, textrack, xhr, fetch, eventsource, websocket, manifest, other.
+            browser (str): firefox, chromium, or webkit; default is chromium
+            executable_path (str): Path to the browser executable
+            timeout (int): The timeout in milliseconds for page navigation
+
+        Example Usage:
+            .. code-block:: python
+
+                from TikTokApi import TikTokApi
+                with TikTokApi() as api:
+                    await api.create_sessions(num_sessions=5, ms_tokens=['msToken1', 'msToken2'])
+        """
+        self.playwright = await async_playwright().start()
+        if browser == "chromium":
+            if headless and override_browser_args is None:
+                override_browser_args = ["--headless=new"]
+                headless = False  # managed by the arg
+            self.browser = await self.playwright.chromium.launch(
+                headless=headless, args=override_browser_args, proxy=random_choice(proxies), executable_path=executable_path
+            )
+        elif browser == "firefox":
+            self.browser = await self.playwright.firefox.launch(
+                headless=headless, args=override_browser_args, proxy=random_choice(proxies), executable_path=executable_path
+            )
+        elif browser == "webkit":
+            self.browser = await self.playwright.webkit.launch(
+                headless=headless, args=override_browser_args, proxy=random_choice(proxies), executable_path=executable_path
+            )
+        else:
+            raise ValueError("Invalid browser argument passed")
+
+        await asyncio.gather(
+            *(
+                self.__create_session(
+                    proxy=random_choice(proxies),
+                    ms_token=random_choice(ms_tokens),
+                    url=starting_url,
+                    context_options=context_options,
+                    sleep_after=sleep_after,
+                    cookies=random_choice(cookies),
+                    suppress_resource_load_types=suppress_resource_load_types,
+                    timeout=timeout,
+                )
+                for _ in range(num_sessions)
+            )
+        )
+
+    async def close_sessions(self):
+        """
+        Close all the sessions. Should be called when you're done with the TikTokApi object
+
+        This is called automatically when using the TikTokApi with "with"
+        """
+        for session in self.sessions:
+            await session.page.close()
+            await session.context.close()
+        self.sessions.clear()
+
+        await self.browser.close()
+        await self.playwright.stop()
+
+    def generate_js_fetch(self, method: str, url: str, headers: dict) -> str:
+        """Generate a javascript fetch function for use in playwright"""
+        headers_js = json.dumps(headers)
+        return f"""
+            () => {{
+                return new Promise((resolve, reject) => {{
+                    fetch('{url}', {{ method: '{method}', headers: {headers_js} }})
+                        .then(response => response.text())
+                        .then(data => resolve(data))
+                        .catch(error => reject(error.message));
+                }});
+            }}
+        """
+
+    def _get_session(self, **kwargs):
+        """Get a random session
+
+        Args:
+            session_index (int): The index of the session you want to use, if not provided a random session will be used.
+
+        Returns:
+            int: The index of the session.
+            TikTokPlaywrightSession: The session.
+        """
+        if len(self.sessions) == 0:
+            raise Exception("No sessions created, please create sessions first")
+
+        if kwargs.get("session_index") is not None:
+            i = kwargs["session_index"]
+        else:
+            i = random.randint(0, len(self.sessions) - 1)
+        return i, self.sessions[i]
+
+    async def set_session_cookies(self, session, cookies):
+        """
+        Set the cookies for a session
+
+        Args:
+            session (TikTokPlaywrightSession): The session to set the cookies for.
+            cookies (dict): The cookies to set for the session.
+        """
+        await session.context.add_cookies(cookies)
+
+    async def get_session_cookies(self, session):
+        """
+        Get the cookies for a session
+
+        Args:
+            session (TikTokPlaywrightSession): The session to get the cookies for.
+
+        Returns:
+            dict: The cookies for the session.
+        """
+        cookies = await session.context.cookies()
+        return {cookie["name"]: cookie["value"] for cookie in cookies}
+
+    async def run_fetch_script(self, url: str, headers: dict, **kwargs):
+        """
+        Execute a javascript fetch function in a session
+
+        Args:
+            url (str): The url to fetch.
+            headers (dict): The headers to use for the fetch.
+
+        Returns:
+            any: The result of the fetch. Seems to be a string or dict
+        """
+        js_script = self.generate_js_fetch("GET", url, headers)
+        _, session = self._get_session(**kwargs)
+        result = await session.page.evaluate(js_script)
+        return result
+
+    async def generate_x_bogus(self, url: str, **kwargs):
+        """Generate the X-Bogus header for a url"""
+        _, session = self._get_session(**kwargs)
+
+        max_attempts = 5
+        attempts = 0
+        while attempts < max_attempts:
+            attempts += 1
+            try:
+                timeout_time = random.randint(5000, 20000)
+                await session.page.wait_for_function("window.byted_acrawler !== undefined", timeout=timeout_time)
+                break
+            except TimeoutError as e:
+                if attempts == max_attempts:
+                    raise TimeoutError(f"Failed to load tiktok after {max_attempts} attempts, consider using a proxy")
+                
+                try_urls = ["https://www.tiktok.com/foryou", "https://www.tiktok.com", "https://www.tiktok.com/@tiktok", "https://www.tiktok.com/foryou"]
+
+                await session.page.goto(random.choice(try_urls))
+        
+        result = await session.page.evaluate(
+            f'() => {{ return window.byted_acrawler.frontierSign("{url}") }}'
+        )
+        return result
+
+    async def sign_url(self, url: str, **kwargs):
+        """Sign a url"""
+        i, session = self._get_session(**kwargs)
+
+        # TODO: Would be nice to generate msToken here
+
+        # Add X-Bogus to url
+        x_bogus = (await self.generate_x_bogus(url, session_index=i)).get("X-Bogus")
+        if x_bogus is None:
+            raise Exception("Failed to generate X-Bogus")
+
+        if "?" in url:
+            url += "&"
+        else:
+            url += "?"
+        url += f"X-Bogus={x_bogus}"
+
+        return url
+
+    async def make_request(
+        self,
+        url: str,
+        headers: dict = None,
+        params: dict = None,
+        retries: int = 3,
+        exponential_backoff: bool = True,
+        **kwargs,
+    ):
+        """
+        Makes a request to TikTok through a session.
+
+        Args:
+            url (str): The url to make the request to.
+            headers (dict): The headers to use for the request.
+            params (dict): The params to use for the request.
+            retries (int): The amount of times to retry the request if it fails.
+            exponential_backoff (bool): Whether or not to use exponential backoff when retrying the request.
+            session_index (int): The index of the session you want to use, if not provided a random session will be used.
+
+        Returns:
+            dict: The json response from TikTok.
+
+        Raises:
+            Exception: If the request fails.
+        """
+        i, session = self._get_session(**kwargs)
+        if session.params is not None:
+            params = {**session.params, **params}
+
+        if headers is not None:
+            headers = {**session.headers, **headers}
+        else:
+            headers = session.headers
+
+        # get msToken
+        if params.get("msToken") is None:
+            # try to get msToken from session
+            if session.ms_token is not None:
+                params["msToken"] = session.ms_token
+            else:
+                # we'll try to read it from cookies
+                cookies = await self.get_session_cookies(session)
+                ms_token = cookies.get("msToken")
+                if ms_token is None:
+                    self.logger.warn(
+                        "Failed to get msToken from cookies, trying to make the request anyway (probably will fail)"
+                    )
+                params["msToken"] = ms_token
+
+        encoded_params = f"{url}?{urlencode(params, safe='=', quote_via=quote)}"
+        signed_url = await self.sign_url(encoded_params, session_index=i)
+
+        retry_count = 0
+        while retry_count < retries:
+            retry_count += 1
+            result = await self.run_fetch_script(
+                signed_url, headers=headers, session_index=i
+            )
+
+            if result is None:
+                raise Exception("TikTokApi.run_fetch_script returned None")
+
+            if result == "":
+                raise EmptyResponseException(result, "TikTok returned an empty response. They are detecting you're a bot, try some of these: headless=False, browser='webkit', consider using a proxy")
+
+            try:
+                data = json.loads(result)
+                if data.get("status_code") != 0:
+                    self.logger.error(f"Got an unexpected status code: {data}")
+                return data
+            except json.decoder.JSONDecodeError:
+                if retry_count == retries:
+                    self.logger.error(f"Failed to decode json response: {result}")
+                    raise InvalidJSONException()
+
+                self.logger.info(
+                    f"Failed a request, retrying ({retry_count}/{retries})"
+                )
+                if exponential_backoff:
+                    await asyncio.sleep(2**retry_count)
+                else:
+                    await asyncio.sleep(1)
+
+    async def close_sessions(self):
+        """Close all the sessions. Should be called when you're done with the TikTokApi object"""
+        for session in self.sessions:
+            await session.page.close()
+            await session.context.close()
+        self.sessions.clear()
+
+    async def stop_playwright(self):
+        """Stop the playwright browser"""
+        await self.browser.close()
+        await self.playwright.stop()
+
+    async def get_session_content(self, url: str, **kwargs):
+        """Get the content of a url"""
+        _, session = self._get_session(**kwargs)
+        return await session.page.content()
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.close_sessions()
+        await self.stop_playwright()
+
+
+
+================================================
+FILE: TikTokApi/api/__init__.py
+================================================
+
+
+
+================================================
+FILE: TikTokApi/api/comment.py
+================================================
+from __future__ import annotations
+
+from typing import ClassVar, AsyncIterator, Optional
+from typing import TYPE_CHECKING, ClassVar, Optional
+
+from TikTokApi.exceptions import InvalidResponseException
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .user import User
+
+
+class Comment:
+    """
+    A TikTok Comment.
+
+    Example Usage
+        .. code-block:: python
+
+            for comment in video.comments:
+                print(comment.text)
+                print(comment.as_dict)
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    id: str
+    """The id of the comment"""
+    author: ClassVar[User]
+    """The author of the comment"""
+    text: str
+    """The contents of the comment"""
+    likes_count: int
+    """The amount of likes of the comment"""
+    as_dict: dict
+    """The raw data associated with this comment"""
+
+    def __init__(self, data: Optional[dict] = None):
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+
+    def __extract_from_data(self):
+        data = self.as_dict
+        self.id = self.as_dict["cid"]
+        self.text = self.as_dict["text"]
+
+        usr = self.as_dict["user"]
+        self.author = self.parent.user(
+            user_id=usr["uid"], username=usr["unique_id"], sec_uid=usr["sec_uid"]
+        )
+        self.likes_count = self.as_dict["digg_count"]
+
+    async def replies(self, count=20, cursor=0, **kwargs) -> AsyncIterator[Comment]:
+        found = 0
+
+        while found < count:
+            params = {
+                "count": 20,
+                "cursor": cursor,
+                "item_id": self.author.user_id,
+                "comment_id": self.id,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/comment/list/reply/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for comment in resp.get("comments", []):
+                yield self.parent.comment(data=comment)
+                found += 1
+
+            if not resp.get("has_more", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        id = getattr(self, "id", None)
+        text = getattr(self, "text", None)
+        return f"TikTokApi.comment(comment_id='{id}', text='{text}')"
+
+
+
+================================================
+FILE: TikTokApi/api/hashtag.py
+================================================
+from __future__ import annotations
+from ..exceptions import *
+
+from typing import TYPE_CHECKING, ClassVar, AsyncIterator, Optional
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .video import Video
+
+
+class Hashtag:
+    """
+    A TikTok Hashtag/Challenge.
+
+    Example Usage
+        .. code-block:: python
+
+            hashtag = api.hashtag(name='funny')
+            async for video in hashtag.videos():
+                print(video.id)
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    id: Optional[str]
+    """The ID of the hashtag"""
+    name: Optional[str]
+    """The name of the hashtag (omiting the #)"""
+    as_dict: dict
+    """The raw data associated with this hashtag."""
+
+    def __init__(
+        self,
+        name: Optional[str] = None,
+        id: Optional[str] = None,
+        data: Optional[dict] = None,
+    ):
+        """
+        You must provide the name or id of the hashtag.
+        """
+
+        if name is not None:
+            self.name = name
+        if id is not None:
+            self.id = id
+
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+
+    async def info(self, **kwargs) -> dict:
+        """
+        Returns all information sent by TikTok related to this hashtag.
+
+        Example Usage
+            .. code-block:: python
+
+                hashtag = api.hashtag(name='funny')
+                hashtag_data = await hashtag.info()
+        """
+        if not self.name:
+            raise TypeError(
+                "You must provide the name when creating this class to use this method."
+            )
+
+        url_params = {
+            "challengeName": self.name,
+            "msToken": kwargs.get("ms_token"),
+        }
+
+        resp = await self.parent.make_request(
+            url="https://www.tiktok.com/api/challenge/detail/",
+            params=url_params,
+            headers=kwargs.get("headers"),
+            session_index=kwargs.get("session_index"),
+        )
+
+        if resp is None:
+            raise InvalidResponseException(resp, "TikTok returned an invalid response.")
+
+        self.as_dict = resp
+        self.__extract_from_data()
+        return resp
+
+    async def videos(self, count=30, cursor=0, **kwargs) -> AsyncIterator[Video]:
+        """
+        Returns TikTok videos that have this hashtag in the caption.
+
+        Args:
+            count (int): The amount of videos you want returned.
+            cursor (int): The the offset of videos from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for video in api.hashtag(name='funny').videos():
+                    # do something
+        """
+
+        id = getattr(self, "id", None)
+        if id is None:
+            await self.info(**kwargs)
+
+        found = 0
+        while found < count:
+            params = {
+                "challengeID": self.id,
+                "count": 35,
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/challenge/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    def __extract_from_data(self):
+        data = self.as_dict
+        keys = data.keys()
+
+        if "title" in keys:
+            self.id = data["id"]
+            self.name = data["title"]
+
+        if "challengeInfo" in keys:
+            if "challenge" in data["challengeInfo"]:
+                self.id = data["challengeInfo"]["challenge"]["id"]
+                self.name = data["challengeInfo"]["challenge"]["title"]
+                self.split_name = data["challengeInfo"]["challenge"].get("splitTitle")
+
+            if "stats" in data["challengeInfo"]:
+                self.stats = data["challengeInfo"]["stats"]
+
+        id = getattr(self, "id", None)
+        name = getattr(self, "name", None)
+        if None in (id, name):
+            Hashtag.parent.logger.error(
+                f"Failed to create Hashtag with data: {data}\nwhich has keys {data.keys()}"
+            )
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return f"TikTokApi.hashtag(id='{getattr(self, 'id', None)}', name='{getattr(self, 'name', None)}')"
+
+
+
+================================================
+FILE: TikTokApi/api/playlist.py
+================================================
+from __future__ import annotations
+from typing import TYPE_CHECKING, ClassVar, AsyncIterator, Optional
+from ..exceptions import InvalidResponseException
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .video import Video
+    from .user import User
+
+
+class Playlist:
+    """
+    A TikTok video playlist.
+
+    Example Usage:
+        .. code-block:: python
+
+            playlist = api.playlist(id='7426714779919797038')
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    id: Optional[str]
+    """The ID of the playlist."""
+    name: Optional[str]
+    """The name of the playlist."""
+    video_count: Optional[int]
+    """The video count of the playlist."""
+    creator: Optional[User]
+    """The creator of the playlist."""
+    cover_url: Optional[str]
+    """The cover URL of the playlist."""
+    as_dict: dict
+    """The raw data associated with this Playlist."""
+
+    def __init__(
+        self,
+        id: Optional[str] = None,
+        data: Optional[dict] = None,
+    ):
+        """
+        You must provide the playlist id or playlist data otherwise this
+        will not function correctly.
+        """
+
+        if id is None and data.get("id") is None:
+            raise TypeError("You must provide id parameter.")
+
+        self.id = id
+
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+
+    async def info(self, **kwargs) -> dict:
+        """
+        Returns a dictionary of information associated with this Playlist.
+
+        Returns:
+            dict: A dictionary of information associated with this Playlist.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                user_data = await api.playlist(id='7426714779919797038').info()
+        """
+
+        id = getattr(self, "id", None)
+        if not id:
+            raise TypeError(
+                "You must provide the playlist id when creating this class to use this method."
+            )
+
+        url_params = {
+            "mixId": id,
+            "msToken": kwargs.get("ms_token"),
+        }
+
+        resp = await self.parent.make_request(
+            url="https://www.tiktok.com/api/mix/detail/",
+            params=url_params,
+            headers=kwargs.get("headers"),
+            session_index=kwargs.get("session_index"),
+        )
+
+        if resp is None:
+            raise InvalidResponseException(resp, "TikTok returned an invalid response.")
+
+        self.as_dict = resp["mixInfo"]
+        self.__extract_from_data()
+        return resp
+
+    async def videos(self, count=30, cursor=0, **kwargs) -> AsyncIterator[Video]:
+        """
+        Returns an iterator of videos in this User's playlist.
+
+        Returns:
+            Iterator[dict]: An iterator of videos in this User's playlist.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                playlist_videos = await api.playlist(id='7426714779919797038').videos()
+        """
+        id = getattr(self, "id", None)
+        if id is None or id == "":
+            await self.info(**kwargs)
+
+        found = 0
+        while found < count:
+            params = {
+              "mixId": id,
+              "count": min(count, 30),
+              "cursor": cursor,
+          }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/mix/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    def __extract_from_data(self):
+        data = self.as_dict
+        keys = data.keys()
+
+        if "mixInfo" in keys:
+            data = data["mixInfo"]
+
+        self.id = data.get("id", None) or data.get("mixId", None)
+        self.name = data.get("name", None) or data.get("mixName", None)
+        self.video_count = data.get("videoCount", None)
+        self.creator = self.parent.user(data=data.get("creator", {}))
+        self.cover_url = data.get("cover", None)
+
+        if None in [self.id, self.name, self.video_count, self.creator, self.cover_url]:
+            User.parent.logger.error(
+                f"Failed to create Playlist with data: {data}\nwhich has keys {data.keys()}"
+            )
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        id = getattr(self, "id", None)
+        return f"TikTokApi.playlist(id='{id}'')"
+
+
+
+================================================
+FILE: TikTokApi/api/search.py
+================================================
+from __future__ import annotations
+from urllib.parse import urlencode
+from typing import TYPE_CHECKING, AsyncIterator
+from .user import User
+from ..exceptions import InvalidResponseException
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+
+
+class Search:
+    """Contains static methods about searching TikTok for a phrase."""
+
+    parent: TikTokApi
+
+    @staticmethod
+    async def users(search_term, count=10, cursor=0, **kwargs) -> AsyncIterator[User]:
+        """
+        Searches for users.
+
+        Note: Your ms_token needs to have done a search before for this to work.
+
+        Args:
+            search_term (str): The phrase you want to search for.
+            count (int): The amount of users you want returned.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.user objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for user in api.search.users('david teather'):
+                    # do something
+        """
+        async for user in Search.search_type(
+            search_term, "user", count=count, cursor=cursor, **kwargs
+        ):
+            yield user
+
+    @staticmethod
+    async def search_type(
+        search_term, obj_type, count=10, cursor=0, **kwargs
+    ) -> AsyncIterator:
+        """
+        Searches for a specific type of object. But you shouldn't use this directly, use the other methods.
+
+        Note: Your ms_token needs to have done a search before for this to work.
+        Note: Currently only supports searching for users, other endpoints require auth.
+
+        Args:
+            search_term (str): The phrase you want to search for.
+            obj_type (str): The type of object you want to search for (user)
+            count (int): The amount of users you want returned.
+            cursor (int): The the offset of users from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for user in api.search.search_type('david teather', 'user'):
+                    # do something
+        """
+        found = 0
+        while found < count:
+            params = {
+                "keyword": search_term,
+                "cursor": cursor,
+                "from_page": "search",
+                "web_search_code": """{"tiktok":{"client_params_x":{"search_engine":{"ies_mt_user_live_video_card_use_libra":1,"mt_search_general_user_live_card":1}},"search_server":{}}}""",
+            }
+
+            resp = await Search.parent.make_request(
+                url=f"https://www.tiktok.com/api/search/{obj_type}/full/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            if obj_type == "user":
+                for user in resp.get("user_list", []):
+                    sec_uid = user.get("user_info").get("sec_uid")
+                    uid = user.get("user_info").get("user_id")
+                    username = user.get("user_info").get("unique_id")
+                    yield Search.parent.user(
+                        sec_uid=sec_uid, user_id=uid, username=username
+                    )
+                    found += 1
+
+            if not resp.get("has_more", False):
+                return
+
+            cursor = resp.get("cursor")
+
+
+
+================================================
+FILE: TikTokApi/api/sound.py
+================================================
+from __future__ import annotations
+from ..exceptions import *
+from typing import TYPE_CHECKING, ClassVar, Iterator, Optional
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .user import User
+    from .video import Video
+
+
+class Sound:
+    """
+    A TikTok Sound/Music/Song.
+
+    Example Usage
+        .. code-block:: python
+
+            song = api.song(id='7016547803243022337')
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    id: str
+    """TikTok's ID for the sound"""
+    title: Optional[str]
+    """The title of the song."""
+    author: Optional[User]
+    """The author of the song (if it exists)"""
+    duration: Optional[int]
+    """The duration of the song in seconds."""
+    original: Optional[bool]
+    """Whether the song is original or not."""
+
+    def __init__(self, id: Optional[str] = None, data: Optional[str] = None):
+        """
+        You must provide the id of the sound or it will not work.
+        """
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+        elif id is None:
+            raise TypeError("You must provide id parameter.")
+        else:
+            self.id = id
+
+    async def info(self, **kwargs) -> dict:
+        """
+        Returns all information sent by TikTok related to this sound.
+
+        Returns:
+            dict: The raw data returned by TikTok.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                sound_info = await api.sound(id='7016547803243022337').info()
+        """
+
+        id = getattr(self, "id", None)
+        if not id:
+            raise TypeError(
+                "You must provide the id when creating this class to use this method."
+            )
+
+        url_params = {
+            "msToken": kwargs.get("ms_token"),
+            "musicId": id,
+        }
+
+        resp = await self.parent.make_request(
+            url="https://www.tiktok.com/api/music/detail/",
+            params=url_params,
+            headers=kwargs.get("headers"),
+            session_index=kwargs.get("session_index"),
+        )
+
+        if resp is None:
+            raise InvalidResponseException(resp, "TikTok returned an invalid response.")
+
+        self.as_dict = resp
+        self.__extract_from_data()
+        return resp
+
+    async def videos(self, count=30, cursor=0, **kwargs) -> AsyncIterator[Video]:
+        """
+        Returns Video objects of videos created with this sound.
+
+        Args:
+            count (int): The amount of videos you want returned.
+            cursor (int): The the offset of videos from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for video in api.sound(id='7016547803243022337').videos():
+                    # do something
+        """
+        id = getattr(self, "id", None)
+        if id is None:
+            raise TypeError(
+                "You must provide the id when creating this class to use this method."
+            )
+
+        found = 0
+        while found < count:
+            params = {
+                "musicID": id,
+                "count": 30,
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/music/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    def __extract_from_data(self):
+        data = self.as_dict
+        keys = data.keys()
+
+        if "musicInfo" in keys:
+            author = data.get("musicInfo").get("author")
+            if isinstance(author, dict):
+                self.author = self.parent.user(data=author)
+            elif isinstance(author, str):
+                self.author = self.parent.user(username=author)
+
+            if data.get("musicInfo").get("music"):
+                self.title = data.get("musicInfo").get("music").get("title")
+                self.id = data.get("musicInfo").get("music").get("id")
+                self.original = data.get("musicInfo").get("music").get("original")
+                self.play_url = data.get("musicInfo").get("music").get("playUrl")
+                self.cover_large = data.get("musicInfo").get("music").get("coverLarge")
+                self.duration = data.get("musicInfo").get("music").get("duration")
+
+        if "music" in keys:
+            self.title = data.get("music").get("title")
+            self.id = data.get("music").get("id")
+            self.original = data.get("music").get("original")
+            self.play_url = data.get("music").get("playUrl")
+            self.cover_large = data.get("music").get("coverLarge")
+            self.duration = data.get("music").get("duration")
+
+        if "stats" in keys:
+            self.stats = data.get("stats")
+
+        if getattr(self, "id", None) is None:
+            Sound.parent.logger.error(f"Failed to create Sound with data: {data}\n")
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return f"TikTokApi.sound(id='{getattr(self, 'id', None)}')"
+
+
+
+================================================
+FILE: TikTokApi/api/trending.py
+================================================
+from __future__ import annotations
+from ..exceptions import InvalidResponseException
+from .video import Video
+
+from typing import TYPE_CHECKING, AsyncIterator
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+
+
+class Trending:
+    """Contains static methods related to trending objects on TikTok."""
+
+    parent: TikTokApi
+
+    @staticmethod
+    async def videos(count=30, **kwargs) -> AsyncIterator[Video]:
+        """
+        Returns Videos that are trending on TikTok.
+
+        Args:
+            count (int): The amount of videos you want returned.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for video in api.trending.videos():
+                    # do something
+        """
+        found = 0
+        while found < count:
+            params = {
+                "from_page": "fyp",
+                "count": count,
+            }
+
+            resp = await Trending.parent.make_request(
+                url="https://www.tiktok.com/api/recommend/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield Trending.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+
+
+================================================
+FILE: TikTokApi/api/user.py
+================================================
+from __future__ import annotations
+from typing import TYPE_CHECKING, ClassVar, AsyncIterator, Optional
+from ..exceptions import InvalidResponseException
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .video import Video
+    from .playlist import Playlist
+
+
+class User:
+    """
+    A TikTok User.
+
+    Example Usage:
+        .. code-block:: python
+
+            user = api.user(username='therock')
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    user_id: str
+    """The  ID of the user."""
+    sec_uid: str
+    """The sec UID of the user."""
+    username: str
+    """The username of the user."""
+    as_dict: dict
+    """The raw data associated with this user."""
+
+    def __init__(
+        self,
+        username: Optional[str] = None,
+        user_id: Optional[str] = None,
+        sec_uid: Optional[str] = None,
+        data: Optional[dict] = None,
+    ):
+        """
+        You must provide the username or (user_id and sec_uid) otherwise this
+        will not function correctly.
+        """
+        self.__update_id_sec_uid_username(user_id, sec_uid, username)
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+
+    async def info(self, **kwargs) -> dict:
+        """
+        Returns a dictionary of information associated with this User.
+
+        Returns:
+            dict: A dictionary of information associated with this User.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                user_data = await api.user(username='therock').info()
+        """
+
+        username = getattr(self, "username", None)
+        if not username:
+            raise TypeError(
+                "You must provide the username when creating this class to use this method."
+            )
+
+        sec_uid = getattr(self, "sec_uid", None)
+        url_params = {
+            "secUid": sec_uid if sec_uid is not None else "",
+            "uniqueId": username,
+            "msToken": kwargs.get("ms_token"),
+        }
+
+        resp = await self.parent.make_request(
+            url="https://www.tiktok.com/api/user/detail/",
+            params=url_params,
+            headers=kwargs.get("headers"),
+            session_index=kwargs.get("session_index"),
+        )
+
+        if resp is None:
+            raise InvalidResponseException(resp, "TikTok returned an invalid response.")
+
+        self.as_dict = resp
+        self.__extract_from_data()
+        return resp
+
+    async def playlists(self, count=20, cursor=0, **kwargs) -> AsyncIterator[Playlist]:
+        """
+        Returns a user's playlists.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.playlist objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for playlist in await api.user(username='therock').playlists():
+                    # do something
+        """
+
+        sec_uid = getattr(self, "sec_uid", None)
+        if sec_uid is None or sec_uid == "":
+            await self.info(**kwargs)
+        found = 0
+
+        while found < count:
+            params = {
+                "secUid": self.sec_uid,
+                "count": min(count, 20),
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/user/playlist",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(resp, "TikTok returned an invalid response.")
+
+            for playlist in resp.get("playList", []):
+                yield self.parent.playlist(data=playlist)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+
+    async def videos(self, count=30, cursor=0, **kwargs) -> AsyncIterator[Video]:
+        """
+        Returns a user's videos.
+
+        Args:
+            count (int): The amount of videos you want returned.
+            cursor (int): The the offset of videos from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for video in api.user(username="davidteathercodes").videos():
+                    # do something
+        """
+        sec_uid = getattr(self, "sec_uid", None)
+        if sec_uid is None or sec_uid == "":
+            await self.info(**kwargs)
+
+        found = 0
+        while found < count:
+            params = {
+                "secUid": self.sec_uid,
+                "count": 35,
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/post/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    async def liked(
+        self, count: int = 30, cursor: int = 0, **kwargs
+    ) -> AsyncIterator[Video]:
+        """
+        Returns a user's liked posts if public.
+
+        Args:
+            count (int): The amount of recent likes you want returned.
+            cursor (int): The the offset of likes from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, the user's likes are private, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                async for like in api.user(username="davidteathercodes").liked():
+                    # do something
+        """
+        sec_uid = getattr(self, "sec_uid", None)
+        if sec_uid is None or sec_uid == "":
+            await self.info(**kwargs)
+
+        found = 0
+        while found < count:
+            params = {
+                "secUid": self.sec_uid,
+                "count": 35,
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/favorite/item_list",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+            if not resp.get("hasMore", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    def __extract_from_data(self):
+        data = self.as_dict
+        keys = data.keys()
+
+        if "userInfo" in keys:
+            self.__update_id_sec_uid_username(
+                data["userInfo"]["user"]["id"],
+                data["userInfo"]["user"]["secUid"],
+                data["userInfo"]["user"]["uniqueId"],
+            )
+        else:
+            self.__update_id_sec_uid_username(
+                data["id"],
+                data["secUid"],
+                data["uniqueId"],
+            )
+
+        if None in (self.username, self.user_id, self.sec_uid):
+            User.parent.logger.error(
+                f"Failed to create User with data: {data}\nwhich has keys {data.keys()}"
+            )
+
+    def __update_id_sec_uid_username(self, id, sec_uid, username):
+        self.user_id = id
+        self.sec_uid = sec_uid
+        self.username = username
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        username = getattr(self, "username", None)
+        user_id = getattr(self, "user_id", None)
+        sec_uid = getattr(self, "sec_uid", None)
+        return f"TikTokApi.user(username='{username}', user_id='{user_id}', sec_uid='{sec_uid}')"
+
+
+
+================================================
+FILE: TikTokApi/api/video.py
+================================================
+from __future__ import annotations
+from ..helpers import extract_video_id_from_url, requests_cookie_to_playwright_cookie
+from typing import TYPE_CHECKING, ClassVar, AsyncIterator, Optional
+from datetime import datetime
+import requests
+from ..exceptions import InvalidResponseException
+import json
+import httpx
+from typing import Union, AsyncIterator
+
+if TYPE_CHECKING:
+    from ..tiktok import TikTokApi
+    from .user import User
+    from .sound import Sound
+    from .hashtag import Hashtag
+    from .comment import Comment
+
+
+class Video:
+    """
+    A TikTok Video class
+
+    Example Usage
+    ```py
+    video = api.video(id='7041997751718137094')
+    ```
+    """
+
+    parent: ClassVar[TikTokApi]
+
+    id: Optional[str]
+    """TikTok's ID of the Video"""
+    url: Optional[str]
+    """The URL of the Video"""
+    create_time: Optional[datetime]
+    """The creation time of the Video"""
+    stats: Optional[dict]
+    """TikTok's stats of the Video"""
+    author: Optional[User]
+    """The User who created the Video"""
+    sound: Optional[Sound]
+    """The Sound that is associated with the Video"""
+    hashtags: Optional[list[Hashtag]]
+    """A List of Hashtags on the Video"""
+    as_dict: dict
+    """The raw data associated with this Video."""
+
+    def __init__(
+        self,
+        id: Optional[str] = None,
+        url: Optional[str] = None,
+        data: Optional[dict] = None,
+        **kwargs,
+    ):
+        """
+        You must provide the id or a valid url, else this will fail.
+        """
+        self.id = id
+        self.url = url
+        if data is not None:
+            self.as_dict = data
+            self.__extract_from_data()
+        elif url is not None:
+            i, session = self.parent._get_session(**kwargs)
+            self.id = extract_video_id_from_url(
+                url,
+                headers=session.headers,
+                proxy=kwargs.get("proxy")
+                if kwargs.get("proxy") is not None
+                else session.proxy,
+            )
+
+        if getattr(self, "id", None) is None:
+            raise TypeError("You must provide id or url parameter.")
+
+    async def info(self, **kwargs) -> dict:
+        """
+        Returns a dictionary of all data associated with a TikTok Video.
+
+        Note: This is slow since it requires an HTTP request, avoid using this if possible.
+
+        Returns:
+            dict: A dictionary of all data associated with a TikTok Video.
+
+        Raises:
+            InvalidResponseException: If TikTok returns an invalid response, or one we don't understand.
+
+        Example Usage:
+            .. code-block:: python
+
+                url = "https://www.tiktok.com/@davidteathercodes/video/7106686413101468970"
+                video_info = await api.video(url=url).info()
+        """
+        i, session = self.parent._get_session(**kwargs)
+        proxy = (
+            kwargs.get("proxy") if kwargs.get("proxy") is not None else session.proxy
+        )
+        if self.url is None:
+            raise TypeError("To call video.info() you need to set the video's url.")
+
+        r = requests.get(self.url, headers=session.headers, proxies=proxy)
+        if r.status_code != 200:
+            raise InvalidResponseException(
+                r.text, "TikTok returned an invalid response.", error_code=r.status_code
+            )
+
+        # Try SIGI_STATE first
+        # extract tag <script id="SIGI_STATE" type="application/json">{..}</script>
+        # extract json in the middle
+
+        start = r.text.find('<script id="SIGI_STATE" type="application/json">')
+        if start != -1:
+            start += len('<script id="SIGI_STATE" type="application/json">')
+            end = r.text.find("</script>", start)
+
+            if end == -1:
+                raise InvalidResponseException(
+                    r.text, "TikTok returned an invalid response.", error_code=r.status_code
+                )
+
+            data = json.loads(r.text[start:end])
+            video_info = data["ItemModule"][self.id]
+        else:
+            # Try __UNIVERSAL_DATA_FOR_REHYDRATION__ next
+
+            # extract tag <script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">{..}</script>
+            # extract json in the middle
+
+            start = r.text.find('<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')
+            if start == -1:
+                raise InvalidResponseException(
+                    r.text, "TikTok returned an invalid response.", error_code=r.status_code
+                )
+
+            start += len('<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')
+            end = r.text.find("</script>", start)
+
+            if end == -1:
+                raise InvalidResponseException(
+                    r.text, "TikTok returned an invalid response.", error_code=r.status_code
+                )
+
+            data = json.loads(r.text[start:end])
+            default_scope = data.get("__DEFAULT_SCOPE__", {})
+            video_detail = default_scope.get("webapp.video-detail", {})
+            if video_detail.get("statusCode", 0) != 0: # assume 0 if not present
+                raise InvalidResponseException(
+                    r.text, "TikTok returned an invalid response structure.", error_code=r.status_code
+                )
+            video_info = video_detail.get("itemInfo", {}).get("itemStruct")
+            if video_info is None:
+                raise InvalidResponseException(
+                    r.text, "TikTok returned an invalid response structure.", error_code=r.status_code
+                )
+
+        self.as_dict = video_info
+        self.__extract_from_data()
+
+        cookies = [requests_cookie_to_playwright_cookie(c) for c in r.cookies]
+
+        await self.parent.set_session_cookies(
+            session,
+            cookies
+        )
+        return video_info
+
+    async def bytes(self, stream: bool = False, **kwargs) -> Union[bytes, AsyncIterator[bytes]]:
+        """
+        Returns the bytes of a TikTok Video.
+
+        TODO:
+            Not implemented yet.
+
+        Example Usage:
+            .. code-block:: python
+
+                video_bytes = await api.video(id='7041997751718137094').bytes()
+
+                # Saving The Video
+                with open('saved_video.mp4', 'wb') as output:
+                    output.write(video_bytes)
+
+                # Streaming (if stream=True)
+                async for chunk in api.video(id='7041997751718137094').bytes(stream=True):
+                    # Process or upload chunk
+        """
+        i, session = self.parent._get_session(**kwargs)
+        downloadAddr = self.as_dict["video"]["downloadAddr"]
+
+        cookies = await self.parent.get_session_cookies(session)
+
+        h = session.headers
+        h["range"] = 'bytes=0-'
+        h["accept-encoding"] = 'identity;q=1, *;q=0'
+        h["referer"] = 'https://www.tiktok.com/'
+
+        if stream:
+            async def stream_bytes():
+                async with httpx.AsyncClient() as client:
+                    async with client.stream('GET', downloadAddr, headers=h, cookies=cookies) as response:
+                        async for chunk in response.aiter_bytes():
+                            yield chunk
+            return stream_bytes()
+        else:
+            resp = requests.get(downloadAddr, headers=h, cookies=cookies)
+            return resp.content
+
+    def __extract_from_data(self) -> None:
+        data = self.as_dict
+        self.id = data["id"]
+
+        timestamp = data.get("createTime", None)
+        if timestamp is not None:
+            try:
+                timestamp = int(timestamp)
+            except ValueError:
+                pass
+
+        self.create_time = datetime.fromtimestamp(timestamp)
+        self.stats = data.get('statsV2') or data.get('stats')
+
+        author = data.get("author")
+        if isinstance(author, str):
+            self.author = self.parent.user(username=author)
+        else:
+            self.author = self.parent.user(data=author)
+        self.sound = self.parent.sound(data=data)
+
+        self.hashtags = [
+            self.parent.hashtag(data=hashtag) for hashtag in data.get("challenges", [])
+        ]
+
+        if getattr(self, "id", None) is None:
+            Video.parent.logger.error(
+                f"Failed to create Video with data: {data}\nwhich has keys {data.keys()}"
+            )
+
+    async def comments(self, count=20, cursor=0, **kwargs) -> AsyncIterator[Comment]:
+        """
+        Returns the comments of a TikTok Video.
+
+        Parameters:
+            count (int): The amount of comments you want returned.
+            cursor (int): The the offset of comments from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.comment objects.
+
+        Example Usage
+        .. code-block:: python
+
+            async for comment in api.video(id='7041997751718137094').comments():
+                # do something
+        ```
+        """
+        found = 0
+        while found < count:
+            params = {
+                "aweme_id": self.id,
+                "count": 20,
+                "cursor": cursor,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/comment/list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("comments", []):
+                yield self.parent.comment(data=video)
+                found += 1
+
+            if not resp.get("has_more", False):
+                return
+
+            cursor = resp.get("cursor")
+
+    async def related_videos(
+        self, count: int = 30, cursor: int = 0, **kwargs
+    ) -> AsyncIterator[Video]:
+        """
+        Returns related videos of a TikTok Video.
+
+        Parameters:
+            count (int): The amount of comments you want returned.
+            cursor (int): The the offset of comments from 0 you want to get.
+
+        Returns:
+            async iterator/generator: Yields TikTokApi.video objects.
+
+        Example Usage
+        .. code-block:: python
+
+            async for related_videos in api.video(id='7041997751718137094').related_videos():
+                # do something
+        ```
+        """
+        found = 0
+        while found < count:
+            params = {
+                "itemID": self.id,
+                "count": 16,
+            }
+
+            resp = await self.parent.make_request(
+                url="https://www.tiktok.com/api/related/item_list/",
+                params=params,
+                headers=kwargs.get("headers"),
+                session_index=kwargs.get("session_index"),
+            )
+
+            if resp is None:
+                raise InvalidResponseException(
+                    resp, "TikTok returned an invalid response."
+                )
+
+            for video in resp.get("itemList", []):
+                yield self.parent.video(data=video)
+                found += 1
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return f"TikTokApi.video(id='{getattr(self, 'id', None)}')"
+
+
+
+================================================
+FILE: TikTokApi/stealth/__init__.py
+================================================
+from .stealth import stealth_async
+
+
+
+================================================
+FILE: TikTokApi/stealth/stealth.py
+================================================
+# -*- coding: utf-8 -*-
+import json
+from dataclasses import dataclass
+from typing import Tuple, Optional, Dict
+
+from playwright.async_api import Page as AsyncPage
+
+from .js.chrome_app import chrome_app
+from .js.chrome_csi import chrome_csi
+from .js.chrome_hairline import chrome_hairline
+from .js.chrome_load_times import chrome_load_times
+from .js.chrome_runtime import chrome_runtime
+from .js.generate_magic_arrays import generate_magic_arrays
+from .js.iframe_contentWindow import iframe_contentWindow
+from .js.media_codecs import media_codecs
+from .js.navigator_hardwareConcurrency import navigator_hardwareConcurrency
+from .js.navigator_languages import navigator_languages
+from .js.navigator_permissions import navigator_permissions
+from .js.navigator_platform import navigator_platform
+from .js.navigator_plugins import navigator_plugins
+from .js.navigator_userAgent import navigator_userAgent
+from .js.navigator_vendor import navigator_vendor
+from .js.webgl_vendor import webgl_vendor
+from .js.window_outerdimensions import window_outerdimensions
+from .js.utils import utils
+
+SCRIPTS: Dict[str, str] = {
+    "chrome_csi": chrome_csi,
+    "chrome_app": chrome_app,
+    "chrome_runtime": chrome_runtime,
+    "chrome_load_times": chrome_load_times,
+    "chrome_hairline": chrome_hairline,
+    "generate_magic_arrays": generate_magic_arrays,
+    "iframe_content_window": iframe_contentWindow,
+    "media_codecs": media_codecs,
+    "navigator_vendor": navigator_vendor,
+    "navigator_plugins": navigator_plugins,
+    "navigator_permissions": navigator_permissions,
+    "navigator_languages": navigator_languages,
+    "navigator_platform": navigator_platform,
+    "navigator_user_agent": navigator_userAgent,
+    "navigator_hardware_concurrency": navigator_hardwareConcurrency,
+    "outerdimensions": window_outerdimensions,
+    "utils": utils,
+    "webdriver": "delete Object.getPrototypeOf(navigator).webdriver",
+    "webgl_vendor": webgl_vendor,
+}
+
+
+@dataclass
+class StealthConfig:
+    """
+    Playwright stealth configuration that applies stealth strategies to playwright page objects.
+    The stealth strategies are contained in ./js package and are basic javascript scripts that are executed
+    on every page.goto() called.
+    Note:
+        All init scripts are combined by playwright into one script and then executed this means
+        the scripts should not have conflicting constants/variables etc. !
+        This also means scripts can be extended by overriding enabled_scripts generator:
+        ```
+        @property
+        def enabled_scripts():
+            yield 'console.log("first script")'
+            yield from super().enabled_scripts()
+            yield 'console.log("last script")'
+        ```
+    """
+
+    # load script options
+    webdriver: bool = True
+    webgl_vendor: bool = True
+    chrome_app: bool = True
+    chrome_csi: bool = True
+    chrome_load_times: bool = True
+    chrome_runtime: bool = True
+    iframe_content_window: bool = True
+    media_codecs: bool = True
+    navigator_hardware_concurrency: int = 4
+    navigator_languages: bool = False
+    navigator_permissions: bool = True
+    navigator_platform: bool = True
+    navigator_plugins: bool = True
+    navigator_user_agent: bool = False
+    navigator_vendor: bool = False
+    outerdimensions: bool = True
+    hairline: bool = True
+
+    # options
+    vendor: str = "Intel Inc."
+    renderer: str = "Intel Iris OpenGL Engine"
+    nav_vendor: str = "Google Inc."
+    nav_user_agent: str = None
+    nav_platform: str = None
+    languages: Tuple[str] = ("en-US", "en")
+    runOnInsecureOrigins: Optional[bool] = None
+
+    @property
+    def enabled_scripts(self):
+        opts = json.dumps(
+            {
+                "webgl_vendor": self.vendor,
+                "webgl_renderer": self.renderer,
+                "navigator_vendor": self.nav_vendor,
+                "navigator_platform": self.nav_platform,
+                "navigator_user_agent": self.nav_user_agent,
+                "languages": list(self.languages),
+                "runOnInsecureOrigins": self.runOnInsecureOrigins,
+            }
+        )
+        # defined options constant
+        yield f"const opts = {opts}"
+        # init utils and generate_magic_arrays helper
+        yield SCRIPTS["utils"]
+        yield SCRIPTS["generate_magic_arrays"]
+
+        if self.chrome_app:
+            yield SCRIPTS["chrome_app"]
+        if self.chrome_csi:
+            yield SCRIPTS["chrome_csi"]
+        if self.hairline:
+            yield SCRIPTS["chrome_hairline"]
+        if self.chrome_load_times:
+            yield SCRIPTS["chrome_load_times"]
+        if self.chrome_runtime:
+            yield SCRIPTS["chrome_runtime"]
+        if self.iframe_content_window:
+            yield SCRIPTS["iframe_content_window"]
+        if self.media_codecs:
+            yield SCRIPTS["media_codecs"]
+        if self.navigator_languages:
+            yield SCRIPTS["navigator_languages"]
+        if self.navigator_permissions:
+            yield SCRIPTS["navigator_permissions"]
+        if self.navigator_platform:
+            yield SCRIPTS["navigator_platform"]
+        if self.navigator_plugins:
+            yield SCRIPTS["navigator_plugins"]
+        if self.navigator_user_agent:
+            yield SCRIPTS["navigator_user_agent"]
+        if self.navigator_vendor:
+            yield SCRIPTS["navigator_vendor"]
+        if self.webdriver:
+            yield SCRIPTS["webdriver"]
+        if self.outerdimensions:
+            yield SCRIPTS["outerdimensions"]
+        if self.webgl_vendor:
+            yield SCRIPTS["webgl_vendor"]
+
+
+async def stealth_async(page: AsyncPage, config: StealthConfig = None):
+    """stealth the page"""
+    for script in (config or StealthConfig()).enabled_scripts:
+        await page.add_init_script(script)
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/__init__.py
+================================================
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/chrome_app.py
+================================================
+chrome_app = """
+if (!window.chrome) {
+    // Use the exact property descriptor found in headful Chrome
+    // fetch it via `Object.getOwnPropertyDescriptor(window, 'chrome')`
+    Object.defineProperty(window, 'chrome', {
+        writable: true,
+        enumerable: true,
+        configurable: false, // note!
+        value: {} // We'll extend that later
+    })
+}
+
+// app in window.chrome means we're running headful and don't need to mock anything
+if (!('app' in window.chrome)) {
+    const makeError = {
+        ErrorInInvocation: fn => {
+            const err = new TypeError(`Error in invocation of app.${fn}()`)
+            return utils.stripErrorWithAnchor(
+                err,
+                `at ${fn} (eval at <anonymous>`
+            )
+        }
+    }
+
+// There's a some static data in that property which doesn't seem to change,
+// we should periodically check for updates: `JSON.stringify(window.app, null, 2)`
+    const APP_STATIC_DATA = JSON.parse(
+        `
+{
+  "isInstalled": false,
+  "InstallState": {
+    "DISABLED": "disabled",
+    "INSTALLED": "installed",
+    "NOT_INSTALLED": "not_installed"
+  },
+  "RunningState": {
+    "CANNOT_RUN": "cannot_run",
+    "READY_TO_RUN": "ready_to_run",
+    "RUNNING": "running"
+  }
+}
+        `.trim()
+    )
+
+    window.chrome.app = {
+        ...APP_STATIC_DATA,
+
+        get isInstalled() {
+            return false
+        },
+
+        getDetails: function getDetails() {
+            if (arguments.length) {
+                throw makeError.ErrorInInvocation(`getDetails`)
+            }
+            return null
+        },
+        getIsInstalled: function getDetails() {
+            if (arguments.length) {
+                throw makeError.ErrorInInvocation(`getIsInstalled`)
+            }
+            return false
+        },
+        runningState: function getDetails() {
+            if (arguments.length) {
+                throw makeError.ErrorInInvocation(`runningState`)
+            }
+            return 'cannot_run'
+        }
+    }
+    utils.patchToStringNested(window.chrome.app)
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/chrome_csi.py
+================================================
+chrome_csi = """
+if (!window.chrome) {
+    // Use the exact property descriptor found in headful Chrome
+    // fetch it via `Object.getOwnPropertyDescriptor(window, 'chrome')`
+    Object.defineProperty(window, 'chrome', {
+        writable: true,
+        enumerable: true,
+        configurable: false, // note!
+        value: {} // We'll extend that later
+    })
+}
+
+// Check if we're running headful and don't need to mock anything
+// Check that the Navigation Timing API v1 is available, we need that
+if (!('csi' in window.chrome) && (window.performance || window.performance.timing)) {
+    const {csi_timing} = window.performance
+
+    log.info('loading chrome.csi.js')
+    window.chrome.csi = function () {
+        return {
+            onloadT: csi_timing.domContentLoadedEventEnd,
+            startE: csi_timing.navigationStart,
+            pageT: Date.now() - csi_timing.navigationStart,
+            tran: 15 // Transition type or something
+        }
+    }
+    utils.patchToString(window.chrome.csi)
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/chrome_hairline.py
+================================================
+chrome_hairline = """
+// https://intoli.com/blog/making-chrome-headless-undetectable/
+// store the existing descriptor
+const elementDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight');
+
+// redefine the property with a patched descriptor
+Object.defineProperty(HTMLDivElement.prototype, 'offsetHeight', {
+  ...elementDescriptor,
+  get: function() {
+    if (this.id === 'modernizr') {
+        return 1;
+    }
+    return elementDescriptor.get.apply(this);
+  },
+});
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/chrome_load_times.py
+================================================
+chrome_load_times = """
+if (!window.chrome) {
+    // Use the exact property descriptor found in headful Chrome
+    // fetch it via `Object.getOwnPropertyDescriptor(window, 'chrome')`
+    Object.defineProperty(window, 'chrome', {
+        writable: true,
+        enumerable: true,
+        configurable: false, // note!
+        value: {} // We'll extend that later
+    })
+}
+
+// That means we're running headful and don't need to mock anything
+if ('loadTimes' in window.chrome) {
+    throw new Error('skipping chrome loadtimes update, running in headfull mode')
+}
+
+// Check that the Navigation Timing API v1 + v2 is available, we need that
+if (
+    window.performance ||
+    window.performance.timing ||
+    window.PerformancePaintTiming
+) {
+
+    const {performance} = window
+
+    // Some stuff is not available on about:blank as it requires a navigation to occur,
+    // let's harden the code to not fail then:
+    const ntEntryFallback = {
+        nextHopProtocol: 'h2',
+        type: 'other'
+    }
+
+    // The API exposes some funky info regarding the connection
+    const protocolInfo = {
+        get connectionInfo() {
+            const ntEntry =
+                performance.getEntriesByType('navigation')[0] || ntEntryFallback
+            return ntEntry.nextHopProtocol
+        },
+        get npnNegotiatedProtocol() {
+            // NPN is deprecated in favor of ALPN, but this implementation returns the
+            // HTTP/2 or HTTP2+QUIC/39 requests negotiated via ALPN.
+            const ntEntry =
+                performance.getEntriesByType('navigation')[0] || ntEntryFallback
+            return ['h2', 'hq'].includes(ntEntry.nextHopProtocol)
+                ? ntEntry.nextHopProtocol
+                : 'unknown'
+        },
+        get navigationType() {
+            const ntEntry =
+                performance.getEntriesByType('navigation')[0] || ntEntryFallback
+            return ntEntry.type
+        },
+        get wasAlternateProtocolAvailable() {
+            // The Alternate-Protocol header is deprecated in favor of Alt-Svc
+            // (https://www.mnot.net/blog/2016/03/09/alt-svc), so technically this
+            // should always return false.
+            return false
+        },
+        get wasFetchedViaSpdy() {
+            // SPDY is deprecated in favor of HTTP/2, but this implementation returns
+            // true for HTTP/2 or HTTP2+QUIC/39 as well.
+            const ntEntry =
+                performance.getEntriesByType('navigation')[0] || ntEntryFallback
+            return ['h2', 'hq'].includes(ntEntry.nextHopProtocol)
+        },
+        get wasNpnNegotiated() {
+            // NPN is deprecated in favor of ALPN, but this implementation returns true
+            // for HTTP/2 or HTTP2+QUIC/39 requests negotiated via ALPN.
+            const ntEntry =
+                performance.getEntriesByType('navigation')[0] || ntEntryFallback
+            return ['h2', 'hq'].includes(ntEntry.nextHopProtocol)
+        }
+    }
+
+    const {timing} = window.performance
+
+// Truncate number to specific number of decimals, most of the `loadTimes` stuff has 3
+    function toFixed(num, fixed) {
+        var re = new RegExp('^-?\\d+(?:.\\d{0,' + (fixed || -1) + '})?')
+        return num.toString().match(re)[0]
+    }
+
+    const timingInfo = {
+        get firstPaintAfterLoadTime() {
+            // This was never actually implemented and always returns 0.
+            return 0
+        },
+        get requestTime() {
+            return timing.navigationStart / 1000
+        },
+        get startLoadTime() {
+            return timing.navigationStart / 1000
+        },
+        get commitLoadTime() {
+            return timing.responseStart / 1000
+        },
+        get finishDocumentLoadTime() {
+            return timing.domContentLoadedEventEnd / 1000
+        },
+        get finishLoadTime() {
+            return timing.loadEventEnd / 1000
+        },
+        get firstPaintTime() {
+            const fpEntry = performance.getEntriesByType('paint')[0] || {
+                startTime: timing.loadEventEnd / 1000 // Fallback if no navigation occured (`about:blank`)
+            }
+            return toFixed(
+                (fpEntry.startTime + performance.timeOrigin) / 1000,
+                3
+            )
+        }
+    }
+
+    window.chrome.loadTimes = function () {
+        return {
+            ...protocolInfo,
+            ...timingInfo
+        }
+    }
+    utils.patchToString(window.chrome.loadTimes)
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/chrome_runtime.py
+================================================
+chrome_runtime = """
+const STATIC_DATA = {
+    "OnInstalledReason": {
+        "CHROME_UPDATE": "chrome_update",
+        "INSTALL": "install",
+        "SHARED_MODULE_UPDATE": "shared_module_update",
+        "UPDATE": "update"
+    },
+    "OnRestartRequiredReason": {
+        "APP_UPDATE": "app_update",
+        "OS_UPDATE": "os_update",
+        "PERIODIC": "periodic"
+    },
+    "PlatformArch": {
+        "ARM": "arm",
+        "ARM64": "arm64",
+        "MIPS": "mips",
+        "MIPS64": "mips64",
+        "X86_32": "x86-32",
+        "X86_64": "x86-64"
+    },
+    "PlatformNaclArch": {
+        "ARM": "arm",
+        "MIPS": "mips",
+        "MIPS64": "mips64",
+        "X86_32": "x86-32",
+        "X86_64": "x86-64"
+    },
+    "PlatformOs": {
+        "ANDROID": "android",
+        "CROS": "cros",
+        "LINUX": "linux",
+        "MAC": "mac",
+        "OPENBSD": "openbsd",
+        "WIN": "win"
+    },
+    "RequestUpdateCheckStatus": {
+        "NO_UPDATE": "no_update",
+        "THROTTLED": "throttled",
+        "UPDATE_AVAILABLE": "update_available"
+    }
+}
+
+if (!window.chrome) {
+    // Use the exact property descriptor found in headful Chrome
+    // fetch it via `Object.getOwnPropertyDescriptor(window, 'chrome')`
+    Object.defineProperty(window, 'chrome', {
+        writable: true,
+        enumerable: true,
+        configurable: false, // note!
+        value: {} // We'll extend that later
+    })
+}
+
+// That means we're running headfull and don't need to mock anything
+const existsAlready = 'runtime' in window.chrome
+// `chrome.runtime` is only exposed on secure origins
+const isNotSecure = !window.location.protocol.startsWith('https')
+if (!(existsAlready || (isNotSecure && !opts.runOnInsecureOrigins))) {
+    window.chrome.runtime = {
+        // There's a bunch of static data in that property which doesn't seem to change,
+        // we should periodically check for updates: `JSON.stringify(window.chrome.runtime, null, 2)`
+        ...STATIC_DATA,
+        // `chrome.runtime.id` is extension related and returns undefined in Chrome
+        get id() {
+            return undefined
+        },
+        // These two require more sophisticated mocks
+        connect: null,
+        sendMessage: null
+    }
+
+    const makeCustomRuntimeErrors = (preamble, method, extensionId) => ({
+        NoMatchingSignature: new TypeError(
+            preamble + `No matching signature.`
+        ),
+        MustSpecifyExtensionID: new TypeError(
+            preamble +
+            `${method} called from a webpage must specify an Extension ID (string) for its first argument.`
+        ),
+        InvalidExtensionID: new TypeError(
+            preamble + `Invalid extension id: '${extensionId}'`
+        )
+    })
+
+    // Valid Extension IDs are 32 characters in length and use the letter `a` to `p`:
+    // https://source.chromium.org/chromium/chromium/src/+/main:components/crx_file/id_util.cc;drc=14a055ccb17e8c8d5d437fe080faba4c6f07beac;l=90
+    const isValidExtensionID = str =>
+        str.length === 32 && str.toLowerCase().match(/^[a-p]+$/)
+
+    /** Mock `chrome.runtime.sendMessage` */
+    const sendMessageHandler = {
+        apply: function (target, ctx, args) {
+            const [extensionId, options, responseCallback] = args || []
+
+            // Define custom errors
+            const errorPreamble = `Error in invocation of runtime.sendMessage(optional string extensionId, any message, optional object options, optional function responseCallback): `
+            const Errors = makeCustomRuntimeErrors(
+                errorPreamble,
+                `chrome.runtime.sendMessage()`,
+                extensionId
+            )
+
+            // Check if the call signature looks ok
+            const noArguments = args.length === 0
+            const tooManyArguments = args.length > 4
+            const incorrectOptions = options && typeof options !== 'object'
+            const incorrectResponseCallback =
+                responseCallback && typeof responseCallback !== 'function'
+            if (
+                noArguments ||
+                tooManyArguments ||
+                incorrectOptions ||
+                incorrectResponseCallback
+            ) {
+                throw Errors.NoMatchingSignature
+            }
+
+            // At least 2 arguments are required before we even validate the extension ID
+            if (args.length < 2) {
+                throw Errors.MustSpecifyExtensionID
+            }
+
+            // Now let's make sure we got a string as extension ID
+            if (typeof extensionId !== 'string') {
+                throw Errors.NoMatchingSignature
+            }
+
+            if (!isValidExtensionID(extensionId)) {
+                throw Errors.InvalidExtensionID
+            }
+
+            return undefined // Normal behavior
+        }
+    }
+    utils.mockWithProxy(
+        window.chrome.runtime,
+        'sendMessage',
+        function sendMessage() {
+        },
+        sendMessageHandler
+    )
+
+    /**
+     * Mock `chrome.runtime.connect`
+     *
+     * @see https://developer.chrome.com/apps/runtime#method-connect
+     */
+    const connectHandler = {
+        apply: function (target, ctx, args) {
+            const [extensionId, connectInfo] = args || []
+
+            // Define custom errors
+            const errorPreamble = `Error in invocation of runtime.connect(optional string extensionId, optional object connectInfo): `
+            const Errors = makeCustomRuntimeErrors(
+                errorPreamble,
+                `chrome.runtime.connect()`,
+                extensionId
+            )
+
+            // Behavior differs a bit from sendMessage:
+            const noArguments = args.length === 0
+            const emptyStringArgument = args.length === 1 && extensionId === ''
+            if (noArguments || emptyStringArgument) {
+                throw Errors.MustSpecifyExtensionID
+            }
+
+            const tooManyArguments = args.length > 2
+            const incorrectConnectInfoType =
+                connectInfo && typeof connectInfo !== 'object'
+
+            if (tooManyArguments || incorrectConnectInfoType) {
+                throw Errors.NoMatchingSignature
+            }
+
+            const extensionIdIsString = typeof extensionId === 'string'
+            if (extensionIdIsString && extensionId === '') {
+                throw Errors.MustSpecifyExtensionID
+            }
+            if (extensionIdIsString && !isValidExtensionID(extensionId)) {
+                throw Errors.InvalidExtensionID
+            }
+
+            // There's another edge-case here: extensionId is optional so we might find a connectInfo object as first param, which we need to validate
+            const validateConnectInfo = ci => {
+                // More than a first param connectInfo as been provided
+                if (args.length > 1) {
+                    throw Errors.NoMatchingSignature
+                }
+                // An empty connectInfo has been provided
+                if (Object.keys(ci).length === 0) {
+                    throw Errors.MustSpecifyExtensionID
+                }
+                // Loop over all connectInfo props an check them
+                Object.entries(ci).forEach(([k, v]) => {
+                    const isExpected = ['name', 'includeTlsChannelId'].includes(k)
+                    if (!isExpected) {
+                        throw new TypeError(
+                            errorPreamble + `Unexpected property: '${k}'.`
+                        )
+                    }
+                    const MismatchError = (propName, expected, found) =>
+                        TypeError(
+                            errorPreamble +
+                            `Error at property '${propName}': Invalid type: expected ${expected}, found ${found}.`
+                        )
+                    if (k === 'name' && typeof v !== 'string') {
+                        throw MismatchError(k, 'string', typeof v)
+                    }
+                    if (k === 'includeTlsChannelId' && typeof v !== 'boolean') {
+                        throw MismatchError(k, 'boolean', typeof v)
+                    }
+                })
+            }
+            if (typeof extensionId === 'object') {
+                validateConnectInfo(extensionId)
+                throw Errors.MustSpecifyExtensionID
+            }
+
+            // Unfortunately even when the connect fails Chrome will return an object with methods we need to mock as well
+            return utils.patchToStringNested(makeConnectResponse())
+        }
+    }
+    utils.mockWithProxy(
+        window.chrome.runtime,
+        'connect',
+        function connect() {
+        },
+        connectHandler
+    )
+
+    function makeConnectResponse() {
+        const onSomething = () => ({
+            addListener: function addListener() {
+            },
+            dispatch: function dispatch() {
+            },
+            hasListener: function hasListener() {
+            },
+            hasListeners: function hasListeners() {
+                return false
+            },
+            removeListener: function removeListener() {
+            }
+        })
+
+        const response = {
+            name: '',
+            sender: undefined,
+            disconnect: function disconnect() {
+            },
+            onDisconnect: onSomething(),
+            onMessage: onSomething(),
+            postMessage: function postMessage() {
+                if (!arguments.length) {
+                    throw new TypeError(`Insufficient number of arguments.`)
+                }
+                throw new Error(`Attempting to use a disconnected port object`)
+            }
+        }
+        return response
+    }
+}
+
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/generate_magic_arrays.py
+================================================
+generate_magic_arrays = """
+generateFunctionMocks = (
+    proto,
+    itemMainProp,
+    dataArray
+) => ({
+    item: utils.createProxy(proto.item, {
+        apply(target, ctx, args) {
+            if (!args.length) {
+                throw new TypeError(
+                    `Failed to execute 'item' on '${
+                        proto[Symbol.toStringTag]
+                    }': 1 argument required, but only 0 present.`
+                )
+            }
+            // Special behavior alert:
+            // - Vanilla tries to cast strings to Numbers (only integers!) and use them as property index lookup
+            // - If anything else than an integer (including as string) is provided it will return the first entry
+            const isInteger = args[0] && Number.isInteger(Number(args[0])) // Cast potential string to number first, then check for integer
+            // Note: Vanilla never returns `undefined`
+            return (isInteger ? dataArray[Number(args[0])] : dataArray[0]) || null
+        }
+    }),
+    /** Returns the MimeType object with the specified name. */
+    namedItem: utils.createProxy(proto.namedItem, {
+        apply(target, ctx, args) {
+            if (!args.length) {
+                throw new TypeError(
+                    `Failed to execute 'namedItem' on '${
+                        proto[Symbol.toStringTag]
+                    }': 1 argument required, but only 0 present.`
+                )
+            }
+            return dataArray.find(mt => mt[itemMainProp] === args[0]) || null // Not `undefined`!
+        }
+    }),
+    /** Does nothing and shall return nothing */
+    refresh: proto.refresh
+        ? utils.createProxy(proto.refresh, {
+            apply(target, ctx, args) {
+                return undefined
+            }
+        })
+        : undefined
+})
+
+function generateMagicArray(
+    dataArray = [],
+    proto = MimeTypeArray.prototype,
+    itemProto = MimeType.prototype,
+    itemMainProp = 'type'
+) {
+    // Quick helper to set props with the same descriptors vanilla is using
+    const defineProp = (obj, prop, value) =>
+        Object.defineProperty(obj, prop, {
+            value,
+            writable: false,
+            enumerable: false, // Important for mimeTypes & plugins: `JSON.stringify(navigator.mimeTypes)`
+            configurable: false
+        })
+
+    // Loop over our fake data and construct items
+    const makeItem = data => {
+        const item = {}
+        for (const prop of Object.keys(data)) {
+            if (prop.startsWith('__')) {
+                continue
+            }
+            defineProp(item, prop, data[prop])
+        }
+        // navigator.plugins[i].length should always be 1
+        if (itemProto === Plugin.prototype) {
+            defineProp(item, 'length', 1)
+        }
+        // We need to spoof a specific `MimeType` or `Plugin` object
+        return Object.create(itemProto, Object.getOwnPropertyDescriptors(item))
+    }
+
+    const magicArray = []
+
+    // Loop through our fake data and use that to create convincing entities
+    dataArray.forEach(data => {
+        magicArray.push(makeItem(data))
+    })
+
+    // Add direct property access  based on types (e.g. `obj['application/pdf']`) afterwards
+    magicArray.forEach(entry => {
+        defineProp(magicArray, entry[itemMainProp], entry)
+    })
+
+    // This is the best way to fake the type to make sure this is false: `Array.isArray(navigator.mimeTypes)`
+    const magicArrayObj = Object.create(proto, {
+        ...Object.getOwnPropertyDescriptors(magicArray),
+
+        // There's one ugly quirk we unfortunately need to take care of:
+        // The `MimeTypeArray` prototype has an enumerable `length` property,
+        // but headful Chrome will still skip it when running `Object.getOwnPropertyNames(navigator.mimeTypes)`.
+        // To strip it we need to make it first `configurable` and can then overlay a Proxy with an `ownKeys` trap.
+        length: {
+            value: magicArray.length,
+            writable: false,
+            enumerable: false,
+            configurable: true // Important to be able to use the ownKeys trap in a Proxy to strip `length`
+        }
+    })
+
+    // Generate our functional function mocks :-)
+    const functionMocks = generateFunctionMocks(
+        proto,
+        itemMainProp,
+        magicArray
+    )
+
+    // Override custom object with proxy
+    return new Proxy(magicArrayObj, {
+        get(target, key = '') {
+            // Redirect function calls to our custom proxied versions mocking the vanilla behavior
+            if (key === 'item') {
+                return functionMocks.item
+            }
+            if (key === 'namedItem') {
+                return functionMocks.namedItem
+            }
+            if (proto === PluginArray.prototype && key === 'refresh') {
+                return functionMocks.refresh
+            }
+            // Everything else can pass through as normal
+            return utils.cache.Reflect.get(...arguments)
+        },
+        ownKeys(target) {
+            // There are a couple of quirks where the original property demonstrates "magical" behavior that makes no sense
+            // This can be witnessed when calling `Object.getOwnPropertyNames(navigator.mimeTypes)` and the absense of `length`
+            // My guess is that it has to do with the recent change of not allowing data enumeration and this being implemented weirdly
+            // For that reason we just completely fake the available property names based on our data to match what regular Chrome is doing
+            // Specific issues when not patching this: `length` property is available, direct `types` props (e.g. `obj['application/pdf']`) are missing
+            const keys = []
+            const typeProps = magicArray.map(mt => mt[itemMainProp])
+            typeProps.forEach((_, i) => keys.push(`${i}`))
+            typeProps.forEach(propName => keys.push(propName))
+            return keys
+        }
+    })
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/iframe_contentWindow.py
+================================================
+iframe_contentWindow = """
+try {
+    // Adds a contentWindow proxy to the provided iframe element
+    const addContentWindowProxy = iframe => {
+        const contentWindowProxy = {
+            get(target, key) {
+                // Now to the interesting part:
+                // We actually make this thing behave like a regular iframe window,
+                // by intercepting calls to e.g. `.self` and redirect it to the correct thing. :)
+                // That makes it possible for these assertions to be correct:
+                // iframe.contentWindow.self === window.top // must be false
+                if (key === 'self') {
+                    return this
+                }
+                // iframe.contentWindow.frameElement === iframe // must be true
+                if (key === 'frameElement') {
+                    return iframe
+                }
+                return Reflect.get(target, key)
+            }
+        }
+
+        if (!iframe.contentWindow) {
+            const proxy = new Proxy(window, contentWindowProxy)
+            Object.defineProperty(iframe, 'contentWindow', {
+                get() {
+                    return proxy
+                },
+                set(newValue) {
+                    return newValue // contentWindow is immutable
+                },
+                enumerable: true,
+                configurable: false
+            })
+        }
+    }
+
+    // Handles iframe element creation, augments `srcdoc` property so we can intercept further
+    const handleIframeCreation = (target, thisArg, args) => {
+        const iframe = target.apply(thisArg, args)
+
+        // We need to keep the originals around
+        const _iframe = iframe
+        const _srcdoc = _iframe.srcdoc
+
+        // Add hook for the srcdoc property
+        // We need to be very surgical here to not break other iframes by accident
+        Object.defineProperty(iframe, 'srcdoc', {
+            configurable: true, // Important, so we can reset this later
+            get: function () {
+                return _iframe.srcdoc
+            },
+            set: function (newValue) {
+                addContentWindowProxy(this)
+                // Reset property, the hook is only needed once
+                Object.defineProperty(iframe, 'srcdoc', {
+                    configurable: false,
+                    writable: false,
+                    value: _srcdoc
+                })
+                _iframe.srcdoc = newValue
+            }
+        })
+        return iframe
+    }
+
+    // Adds a hook to intercept iframe creation events
+    const addIframeCreationSniffer = () => {
+        /* global document */
+        const createElementHandler = {
+            // Make toString() native
+            get(target, key) {
+                return Reflect.get(target, key)
+            },
+            apply: function (target, thisArg, args) {
+                const isIframe =
+                    args && args.length && `${args[0]}`.toLowerCase() === 'iframe'
+                if (!isIframe) {
+                    // Everything as usual
+                    return target.apply(thisArg, args)
+                } else {
+                    return handleIframeCreation(target, thisArg, args)
+                }
+            }
+        }
+        // All this just due to iframes with srcdoc bug
+        utils.replaceWithProxy(
+            document,
+            'createElement',
+            createElementHandler
+          )
+    }
+
+    // Let's go
+    addIframeCreationSniffer()
+} catch (err) {
+    // console.warn(err)
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/media_codecs.py
+================================================
+media_codecs = """
+/**
+ * Input might look funky, we need to normalize it so e.g. whitespace isn't an issue for our spoofing.
+ *
+ * @example
+ * video/webm; codecs="vp8, vorbis"
+ * video/mp4; codecs="avc1.42E01E"
+ * audio/x-m4a;
+ * audio/ogg; codecs="vorbis"
+ * @param {String} arg
+ */
+const parseInput = arg => {
+    const [mime, codecStr] = arg.trim().split(';')
+    let codecs = []
+    if (codecStr && codecStr.includes('codecs="')) {
+        codecs = codecStr
+            .trim()
+            .replace(`codecs="`, '')
+            .replace(`"`, '')
+            .trim()
+            .split(',')
+            .filter(x => !!x)
+            .map(x => x.trim())
+    }
+    return {
+        mime,
+        codecStr,
+        codecs
+    }
+}
+
+const canPlayType = {
+    // Intercept certain requests
+    apply: function (target, ctx, args) {
+        if (!args || !args.length) {
+            return target.apply(ctx, args)
+        }
+        const {mime, codecs} = parseInput(args[0])
+        // This specific mp4 codec is missing in Chromium
+        if (mime === 'video/mp4') {
+            if (codecs.includes('avc1.42E01E')) {
+                return 'probably'
+            }
+        }
+        // This mimetype is only supported if no codecs are specified
+        if (mime === 'audio/x-m4a' && !codecs.length) {
+            return 'maybe'
+        }
+
+        // This mimetype is only supported if no codecs are specified
+        if (mime === 'audio/aac' && !codecs.length) {
+            return 'probably'
+        }
+        // Everything else as usual
+        return target.apply(ctx, args)
+    }
+}
+
+/* global HTMLMediaElement */
+utils.replaceWithProxy(
+    HTMLMediaElement.prototype,
+    'canPlayType',
+    canPlayType
+)
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_hardwareConcurrency.py
+================================================
+navigator_hardwareConcurrency = """
+const patchNavigator = (name, value) =>
+    utils.replaceProperty(Object.getPrototypeOf(navigator), name, {
+        get() {
+            return value
+        }
+    })
+
+patchNavigator('hardwareConcurrency', opts.navigator_hardware_concurrency || 4);
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_languages.py
+================================================
+navigator_languages = """
+Object.defineProperty(Object.getPrototypeOf(navigator), 'languages', {
+    get: () => opts.languages || ['en-US', 'en']
+})
+
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_permissions.py
+================================================
+navigator_permissions = """
+const handler = {
+    apply: function (target, ctx, args) {
+        const param = (args || [])[0]
+
+        if (param && param.name && param.name === 'notifications') {
+            const result = {state: Notification.permission}
+            Object.setPrototypeOf(result, PermissionStatus.prototype)
+            return Promise.resolve(result)
+        }
+
+        return utils.cache.Reflect.apply(...arguments)
+    }
+}
+
+utils.replaceWithProxy(
+    window.navigator.permissions.__proto__, // eslint-disable-line no-proto
+    'query',
+    handler
+)
+
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_platform.py
+================================================
+navigator_platform = """
+if (opts.navigator_platform) {
+    Object.defineProperty(Object.getPrototypeOf(navigator), 'platform', {
+        get: () => opts.navigator_plaftorm,
+    })
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_plugins.py
+================================================
+navigator_plugins = """
+data = {
+    "mimeTypes": [
+        {
+            "type": "application/pdf",
+            "suffixes": "pdf",
+            "description": "",
+            "__pluginName": "Chrome PDF Viewer"
+        },
+        {
+            "type": "application/x-google-chrome-pdf",
+            "suffixes": "pdf",
+            "description": "Portable Document Format",
+            "__pluginName": "Chrome PDF Plugin"
+        },
+        {
+            "type": "application/x-nacl",
+            "suffixes": "",
+            "description": "Native Client Executable",
+            "__pluginName": "Native Client"
+        },
+        {
+            "type": "application/x-pnacl",
+            "suffixes": "",
+            "description": "Portable Native Client Executable",
+            "__pluginName": "Native Client"
+        }
+    ],
+    "plugins": [
+        {
+            "name": "Chrome PDF Plugin",
+            "filename": "internal-pdf-viewer",
+            "description": "Portable Document Format",
+            "__mimeTypes": ["application/x-google-chrome-pdf"]
+        },
+        {
+            "name": "Chrome PDF Viewer",
+            "filename": "mhjfbmdgcfjbbpaeojofohoefgiehjai",
+            "description": "",
+            "__mimeTypes": ["application/pdf"]
+        },
+        {
+            "name": "Native Client",
+            "filename": "internal-nacl-plugin",
+            "description": "",
+            "__mimeTypes": ["application/x-nacl", "application/x-pnacl"]
+        }
+    ]
+}
+
+
+// That means we're running headful
+const hasPlugins = 'plugins' in navigator && navigator.plugins.length
+if (!(hasPlugins)) {
+
+    const mimeTypes = generateMagicArray(
+        data.mimeTypes,
+        MimeTypeArray.prototype,
+        MimeType.prototype,
+        'type'
+    )
+    const plugins = generateMagicArray(
+        data.plugins,
+        PluginArray.prototype,
+        Plugin.prototype,
+        'name'
+    )
+
+    // Plugin and MimeType cross-reference each other, let's do that now
+    // Note: We're looping through `data.plugins` here, not the generated `plugins`
+    for (const pluginData of data.plugins) {
+        pluginData.__mimeTypes.forEach((type, index) => {
+            plugins[pluginData.name][index] = mimeTypes[type]
+            plugins[type] = mimeTypes[type]
+            Object.defineProperty(mimeTypes[type], 'enabledPlugin', {
+                value: JSON.parse(JSON.stringify(plugins[pluginData.name])),
+                writable: false,
+                enumerable: false, // Important: `JSON.stringify(navigator.plugins)`
+                configurable: false
+            })
+        })
+    }
+
+    const patchNavigator = (name, value) =>
+        utils.replaceProperty(Object.getPrototypeOf(navigator), name, {
+            get() {
+                return value
+            }
+        })
+
+    patchNavigator('mimeTypes', mimeTypes)
+    patchNavigator('plugins', plugins)
+}
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_userAgent.py
+================================================
+navigator_userAgent = """
+// replace Headless references in default useragent
+const current_ua = navigator.userAgent;
+Object.defineProperty(Object.getPrototypeOf(navigator), 'userAgent', {
+    get: () => {
+        try {
+            if (typeof opts !== 'undefined' && opts.navigator_user_agent) {
+                return opts.navigator_user_agent;
+            }
+        } catch (error) {
+            console.warn('Error accessing opts:', error);
+        }
+        return current_ua.replace('HeadlessChrome/', 'Chrome/');
+    }
+});
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/navigator_vendor.py
+================================================
+navigator_vendor = """
+Object.defineProperty(Object.getPrototypeOf(navigator), 'vendor', {
+    get: () => opts.navigator_vendor || 'Google Inc.',
+})
+
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/utils.py
+================================================
+utils = """
+/**
+ * A set of shared utility functions specifically for the purpose of modifying native browser APIs without leaving traces.
+ *
+ * Meant to be passed down in puppeteer and used in the context of the page (everything in here runs in NodeJS as well as a browser).
+ *
+ * Note: If for whatever reason you need to use this outside of `puppeteer-extra`:
+ * Just remove the `module.exports` statement at the very bottom, the rest can be copy pasted into any browser context.
+ *
+ * Alternatively take a look at the `extract-stealth-evasions` package to create a finished bundle which includes these utilities.
+ *
+ */
+const utils = {}
+
+/**
+ * Wraps a JS Proxy Handler and strips it's presence from error stacks, in case the traps throw.
+ *
+ * The presence of a JS Proxy can be revealed as it shows up in error stack traces.
+ *
+ * @param {object} handler - The JS Proxy handler to wrap
+ */
+utils.stripProxyFromErrors = (handler = {}) => {
+  const newHandler = {}
+  // We wrap each trap in the handler in a try/catch and modify the error stack if they throw
+  const traps = Object.getOwnPropertyNames(handler)
+  traps.forEach(trap => {
+    newHandler[trap] = function() {
+      try {
+        // Forward the call to the defined proxy handler
+        return handler[trap].apply(this, arguments || [])
+      } catch (err) {
+        // Stack traces differ per browser, we only support chromium based ones currently
+        if (!err || !err.stack || !err.stack.includes(`at `)) {
+          throw err
+        }
+
+        // When something throws within one of our traps the Proxy will show up in error stacks
+        // An earlier implementation of this code would simply strip lines with a blacklist,
+        // but it makes sense to be more surgical here and only remove lines related to our Proxy.
+        // We try to use a known "anchor" line for that and strip it with everything above it.
+        // If the anchor line cannot be found for some reason we fall back to our blacklist approach.
+
+        const stripWithBlacklist = stack => {
+          const blacklist = [
+            `at Reflect.${trap} `, // e.g. Reflect.get or Reflect.apply
+            `at Object.${trap} `, // e.g. Object.get or Object.apply
+            `at Object.newHandler.<computed> [as ${trap}] ` // caused by this very wrapper :-)
+          ]
+          return (
+            err.stack
+              .split('\n')
+              // Always remove the first (file) line in the stack (guaranteed to be our proxy)
+              .filter((line, index) => index !== 1)
+              // Check if the line starts with one of our blacklisted strings
+              .filter(line => !blacklist.some(bl => line.trim().startsWith(bl)))
+              .join('\n')
+          )
+        }
+
+        const stripWithAnchor = stack => {
+          const stackArr = stack.split('\n')
+          const anchor = `at Object.newHandler.<computed> [as ${trap}] ` // Known first Proxy line in chromium
+          const anchorIndex = stackArr.findIndex(line =>
+            line.trim().startsWith(anchor)
+          )
+          if (anchorIndex === -1) {
+            return false // 404, anchor not found
+          }
+          // Strip everything from the top until we reach the anchor line
+          // Note: We're keeping the 1st line (zero index) as it's unrelated (e.g. `TypeError`)
+          stackArr.splice(1, anchorIndex)
+          return stackArr.join('\n')
+        }
+
+        // Try using the anchor method, fallback to blacklist if necessary
+        err.stack = stripWithAnchor(err.stack) || stripWithBlacklist(err.stack)
+
+        throw err // Re-throw our now sanitized error
+      }
+    }
+  })
+  return newHandler
+}
+
+/**
+ * Strip error lines from stack traces until (and including) a known line the stack.
+ *
+ * @param {object} err - The error to sanitize
+ * @param {string} anchor - The string the anchor line starts with
+ */
+utils.stripErrorWithAnchor = (err, anchor) => {
+  const stackArr = err.stack.split('\n')
+  const anchorIndex = stackArr.findIndex(line => line.trim().startsWith(anchor))
+  if (anchorIndex === -1) {
+    return err // 404, anchor not found
+  }
+  // Strip everything from the top until we reach the anchor line (remove anchor line as well)
+  // Note: We're keeping the 1st line (zero index) as it's unrelated (e.g. `TypeError`)
+  stackArr.splice(1, anchorIndex)
+  err.stack = stackArr.join('\n')
+  return err
+}
+
+/**
+ * Replace the property of an object in a stealthy way.
+ *
+ * Note: You also want to work on the prototype of an object most often,
+ * as you'd otherwise leave traces (e.g. showing up in Object.getOwnPropertyNames(obj)).
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+ *
+ * @example
+ * replaceProperty(WebGLRenderingContext.prototype, 'getParameter', { value: "alice" })
+ * // or
+ * replaceProperty(Object.getPrototypeOf(navigator), 'languages', { get: () => ['en-US', 'en'] })
+ *
+ * @param {object} obj - The object which has the property to replace
+ * @param {string} propName - The property name to replace
+ * @param {object} descriptorOverrides - e.g. { value: "alice" }
+ */
+utils.replaceProperty = (obj, propName, descriptorOverrides = {}) => {
+  return Object.defineProperty(obj, propName, {
+    // Copy over the existing descriptors (writable, enumerable, configurable, etc)
+    ...(Object.getOwnPropertyDescriptor(obj, propName) || {}),
+    // Add our overrides (e.g. value, get())
+    ...descriptorOverrides
+  })
+}
+
+/**
+ * Preload a cache of function copies and data.
+ *
+ * For a determined enough observer it would be possible to overwrite and sniff usage of functions
+ * we use in our internal Proxies, to combat that we use a cached copy of those functions.
+ *
+ * This is evaluated once per execution context (e.g. window)
+ */
+utils.preloadCache = () => {
+  if (utils.cache) {
+    return
+  }
+  utils.cache = {
+    // Used in our proxies
+    Reflect: {
+      get: Reflect.get.bind(Reflect),
+      apply: Reflect.apply.bind(Reflect)
+    },
+    // Used in `makeNativeString`
+    nativeToStringStr: Function.toString + '' // => `function toString() { [native code] }`
+  }
+}
+
+/**
+ * Utility function to generate a cross-browser `toString` result representing native code.
+ *
+ * There's small differences: Chromium uses a single line, whereas FF & Webkit uses multiline strings.
+ * To future-proof this we use an existing native toString result as the basis.
+ *
+ * The only advantage we have over the other team is that our JS runs first, hence we cache the result
+ * of the native toString result once, so they cannot spoof it afterwards and reveal that we're using it.
+ *
+ * Note: Whenever we add a `Function.prototype.toString` proxy we should preload the cache before,
+ * by executing `utils.preloadCache()` before the proxy is applied (so we don't cause recursive lookups).
+ *
+ * @example
+ * makeNativeString('foobar') // => `function foobar() { [native code] }`
+ *
+ * @param {string} [name] - Optional function name
+ */
+utils.makeNativeString = (name = '') => {
+  // Cache (per-window) the original native toString or use that if available
+  utils.preloadCache()
+  return utils.cache.nativeToStringStr.replace('toString', name || '')
+}
+
+/**
+ * Helper function to modify the `toString()` result of the provided object.
+ *
+ * Note: Use `utils.redirectToString` instead when possible.
+ *
+ * There's a quirk in JS Proxies that will cause the `toString()` result to differ from the vanilla Object.
+ * If no string is provided we will generate a `[native code]` thing based on the name of the property object.
+ *
+ * @example
+ * patchToString(WebGLRenderingContext.prototype.getParameter, 'function getParameter() { [native code] }')
+ *
+ * @param {object} obj - The object for which to modify the `toString()` representation
+ * @param {string} str - Optional string used as a return value
+ */
+utils.patchToString = (obj, str = '') => {
+  utils.preloadCache()
+
+  const toStringProxy = new Proxy(Function.prototype.toString, {
+    apply: function(target, ctx) {
+      // This fixes e.g. `HTMLMediaElement.prototype.canPlayType.toString + ""`
+      if (ctx === Function.prototype.toString) {
+        return utils.makeNativeString('toString')
+      }
+      // `toString` targeted at our proxied Object detected
+      if (ctx === obj) {
+        // We either return the optional string verbatim or derive the most desired result automatically
+        return str || utils.makeNativeString(obj.name)
+      }
+      // Check if the toString protype of the context is the same as the global prototype,
+      // if not indicates that we are doing a check across different windows., e.g. the iframeWithdirect` test case
+      const hasSameProto = Object.getPrototypeOf(
+        Function.prototype.toString
+      ).isPrototypeOf(ctx.toString) // eslint-disable-line no-prototype-builtins
+      if (!hasSameProto) {
+        // Pass the call on to the local Function.prototype.toString instead
+        return ctx.toString()
+      }
+      return target.call(ctx)
+    }
+  })
+  utils.replaceProperty(Function.prototype, 'toString', {
+    value: toStringProxy
+  })
+}
+
+/**
+ * Make all nested functions of an object native.
+ *
+ * @param {object} obj
+ */
+utils.patchToStringNested = (obj = {}) => {
+  return utils.execRecursively(obj, ['function'], utils.patchToString)
+}
+
+/**
+ * Redirect toString requests from one object to another.
+ *
+ * @param {object} proxyObj - The object that toString will be called on
+ * @param {object} originalObj - The object which toString result we wan to return
+ */
+utils.redirectToString = (proxyObj, originalObj) => {
+  utils.preloadCache()
+
+  const toStringProxy = new Proxy(Function.prototype.toString, {
+    apply: function(target, ctx) {
+      // This fixes e.g. `HTMLMediaElement.prototype.canPlayType.toString + ""`
+      if (ctx === Function.prototype.toString) {
+        return utils.makeNativeString('toString')
+      }
+
+      // `toString` targeted at our proxied Object detected
+      if (ctx === proxyObj) {
+        const fallback = () =>
+          originalObj && originalObj.name
+            ? utils.makeNativeString(originalObj.name)
+            : utils.makeNativeString(proxyObj.name)
+
+        // Return the toString representation of our original object if possible
+        return originalObj + '' || fallback()
+      }
+
+      // Check if the toString protype of the context is the same as the global prototype,
+      // if not indicates that we are doing a check across different windows., e.g. the iframeWithdirect` test case
+      const hasSameProto = Object.getPrototypeOf(
+        Function.prototype.toString
+      ).isPrototypeOf(ctx.toString) // eslint-disable-line no-prototype-builtins
+      if (!hasSameProto) {
+        // Pass the call on to the local Function.prototype.toString instead
+        return ctx.toString()
+      }
+
+      return target.call(ctx)
+    }
+  })
+  utils.replaceProperty(Function.prototype, 'toString', {
+    value: toStringProxy
+  })
+}
+
+/**
+ * All-in-one method to replace a property with a JS Proxy using the provided Proxy handler with traps.
+ *
+ * Will stealthify these aspects (strip error stack traces, redirect toString, etc).
+ * Note: This is meant to modify native Browser APIs and works best with prototype objects.
+ *
+ * @example
+ * replaceWithProxy(WebGLRenderingContext.prototype, 'getParameter', proxyHandler)
+ *
+ * @param {object} obj - The object which has the property to replace
+ * @param {string} propName - The name of the property to replace
+ * @param {object} handler - The JS Proxy handler to use
+ */
+utils.replaceWithProxy = (obj, propName, handler) => {
+  utils.preloadCache()
+  const originalObj = obj[propName]
+  const proxyObj = new Proxy(obj[propName], utils.stripProxyFromErrors(handler))
+
+  utils.replaceProperty(obj, propName, { value: proxyObj })
+  utils.redirectToString(proxyObj, originalObj)
+
+  return true
+}
+
+/**
+ * All-in-one method to mock a non-existing property with a JS Proxy using the provided Proxy handler with traps.
+ *
+ * Will stealthify these aspects (strip error stack traces, redirect toString, etc).
+ *
+ * @example
+ * mockWithProxy(chrome.runtime, 'sendMessage', function sendMessage() {}, proxyHandler)
+ *
+ * @param {object} obj - The object which has the property to replace
+ * @param {string} propName - The name of the property to replace or create
+ * @param {object} pseudoTarget - The JS Proxy target to use as a basis
+ * @param {object} handler - The JS Proxy handler to use
+ */
+utils.mockWithProxy = (obj, propName, pseudoTarget, handler) => {
+  utils.preloadCache()
+  const proxyObj = new Proxy(pseudoTarget, utils.stripProxyFromErrors(handler))
+
+  utils.replaceProperty(obj, propName, { value: proxyObj })
+  utils.patchToString(proxyObj)
+
+  return true
+}
+
+/**
+ * All-in-one method to create a new JS Proxy with stealth tweaks.
+ *
+ * This is meant to be used whenever we need a JS Proxy but don't want to replace or mock an existing known property.
+ *
+ * Will stealthify certain aspects of the Proxy (strip error stack traces, redirect toString, etc).
+ *
+ * @example
+ * createProxy(navigator.mimeTypes.__proto__.namedItem, proxyHandler) // => Proxy
+ *
+ * @param {object} pseudoTarget - The JS Proxy target to use as a basis
+ * @param {object} handler - The JS Proxy handler to use
+ */
+utils.createProxy = (pseudoTarget, handler) => {
+  utils.preloadCache()
+  const proxyObj = new Proxy(pseudoTarget, utils.stripProxyFromErrors(handler))
+  utils.patchToString(proxyObj)
+
+  return proxyObj
+}
+
+/**
+ * Helper function to split a full path to an Object into the first part and property.
+ *
+ * @example
+ * splitObjPath(`HTMLMediaElement.prototype.canPlayType`)
+ * // => {objName: "HTMLMediaElement.prototype", propName: "canPlayType"}
+ *
+ * @param {string} objPath - The full path to an object as dot notation string
+ */
+utils.splitObjPath = objPath => ({
+  // Remove last dot entry (property) ==> `HTMLMediaElement.prototype`
+  objName: objPath
+    .split('.')
+    .slice(0, -1)
+    .join('.'),
+  // Extract last dot entry ==> `canPlayType`
+  propName: objPath.split('.').slice(-1)[0]
+})
+
+/**
+ * Convenience method to replace a property with a JS Proxy using the provided objPath.
+ *
+ * Supports a full path (dot notation) to the object as string here, in case that makes it easier.
+ *
+ * @example
+ * replaceObjPathWithProxy('WebGLRenderingContext.prototype.getParameter', proxyHandler)
+ *
+ * @param {string} objPath - The full path to an object (dot notation string) to replace
+ * @param {object} handler - The JS Proxy handler to use
+ */
+utils.replaceObjPathWithProxy = (objPath, handler) => {
+  const { objName, propName } = utils.splitObjPath(objPath)
+  const obj = eval(objName) // eslint-disable-line no-eval
+  return utils.replaceWithProxy(obj, propName, handler)
+}
+
+/**
+ * Traverse nested properties of an object recursively and apply the given function on a whitelist of value types.
+ *
+ * @param {object} obj
+ * @param {array} typeFilter - e.g. `['function']`
+ * @param {Function} fn - e.g. `utils.patchToString`
+ */
+utils.execRecursively = (obj = {}, typeFilter = [], fn) => {
+  function recurse(obj) {
+    for (const key in obj) {
+      if (obj[key] === undefined) {
+        continue
+      }
+      if (obj[key] && typeof obj[key] === 'object') {
+        recurse(obj[key])
+      } else {
+        if (obj[key] && typeFilter.includes(typeof obj[key])) {
+          fn.call(this, obj[key])
+        }
+      }
+    }
+  }
+  recurse(obj)
+  return obj
+}
+
+/**
+ * Everything we run through e.g. `page.evaluate` runs in the browser context, not the NodeJS one.
+ * That means we cannot just use reference variables and functions from outside code, we need to pass everything as a parameter.
+ *
+ * Unfortunately the data we can pass is only allowed to be of primitive types, regular functions don't survive the built-in serialization process.
+ * This utility function will take an object with functions and stringify them, so we can pass them down unharmed as strings.
+ *
+ * We use this to pass down our utility functions as well as any other functions (to be able to split up code better).
+ *
+ * @see utils.materializeFns
+ *
+ * @param {object} fnObj - An object containing functions as properties
+ */
+utils.stringifyFns = (fnObj = { hello: () => 'world' }) => {
+  // Object.fromEntries() ponyfill (in 6 lines) - supported only in Node v12+, modern browsers are fine
+  // https://github.com/feross/fromentries
+  function fromEntries(iterable) {
+    return [...iterable].reduce((obj, [key, val]) => {
+      obj[key] = val
+      return obj
+    }, {})
+  }
+  return (Object.fromEntries || fromEntries)(
+    Object.entries(fnObj)
+      .filter(([key, value]) => typeof value === 'function')
+      .map(([key, value]) => [key, value.toString()]) // eslint-disable-line no-eval
+  )
+}
+
+/**
+ * Utility function to reverse the process of `utils.stringifyFns`.
+ * Will materialize an object with stringified functions (supports classic and fat arrow functions).
+ *
+ * @param {object} fnStrObj - An object containing stringified functions as properties
+ */
+utils.materializeFns = (fnStrObj = { hello: "() => 'world'" }) => {
+  return Object.fromEntries(
+    Object.entries(fnStrObj).map(([key, value]) => {
+      if (value.startsWith('function')) {
+        // some trickery is needed to make oldschool functions work :-)
+        return [key, eval(`() => ${value}`)()] // eslint-disable-line no-eval
+      } else {
+        // arrow functions just work
+        return [key, eval(value)] // eslint-disable-line no-eval
+      }
+    })
+  )
+}
+
+// --
+// Stuff starting below this line is NodeJS specific.
+// --
+// module.exports = utils
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/webgl_vendor.py
+================================================
+webgl_vendor = """
+console.log(opts)
+const getParameterProxyHandler = {
+    apply: function (target, ctx, args) {
+        const param = (args || [])[0]
+        // UNMASKED_VENDOR_WEBGL
+        if (param === 37445) {
+            return opts.webgl_vendor || 'Intel Inc.' // default in headless: Google Inc.
+        }
+        // UNMASKED_RENDERER_WEBGL
+        if (param === 37446) {
+            return opts.webgl_renderer || 'Intel Iris OpenGL Engine' // default in headless: Google SwiftShader
+        }
+        return utils.cache.Reflect.apply(target, ctx, args)
+    }
+}
+
+// There's more than one WebGL rendering context
+// https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext#Browser_compatibility
+// To find out the original values here: Object.getOwnPropertyDescriptors(WebGLRenderingContext.prototype.getParameter)
+const addProxy = (obj, propName) => {
+    utils.replaceWithProxy(obj, propName, getParameterProxyHandler)
+}
+// For whatever weird reason loops don't play nice with Object.defineProperty, here's the next best thing:
+addProxy(WebGLRenderingContext.prototype, 'getParameter')
+addProxy(WebGL2RenderingContext.prototype, 'getParameter')
+"""
+
+
+
+================================================
+FILE: TikTokApi/stealth/js/window_outerdimensions.py
+================================================
+window_outerdimensions = """
+'use strict'
+
+try {
+    if (!!window.outerWidth && !!window.outerHeight) {
+        const windowFrame = 85 // probably OS and WM dependent
+        window.outerWidth = window.innerWidth
+        console.log(`current window outer height ${window.outerHeight}`)
+        window.outerHeight = window.innerHeight + windowFrame
+        console.log(`new window outer height ${window.outerHeight}`)
+    }
+} catch (err) {
+}
+
+"""
+
+
+
+================================================
+FILE: .devcontainer/devcontainer.json
+================================================
+{
+    "name": "TikTokAPI",
+    "image": "mcr.microsoft.com/devcontainers/universal",
+    "postStartCommand": "python3 -m pip install -r requirements.txt && python3 -m playwright install",
+}
+
+
+================================================
+FILE: .github/dependabot.yml
+================================================
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+
+
+
+================================================
+FILE: .github/FUNDING.yml
+================================================
+custom: ['https://www.paypal.me/dteather']
+github: davidteather
+
+
+================================================
+FILE: .github/stale.yml
+================================================
+# Number of days of inactivity before an issue becomes stale
+daysUntilStale: 60
+# Number of days of inactivity before a stale issue is closed
+daysUntilClose: 7
+# Issues with these labels will never be considered stale
+exemptLabels:
+  - pinned
+  - security
+  - severe
+# Label to use when marking an issue as stale
+staleLabel: stale
+# Comment to post when marking an issue as stale. Set to `false` to disable
+markComment: >
+  This issue has been automatically marked as stale because it has not had
+  recent activity. It will be closed if no further activity occurs. Thank you
+  for your contributions.
+# Comment to post when closing a stale issue. Set to `false` to disable
+closeComment: false
+
+
+
+================================================
+FILE: .github/.documentation.yml
+================================================
+- .sphinx
+
+
+================================================
+FILE: .github/ISSUE_TEMPLATE/bug_report.md
+================================================
+---
+name: Bug report
+about: Create a report to help us improve
+title: "[BUG] - Your Error Here"
+labels: bug
+assignees: ''
+
+---
+Fill Out the template :)
+
+**Describe the bug**
+
+A clear and concise description of what the bug is.
+
+**The buggy code**
+
+Please add any relevant code that is giving you unexpected results.
+
+Preferably the smallest amount of code to reproduce the issue.
+
+
+**SET LOGGING LEVEL TO INFO BEFORE POSTING CODE OUTPUT**
+```py
+import logging
+TikTokApi(logging_level=logging.INFO) # SETS LOGGING_LEVEL TO INFO
+# Hopefully the info level will help you debug or at least someone else on the issue
+```
+
+```py
+# Code Goes Here
+```
+
+**Expected behavior**
+
+A clear and concise description of what you expected to happen.
+
+**Error Trace (if any)**
+
+Put the error trace below if there's any error thrown.
+```
+# Error Trace Here
+```
+
+**Desktop (please complete the following information):**
+ - OS: [e.g. Windows 10]
+ - TikTokApi Version [e.g. 5.0.0] - if out of date upgrade before posting an issue
+
+**Additional context**
+
+Add any other context about the problem here.
+
+
+
+================================================
+FILE: .github/ISSUE_TEMPLATE/feature_request.md
+================================================
+---
+name: Feature request
+about: Suggest an idea for this project
+title: "[FEATURE_REQUEST] - What you want here"
+labels: feature_request
+assignees: ''
+
+---
+
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
+
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
+
+**Additional context**
+Add any other context or screenshots about the feature request here.
+
+
+
+================================================
+FILE: .github/ISSUE_TEMPLATE/installation-help.md
+================================================
+---
+name: Installation Help
+about: If you're having trouble getting this to run for the first time please use
+  this template
+title: "[INSTALLATION] - Your error here"
+labels: installation_help
+assignees: ''
+
+---
+
+Please first check the closed issues on GitHub for people with similar problems to you.
+If you'd like more instant help from the community consider joining the [discord](https://discord.gg/yyPhbfma6f)
+
+**Describe the error**
+
+Put the error trace here.
+
+**The buggy code**
+
+Please insert the code that is throwing errors or is giving you weird unexpected results.
+
+**Error Trace (if any)**
+
+Put the error trace below if there's any error thrown.
+```
+# Error Trace Here
+```
+
+**Desktop (please complete the following information):**
+ - OS: [e.g. Windows 10]
+ - TikTokApi Version [e.g. 3.3.1] - if out of date upgrade before posting an issue
+
+**Additional context**
+
+Put what you have already tried. Your problem is probably in the closed issues tab already.
+
+
+
+================================================
+FILE: .github/workflows/docs.yml
+================================================
+name: Build and Deploy Sphinx Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install sphinx sphinx_rtd_theme myst-parser
+
+    - name: Build Documentation
+      run: |
+        cd .sphinx
+        make html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./.sphinx/docs/html
+
+
+
+================================================
+FILE: .github/workflows/package-test.yml
+================================================
+name: TikTokApi CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - nightly
+      - "releases/*"
+
+jobs:
+  Unit-Tests:
+    timeout-minutes: 30
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+        python-version: ["3.9", "3.11"]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: microsoft/playwright-github-action@v1
+      - name: Install Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Setup dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+          pip install pytest-asyncio
+          python -m playwright install
+
+      - name: Run Tests
+        env:
+          ms_token: ${{ secrets.ms_token }}
+        run: pytest tests
+
+
+
+================================================
+FILE: .github/workflows/python-publish.yml
+================================================
+# This workflows will upload a Python Package using Twine when a release is created
+# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+
+name: Upload Python Package
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+
+    - name: Build and publish
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
+
+
+
+================================================
+FILE: .sphinx/README.md
+================================================
+The docs for TikTokAPI
+
+Run locally with: make serve
+
+Build with: make html
+
+
+================================================
+FILE: .sphinx/conf.py
+================================================
+# Configuration file for the Sphinx documentation builder.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/main/usage/configuration.html
+
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/main/usage/configuration.html#project-information
+
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath("../."))
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../.."))
+
+project = "TikTokAPI"
+copyright = "2023, David Teather"
+author = "David Teather"
+release = "v7.1.0"
+
+# -- General configuration ---------------------------------------------------
+# https://www.sphinx-doc.org/en/main/usage/configuration.html#general-configuration
+
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.todo",
+    "sphinx.ext.githubpages",
+    "sphinx.ext.napoleon",
+    "myst_parser",
+]
+
+templates_path = ["_templates"]
+exclude_patterns = ["docs", "Thumbs.db", ".DS_Store"]
+
+napoleon_google_docstring = True
+
+
+# -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/main/usage/configuration.html#options-for-html-output
+
+html_theme = "sphinx_rtd_theme"
+html_baseurl = "https://davidteather.github.io/TikTok-Api/"
+
+source_suffix = {".rst": "restructuredtext", ".md": "markdown"}
+
+
+
+================================================
+FILE: .sphinx/index.rst
+================================================
+TikTokAPI Quick Start
+=====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+View the above tree for detailed documentation on the package.
+
+.. MD -> .. mdinclude:: ../README.md
+
+.. include:: ../README.md
+   :parser: myst_parser.sphinx_
+
+TikTokAPI Full Documentation
+============================
+* :ref:`tiktok-api-main` (main parent class)
+* :ref:`tiktok-api-docs` (classes for each TikTok entity)
+
+* :ref:`modindex`
+* :ref:`search`
+* :ref:`genindex`
+
+
+
+================================================
+FILE: .sphinx/make.bat
+================================================
+@ECHO OFF
+
+pushd %~dp0
+
+REM Command file for Sphinx documentation
+
+if "%SPHINXBUILD%" == "" (
+	set SPHINXBUILD=sphinx-build
+)
+set SOURCEDIR=.
+set BUILDDIR=docs
+
+%SPHINXBUILD% >NUL 2>NUL
+if errorlevel 9009 (
+	echo.
+	echo.The 'sphinx-build' command was not found. Make sure you have Sphinx
+	echo.installed, then set the SPHINXBUILD environment variable to point
+	echo.to the full path of the 'sphinx-build' executable. Alternatively you
+	echo.may add the Sphinx directory to PATH.
+	echo.
+	echo.If you don't have Sphinx installed, grab it from
+	echo.https://www.sphinx-doc.org/
+	exit /b 1
+)
+
+if "%1" == "" goto help
+
+%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+goto end
+
+:help
+%SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+
+:end
+popd
+
+
+
+================================================
+FILE: .sphinx/Makefile
+================================================
+# Minimal makefile for Sphinx documentation
+#
+
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = .
+BUILDDIR      = docs
+
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+serve:
+	@sphinx-autobuild . docs
+
+
+================================================
+FILE: .sphinx/modules.rst
+================================================
+TikTokApi
+=========
+.. toctree::
+   :maxdepth: 4
+
+   TikTokApi
+
+
+
+================================================
+FILE: .sphinx/TikTokApi.api.rst
+================================================
+.. _tiktok-api-docs:
+TikTokApi.api package
+=====================
+
+This package wraps each entity from TikTok into a class with high-level methods to interact with the TikTok object.
+
+Comment
+===============================
+
+.. include:: api/comment.rst
+
+User
+================
+
+.. include:: api/user.rst
+
+Trending
+=================
+
+.. include:: api/trending.rst
+
+Search
+======
+
+.. include:: api/search.rst
+
+Hashtags
+===================
+
+.. include:: api/hashtag.rst
+
+Sound
+================
+
+.. include:: api/sound.rst
+
+Video
+================
+
+.. include:: api/video.rst
+
+
+================================================
+FILE: .sphinx/TikTokApi.rst
+================================================
+.. _tiktok-api-main:
+TikTokApi package
+=================
+
+Subpackages
+===========
+
+.. toctree::
+   :maxdepth: 1
+
+   TikTokApi.api
+
+TikTokApi Main Class
+===========================
+
+This is the main TikTokApi module.
+It contains the TikTokApi class which is the main class of the package.
+
+.. automodule:: TikTokApi.tiktok
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+TikTokApi.exceptions module
+===========================
+
+.. automodule:: TikTokApi.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+TikTokApi.helpers module
+===========================
+
+.. automodule:: TikTokApi.helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+================================================
+FILE: .sphinx/TikTokApi.stealth.rst
+================================================
+TikTokApi.stealth package
+=========================
+
+This package is a modified version of `playwright_stealth <https://github.com/AtuboDad/playwright_stealth>`_, used to mask the browser as a real browser.
+
+This package is used to prevent TikTok from detecting that you are using a bot.
+
+You probably shouldn't be interacting with this package directly, but rather through the :class:`TikTokApi` class.
+
+Here's some stealth resources that I always keep forgetting, so I'm putting them here:
+
+* `SannySoft Bot Detector <https://bot.sannysoft.com/>`_
+* `Are you headless? <https://arh.antoinevastel.com/bots/areyouheadless>`_
+    * `DataDome Detector <https://antoinevastel.com/bots/datadome>`_
+* `Am I Unique? <https://amiunique.org/>`_ (cool because they split up the distribution of each field, I don't really use much)
+
+Bot Detection Resources:
+
+* `FingerprintJS on GitHub <https://github.com/fingerprintjs/fingerprintjs>`_
+
+TikTokApi.stealth.stealth
+================================
+
+.. automodule:: TikTokApi.stealth.stealth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+================================================
+FILE: .sphinx/.gitignore
+================================================
+docs
+
+
+================================================
+FILE: .sphinx/api/comment.rst
+================================================
+TikTokApi.api.comment module
+----------------------------
+
+.. automodule:: TikTokApi.api.comment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/hashtag.rst
+================================================
+TikTokApi.api.hashtag module
+----------------------------
+
+.. automodule:: TikTokApi.api.hashtag
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/search.rst
+================================================
+TikTokApi.api.search module
+----------------------------
+
+.. automodule:: TikTokApi.api.search
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/sound.rst
+================================================
+TikTokApi.api.sound module
+----------------------------
+
+.. automodule:: TikTokApi.api.sound
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/trending.rst
+================================================
+TikTokApi.api.trending module
+-----------------------------
+
+.. automodule:: TikTokApi.api.trending
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/user.rst
+================================================
+TikTokApi.api.user module
+----------------------------
+
+.. automodule:: TikTokApi.api.user
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+================================================
+FILE: .sphinx/api/video.rst
+================================================
+TikTokApi.api.video module
+----------------------------
+
+.. automodule:: TikTokApi.api.video
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+

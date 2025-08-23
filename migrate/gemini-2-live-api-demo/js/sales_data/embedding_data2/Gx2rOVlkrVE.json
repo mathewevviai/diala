@@ -1,0 +1,71 @@
+{
+  "source_video": "Gx2rOVlkrVE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a cold call by offering the prospect an immediate choice to hang up or give you 30 seconds.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to immediately grab attention and differentiate from typical telemarketing calls."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'send me info', acknowledge their request but pivot to qualifying why they asked or proposing a quick review instead.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids being brushed off; aims to understand their needs better or secure a meeting."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Typically when people ask for information, it's because...' to interpret the prospect's request and lead to further discussion.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps uncover underlying reasons or needs behind the request for info."
+    },
+    {
+      "type": "technique",
+      "content": "When facing a 'no budget' objection, acknowledge the concern but shift the focus to the cost of the problem they currently face.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps the prospect quantify the pain point, potentially justifying investment to solve it."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they are not the decision-maker, ask about their decision-making process and who *is* involved.",
+      "speaker_perspective": "sales agent",
+      "notes": "Aims to understand the power structure and identify the correct contact or path forward."
+    },
+    {
+      "type": "technique",
+      "content": "Ask who is typically involved in decisions or how decisions like this are usually made within their organization.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gathers information on stakeholders and process for future steps."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to common objections like 'not interested' or 'too busy' by acknowledging the statement and linking back to a potential value proposition or common challenge.",
+      "speaker_perspective": "sales agent",
+      "notes": "Validates their position while trying to re-engage by highlighting relevance."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Totally makes sense' or 'I hear you'",
+      "speaker_perspective": "sales agent",
+      "notes": "Use to acknowledge and validate the prospect's statement before responding."
+    },
+    {
+      "type": "technique",
+      "content": "Frame discovery questions around the prospect's current state, desired state, challenges, and the impact of those challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Standard discovery framework to understand needs and build a case for the solution."
+    },
+    {
+      "type": "technique",
+      "content": "When asked 'how much does it cost?' early, defer the price question by explaining the need to understand their specific situation first.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids quoting a price without understanding value fit; focuses on qualification first."
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery to proposing a next step (e.g., a meeting) by summarizing the potential benefits identified.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connects the prospect's needs to a logical next action."
+    }
+  ]
+}

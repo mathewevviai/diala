@@ -1,0 +1,3393 @@
+Directory structure:
+└── viaanthroposbenevolentia-gemini-2-live-api-demo/
+    ├── README.md
+    ├── index.html
+    ├── LICENSE
+    ├── css/
+    │   └── styles.css
+    └── js/
+        ├── script.js
+        ├── audio/
+        │   ├── recorder.js
+        │   ├── streamer.js
+        │   ├── visualizer.js
+        │   └── worklets/
+        │       └── audio-processor.js
+        ├── camera/
+        │   └── camera.js
+        ├── chat/
+        │   └── chat-manager.js
+        ├── config/
+        │   └── config.js
+        ├── dom/
+        │   ├── elements.js
+        │   └── events.js
+        ├── main/
+        │   └── agent.js
+        ├── screen/
+        │   └── screen.js
+        ├── settings/
+        │   ├── settings-manager.js
+        │   └── settings-template.js
+        ├── tools/
+        │   ├── google-search.js
+        │   └── tool-manager.js
+        ├── transcribe/
+        │   └── deepgram.js
+        ├── utils/
+        │   └── utils.js
+        └── ws/
+            └── client.js
+
+================================================
+FILE: README.md
+================================================
+# Gemini 2.0 Flash Multimodal Live API Client
+
+A lightweight vanilla JavaScript implementation of the Gemini 2.0 Flash Multimodal Live API client. This project provides real-time interaction with Gemini's API through text, audio, video, and screen sharing capabilities.
+
+This is a simplified version of [Google's original React implementation](https://github.com/google-gemini/multimodal-live-api-web-console), created in response to [this issue](https://github.com/google-gemini/multimodal-live-api-web-console/issues/19).
+
+## Live Demo on GitHub Pages
+
+[Live Demo](https://viaanthroposbenevolentia.github.io/gemini-2-live-api-demo/)
+
+## Key Features
+
+- Real-time chat with Gemini 2.0 Flash Multimodal Live API
+- Real-time audio responses from the model
+- Real-time audio input from the user, allowing interruptions
+- Real-time video streaming from the user's webcam
+- Real-time screen sharing from the user's screen
+- Function calling
+- Transcription of the model's audio (if Deepgram API key provided)
+- Built with vanilla JavaScript (no dependencies)
+- Mobile-friendly
+
+## Prerequisites
+
+- Modern web browser with WebRTC, WebSocket, and Web Audio API support
+- Google AI Studio API key
+- `python -m http.server` or `npx http-server` or Live Server extension for VS Code (to host a server for index.html)
+
+## Quick Start
+
+1. Get your API key from Google AI Studio
+2. Clone the repository
+
+   ```bash
+   git clone https://github.com/ViaAnthroposBenevolentia/gemini-2-live-api-demo.git
+   ```
+
+3. Start the development server (adjust port if needed):
+
+   ```bash
+   cd gemini-2-live-api-demo
+   python -m http.server 8000 # or npx http-server 8000 or Open with Live Server extension for VS Code
+   ```
+
+4. Access the application at `http://localhost:8000`
+
+5. Open the settings at the top right, paste your API key, and click "Save"
+6. Get free API key from [Deepgram](https://deepgram.com/pricing) and paste in the settings to get real-time transcript (Optional).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+## License
+
+This project is licensed under the MIT License.
+
+
+
+================================================
+FILE: index.html
+================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Live</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <button id="disconnectBtn" class="disconnect-btn">Disconnect</button>
+        <button id="connectBtn" class="connect-btn" style="display: none;">Connect</button>
+        <button id="settingsBtn" class="settings-btn">⚙️</button>
+        <button id="cameraBtn" class="camera-btn">
+            <span class="camera-icon">📷</span>
+        </button>
+        <button id="screenBtn" class="screen-btn">
+            <span class="screen-icon">🖥️</span>
+        </button>
+        <button id="micBtn" class="mic-btn">
+            <span class="mic-icon">🎤</span>
+        </button>
+        <div id="chatHistory" class="chat-history"></div>
+        <canvas id="visualizer" class="visualizer"></canvas>
+        <div id="cameraPreview" class="camera-preview"></div>
+        <div id="screenPreview" class="screen-preview"></div>
+        <div class="text-input-container">
+            <input type="text" id="messageInput" placeholder="Type your message..." class="text-input">
+            <button id="sendBtn" class="send-btn">➤</button>
+        </div>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
+
+
+
+================================================
+FILE: LICENSE
+================================================
+MIT License
+
+Copyright (c) 2024 ChrisKyle
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+
+================================================
+FILE: css/styles.css
+================================================
+:root {
+    --bg-color: #1a1a1a;
+    --button-bg: #2d2d2d;
+    --button-hover: #3d3d3d;
+    --text-color: #ffffff;
+    --accent-color: #4CAF50;
+    --danger-color: #ff4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disconnect-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.disconnect-btn:hover {
+    background-color: var(--danger-color);
+    color: var(--text-color);
+}
+
+.connect-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.connect-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.mic-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: absolute;
+    bottom: 22px;
+    right: 25px;
+}
+
+.camera-btn,
+.screen-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: absolute;
+    right: 25px;
+}
+
+.camera-btn {
+    bottom: 142px;
+}
+
+.screen-btn {
+    bottom: 82px;
+}
+
+.camera-btn:hover,
+.screen-btn:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.camera-btn.active,
+.screen-btn.active {
+    background-color: var(--accent-color);
+}
+
+/* Media query for small devices */
+@media screen and (max-width: 350px) {
+    .mic-btn {
+        bottom: 80px;
+    }
+    
+    .camera-btn {
+        bottom: 200px;
+    }
+    
+    .screen-btn {
+        bottom: 140px;
+    }
+}
+
+.mic-btn:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.mic-btn.active {
+    background-color: var(--accent-color);
+}
+
+.mic-icon {
+    font-size: 16px;
+}
+
+.text-input-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 100px; /* Leave space for mic button */
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.text-input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-color);
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    outline: none;
+}
+
+.text-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.visualizer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+}
+
+.camera-preview {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    width: 240px; /* Default width */
+    height: 180px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 2;
+    display: none; /* Hidden by default */
+}
+
+.camera-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.screen-preview {
+    position: absolute;
+    bottom: 300px;
+    left: 20px;
+    width: 240px;
+    height: 135px; /* 16:9 aspect ratio */
+    background-color: var(--button-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 2;
+    display: none; /* Hidden by default */
+}
+
+.screen-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+}
+
+/* Media query for devices with width less than 340px */
+@media (max-width: 340px) {
+    .camera-preview {
+        width: 180px;
+        right: 25px;
+    }
+    .screen-preview {
+        width: 180px;
+        height: 101px; /* Maintain 16:9 aspect ratio */
+    }
+}
+
+.camera-switch-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    z-index: 1000;
+    transition: background-color 0.2s;
+}
+
+.camera-switch-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Hide on desktop */
+@media (hover: hover) and (pointer: fine) {
+    .camera-switch-btn {
+        display: none;
+    }
+}
+
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.settings-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.settings-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+.settings-dialog.active {
+    display: block;
+}
+
+.settings-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.settings-overlay.active {
+    display: block;
+}
+
+.settings-group {
+    margin-bottom: 20px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.settings-group select,
+.settings-group input {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--button-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.collapsible {
+    background-color: var(--button-bg);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 10px;
+}
+
+.collapsible-content.active {
+    display: block;
+}
+
+.settings-save-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.settings-save-btn:hover {
+    opacity: 0.9;
+}
+
+.chat-history {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    bottom: 120px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1;
+}
+
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.user-message {
+    background: #2c5282;
+    color: white;
+    align-self: flex-end;
+    margin-left: 20%;
+}
+
+.model-message {
+    background: #2d3748;
+    color: white;
+    align-self: flex-start;
+    margin-right: 20%;
+}
+
+.model-message.streaming::after {
+    content: '▋';
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+
+================================================
+FILE: js/script.js
+================================================
+import { GeminiAgent } from './main/agent.js';
+import { getConfig, getWebsocketUrl, getDeepgramApiKey, MODEL_SAMPLE_RATE } from './config/config.js';
+
+import { GoogleSearchTool } from './tools/google-search.js';
+import { ToolManager } from './tools/tool-manager.js';
+import { ChatManager } from './chat/chat-manager.js';
+
+import { setupEventListeners } from './dom/events.js';
+
+const url = getWebsocketUrl();
+const config = getConfig();
+const deepgramApiKey = getDeepgramApiKey();
+
+const toolManager = new ToolManager();
+toolManager.registerTool('googleSearch', new GoogleSearchTool());
+
+const chatManager = new ChatManager();
+
+const geminiAgent = new GeminiAgent({
+    url,
+    config,
+    deepgramApiKey,
+    modelSampleRate: MODEL_SAMPLE_RATE,
+    toolManager
+});
+
+// Handle chat-related events
+geminiAgent.on('transcription', (transcript) => {
+    chatManager.updateStreamingMessage(transcript);
+});
+
+geminiAgent.on('text_sent', (text) => {
+    chatManager.finalizeStreamingMessage();
+    chatManager.addUserMessage(text);
+});
+
+geminiAgent.on('interrupted', () => {
+    chatManager.finalizeStreamingMessage();
+    if (!chatManager.lastUserMessageType) {
+        chatManager.addUserAudioMessage();
+    }
+});
+
+geminiAgent.on('turn_complete', () => {
+    chatManager.finalizeStreamingMessage();
+});
+
+geminiAgent.connect();
+
+setupEventListeners(geminiAgent);
+
+
+================================================
+FILE: js/audio/recorder.js
+================================================
+import { arrayBufferToBase64 } from '../utils/utils.js';
+
+/**
+ * AudioRecorder manages the capture and processing of audio input from the user's microphone.
+ * It uses the Web Audio API and AudioWorklet to process audio in real-time with minimal latency.
+ * The processed audio is converted to base64-encoded Int16 format suitable for transmission.
+ */
+export class AudioRecorder extends EventTarget {
+    /**
+     * Creates an AudioRecorder instance
+     */
+    constructor() {
+        super();
+        // Core audio configuration
+        this.sampleRate = 16000;         // Sample rate in Hz   
+        this.stream = null;              // MediaStream from getUserMedia
+        this.audioContext = null;        // AudioContext for Web Audio API
+        this.source = null;              // MediaStreamAudioSourceNode
+        this.processor = null;           // AudioWorkletNode for processing
+        this.onAudioData = null;         // Callback for processed audio chunks
+        this.isRecording = false;        // Recording state flag
+        this.isSuspended = false;        // Mic suspension state
+    }
+
+    /**
+     * Initializes and starts audio capture pipeline
+     * Sets up audio context, worklet processor, and media stream
+     * @param {Function} onAudioData - Callback receiving base64-encoded audio chunks
+     */
+    async start(onAudioData) {
+        this.onAudioData = onAudioData;
+        try {
+            // Request microphone access with specific echo cancelation and noise reduction
+            this.stream = await navigator.mediaDevices.getUserMedia({ 
+                audio: {
+                    channelCount: 1,
+                    sampleRate: this.sampleRate,
+                    echoCancellation: true,
+                    noiseSuppression: true,
+                    autoGainControl: true
+                } 
+            });
+            
+            // Initialize Web Audio API context and nodes
+            this.audioContext = new AudioContext({ sampleRate: this.sampleRate });
+            this.source = this.audioContext.createMediaStreamSource(this.stream);
+
+            // Load and initialize audio processing worklet
+            await this.audioContext.audioWorklet.addModule('js/audio/worklets/audio-processor.js');
+            this.processor = new AudioWorkletNode(this.audioContext, 'audio-recorder-worklet');
+            
+            // Handle processed audio chunks from worklet
+            this.processor.port.onmessage = (event) => {
+                if (!this.isRecording) return;
+                
+                if (event.data.event === 'chunk' && this.onAudioData) {
+                    const base64Data = arrayBufferToBase64(event.data.data.int16arrayBuffer);
+                    this.onAudioData(base64Data);
+                }
+            };
+
+            // Connect audio processing pipeline
+            this.source.connect(this.processor);
+            this.processor.connect(this.audioContext.destination);
+            this.isRecording = true;
+        } catch (error) {
+            throw new Error('Failed to start audio recording:' + error);
+        }
+    }
+
+    /**
+     * Gracefully stops audio recording and cleans up resources
+     * Stops media tracks and logs the operation completion
+     */
+    stop() {
+        try {
+            if (!this.isRecording) {
+                return;
+            }
+
+            // Stop all active media tracks
+            if (this.stream) {
+                this.stream.getTracks().forEach(track => track.stop());
+                this.stream = null;
+            }
+
+            this.isRecording = false;
+            console.info('Audio recording stopped');
+
+            if (this.audioContext) {
+                this.audioContext.close();
+            }
+        } catch (error) {
+            throw new Error('Failed to stop audio recording:' + error);
+        }
+    }
+
+    /**
+     * Suspends microphone input without destroying the audio context
+     */
+    async suspendMic() {
+        if (!this.isRecording || this.isSuspended) return;
+        
+        try {
+            await this.audioContext.suspend();
+            this.stream.getTracks().forEach(track => track.enabled = false);
+            this.isSuspended = true;
+            console.info('Microphone suspended');
+        } catch (error) {
+            throw new Error('Failed to suspend microphone:' + error);
+        }
+    }
+
+    /**
+     * Resumes microphone input if previously suspended
+     */
+    async resumeMic() {
+        if (!this.isRecording || !this.isSuspended) return;
+        
+        try {
+            await this.audioContext.resume();
+            this.stream.getTracks().forEach(track => track.enabled = true);
+            this.isSuspended = false;
+            console.info('Microphone resumed');
+        } catch (error) {
+            throw new Error('Failed to resume microphone:' + error);
+        }
+    }
+
+    /**
+     * Toggles microphone state between suspended and active
+     */
+    async toggleMic() {
+        if (this.isSuspended) {
+            await this.resumeMic();
+        } else {
+            await this.suspendMic();
+        }
+    }
+}
+
+
+================================================
+FILE: js/audio/streamer.js
+================================================
+/**
+ * AudioStreamer manages real-time audio playback from a stream of PCM audio chunks.
+ * It implements a sophisticated buffering system to ensure smooth playback while
+ * handling network jitter and maintaining low latency. The streamer uses Web Audio API
+ * for precise timing and efficient audio scheduling.
+ */
+import { MODEL_SAMPLE_RATE } from '../config/config.js';
+
+export class AudioStreamer {
+    /**
+     * Creates an AudioStreamer instance with the specified audio context
+     * @param {AudioContext} context - Web Audio API context for audio playback
+     */
+    constructor(context) {
+        if (!context || !(context instanceof AudioContext)) {
+            throw new Error('Invalid AudioContext provided', { context });
+        }
+        this.context = context;
+        this.audioQueue = [];                           // Queue of audio chunks waiting to be played
+        this.isPlaying = false;                         // Playback state
+        this._sampleRate = MODEL_SAMPLE_RATE;           // Use configured sample rate
+        this.bufferSize = Math.floor(this._sampleRate * 0.32);  // Buffer size (320ms based on sample rate)
+        this.processingBuffer = new Float32Array(0);    // Accumulator for incomplete chunks
+        this.scheduledTime = 0;                         // Next scheduled audio playback time
+        this.gainNode = this.context.createGain();      // Volume control node
+        this.isStreamComplete = false;                  // Stream completion flag
+        this.checkInterval = null;                      // Interval for checking buffer state
+        this.initialBufferTime = 0.05;                  // Initial buffering delay (50ms)
+        this.isInitialized = false;                     // Initialization state
+        this.endOfQueueAudioSource = null;              // Last audio source in queue
+        this.scheduledSources = new Set();              // Track active audio sources
+        
+        // Connect gain node to audio output
+        this.gainNode.connect(this.context.destination);
+        console.info('AudioStreamer initialized', { sampleRate: this._sampleRate });
+        
+        // Bind methods
+        this.streamAudio = this.streamAudio.bind(this);
+    }
+
+    /**
+     * Gets the current sample rate used for audio playback
+     * @returns {number} Current sample rate in Hz
+     */
+    get sampleRate() {
+        return this._sampleRate;
+    }
+
+    /**
+     * Sets a new sample rate and adjusts buffer size accordingly
+     * @param {number} value - New sample rate in Hz
+     */
+    set sampleRate(value) {
+        if (!Number.isFinite(value) || value <= 1 || value > 48000) {
+            console.warn('Attempt to set invalid sample rate:' + value + '. Must be between 1 and 48000Hz. Using saved sample rate instead:' + this._sampleRate);
+            return;
+        }
+        this._sampleRate = value;
+        this.bufferSize = Math.floor(value * 0.32);  // 320ms buffer
+        console.info('Sample rate updated', { newRate: value, newBufferSize: this.bufferSize });
+    }
+
+    /**
+     * Processes incoming PCM16 audio chunks for playback
+     * @param {Int16Array|Uint8Array} chunk - Raw PCM16 audio data
+     */
+    streamAudio(chunk) {
+        if (!this.isInitialized) {
+            console.warn('AudioStreamer not initialized. Call initialize() first.');
+            return;
+        }
+
+        if (!chunk || !(chunk instanceof Int16Array || chunk instanceof Uint8Array)) {
+            console.warn('Invalid audio chunk provided', { chunkType: chunk ? chunk.constructor.name : 'null' });
+            return;
+        }
+
+        try {
+            // Convert Int16 samples to Float32 format
+            const float32Array = new Float32Array(chunk.length / 2);
+            const dataView = new DataView(chunk.buffer);
+
+            for (let i = 0; i < chunk.length / 2; i++) {
+                const int16 = dataView.getInt16(i * 2, true);
+                float32Array[i] = int16 / 32768;  // Scale to [-1.0, 1.0] range
+            }
+
+            // Limit processing buffer size to prevent memory issues
+            if (this.processingBuffer.length > this.bufferSize * 4) {
+                console.warn('Processing buffer overflow, resetting', { 
+                    bufferSize: this.processingBuffer.length,
+                    maxSize: this.bufferSize * 4 
+                });
+                this.processingBuffer = new Float32Array(0);
+            }
+
+            // Accumulate samples in processing buffer
+            const newBuffer = new Float32Array(this.processingBuffer.length + float32Array.length);
+            newBuffer.set(this.processingBuffer);
+            newBuffer.set(float32Array, this.processingBuffer.length);
+            this.processingBuffer = newBuffer;
+
+            // Split processing buffer into playable chunks
+            while (this.processingBuffer.length >= this.bufferSize) {
+                const buffer = this.processingBuffer.slice(0, this.bufferSize);
+                this.audioQueue.push(buffer);
+                this.processingBuffer = this.processingBuffer.slice(this.bufferSize);
+            }
+
+            // Start playback if not already playing
+            if (!this.isPlaying) {
+                this.isPlaying = true;
+                this.scheduledTime = this.context.currentTime + this.initialBufferTime;
+                this.scheduleNextBuffer();
+            }
+        } catch (error) {
+            throw new Error('Error processing audio chunk:' + error);
+        }
+    }
+
+    /**
+     * Creates an AudioBuffer from Float32 audio data
+     * @param {Float32Array} audioData - Audio samples to convert
+     * @returns {AudioBuffer} Web Audio API buffer for playback
+     */
+    createAudioBuffer(audioData) {
+        const audioBuffer = this.context.createBuffer(1, audioData.length, this.sampleRate);
+        audioBuffer.getChannelData(0).set(audioData);
+        return audioBuffer;
+    }
+
+    /**
+     * Schedules audio buffers for playback with precise timing
+     * Implements a look-ahead scheduler to ensure smooth playback
+     * Uses setTimeout for efficient CPU usage while maintaining timing accuracy
+     */
+    scheduleNextBuffer() {
+        if (!this.isPlaying) return;  // Don't schedule if stopped
+
+        const SCHEDULE_AHEAD_TIME = 0.2;  // Look-ahead window in seconds
+
+        try {
+            // Schedule buffers within look-ahead window
+            while (this.audioQueue.length > 0 && this.scheduledTime < this.context.currentTime + SCHEDULE_AHEAD_TIME) {
+                const audioData = this.audioQueue.shift();
+                const audioBuffer = this.createAudioBuffer(audioData);
+                const source = this.context.createBufferSource();
+
+                // Track this source
+                this.scheduledSources.add(source);
+                source.onended = () => {
+                    this.scheduledSources.delete(source);
+                };
+
+                // Handle completion tracking for last buffer
+                if (this.audioQueue.length === 0) {
+                    if (this.endOfQueueAudioSource) {
+                        this.endOfQueueAudioSource.onended = null;
+                    }
+                    this.endOfQueueAudioSource = source;
+                    source.onended = () => {
+                        this.scheduledSources.delete(source);
+                        if (!this.audioQueue.length && this.endOfQueueAudioSource === source) {
+                            this.endOfQueueAudioSource = null;
+                        }
+                    };
+                }
+
+                source.buffer = audioBuffer;
+                source.connect(this.gainNode);
+
+                // Ensure accurate playback timing
+                const startTime = Math.max(this.scheduledTime, this.context.currentTime);
+                source.start(startTime);
+                this.scheduledTime = startTime + audioBuffer.duration;
+            }
+
+            // Handle buffer underrun or stream completion
+            if (this.audioQueue.length === 0 && this.processingBuffer.length === 0) {
+                if (this.isStreamComplete) {
+                    this.isPlaying = false;
+                    if (this.checkInterval) {
+                        clearInterval(this.checkInterval);
+                        this.checkInterval = null;
+                    }
+                } else if (!this.checkInterval) {
+                    // Start checking for new audio data
+                    this.checkInterval = window.setInterval(() => {
+                        if (this.audioQueue.length > 0 || this.processingBuffer.length >= this.bufferSize) {
+                            this.scheduleNextBuffer();
+                        }
+                    }, 100);
+                }
+            } else {
+                // Schedule next check based on audio timing
+                const nextCheckTime = (this.scheduledTime - this.context.currentTime) * 1000;
+                setTimeout(() => this.scheduleNextBuffer(), Math.max(0, nextCheckTime - 50));
+            }
+        } catch (error) {
+            throw new Error('Error scheduling next buffer:' + error);
+        }
+    }
+
+    /**
+     * Stops audio playback and cleans up resources
+     * Implements smooth fade-out and resets audio pipeline
+     */
+    stop() {
+        console.info('Stopping audio playback');
+        this.isPlaying = false;
+        this.isStreamComplete = true;
+        
+        // Stop all active audio sources
+        for (const source of this.scheduledSources) {
+            try {
+                source.stop();
+                source.disconnect();
+            } catch (error) {
+                console.debug('Error stopping audio source', { error: error });
+            }
+        }
+        this.scheduledSources.clear();
+        
+        this.audioQueue = [];
+        this.processingBuffer = new Float32Array(0);
+        this.scheduledTime = this.context.currentTime;
+
+        // Clear buffer check interval
+        if (this.checkInterval) {
+            clearInterval(this.checkInterval);
+            this.checkInterval = null;
+        }
+
+        // Fade out audio to avoid clicks
+        try {
+            if (this.gainNode) {
+                this.gainNode.gain.linearRampToValueAtTime(0, this.context.currentTime + 0.1);
+            }
+        } catch (error) {
+            throw new Error('Error during fade-out:' + error);
+        }
+    }
+
+    /**
+     * Initializes the audio streamer
+     * Ensures audio context is active before starting playback
+     * @returns {AudioStreamer} This instance for method chaining
+     */
+    async initialize() {
+        try {
+            if (this.context.state === 'suspended') {
+                await this.context.resume();
+            }
+            this.isStreamComplete = false;
+            this.scheduledTime = this.context.currentTime + this.initialBufferTime;
+            this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
+            this.isInitialized = true;
+
+            console.info('AudioStreamer initialization complete');
+        } catch (error) {
+            throw new Error('Failed to initialize AudioStreamer:' + error);
+        }
+    }
+}
+
+
+================================================
+FILE: js/audio/visualizer.js
+================================================
+/**
+ * AudioVisualizer creates a waveform visualization
+ * using Web Audio API's AnalyserNode to process audio data in real-time.
+ */
+export class AudioVisualizer {
+    constructor(audioContext, canvasId) {
+        this.audioContext = audioContext;
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = this.canvas.getContext('2d');
+        
+        // Set up audio nodes
+        this.analyser = this.audioContext.createAnalyser();
+        this.analyser.fftSize = 1024; // Reduced for smoother animation
+        this.analyser.smoothingTimeConstant = 0.85; // Increased smoothing
+        this.bufferLength = this.analyser.frequencyBinCount;
+        this.dataArray = new Uint8Array(this.bufferLength);
+        this.prevDataArray = new Uint8Array(this.bufferLength);
+        
+        // Visualization settings
+        this.gradientColors = ['#4CAF50', '#81C784', '#A5D6A7']; // Multiple green shades
+        this.lineWidth = 4; // Thicker lines
+        this.padding = 40; // Increased padding
+        this.smoothingFactor = 0.4; // Value between 0 and 1 for interpolation
+        
+        // Animation
+        this.isAnimating = false;
+        this.animationId = null;
+        
+        // Bind methods
+        this.draw = this.draw.bind(this);
+        this.resize = this.resize.bind(this);
+        
+        // Initial setup
+        this.resize();
+        window.addEventListener('resize', this.resize);
+        this.createGradient();
+    }
+    
+    /**
+     * Connects an audio node to the visualizer
+     * @param {AudioNode} sourceNode - The audio node to visualize
+     */
+    connectSource(sourceNode) {
+        sourceNode.connect(this.analyser);
+    }
+    
+    /**
+     * Starts the visualization animation
+     */
+    start() {
+        if (!this.isAnimating) {
+            this.isAnimating = true;
+            this.draw();
+        }
+    }
+    
+    /**
+     * Stops the visualization animation
+     */
+    stop() {
+        this.isAnimating = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+        // Clear the canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    
+    /**
+     * Creates gradient for visualization
+     */
+    createGradient() {
+        this.gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, 0);
+        this.gradientColors.forEach((color, index) => {
+            this.gradient.addColorStop(index / (this.gradientColors.length - 1), color);
+        });
+    }
+    
+    /**
+     * Handles canvas resize
+     */
+    resize() {
+        const container = this.canvas.parentElement;
+        this.canvas.width = container.offsetWidth;
+        this.canvas.height = container.offsetHeight;
+        this.createGradient();
+    }
+    
+    /**
+     * Interpolates between two values for smoother animation
+     */
+    lerp(start, end, amt) {
+        return (1 - amt) * start + amt * end;
+    }
+    
+    /**
+     * Draws the visualization frame
+     */
+    draw() {
+        if (!this.isAnimating) return;
+        
+        // Store previous data and get new data
+        this.prevDataArray.set(this.dataArray);
+        this.analyser.getByteTimeDomainData(this.dataArray);
+        
+        // Clear the canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Set up drawing style
+        this.ctx.lineWidth = this.lineWidth;
+        this.ctx.strokeStyle = this.gradient;
+        this.ctx.lineCap = 'round';
+        this.ctx.lineJoin = 'round';
+        
+        // Calculate dimensions
+        const width = this.canvas.width - (this.padding * 2);
+        const height = this.canvas.height - (this.padding * 2);
+        const centerY = this.canvas.height / 2;
+        
+        // Draw the waveform
+        const sliceWidth = width / (this.bufferLength - 1);
+        let x = this.padding;
+        
+        // Start the path
+        this.ctx.beginPath();
+        this.ctx.moveTo(x, centerY);
+        
+        // Draw smooth curve
+        for (let i = 0; i < this.bufferLength; i++) {
+            // Interpolate between previous and current values
+            const currentValue = this.dataArray[i] / 128.0;
+            const prevValue = this.prevDataArray[i] / 128.0;
+            const v = this.lerp(prevValue, currentValue, this.smoothingFactor);
+            
+            const y = (v * height / 2) + centerY;
+            
+            if (i === 0) {
+                this.ctx.moveTo(x, y);
+            } else {
+                // Use quadratic curves for smoother lines
+                const prevX = x - sliceWidth;
+                const prevY = (this.lerp(this.prevDataArray[i-1]/128.0, this.dataArray[i-1]/128.0, this.smoothingFactor) * height / 2) + centerY;
+                const cpX = (prevX + x) / 2;
+                this.ctx.quadraticCurveTo(cpX, prevY, x, y);
+            }
+            
+            x += sliceWidth;
+        }
+        
+        // Add glow effect
+        this.ctx.shadowBlur = 10;
+        this.ctx.shadowColor = this.gradientColors[0];
+        
+        // Stroke the path
+        this.ctx.stroke();
+        
+        // Reset shadow for next frame
+        this.ctx.shadowBlur = 0;
+        
+        // Request next frame
+        this.animationId = requestAnimationFrame(this.draw);
+    }
+    
+    /**
+     * Clean up resources
+     */
+    cleanup() {
+        this.stop();
+        window.removeEventListener('resize', this.resize);
+        if (this.analyser) {
+            this.analyser.disconnect();
+        }
+    }
+} 
+
+
+================================================
+FILE: js/audio/worklets/audio-processor.js
+================================================
+/**
+ * AudioProcessingWorklet handles real-time audio processing in a dedicated thread.
+ * It converts incoming Float32 audio samples to Int16 format for efficient network transmission
+ * and processing by speech recognition systems.
+ */
+class AudioProcessingWorklet extends AudioWorkletProcessor {
+    /**
+     * Initializes the audio processing worklet with a fixed-size buffer
+     * Buffer size of 2048 samples provides a good balance between latency and processing efficiency
+     */
+    constructor() {
+        super();
+        // Pre-allocate buffer for Int16 samples to avoid garbage collection
+        this.buffer = new Int16Array(2048);
+        this.bufferWriteIndex = 0;
+        this.sampleRate = 16000;
+    }
+
+    /**
+     * Processes incoming audio data in chunks
+     * @param {Array<Float32Array[]>} inputs - Array of input channels, each containing Float32 audio samples
+     * @returns {boolean} - Return true to keep the processor alive
+     */
+    process(inputs) {
+        // Process only if we have audio data (first channel of first input)
+        if (inputs[0].length) {
+            const channel0 = inputs[0][0];
+            this.processChunk(channel0);
+        }
+        return true;
+    }
+
+    /**
+     * Sends the accumulated audio buffer to the main thread and resets the write position
+     * Uses SharedArrayBuffer for zero-copy transfer of audio data
+     */
+    sendAndClearBuffer() {
+        this.port.postMessage({
+            event: 'chunk',
+            data: {
+                // Transfer only the filled portion of the buffer
+                int16arrayBuffer: this.buffer.slice(0, this.bufferWriteIndex).buffer,
+            },
+        });
+        this.bufferWriteIndex = 0;
+    }
+
+    /**
+     * Converts Float32 audio samples to Int16 format and accumulates them in the buffer
+     * Float32 range [-1.0, 1.0] is mapped to Int16 range [-32768, 32767]
+     * @param {Float32Array} float32Array - Input audio samples in Float32 format
+     */
+    processChunk(float32Array) {
+        try {
+            for (let i = 0; i < float32Array.length; i++) {
+                // Convert Float32 to Int16 with proper rounding and clamping
+                const int16Value = Math.max(-32768, Math.min(32767, Math.floor(float32Array[i] * 32768)));
+                this.buffer[this.bufferWriteIndex++] = int16Value;
+
+                // Send buffer when full to maintain continuous audio stream
+                if (this.bufferWriteIndex >= this.buffer.length) {
+                    this.sendAndClearBuffer();
+                }
+            }
+
+            // Handle any remaining samples in buffer
+            if (this.bufferWriteIndex >= this.buffer.length) {
+                this.sendAndClearBuffer();
+            }
+        } catch (error) {
+            // Forward processing errors to main thread for handling
+            this.port.postMessage({
+                event: 'error',
+                error: {
+                    message: error.message,
+                    stack: error.stack
+                }
+            });
+        }
+    }
+}
+
+// Register the worklet processor with a unique name for reference in AudioWorkletNode
+registerProcessor('audio-recorder-worklet', AudioProcessingWorklet);
+
+
+================================================
+FILE: js/camera/camera.js
+================================================
+/**
+ * Manages camera access, capture, and image processing
+ */
+export class CameraManager {
+    /**
+     * @param {Object} config
+     * @param {number} config.width - Target width for resizing captured images
+     * @param {number} config.quality - JPEG quality (0-1)
+     * @param {string} [config.facingMode] - Camera facing mode (optional, mobile-only)
+     */
+    constructor(config) {
+        this.config = {
+            width: config.width || 640,
+            quality: config.quality || 0.8,
+            facingMode: config.facingMode // undefined by default for desktop compatibility
+        };
+        
+        this.stream = null;
+        this.videoElement = null;
+        this.canvas = null;
+        this.ctx = null;
+        this.isInitialized = false;
+        this.aspectRatio = null;
+        this.previewContainer = null;
+        this.switchButton = null;
+    }
+
+    /**
+     * Show the camera preview
+     */
+    showPreview() {
+        if (this.previewContainer) {
+            this.previewContainer.style.display = 'block';
+        }
+    }
+
+    /**
+     * Hide the camera preview
+     */
+    hidePreview() {
+        if (this.previewContainer) {
+            this.previewContainer.style.display = 'none';
+        }
+    }
+
+    /**
+     * Create and append the camera switch button
+     * @private
+     */
+    _createSwitchButton() {
+        // Only create button on mobile devices
+        if (!/Mobi|Android/i.test(navigator.userAgent)) return;
+
+        this.switchButton = document.createElement('button');
+        this.switchButton.className = 'camera-switch-btn';
+        this.switchButton.innerHTML = '⟲';
+        this.switchButton.addEventListener('click', () => this.switchCamera());
+        this.previewContainer.appendChild(this.switchButton);
+    }
+
+    /**
+     * Switch between front and back cameras
+     */
+    async switchCamera() {
+        if (!this.isInitialized) return;
+        
+        // Toggle facingMode
+        this.config.facingMode = this.config.facingMode === 'user' ? 'environment' : 'user';
+        localStorage.setItem('facingMode', this.config.facingMode);
+        
+        // Stop current stream
+        if (this.stream) {
+            this.stream.getTracks().forEach(track => track.stop());
+        }
+
+        // Reinitialize with new facingMode
+        try {
+            const constraints = {
+                video: {
+                    width: { ideal: 1920 },
+                    height: { ideal: 1080 },
+                    facingMode: this.config.facingMode
+                }
+            };
+
+            this.stream = await navigator.mediaDevices.getUserMedia(constraints);
+            this.videoElement.srcObject = this.stream;
+            await this.videoElement.play();
+        } catch (error) {
+            console.error('Failed to switch camera:', error);
+            // Revert to previous facing mode on error
+            this.config.facingMode = localStorage.getItem('facingMode') || 'environment';
+        }
+    }
+
+    /**
+     * Initialize camera stream and canvas
+     * @returns {Promise<void>}
+     */
+    async initialize() {
+        if (this.isInitialized) return;
+
+        try {
+            // Build constraints based on platform
+            const constraints = {
+                video: {
+                    width: { ideal: 1920 }, // Request max quality first
+                    height: { ideal: 1080 }
+                }
+            };
+
+            // Set initial facingMode on mobile
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                this.config.facingMode = this.config.facingMode || 'user'; // Default to front camera
+                constraints.video.facingMode = this.config.facingMode;
+            }
+
+            // Request camera access
+            this.stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+            // Create and setup video element
+            this.videoElement = document.createElement('video');
+            this.videoElement.srcObject = this.stream;
+            this.videoElement.playsInline = true;
+            
+            // Add video to preview container
+            const previewContainer = document.getElementById('cameraPreview');
+            if (previewContainer) {
+                previewContainer.appendChild(this.videoElement);
+                this.previewContainer = previewContainer;
+                this._createSwitchButton(); // Add switch button
+                this.showPreview(); // Show preview when initialized
+            }
+            
+            await this.videoElement.play();
+
+            // Get the actual video dimensions
+            const videoWidth = this.videoElement.videoWidth;
+            const videoHeight = this.videoElement.videoHeight;
+            this.aspectRatio = videoHeight / videoWidth;
+
+            // Calculate canvas size maintaining aspect ratio
+            const canvasWidth = this.config.width;
+            const canvasHeight = Math.round(this.config.width * this.aspectRatio);
+
+            // Create canvas for image processing
+            this.canvas = document.createElement('canvas');
+            this.canvas.width = canvasWidth;
+            this.canvas.height = canvasHeight;
+            this.ctx = this.canvas.getContext('2d');
+
+            this.isInitialized = true;
+        } catch (error) {
+            throw new Error(`Failed to initialize camera: ${error.message}`);
+        }
+    }
+
+    /**
+     * Get current canvas dimensions
+     * @returns {{width: number, height: number}}
+     */
+    getDimensions() {
+        if (!this.isInitialized) {
+            throw new Error('Camera not initialized. Call initialize() first.');
+        }
+        return {
+            width: this.canvas.width,
+            height: this.canvas.height
+        };
+    }
+
+    /**
+     * Capture and process an image from the camera
+     * @returns {Promise<string>} Base64 encoded JPEG image
+     */
+    async capture() {
+        if (!this.isInitialized) {
+            throw new Error('Camera not initialized. Call initialize() first.');
+        }
+
+        // Draw current video frame to canvas, maintaining aspect ratio
+        this.ctx.drawImage(
+            this.videoElement,
+            0, 0,
+            this.canvas.width,
+            this.canvas.height
+        );
+
+        // Convert to base64 JPEG with specified quality
+        return this.canvas.toDataURL('image/jpeg', this.config.quality).split(',')[1];
+    }
+
+    /**
+     * Stop camera stream and cleanup resources
+     */
+    dispose() {
+        if (this.stream) {
+            this.stream.getTracks().forEach(track => track.stop());
+            this.stream = null;
+        }
+        
+        if (this.videoElement) {
+            this.videoElement.srcObject = null;
+            this.videoElement = null;
+        }
+
+        if (this.switchButton) {
+            this.switchButton.remove();
+            this.switchButton = null;
+        }
+
+        if (this.previewContainer) {
+            this.hidePreview();
+            this.previewContainer.innerHTML = ''; // Clear the preview container
+            this.previewContainer = null;
+        }
+
+        this.canvas = null;
+        this.ctx = null;
+        this.isInitialized = false;
+        this.aspectRatio = null;
+    }
+}
+
+
+
+================================================
+FILE: js/chat/chat-manager.js
+================================================
+export class ChatManager {
+    constructor() {
+        this.chatContainer = document.getElementById('chatHistory');
+        this.currentStreamingMessage = null;
+        this.lastUserMessageType = null; // 'text' or 'audio'
+        this.currentTranscript = ''; // Add this to store accumulated transcript
+    }
+
+    addUserMessage(text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'chat-message user-message';
+        messageDiv.textContent = text;
+        this.chatContainer.appendChild(messageDiv);
+        this.lastUserMessageType = 'text';
+        this.scrollToBottom();
+    }
+
+    addUserAudioMessage() {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'chat-message user-message';
+        messageDiv.textContent = 'User sent audio';
+        this.chatContainer.appendChild(messageDiv);
+        this.lastUserMessageType = 'audio';
+        this.scrollToBottom();
+    }
+
+    startModelMessage() {
+        // If there's already a streaming message, finalize it first
+        if (this.currentStreamingMessage) {
+            this.finalizeStreamingMessage();
+        }
+
+        // If no user message was shown yet, show audio message
+        if (!this.lastUserMessageType) {
+            this.addUserAudioMessage();
+        }
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'chat-message model-message streaming';
+        this.chatContainer.appendChild(messageDiv);
+        this.currentStreamingMessage = messageDiv;
+        this.currentTranscript = ''; // Reset transcript when starting new message
+        this.scrollToBottom();
+    }
+
+    updateStreamingMessage(text) {
+        if (!this.currentStreamingMessage) {
+            this.startModelMessage();
+        }
+        this.currentTranscript += ' ' + text; // Append new text to the transcript
+        this.currentStreamingMessage.textContent = this.currentTranscript;
+        this.scrollToBottom();
+    }
+
+    finalizeStreamingMessage() {
+        if (this.currentStreamingMessage) {
+            this.currentStreamingMessage.classList.remove('streaming');
+            this.currentStreamingMessage = null;
+            this.lastUserMessageType = null;
+            this.currentTranscript = ''; // Reset transcript when finalizing
+        }
+    }
+
+    scrollToBottom() {
+        this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+    }
+
+    clear() {
+        this.chatContainer.innerHTML = '';
+        this.currentStreamingMessage = null;
+        this.lastUserMessageType = null;
+        this.currentTranscript = '';
+    }
+} 
+
+
+================================================
+FILE: js/config/config.js
+================================================
+export const getWebsocketUrl = () => {
+    const apiKey = localStorage.getItem('apiKey');
+    return `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=${apiKey}`;
+};
+
+export const getDeepgramApiKey = () => {
+    return localStorage.getItem('deepgramApiKey') || '';
+};
+
+// Audio Configurations
+export const MODEL_SAMPLE_RATE = parseInt(localStorage.getItem('sampleRate')) || 27000;
+
+const thresholds = {
+    0: "BLOCK_NONE",
+    1: "BLOCK_ONLY_HIGH",
+    2: "BLOCK_MEDIUM_AND_ABOVE",
+    3: "BLOCK_LOW_AND_ABOVE"
+}
+
+export const getConfig = () => ({
+    model: 'models/gemini-2.0-flash-exp',
+    generationConfig: {
+        temperature: parseFloat(localStorage.getItem('temperature')) || 1.8,
+        top_p: parseFloat(localStorage.getItem('top_p')) || 0.95,
+        top_k: parseInt(localStorage.getItem('top_k')) || 65,
+        responseModalities: "audio",
+        speechConfig: {
+            voiceConfig: { 
+                prebuiltVoiceConfig: { 
+                    voiceName: localStorage.getItem('voiceName') || 'Aoede'
+                }
+            }
+        }
+    },
+    systemInstruction: {
+        parts: [{
+            text: localStorage.getItem('systemInstructions') || "You are a helpful assistant"
+        }]
+    },
+    tools: {
+        functionDeclarations: [],
+    },
+    safetySettings: [
+        {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": thresholds[localStorage.getItem('harassmentThreshold')] || "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        },
+        {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": thresholds[localStorage.getItem('dangerousContentThreshold')] || "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        },
+        {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": thresholds[localStorage.getItem('sexuallyExplicitThreshold')] || "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        },
+        {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": thresholds[localStorage.getItem('hateSpeechThreshold')] || "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        },
+        {
+            "category": "HARM_CATEGORY_CIVIC_INTEGRITY",
+            "threshold": thresholds[localStorage.getItem('civicIntegrityThreshold')] || "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        }
+    ]
+});
+
+
+================================================
+FILE: js/dom/elements.js
+================================================
+// DOM elements object
+const elements = {
+    // Button elements
+    disconnectBtn: document.getElementById('disconnectBtn'),
+    connectBtn: document.getElementById('connectBtn'),
+    micBtn: document.getElementById('micBtn'),
+    cameraBtn: document.getElementById('cameraBtn'),
+    screenBtn: document.getElementById('screenBtn'),
+    settingsBtn: document.getElementById('settingsBtn'),
+
+    // Preview elements
+    cameraPreview: document.getElementById('cameraPreview'),
+    screenPreview: document.getElementById('screenPreview'),
+
+    // Text input elements
+    messageInput: document.getElementById('messageInput'),
+    sendBtn: document.getElementById('sendBtn'),
+
+    // Visualizer canvas
+    visualizerCanvas: document.getElementById('visualizer')
+};
+
+export default elements;
+
+
+
+================================================
+FILE: js/dom/events.js
+================================================
+import elements from './elements.js';
+import settingsManager from '../settings/settings-manager.js';
+
+/**
+ * Updates UI to show disconnect button and hide connect button
+ */
+const showDisconnectButton = () => {
+    elements.connectBtn.style.display = 'none';
+    elements.disconnectBtn.style.display = 'block';
+};
+
+/**
+ * Updates UI to show connect button and hide disconnect button
+ */
+const showConnectButton = () => {
+    elements.disconnectBtn.style.display = 'none';
+    elements.connectBtn.style.display = 'block';
+};
+
+let isCameraActive = false;
+
+/**
+ * Ensures the agent is connected and initialized
+ * @param {GeminiAgent} agent - The main application agent instance
+ * @returns {Promise<void>}
+ */
+const ensureAgentReady = async (agent) => {
+    if (!agent.connected) {
+        await agent.connect();
+        showDisconnectButton();
+    }
+    if (!agent.initialized) {
+        await agent.initialize();
+    }
+};
+
+/**
+ * Sets up event listeners for the application's UI elements
+ * @param {GeminiAgent} agent - The main application agent instance
+ */
+export function setupEventListeners(agent) {
+    // Disconnect handler
+    elements.disconnectBtn.addEventListener('click', async () => {
+        try {
+            await agent.disconnect();
+            showConnectButton();
+            [elements.cameraBtn, elements.screenBtn, elements.micBtn].forEach(btn => btn.classList.remove('active'));
+            isCameraActive = false;
+        } catch (error) {
+            console.error('Error disconnecting:', error);
+        }
+    });
+
+    // Connect handler
+    elements.connectBtn.addEventListener('click', async () => {
+        try {
+            await ensureAgentReady(agent);
+        } catch (error) {
+            console.error('Error connecting:', error);
+        }
+    });
+
+    // Microphone toggle handler
+    elements.micBtn.addEventListener('click', async () => {
+        try {
+            await ensureAgentReady(agent);
+            await agent.toggleMic();
+            elements.micBtn.classList.toggle('active');
+        } catch (error) {
+            console.error('Error toggling microphone:', error);
+            elements.micBtn.classList.remove('active');
+        }
+    });
+
+    // Camera toggle handler
+    elements.cameraBtn.addEventListener('click', async () => {
+        try {
+            await ensureAgentReady(agent);
+            
+            if (!isCameraActive) {
+                await agent.startCameraCapture();
+                elements.cameraBtn.classList.add('active');
+            } else {
+                await agent.stopCameraCapture();
+                elements.cameraBtn.classList.remove('active');
+            }
+            isCameraActive = !isCameraActive;
+        } catch (error) {
+            console.error('Error toggling camera:', error);
+            elements.cameraBtn.classList.remove('active');
+            isCameraActive = false;
+        }
+    });
+
+    // Screen sharing handler
+    let isScreenShareActive = false;
+    
+    // Listen for screen share stopped events (from native browser controls)
+    agent.on('screenshare_stopped', () => {
+        elements.screenBtn.classList.remove('active');
+        isScreenShareActive = false;
+        console.info('Screen share stopped');
+    });
+
+    elements.screenBtn.addEventListener('click', async () => {
+        try {
+            await ensureAgentReady(agent);
+            
+            if (!isScreenShareActive) {
+                await agent.startScreenShare();
+                elements.screenBtn.classList.add('active');
+            } else {
+                await agent.stopScreenShare();
+                elements.screenBtn.classList.remove('active');
+            }
+            isScreenShareActive = !isScreenShareActive;
+        } catch (error) {
+            console.error('Error toggling screen share:', error);
+            elements.screenBtn.classList.remove('active');
+            isScreenShareActive = false;
+        }
+    });
+
+    // Message sending handlers
+    const sendMessage = async () => {
+        try {
+            await ensureAgentReady(agent);
+            const text = elements.messageInput.value.trim();
+            await agent.sendText(text);
+            elements.messageInput.value = '';
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+    };
+
+    elements.sendBtn.addEventListener('click', sendMessage);
+    elements.messageInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    // Settings button click
+    elements.settingsBtn.addEventListener('click', () => settingsManager.show());
+}
+
+// Initialize settings
+settingsManager;
+
+
+
+================================================
+FILE: js/main/agent.js
+================================================
+/**
+ * Core application class that orchestrates the interaction between various components
+ * of the Gemini 2 Live API. Manages audio streaming, WebSocket communication, audio transcription,
+ * and coordinates the overall application functionality.
+ */
+import { GeminiWebsocketClient } from '../ws/client.js';
+
+import { AudioRecorder } from '../audio/recorder.js';
+import { AudioStreamer } from '../audio/streamer.js';
+import { AudioVisualizer } from '../audio/visualizer.js';
+
+import { DeepgramTranscriber } from '../transcribe/deepgram.js';
+
+import { CameraManager } from '../camera/camera.js';
+import { ScreenManager } from '../screen/screen.js';
+
+export class GeminiAgent{
+    constructor({
+        name = 'GeminiAgent',
+        url,
+        config,
+        deepgramApiKey = null,
+        transcribeModelsSpeech = true,
+        transcribeUsersSpeech = false,
+        modelSampleRate = 24000,
+        toolManager = null
+    } = {}) {
+        if (!url) throw new Error('WebSocket URL is required');
+        if (!config) throw new Error('Config is required');
+
+        this.initialized = false;
+        this.connected = false;
+
+        // For audio components
+        this.audioContext = null;
+        this.audioRecorder = null;
+        this.audioStreamer = null;
+        
+        // For transcribers
+        this.transcribeModelsSpeech = transcribeModelsSpeech;
+        this.transcribeUsersSpeech = transcribeUsersSpeech;
+        this.deepgramApiKey = deepgramApiKey;
+        this.modelSampleRate = modelSampleRate;
+
+        // Initialize screen & camera settings
+        this.fps = localStorage.getItem('fps') || '5';
+        this.captureInterval = 1000 / this.fps;
+        this.resizeWidth = localStorage.getItem('resizeWidth') || '640';
+        this.quality = localStorage.getItem('quality') || '0.4';
+        
+        // Initialize camera
+        this.cameraManager = new CameraManager({
+            width: this.resizeWidth,
+            quality: this.quality,
+            facingMode: localStorage.getItem('facingMode') || 'environment'
+        });
+        this.cameraInterval = null;
+
+        // Initialize screen sharing
+        this.screenManager = new ScreenManager({
+            width: this.resizeWidth,
+            quality: this.quality,
+            onStop: () => {
+                // Clean up interval and emit event when screen sharing stops
+                if (this.screenInterval) {
+                    clearInterval(this.screenInterval);
+                    this.screenInterval = null;
+                }
+                // Emit screen share stopped event
+                this.emit('screenshare_stopped');
+            }
+        });
+        this.screenInterval = null;
+        
+        // Add function declarations to config
+        this.toolManager = toolManager;
+        config.tools.functionDeclarations = toolManager.getToolDeclarations() || [];
+        this.config = config;
+
+        this.name = name;
+        this.url = url;
+        this.client = null;
+    }
+
+    setupEventListeners() {
+        // Handle incoming audio data from the model
+        this.client.on('audio', async (data) => {
+            try {
+                if (!this.audioStreamer.isInitialized) {
+                    this.audioStreamer.initialize();
+                }
+                this.audioStreamer.streamAudio(new Uint8Array(data));
+
+                if (this.modelTranscriber && this.modelTranscriber.isConnected) {
+                    this.modelTranscriber.sendAudio(data);
+                }
+
+            } catch (error) {
+                throw new Error('Audio processing error:' + error);
+            }
+        });
+
+        // Handle model interruptions by stopping audio playback
+        this.client.on('interrupted', () => {
+            this.audioStreamer.stop();
+            this.audioStreamer.isInitialized = false;
+            this.emit('interrupted');
+        });
+
+        // Add an event handler when the model finishes speaking if needed
+        this.client.on('turn_complete', () => {
+            console.info('Model finished speaking');
+            this.emit('turn_complete');
+        });
+
+        this.client.on('tool_call', async (toolCall) => {
+            await this.handleToolCall(toolCall);
+        });
+    }
+        
+    // TODO: Handle multiple function calls
+    async handleToolCall(toolCall) {
+        const functionCall = toolCall.functionCalls[0];
+        const response = await this.toolManager.handleToolCall(functionCall);
+        await this.client.sendToolResponse(response);
+    }
+
+    /**
+     * Connects to the Gemini API using the GeminiWebsocketClient.connect() method.
+     */
+    async connect() {
+        this.client = new GeminiWebsocketClient(this.name, this.url, this.config);
+        await this.client.connect();
+        this.setupEventListeners();
+        this.connected = true;
+    }
+
+    /**
+     * Sends a text message to the Gemini API.
+     * @param {string} text - The text message to send.
+     */
+    async sendText(text) {
+        await this.client.sendText(text);
+        this.emit('text_sent', text);
+    }
+
+    /**
+     * Starts camera capture and sends images at regular intervals
+     */
+    async startCameraCapture() {
+        if (!this.connected) {
+            throw new Error('Must be connected to start camera capture');
+        }
+
+        try {
+            await this.cameraManager.initialize();
+            
+            // Set up interval to capture and send images
+            this.cameraInterval = setInterval(async () => {
+                const imageBase64 = await this.cameraManager.capture();
+                this.client.sendImage(imageBase64);                
+            }, this.captureInterval);
+            
+            console.info('Camera capture started');
+        } catch (error) {
+            await this.disconnect();
+            throw new Error('Failed to start camera capture: ' + error);
+        }
+    }
+
+    /**
+     * Stops camera capture and cleans up resources
+     */
+    async stopCameraCapture() {
+        if (this.cameraInterval) {
+            clearInterval(this.cameraInterval);
+            this.cameraInterval = null;
+        }
+        
+        if (this.cameraManager) {
+            this.cameraManager.dispose();
+        }
+        
+        console.info('Camera capture stopped');
+    }
+
+    /**
+     * Starts screen sharing and sends screenshots at regular intervals
+     */
+    async startScreenShare() {
+        if (!this.connected) {
+            throw new Error('Websocket must be connected to start screen sharing');
+        }
+
+        try {
+            await this.screenManager.initialize();
+            
+            // Set up interval to capture and send screenshots
+            this.screenInterval = setInterval(async () => {
+                const imageBase64 = await this.screenManager.capture();
+                this.client.sendImage(imageBase64);
+            }, this.captureInterval);
+            
+            console.info('Screen sharing started');
+        } catch (error) {
+            await this.stopScreenShare();
+            throw new Error('Failed to start screen sharing: ' + error);
+        }
+    }
+
+    /**
+     * Stops screen sharing and cleans up resources
+     */
+    async stopScreenShare() {
+        if (this.screenInterval) {
+            clearInterval(this.screenInterval);
+            this.screenInterval = null;
+        }
+        
+        if (this.screenManager) {
+            this.screenManager.dispose();
+        }
+        
+        console.info('Screen sharing stopped');
+    }
+
+    /**
+     * Gracefully terminates all active connections and streams.
+     * Ensures proper cleanup of audio, screen sharing, and WebSocket resources.
+     */
+    async disconnect() {
+        try {
+            // Stop camera capture first
+            await this.stopCameraCapture();
+
+            // Stop screen sharing
+            await this.stopScreenShare();
+
+            // Cleanup audio resources in correct order
+            if (this.audioRecorder) {
+                this.audioRecorder.stop();
+                this.audioRecorder = null;
+            }
+
+            // Cleanup audio visualizer before audio context
+            if (this.visualizer) {
+                this.visualizer.cleanup();
+                this.visualizer = null;
+            }
+
+            // Clean up audio streamer before closing context
+            if (this.audioStreamer) {
+                this.audioStreamer.stop();
+                this.audioStreamer = null;
+            }
+
+            // Cleanup model's speech transcriber
+            if (this.modelTranscriber) {
+                this.modelTranscriber.disconnect();
+                this.modelTranscriber = null;
+                if (this.modelsKeepAliveInterval) {
+                    clearInterval(this.modelsKeepAliveInterval);
+                    this.modelsKeepAliveInterval = null;
+                }
+            }
+
+            // Cleanup user's speech transcriber
+            if (this.userTranscriber) {
+                this.userTranscriber.disconnect();
+                this.userTranscriber = null;
+                if (this.userKeepAliveInterval) {
+                    clearInterval(this.userKeepAliveInterval);
+                    this.userKeepAliveInterval = null;
+                }
+            }
+
+            // Finally close audio context
+            if (this.audioContext) {
+                await this.audioContext.close();
+                this.audioContext = null;
+            }
+
+            // Cleanup WebSocket
+            this.client.disconnect();
+            this.client = null;
+            this.initialized = false;
+            this.connected = false;
+            
+            console.info('Disconnected and cleaned up all resources');
+        } catch (error) {
+            throw new Error('Disconnect error:' + error);
+        }
+    }
+
+    /**
+     * Initializes the model's speech transcriber with Deepgram
+     */
+    async initializeModelSpeechTranscriber() {
+        if (!this.modelTranscriber) {
+            console.warn('Either no Deepgram API key provided or model speech transcription disabled');
+            return;
+        }
+
+        console.info('Initializing Deepgram model speech transcriber...');
+
+        // Promise to send keep-alive every 10 seconds once connected
+        const connectionPromise = new Promise((resolve) => {
+            this.modelTranscriber.on('connected', () => {
+                console.info('Model speech transcriber connection established, setting up keep-alive...');
+                this.modelsKeepAliveInterval = setInterval(() => {
+                    if (this.modelTranscriber.isConnected) {
+                        this.modelTranscriber.ws.send(JSON.stringify({ type: 'KeepAlive' }));
+                        console.info('Sent keep-alive message to model speech transcriber');
+                    }
+                }, 10000);
+                resolve();
+            });
+        });
+
+        // Just log transcription to console for now
+        this.modelTranscriber.on('transcription', (transcript) => {
+            this.emit('transcription', transcript);
+            console.debug('Model speech transcription:', transcript);
+        });
+
+        // Connect to Deepgram and execute promise
+        await this.modelTranscriber.connect();
+        await connectionPromise;
+    }
+
+    /**
+     * Initializes the user's speech transcriber with Deepgram
+     */
+    async initializeUserSpeechTranscriber() {
+        if (!this.userTranscriber) {
+            console.warn('Either no Deepgram API key provided or user speech transcription disabled');
+            return;
+        }
+
+        console.info('Initializing Deepgram user speech transcriber...');
+
+        // Promise to send keep-alive every 10 seconds once connected
+        const connectionPromise = new Promise((resolve) => {
+            this.userTranscriber.on('connected', () => {
+                console.info('User speech transcriber connection established, setting up keep-alive...');
+                this.userKeepAliveInterval = setInterval(() => {
+                    if (this.userTranscriber.isConnected) {
+                        this.userTranscriber.ws.send(JSON.stringify({ type: 'KeepAlive' }));
+                        console.info('Sent keep-alive message to user transcriber');
+                    }
+                }, 10000);
+                resolve();
+            });
+        });
+
+        // Handle user transcription events
+        this.userTranscriber.on('transcription', (transcript) => {
+            this.emit('user_transcription', transcript);
+            console.debug('User speech transcription:', transcript);
+        });
+
+        // Connect to Deepgram and execute promise
+        await this.userTranscriber.connect();
+        await connectionPromise;
+    }
+
+    /**
+     * Initiates audio recording from the microphone.
+     * Streams audio data to the model in real-time, handling interruptions
+     */
+    async initialize() {
+        try {            
+            // Initialize audio components
+            this.audioContext = new AudioContext();
+            this.audioStreamer = new AudioStreamer(this.audioContext);
+            this.audioStreamer.initialize();
+            this.visualizer = new AudioVisualizer(this.audioContext, 'visualizer');
+            this.audioStreamer.gainNode.connect(this.visualizer.analyser);
+            this.visualizer.start();
+            this.audioRecorder = new AudioRecorder();
+            
+            // Initialize transcriber if API key is provided
+            if (this.deepgramApiKey) {
+                if (this.transcribeModelsSpeech) {
+                    this.modelTranscriber = new DeepgramTranscriber(this.deepgramApiKey, this.modelSampleRate);
+                    await this.initializeModelSpeechTranscriber();
+                }
+                if (this.transcribeUsersSpeech) {
+                    this.userTranscriber = new DeepgramTranscriber(this.deepgramApiKey, 16000);
+                    await this.initializeUserSpeechTranscriber();
+                }
+            } else {
+                console.warn('No Deepgram API key provided, transcription disabled');
+            }
+            
+            this.initialized = true;
+            console.info(`${this.client.name} initialized successfully`);
+            this.client.sendText('.');  // Trigger the model to start speaking first
+        } catch (error) {
+            console.error('Initialization error:', error);
+            throw new Error('Error during the initialization of the client: ' + error.message);
+        }
+    }
+
+    async startRecording() {
+        // Start recording with callback to send audio data to websocket and transcriber
+        await this.audioRecorder.start(async (audioData) => {
+            try {
+                this.client.sendAudio(audioData);
+                if (this.userTranscriber && this.userTranscriber.isConnected) {
+                    this.userTranscriber.sendAudio(new Uint8Array(audioData));
+                }
+            } catch (error) {
+                console.error('Error sending audio data:', error);
+                this.audioRecorder.stop();
+            }
+        });
+    }
+
+    /**
+     * Toggles the microphone state between active and suspended
+     */
+    async toggleMic() {
+        if (!this.audioRecorder.stream) {
+            await this.startRecording();
+            return;
+        }
+        await this.audioRecorder.toggleMic();
+    }           
+
+    // Add event emitter functionality
+    on(eventName, callback) {
+        if (!this._eventListeners) {
+            this._eventListeners = new Map();
+        }
+        if (!this._eventListeners.has(eventName)) {
+            this._eventListeners.set(eventName, []);
+        }
+        this._eventListeners.get(eventName).push(callback);
+    }
+
+    emit(eventName, data) {
+        if (!this._eventListeners || !this._eventListeners.has(eventName)) {
+            return;
+        }
+        for (const callback of this._eventListeners.get(eventName)) {
+            callback(data);
+        }
+    }
+}
+
+
+================================================
+FILE: js/screen/screen.js
+================================================
+/**
+ * Manages screen sharing capture and image processing
+ */
+export class ScreenManager {
+    /**
+     * @param {Object} config
+     * @param {number} config.width - Target width for resizing captured images
+     * @param {number} config.quality - JPEG quality (0-1)
+     * @param {Function} [config.onStop] - Callback when screen sharing stops
+     */
+    constructor(config) {
+        this.config = {
+            width: config.width || 1280,
+            quality: config.quality || 0.8,
+            onStop: config.onStop
+        };
+        
+        this.stream = null;
+        this.videoElement = null;
+        this.canvas = null;
+        this.ctx = null;
+        this.isInitialized = false;
+        this.aspectRatio = null;
+        this.previewContainer = null;
+    }
+
+    /**
+     * Show the screen preview
+     */
+    showPreview() {
+        if (this.previewContainer) {
+            this.previewContainer.style.display = 'block';
+        }
+    }
+
+    /**
+     * Hide the screen preview
+     */
+    hidePreview() {
+        if (this.previewContainer) {
+            this.previewContainer.style.display = 'none';
+        }
+    }
+
+    /**
+     * Initialize screen capture stream and canvas
+     * @returns {Promise<void>}
+     */
+    async initialize() {
+        if (this.isInitialized) return;
+
+        try {
+            // Request screen sharing
+            this.stream = await navigator.mediaDevices.getDisplayMedia({
+                video: {
+                    cursor: "always"
+                },
+                audio: false
+            });
+
+            // Create and setup video element
+            this.videoElement = document.createElement('video');
+            this.videoElement.srcObject = this.stream;
+            this.videoElement.playsInline = true;
+
+            // Add video to preview container
+            const previewContainer = document.getElementById('screenPreview');
+            if (previewContainer) {
+                previewContainer.appendChild(this.videoElement);
+                this.previewContainer = previewContainer;
+                this.showPreview(); // Show preview when initialized
+            }
+
+            await this.videoElement.play();
+
+            // Get the actual video dimensions
+            const videoWidth = this.videoElement.videoWidth;
+            const videoHeight = this.videoElement.videoHeight;
+            this.aspectRatio = videoHeight / videoWidth;
+
+            // Calculate canvas size maintaining aspect ratio
+            const canvasWidth = this.config.width;
+            const canvasHeight = Math.round(this.config.width * this.aspectRatio);
+
+            // Create canvas for image processing
+            this.canvas = document.createElement('canvas');
+            this.canvas.width = canvasWidth;
+            this.canvas.height = canvasHeight;
+            this.ctx = this.canvas.getContext('2d');
+
+            // Listen for the end of screen sharing
+            this.stream.getVideoTracks()[0].addEventListener('ended', () => {
+                this.dispose();
+                // Notify parent component that sharing has stopped
+                if (this.config.onStop) {
+                    this.config.onStop();
+                }
+            });
+
+            this.isInitialized = true;
+        } catch (error) {
+            throw new Error(`Failed to initialize screen capture: ${error.message}`);
+        }
+    }
+
+    /**
+     * Get current canvas dimensions
+     * @returns {{width: number, height: number}}
+     */
+    getDimensions() {
+        if (!this.isInitialized) {
+            throw new Error('Screen capture not initialized. Call initialize() first.');
+        }
+        return {
+            width: this.canvas.width,
+            height: this.canvas.height
+        };
+    }
+
+    /**
+     * Capture and process a screenshot
+     * @returns {Promise<string>} Base64 encoded JPEG image
+     */
+    async capture() {
+        if (!this.isInitialized) {
+            throw new Error('Screen capture not initialized. Call initialize() first.');
+        }
+
+        // Draw current video frame to canvas, maintaining aspect ratio
+        this.ctx.drawImage(
+            this.videoElement,
+            0, 0,
+            this.canvas.width,
+            this.canvas.height
+        );
+
+        // Convert to base64 JPEG with specified quality
+        return this.canvas.toDataURL('image/jpeg', this.config.quality).split(',')[1];
+    }
+
+    /**
+     * Stop screen capture and cleanup resources
+     */
+    dispose() {
+        if (this.stream) {
+            this.stream.getTracks().forEach(track => track.stop());
+            this.stream = null;
+        }
+        
+        if (this.videoElement) {
+            this.videoElement.srcObject = null;
+            this.videoElement = null;
+        }
+
+        if (this.previewContainer) {
+            this.hidePreview();
+            this.previewContainer.innerHTML = ''; // Clear the preview container
+            this.previewContainer = null;
+        }
+
+        this.canvas = null;
+        this.ctx = null;
+        this.isInitialized = false;
+        this.aspectRatio = null;
+    }
+}
+
+
+
+================================================
+FILE: js/settings/settings-manager.js
+================================================
+import { settingsTemplate } from './settings-template.js';
+
+class SettingsManager {
+    constructor() {
+        this.initializeElements();
+        this.setupEventListeners();
+        this.loadSettings();
+    }
+
+    initializeElements() {
+        // Create settings dialog and overlay
+        this.dialog = document.createElement('div');
+        this.dialog.className = 'settings-dialog';
+        this.dialog.innerHTML = settingsTemplate;
+
+        this.overlay = document.createElement('div');
+        this.overlay.className = 'settings-overlay';
+
+        // Add to document
+        document.body.appendChild(this.dialog);
+        document.body.appendChild(this.overlay);
+
+        // Cache DOM elements
+        this.elements = {
+            dialog: this.dialog,
+            overlay: this.overlay,
+            apiKeyInput: this.dialog.querySelector('#apiKey'),
+            deepgramApiKeyInput: this.dialog.querySelector('#deepgramApiKey'),
+            voiceSelect: this.dialog.querySelector('#voice'),
+            sampleRateInput: this.dialog.querySelector('#sampleRate'),
+            sampleRateValue: this.dialog.querySelector('#sampleRateValue'),
+            systemInstructionsToggle: this.dialog.querySelector('#systemInstructionsToggle'),
+            systemInstructionsContent: this.dialog.querySelector('#systemInstructions').parentElement,
+            systemInstructionsInput: this.dialog.querySelector('#systemInstructions'),
+            screenCameraToggle: this.dialog.querySelector('#screenCameraToggle'),
+            screenCameraContent: this.dialog.querySelector('#screenCameraToggle + .collapsible-content'),
+            fpsInput: this.dialog.querySelector('#fps'),
+            fpsValue: this.dialog.querySelector('#fpsValue'),
+            resizeWidthInput: this.dialog.querySelector('#resizeWidth'),
+            resizeWidthValue: this.dialog.querySelector('#resizeWidthValue'),
+            qualityInput: this.dialog.querySelector('#quality'),
+            qualityValue: this.dialog.querySelector('#qualityValue'),
+            advancedToggle: this.dialog.querySelector('#advancedToggle'),
+            advancedContent: this.dialog.querySelector('#advancedToggle + .collapsible-content'),
+            temperatureInput: this.dialog.querySelector('#temperature'),
+            temperatureValue: this.dialog.querySelector('#temperatureValue'),
+            topPInput: this.dialog.querySelector('#topP'),
+            topPValue: this.dialog.querySelector('#topPValue'),
+            topKInput: this.dialog.querySelector('#topK'),
+            topKValue: this.dialog.querySelector('#topKValue'),
+            safetyToggle: this.dialog.querySelector('#safetyToggle'),
+            safetyContent: this.dialog.querySelector('#safetyToggle + .collapsible-content'),
+            harassmentInput: this.dialog.querySelector('#harassmentThreshold'),
+            harassmentValue: this.dialog.querySelector('#harassmentValue'),
+            dangerousInput: this.dialog.querySelector('#dangerousContentThreshold'),
+            dangerousValue: this.dialog.querySelector('#dangerousValue'),
+            sexualInput: this.dialog.querySelector('#sexuallyExplicitThreshold'),
+            sexualValue: this.dialog.querySelector('#sexualValue'),
+            civicInput: this.dialog.querySelector('#civicIntegrityThreshold'),
+            civicValue: this.dialog.querySelector('#civicValue'),
+            saveBtn: this.dialog.querySelector('#settingsSaveBtn')
+        };
+    }
+
+    setupEventListeners() {
+        // Close settings when clicking overlay
+        this.overlay.addEventListener('click', () => this.hide());
+
+        // Prevent dialog close when clicking inside dialog
+        this.dialog.addEventListener('click', (e) => e.stopPropagation());
+
+        // Save settings
+        this.elements.saveBtn.addEventListener('click', () => {
+            this.saveSettings();
+            this.hide();
+            window.location.reload();
+        });
+
+        // Toggle collapsible sections
+        this.elements.systemInstructionsToggle.addEventListener('click', () => {
+            this.toggleCollapsible(this.elements.systemInstructionsToggle, this.elements.systemInstructionsContent);
+        });
+
+        this.elements.advancedToggle.addEventListener('click', () => {
+            this.toggleCollapsible(this.elements.advancedToggle, this.elements.advancedContent);
+        });
+
+        this.elements.screenCameraToggle.addEventListener('click', () => {
+            this.toggleCollapsible(this.elements.screenCameraToggle, this.elements.screenCameraContent);
+        });
+
+        this.elements.safetyToggle.addEventListener('click', () => {
+            this.toggleCollapsible(this.elements.safetyToggle, this.elements.safetyContent);
+        });
+
+        // Add input listeners for real-time value updates
+        const inputElements = [
+            'sampleRateInput', 'temperatureInput', 'topPInput', 'topKInput',
+            'fpsInput', 'resizeWidthInput', 'qualityInput', 'harassmentInput',
+            'dangerousInput', 'sexualInput', 'civicInput'
+        ];
+
+        inputElements.forEach(elementName => {
+            this.elements[elementName].addEventListener('input', () => this.updateDisplayValues());
+        });
+    }
+
+    loadSettings() {
+        // Load values from localStorage
+        this.elements.apiKeyInput.value = localStorage.getItem('apiKey') || '';
+        this.elements.deepgramApiKeyInput.value = localStorage.getItem('deepgramApiKey') || '';
+        this.elements.voiceSelect.value = localStorage.getItem('voiceName') || 'Aoede';
+        this.elements.sampleRateInput.value = localStorage.getItem('sampleRate') || '27000';
+        this.elements.systemInstructionsInput.value = localStorage.getItem('systemInstructions') || 'You are a helpful assistant';
+        this.elements.temperatureInput.value = localStorage.getItem('temperature') || '1.8';
+        this.elements.topPInput.value = localStorage.getItem('top_p') || '0.95';
+        this.elements.topKInput.value = localStorage.getItem('top_k') || '65';
+
+        // Initialize screen & camera settings
+        this.elements.fpsInput.value = localStorage.getItem('fps') || '1';
+        this.elements.resizeWidthInput.value = localStorage.getItem('resizeWidth') || '640';
+        this.elements.qualityInput.value = localStorage.getItem('quality') || '0.3';
+
+        // Initialize safety settings
+        this.elements.harassmentInput.value = localStorage.getItem('harassmentThreshold') || '3';
+        this.elements.dangerousInput.value = localStorage.getItem('dangerousContentThreshold') || '3';
+        this.elements.sexualInput.value = localStorage.getItem('sexuallyExplicitThreshold') || '3';
+        this.elements.civicInput.value = localStorage.getItem('civicIntegrityThreshold') || '3';
+
+        this.updateDisplayValues();
+    }
+
+    saveSettings() {
+        localStorage.setItem('apiKey', this.elements.apiKeyInput.value);
+        localStorage.setItem('deepgramApiKey', this.elements.deepgramApiKeyInput.value);
+        localStorage.setItem('voiceName', this.elements.voiceSelect.value);
+        localStorage.setItem('sampleRate', this.elements.sampleRateInput.value);
+        localStorage.setItem('systemInstructions', this.elements.systemInstructionsInput.value);
+        localStorage.setItem('temperature', this.elements.temperatureInput.value);
+        localStorage.setItem('top_p', this.elements.topPInput.value);
+        localStorage.setItem('top_k', this.elements.topKInput.value);
+        
+        // Save screen & camera settings
+        localStorage.setItem('fps', this.elements.fpsInput.value);
+        localStorage.setItem('resizeWidth', this.elements.resizeWidthInput.value);
+        localStorage.setItem('quality', this.elements.qualityInput.value);
+
+        // Save safety settings
+        localStorage.setItem('harassmentThreshold', this.elements.harassmentInput.value);
+        localStorage.setItem('dangerousContentThreshold', this.elements.dangerousInput.value);
+        localStorage.setItem('sexuallyExplicitThreshold', this.elements.sexualInput.value);
+        localStorage.setItem('civicIntegrityThreshold', this.elements.civicInput.value);
+    }
+
+    updateDisplayValues() {
+        this.elements.sampleRateValue.textContent = this.elements.sampleRateInput.value + ' Hz';
+        this.elements.temperatureValue.textContent = this.elements.temperatureInput.value;
+        this.elements.topPValue.textContent = this.elements.topPInput.value;
+        this.elements.topKValue.textContent = this.elements.topKInput.value;
+        this.elements.fpsValue.textContent = this.elements.fpsInput.value + ' FPS';
+        this.elements.resizeWidthValue.textContent = this.elements.resizeWidthInput.value + 'px';
+        this.elements.qualityValue.textContent = this.elements.qualityInput.value;
+        this.elements.harassmentValue.textContent = this.getThresholdLabel(this.elements.harassmentInput.value);
+        this.elements.dangerousValue.textContent = this.getThresholdLabel(this.elements.dangerousInput.value);
+        this.elements.sexualValue.textContent = this.getThresholdLabel(this.elements.sexualInput.value);
+        this.elements.civicValue.textContent = this.getThresholdLabel(this.elements.civicInput.value);
+    }
+
+    getThresholdLabel(value) {
+        const labels = {
+            '0': 'None',
+            '1': 'Low',
+            '2': 'Medium',
+            '3': 'High'
+        };
+        return labels[value] || value;
+    }
+
+    toggleCollapsible(toggle, content) {
+        const isActive = content.classList.contains('active');
+        content.classList.toggle('active');
+        toggle.textContent = toggle.textContent.replace(isActive ? '▼' : '▲', isActive ? '▲' : '▼');
+    }
+
+    show() {
+        this.dialog.classList.add('active');
+        this.overlay.classList.add('active');
+    }
+
+    hide() {
+        this.dialog.classList.remove('active');
+        this.overlay.classList.remove('active');
+    }
+}
+
+export default new SettingsManager(); 
+
+
+================================================
+FILE: js/settings/settings-template.js
+================================================
+export const settingsTemplate = `
+<div class="settings-group">
+    <label for="apiKey">Gemini API Key</label>
+    <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
+</div>
+
+<div class="settings-group">
+    <label for="deepgramApiKey">Deepgram API Key (Optional)</label>
+    <input type="password" id="deepgramApiKey" placeholder="Enter your Deepgram API key">
+</div>
+
+<div class="settings-group">
+    <label for="voice">Voice</label>
+    <select id="voice">
+        <option value="Puck">Puck</option>
+        <option value="Charon">Charon</option>
+        <option value="Kore">Kore</option>
+        <option value="Fenrir">Fenrir</option>
+        <option value="Aoede">Aoede</option>
+    </select>
+</div>
+
+<div class="settings-group">
+    <label for="sampleRate">Sample Rate</label>
+    <input type="range" id="sampleRate" min="8000" max="48000" step="1000">
+    <span id="sampleRateValue"></span>
+</div>
+
+<div class="settings-group">
+    <div class="collapsible" id="systemInstructionsToggle">System Instructions ▼</div>
+    <div class="collapsible-content">
+        <textarea id="systemInstructions" rows="4" placeholder="Enter system instructions"></textarea>
+    </div>
+</div>
+
+<div class="settings-group">
+    <div class="collapsible" id="screenCameraToggle">Screen&Camera ▼</div>
+    <div class="collapsible-content">
+        <div class="settings-group">
+            <label for="fps">FPS (1-10)</label>
+            <input type="range" id="fps" min="1" max="10" step="1">
+            <span id="fpsValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="resizeWidth">Resize Width (640-1920)</label>
+            <input type="range" id="resizeWidth" min="640" max="1920" step="80">
+            <span id="resizeWidthValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="quality">Quality (0.1-1)</label>
+            <input type="range" id="quality" min="0.1" max="1" step="0.1">
+            <span id="qualityValue"></span>
+        </div>
+    </div>
+</div>
+
+<div class="settings-group">
+    <div class="collapsible" id="advancedToggle">Advanced Settings ▼</div>
+    <div class="collapsible-content">
+        <div class="settings-group">
+            <label for="temperature">Temperature (0-2)</label>
+            <input type="range" id="temperature" min="0" max="2" step="0.1">
+            <span id="temperatureValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="topP">Top P (0-1)</label>
+            <input type="range" id="topP" min="0" max="1" step="0.05">
+            <span id="topPValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="topK">Top K (1-100)</label>
+            <input type="range" id="topK" min="1" max="100" step="1">
+            <span id="topKValue"></span>
+        </div>
+    </div>
+</div>
+
+<div class="settings-group">
+    <div class="collapsible" id="safetyToggle">Safety Settings (Blocking Strength) ▼</div>
+    <div class="collapsible-content">
+        <div class="settings-group">
+            <label for="harassmentThreshold">Harassment (0-3)</label>
+            <input type="range" id="harassmentThreshold" min="0" max="3" step="1">
+            <span id="harassmentValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="dangerousContentThreshold">Dangerous Content (0-3)</label>
+            <input type="range" id="dangerousContentThreshold" min="0" max="3" step="1">
+            <span id="dangerousValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="sexuallyExplicitThreshold">Sexually Explicit (0-3)</label>
+            <input type="range" id="sexuallyExplicitThreshold" min="0" max="3" step="1">
+            <span id="sexualValue"></span>
+        </div>
+        <div class="settings-group">
+            <label for="civicIntegrityThreshold">Civic Integrity (0-3)</label>
+            <input type="range" id="civicIntegrityThreshold" min="0" max="3" step="1">
+            <span id="civicValue"></span>
+        </div>
+    </div>
+</div>
+
+<button id="settingsSaveBtn" class="settings-save-btn">Save Settings</button>`; 
+
+
+================================================
+FILE: js/tools/google-search.js
+================================================
+export class GoogleSearchTool {
+    
+    getDeclaration() {
+        return { 
+            name: 'googleSearch',
+        };
+    }
+
+    execute(args) {
+        return;
+    }
+}
+
+
+================================================
+FILE: js/tools/tool-manager.js
+================================================
+/**
+ * Managing class where tools can be registered for easier use
+ * Each tool must implement execute() and getDeclaration() methods.
+ */
+
+export class ToolManager {
+    /**
+     * Initializes a new ToolManager instance for getting registering, getting declarations, and executing tools.
+     */
+    constructor() {
+        this.tools = new Map();
+    }
+
+    /**
+     * Registers a new tool in the tool registry.
+     * @param {string} name - Unique identifier for the tool
+     * @param {Object} toolInstance - Instance of the tool implementing required interface
+     */
+    registerTool(name, toolInstance) {
+        if (this.tools.has(name)) {
+            console.warn(`Tool ${name} is already registered`);
+            return;
+        }
+        this.tools.set(name, toolInstance);
+        console.info(`Tool ${name} registered successfully`);
+    }
+
+    /**
+     * Collects and returns declarations from all registered tools.
+     * @returns {Array<Object>} Array of tool declarations for registered tools
+     */
+    getToolDeclarations() {
+        const allDeclarations = [];
+        
+        this.tools.forEach((tool) => {
+            if (tool.getDeclaration) {
+                allDeclarations.push(tool.getDeclaration());
+            } else {
+                console.warn(`Tool ${tool.name} does not have a getDeclaration method`);
+            }
+        });
+
+        return allDeclarations;
+    }
+
+    /**
+     * Parses tool arguments and runs execute() method of the requested tool.
+     * @param {Object} functionCall - Function call specification
+     */
+    async handleToolCall(functionCall) {
+        const { name, args, id } = functionCall;
+        console.info(`Handling tool call: ${name}`, { args });
+
+        const tool = this.tools.get(name);
+        try {
+            const result = await tool.execute(args);
+            return {
+                output: result,
+                id: id,
+                error: null
+            }
+
+        } catch (error) {
+            console.error(`Tool execution failed: ${name}`, error);
+            return {
+                output: null,
+                id: id,
+                error: error.message
+            };
+        }
+    }
+
+}
+
+
+================================================
+FILE: js/transcribe/deepgram.js
+================================================
+/**
+ * Establishes a websocket connection to Deepgram API
+ * for real-time audio transcription
+ * Utilizes Free Tier of Deepgram API
+ */
+export class DeepgramTranscriber {
+    constructor(apiKey, sampleRate) {
+        this.apiKey = apiKey;
+        this.ws = null;
+        this.isConnected = false;
+        this.eventListeners = new Map();
+        this.sampleRate = sampleRate;
+        console.info('DeepgramTranscriber initialized');
+    }
+
+    async connect() {
+        try {
+            const url = `wss://api.deepgram.com/v1/listen?encoding=linear16&sample_rate=${this.sampleRate}`;
+            console.info('Attempting to connect to Deepgram WebSocket...');
+            
+            // Create WebSocket with authorization in protocol
+            this.ws = new WebSocket(url, ['token', this.apiKey]);
+            this.ws.binaryType = 'arraybuffer';
+
+            this.ws.onopen = () => {
+                this.isConnected = true;
+                console.info('WebSocket connection established');
+                
+                const config = {
+                    type: 'Configure',
+                    features: {
+                        model: 'nova-2',
+                        language: 'en-US',
+                        encoding: 'linear16',
+                        sample_rate: this.sampleRate,
+                        channels: 1,
+                        interim_results: false,
+                        punctuate: true,
+                        endpointing: 800
+                    },
+                };
+                
+                console.debug('Sending configuration:', config);
+                this.ws.send(JSON.stringify(config));
+                this.emit('connected');
+            };
+
+            this.ws.onmessage = (event) => {
+                try {
+                    // console.debug('Received WebSocket message:', event.data);
+                    const response = JSON.parse(event.data);
+                    if (response.type === 'Results') {
+                        const transcript = response.channel?.alternatives[0]?.transcript;
+
+                        if (transcript) {
+                            // console.debug('Received transcript:', transcript);
+                            this.emit('transcription', transcript);
+                        } else {
+                            // console.warn('Received Results message but no transcript found:', response);
+                        }
+
+                    } else {
+                        // console.debug('Received non-Results message:', response.type);
+                    }
+
+                } catch (error) {
+                    console.error('Error processing WebSocket message:', error);
+                    this.emit('error', error);
+                }
+            };
+
+            this.ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                this.emit('error', error);
+            };
+
+            this.ws.onclose = () => {
+                console.info('WebSocket connection closed');
+                this.isConnected = false;
+                this.emit('disconnected');
+            };
+
+        } catch (error) {
+            console.error('Error in connect():', error);
+            throw error;
+        }
+    }
+
+    sendAudio(audioData) {
+        if (!this.isConnected) {
+            throw new Error('WebSocket is not connected');
+        }
+        this.ws.send(audioData);
+    }
+
+    disconnect() {
+        if (this.ws) {
+            this.ws.send(JSON.stringify({ type: 'CloseStream' }));
+            this.ws.close();
+            this.ws = null;
+            this.isConnected = false;
+        }
+    }
+
+    on(eventName, callback) {
+        if (!this.eventListeners.has(eventName)) {
+            this.eventListeners.set(eventName, []);
+        }
+        this.eventListeners.get(eventName).push(callback);
+    }
+
+    emit(eventName, data) {
+        const listeners = this.eventListeners.get(eventName);
+        if (listeners) {
+            listeners.forEach(callback => callback(data));
+        }
+    }
+}
+
+
+================================================
+FILE: js/utils/utils.js
+================================================
+/**
+ * Converts a Blob object to a JSON object using FileReader.
+ * Useful for processing blob data received from APIs
+ * @param {Blob} blob - The Blob object to convert
+ * @returns {Promise<Object>} Promise resolving to parsed JSON object
+ */
+export function blobToJSON(blob) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        
+        reader.onload = () => {
+            if (reader.result) {
+                // Parse the FileReader result into JSON
+                resolve(JSON.parse(reader.result));
+            } else {
+                reject('Failed to parse blob to JSON');
+            }
+        };
+        
+        // Initiate blob reading as text
+        reader.readAsText(blob);
+    });
+}
+
+/**
+ * Converts a base64 encoded string to an ArrayBuffer.
+ * @param {string} base64 - Base64 encoded string
+ * @returns {ArrayBuffer} ArrayBuffer containing the decoded data
+ */
+export function base64ToArrayBuffer(base64) {
+    // Decode base64 to binary string
+    const binaryString = atob(base64);
+    
+    // Create buffer to hold binary data
+    const bytes = new Uint8Array(binaryString.length);
+    
+    // Convert binary string to byte array
+    for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+    }
+    
+    return bytes.buffer;
+}
+
+/**
+ * Converts an ArrayBuffer to a base64 encoded string.
+ * @param {ArrayBuffer} buffer - The ArrayBuffer to convert
+ * @returns {string} Base64 encoded string representation of the buffer
+ */
+export function arrayBufferToBase64(buffer) {
+    try {
+        const bytes = new Uint8Array(buffer);
+        let binary = '';
+        // Convert each byte to binary string
+        for (let i = 0; i < bytes.byteLength; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return btoa(binary);
+    } catch (error) {
+        console.error('Failed to convert array buffer to base64: ' + error.message);
+    }
+}
+
+
+================================================
+FILE: js/ws/client.js
+================================================
+/**
+ * Client for interacting with the Gemini 2.0 Flash Multimodal Live API via WebSockets.
+ * This class handles the connection, sending and receiving messages, and processing responses.
+ * 
+ * @extends EventEmitter
+ */
+import { EventEmitter } from 'https://cdn.skypack.dev/eventemitter3';
+import { blobToJSON, base64ToArrayBuffer } from '../utils/utils.js';
+
+export class GeminiWebsocketClient extends EventEmitter {
+    /**
+     * Creates a new GeminiWebsocketClient with the given configuration.
+     * @param {string} name - Name for the websocket client.
+     * @param {string} url - URL for the Gemini API that contains the API key at the end.
+     * @param {Object} config - Configuration object for the Gemini API.
+     */
+    constructor(name, url, config) {
+        super();
+        this.name = name || 'WebSocketClient';
+        this.url = url || `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=${apiKey}`;
+        this.ws = null;
+        this.config = config;
+        this.isConnecting = false;
+        this.connectionPromise = null;
+    }
+
+    /**
+     * Establishes a WebSocket connection and initializes the session with a configuration.
+     * @returns {Promise} Resolves when the connection is established and setup is complete
+     */
+    async connect() {
+        if (this.ws?.readyState === WebSocket.OPEN) {
+            return this.connectionPromise;
+        }
+
+        if (this.isConnecting) {
+            return this.connectionPromise;
+        }
+
+        console.info('🔗 Establishing WebSocket connection...');
+        this.isConnecting = true;
+        this.connectionPromise = new Promise((resolve, reject) => {
+            const ws = new WebSocket(this.url);
+
+            // Send setup message upon successful connection
+            ws.addEventListener('open', () => {
+                console.info('🔗 Successfully connected to websocket');
+                this.ws = ws;
+                this.isConnecting = false;
+
+                // Configure
+                this.sendJSON({ setup: this.config });
+                console.debug("Setup message with the following configuration was sent:", this.config);
+                resolve();
+            });
+
+            // Handle connection errors
+            ws.addEventListener('error', (error) => {
+                this.disconnect(ws);
+                const reason = error.reason || 'Unknown';
+                const message = `Could not connect to "${this.url}. Reason: ${reason}"`;
+                console.error(message, error);
+                reject(error);
+            });
+
+            // Listen for incoming messages, expecting Blob data for binary streams
+            ws.addEventListener('message', async (event) => {
+                if (event.data instanceof Blob) {
+                    this.receive(event.data);
+                } else {
+                    console.error('Non-blob message received', event);
+                }
+            });
+        });
+
+        return this.connectionPromise;
+    }
+
+    disconnect() {
+        if (this.ws) {
+            this.ws.close();
+            this.ws = null;
+            this.isConnecting = false;
+            this.connectionPromise = null;
+            console.info(`${this.name} successfully disconnected from websocket`);
+        }
+    }
+
+    /**
+     * Processes incoming WebSocket messages.
+     * Handles various response types including tool calls, setup completion,
+     * and content delivery (text/audio).
+     */
+    async receive(blob) {
+        const response = await blobToJSON(blob);
+        
+        // Handle tool call responses
+        if (response.toolCall) {
+            console.debug(`${this.name} received tool call`, response);       
+            this.emit('tool_call', response.toolCall);
+            return;
+        }
+
+        // Handle tool call cancellation
+        if (response.toolCallCancellation) {
+            console.debug(`${this.name} received tool call cancellation`, response);
+            this.emit('tool_call_cancellation', response.toolCallCancellation);
+            return;
+        }
+
+        // Process server content (text/audio/interruptions)
+        if (response.serverContent) {
+            const { serverContent } = response;
+            if (serverContent.interrupted) {
+                console.debug(`${this.name} is interrupted`);
+                this.emit('interrupted');
+                return;
+            }
+            if (serverContent.turnComplete) {
+                console.debug(`${this.name} has completed its turn`);
+                this.emit('turn_complete');
+            }
+            if (serverContent.modelTurn) {
+                // console.debug(`${this.name} is sending content`);
+                // Split content into audio and non-audio parts
+                let parts = serverContent.modelTurn.parts;
+
+                // Filter out audio parts from the model's content parts
+                const audioParts = parts.filter((p) => p.inlineData && p.inlineData.mimeType.startsWith('audio/pcm'));
+                
+                // Extract base64 encoded audio data from the audio parts
+                const base64s = audioParts.map((p) => p.inlineData?.data);
+                
+                // Create an array of non-audio parts by excluding the audio parts
+                const otherParts = parts.filter((p) => !audioParts.includes(p));
+
+                // Process audio data
+                base64s.forEach((b64) => {
+                    if (b64) {
+                        const data = base64ToArrayBuffer(b64);
+                        this.emit('audio', data);
+                    }
+                });
+
+                // Emit remaining content
+                if (otherParts.length) {
+                    this.emit('content', { modelTurn: { parts: otherParts } });
+                    console.debug(`${this.name} sent:`, otherParts);
+                }
+            }
+        } else {
+            console.debug(`${this.name} received unmatched message:`, response);
+        }
+    }
+
+    /**
+     * Sends encoded audio chunk to the Gemini API.
+     * 
+     * @param {string} base64audio - The base64 encoded audio string.
+     */
+    async sendAudio(base64audio) {
+        const data = { realtimeInput: { mediaChunks: [{ mimeType: 'audio/pcm', data: base64audio }] } };
+        await this.sendJSON(data);
+        console.debug(`Sending audio chunk to ${this.name}.`);
+    }
+
+    /**
+     * Sends encoded image to the Gemini API.
+     * 
+     * @param {string} base64image - The base64 encoded image string.
+     */
+    async sendImage(base64image) {
+        const data = { realtimeInput: { mediaChunks: [{ mimeType: 'image/jpeg', data: base64image }] } };
+        await this.sendJSON(data);
+        console.debug(`Image with a size of ${Math.round(base64image.length/1024)} KB was sent to the ${this.name}.`);
+    }
+
+    /**
+     * Sends a text message to the Gemini API.
+     * 
+     * @param {string} text - The text to send to Gemini.
+     * @param {boolean} endOfTurn - If false model will wait for more input without sending a response.
+     */
+    async sendText(text, endOfTurn = true) {
+        const formattedText = { 
+            clientContent: { 
+                turns: [{
+                    role: 'user', 
+                    parts: { text: text } // TODO: Should it be in the list or not?
+                }], 
+                turnComplete: endOfTurn 
+            } 
+        };
+        await this.sendJSON(formattedText);
+        console.debug(`Text sent to ${this.name}:`, text);
+    }
+    /**
+     * Sends the result of the tool call to Gemini.
+     * @param {Object} toolResponse - The response object
+     * @param {any} toolResponse.output - The output of the tool execution (string, number, object, etc.)
+     * @param {string} toolResponse.id - The identifier of the tool call from toolCall.functionCalls[0].id
+     * @param {string} toolResponse.error - Send the output as null and the error message if the tool call failed (optional)
+     */
+    async sendToolResponse(toolResponse) {
+        if (!toolResponse || !toolResponse.id) {
+            throw new Error('Tool response must include an id');
+        }
+
+        const { output, id, error } = toolResponse;
+        let result = [];
+
+        if (error) {
+            result = [{
+                response: { error: error },
+                id
+            }];
+        } else if (output === undefined) {
+            throw new Error('Tool response must include an output when no error is provided');
+        } else {
+            result = [{
+                response: { output: output },
+                id
+            }];
+        }
+
+        await this.sendJSON({ toolResponse: {functionResponses: result} });
+        console.debug(`Tool response sent to ${this.name}:`, toolResponse);
+    }
+
+    /**
+     * Sends a JSON object to the Gemini API.
+     * 
+     * @param {Object} json - The JSON object to send.
+     */
+
+    async sendJSON(json) {        
+        try {
+            this.ws.send(JSON.stringify(json));
+            // console.debug(`JSON Object was sent to ${this.name}:`, json);
+        } catch (error) {
+            throw new Error(`Failed to send ${json} to ${this.name}:` + error);
+        }
+    }
+}
+

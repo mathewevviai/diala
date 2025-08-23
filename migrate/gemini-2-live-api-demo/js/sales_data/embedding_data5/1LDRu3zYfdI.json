@@ -1,0 +1,70 @@
+{
+  "source_video": "1LDRu3zYfdI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Answer a prospect's question with a question to understand their underlying attitude or the root reason behind their query.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Is this about recruitment?' -> 'Well, if I told you it was, would you still hang up?'"
+    },
+    {
+      "type": "mindset",
+      "content": "Master the art of conversation and questioning: listen, challenge, seek clarification. This uncovers the truth and root cause of problems, enabling effective selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Digging into a stated problem: 'We need a new website' -> 'Why?' -> 'Not making leads' -> 'Why do you think?' -> 'Not sure' -> 'What did the builder say?' -> 'Not investing enough' -> 'Do you believe that's right?' This process reveals deeper issues.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect suddenly snaps or becomes frustrated, recognize it stems from something done earlier in the interaction. Diagnose the upstream cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If sensing prospect frustration or anger: 'I'm going to be blunt with you, I get the feeling I've upset you or you're angry with me. What have I done?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to isolate and address the emotional root cause of resistance."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with a challenge or objection, label the prospect's emotion ('I understand why you're feeling frustrated'), remind them of any prior agreement, and offer them a choice (e.g., continue or end the call/meeting).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Objections belong to the prospect, not you. Your role is to get them to articulate and deal with their own reasons for the objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'We're expensive' -> 'You have to get over it, not me.'"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection or states a policy, ask 'Why do you think it is?' to prompt them to explain the reasoning or constraint.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge stated policies or objections directly to explore flexibility or the real constraint. 'Can you think of a way around it?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use hypotheticals or alternative scenarios to highlight the impact of a policy or objection and expose the true decision-making power. Example: 'I'll invoice you and we'll start training in 61 days' for a 60-day payment term objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge the underlying logic or reason for an objection by questioning its implications. Example: 'Do you really want to work with a sales trainer that has to bend to your purchasing process to teach your people to think and do the opposite?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect asks a challenging or potentially testing question, respond with: 'Can I ask you a question, is this a test?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly challenges the intent behind the question."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

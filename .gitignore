@@ -1,0 +1,34 @@
+# Local environments
+backend/venv/
+backend/test_venv/
+frontend/venv/
+
+# Node/Next build artifacts
+node_modules/
+frontend/node_modules/
+frontend/.next/
+
+# Generated/outputs and caches
+backend/results/
+backend/thumbnails/
+backend/HorseThumbnails/
+.crush/
+convex/_generated/
+
+# Backups and large local folders not for source control
+convex-backend/
+.git_backup/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Env files
+*.env
+*.env.*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

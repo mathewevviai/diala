@@ -1,0 +1,18 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "\"I get the feeling you're probably gonna tell me that none of that applies in your world\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft probe anticipating potential disinterest or lack of fit, used to diagnose the reason."
+    },
+    {
+      "type": "technique",
+      "content": "Handle specific timing or scheduling conflicts (e.g., 'camping next week', 'training all day') to diagnose if the objection is availability vs. fundamental disinterest.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on diagnosing timing as the reason for potential 'no'."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

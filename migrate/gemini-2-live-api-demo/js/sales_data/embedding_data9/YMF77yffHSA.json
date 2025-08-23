@@ -1,0 +1,48 @@
+{
+  "source_video": "YMF77yffHSA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When anticipating disinterest (e.g., on a cold call), offer the prospect an easy out upfront to build trust and lower defenses.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used phrases like 'you're gonna hate me actually this is actually a sales call so I'm not sure if you want to hang up now or let me have 30 seconds'."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You're gonna hate me, this is a sales call. Feel free to hang up or give me 30 seconds.",
+      "speaker_perspective": "sales agent",
+      "notes": "An upfront, disarming way to address the nature of the call."
+    },
+    {
+      "type": "technique",
+      "content": "After acknowledging the sales nature of the call, softly probe to see if anything resonates or if there's a slight opening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used phrases like 'you're probably going to tell me you can't relate... has something resonated?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Has something resonated with you though?",
+      "speaker_perspective": "sales agent",
+      "notes": "A gentle probe to see if the initial pitch, however brief, sparked any interest."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect doesn't immediately hang up or says 'it's fine', probe for potential pain points to diagnose the reason for potential interest or lack thereof.",
+      "speaker_perspective": "sales agent",
+      "notes": "Asked 'if there was one thing could do better what would it be?' or 'are they [sales people] frustrating you?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Just one last question, if there was one thing [related to your business/role] you could do better, what would it be?",
+      "speaker_perspective": "sales agent",
+      "notes": "A soft diagnostic question to uncover potential needs or frustrations."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Are they [e.g., your sales team] frustrating you? Just be honest, because then I know it's worth calling.",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct but honest probe to diagnose if a specific pain point exists that warrants further conversation."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

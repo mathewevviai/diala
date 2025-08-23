@@ -1,0 +1,129 @@
+{
+  "source_video": "oEu8gR2TOsQ",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Don't assume the prospect knows their problem or how to articulate it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Help prospects unpack their problems and articulate the true impact.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Quantify the impact of the problem, even if the prospect hasn't done so.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps build urgency and value."
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions that guide the prospect to the realization of the problem's cost.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to uncover problem: 'What does [the problem] actually mean for your day-to-day operations?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to quantify problem: 'Have you ever put a number on the impact of this issue?'",
+      "speaker_agent": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to quantify problem: 'If you don't solve this in the next year, what's the projected cost?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to make the prospect uncomfortable with the status quo.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "True urgency comes from the prospect understanding the magnitude of their problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't present your solution until the prospect fully grasps the problem's cost.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to highlight the gap between the prospect's current state and desired state.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to highlight gap: 'If you could wave a magic wand, what would this look like instead?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Connect your solution directly to closing the cost gap the prospect has identified.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the conversation around their numbers and impact, not your features.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The discovery process is about diagnosing the problem, not just collecting information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a diagnostic approach: ask specific questions to uncover layers of the problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to dig deeper: 'Can you give me a specific example of when that happened?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to explore consequences: 'What was the result of that happening?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Question to explore impact: 'How did that make you feel/what was the impact on the team?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Mirroring or repeating the prospect's last few words encourages them to elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Active listening technique."
+    },
+    {
+      "type": "technique",
+      "content": "Use silence effectively after asking a question or making a statement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows prospect time to think and share more."
+    },
+    {
+      "type": "mindset",
+      "content": "Be genuinely curious about the prospect's situation and problems.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's problem back to them to confirm understanding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds trust and shows you listened."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Summarization phrase: 'So, just to recap, it sounds like the main issues are X, Y, and Z, which are costing you A per year. Is that right?'",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

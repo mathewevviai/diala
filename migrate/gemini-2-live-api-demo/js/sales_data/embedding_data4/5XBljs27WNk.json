@@ -1,0 +1,23 @@
+{
+  "source_video": "5XBljs27WNk",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are not rejections but opportunities to provide information.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implied through handling objections as part of the conversation process"
+    },
+    {
+      "type": "example",
+      "content": "When faced with skepticism ('you're probably going to tell me you don't experience any of that'), the agent acknowledges it without resistance, keeping the conversation open.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If you want to hang up you can or we can keep talking after... would that be fair?",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase used to disarm objections by giving control to the prospect"
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

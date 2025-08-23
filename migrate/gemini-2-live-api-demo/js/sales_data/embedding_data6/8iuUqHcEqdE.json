@@ -1,0 +1,36 @@
+{
+  "source_video": "8iuUqHcEqdE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a structured question sequence: problem example, duration, attempts to fix, cost/impact, how it makes them feel, given up trying. Then offer potential help based on similar cases.",
+      "speaker_perspective": "sales agent",
+      "notes": "A structured questioning approach designed to move the prospect from intellectual understanding to emotional recognition of the problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "The best question a salesperson can ask is how does this make you feel?",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the importance of eliciting emotion, as people buy emotionally and justify intellectually. Key part of moving from intellect to emotion."
+    },
+    {
+      "type": "technique",
+      "content": "After offering potential help, ask 'is there any reason you wouldn't invite me in?' to isolate any remaining objections before attempting to schedule the meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method to uncover and address potential barriers (isolate objections) before asking for commitment, related to Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Salespeople do not have to answer every question a prospect asks. They can pivot or turn the question back to maintain control of the conversation flow.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids 'vomiting' information and helps guide the conversation towards uncovering needs and impact."
+    },
+    {
+      "type": "technique",
+      "content": "When offering help, state 'I don't know if I can fix this for you' but follow with 'but I have helped people like you in similar circumstances.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Combines honesty with demonstrating capability based on past success with similar clients, aligning with the 'Found' principle of Feel-Felt-Found."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

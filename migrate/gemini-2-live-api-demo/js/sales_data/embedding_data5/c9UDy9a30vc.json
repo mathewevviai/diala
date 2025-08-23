@@ -1,0 +1,30 @@
+{
+  "source_video": "c9UDy9a30vc",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Sit down with your sales team and list the top objections and frustrations they get daily or weekly from prospects and customers.",
+      "speaker_perspective": "sales agent",
+      "notes": "Method for discovering common objections faced by the sales team."
+    },
+    {
+      "type": "technique",
+      "content": "Leverage the list of top objections on your website copy, for example, in an FAQ section on relevant service or product pages.",
+      "speaker_perspective": "sales agent",
+      "notes": "Using discovered objections to proactively address concerns for potential buyers."
+    },
+    {
+      "type": "benefit",
+      "content": "Addressing common objections on your website saves the sales team time by answering questions before they arise on a sales call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Efficiency gain from proactive objection handling based on discovery."
+    },
+    {
+      "type": "technique",
+      "content": "Understand the main drivers (root cause) of motivation by asking 'why is that important to you' and diving deeper.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applied to understanding sales reps' motivation, but the technique of diving deeper to find the root cause is applicable to buyer needs/objections."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

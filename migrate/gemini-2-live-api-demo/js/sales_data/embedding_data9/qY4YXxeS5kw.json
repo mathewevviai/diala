@@ -1,0 +1,52 @@
+{
+  "source_video": "qY4YXxeS5kw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a meeting feels adversarial or fractured, ask diagnostic questions to understand what's happening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"It sounds like we're off the wrong tracks here?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to probe when a sales interaction feels like it's going poorly or is fractured."
+    },
+    {
+      "type": "technique",
+      "content": "In a fractured situation, pull away; if the prospect genuinely wants to do business, they will often pull you back in.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Be prepared to walk away from a prospect or deal if it's not real or a good fit.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "observation",
+      "content": "If a prospect doesn't pull you back when you pull away, it tells you all you need to know about the deal's reality.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Overcoming the \"need for approval\" (fear of pissing off prospects) is crucial for asking tough, diagnostic questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "consequence",
+      "content": "Avoiding tough diagnostic questions leads to deals getting stuck in the pipeline's \"graveyard of no decision.\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't fear negative answers from diagnostic questions; they provide necessary clarity on the deal status.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Understand you don't need prospects who aren't going to buy; this empowers you to diagnose disinterest and move on.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

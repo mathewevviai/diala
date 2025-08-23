@@ -1,0 +1,81 @@
+{
+  "source_video": "FP90gU4iWSI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Listen to the client's initial question or statement carefully and repeat it back to ensure understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a client asks about price early, acknowledge the question and then ask a qualifying question about their needs first.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'If I understand correctly...' or 'So what you're saying is...' to confirm you've grasped the client's point.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After confirming understanding of a client's statement, transition by saying, 'Based on that...' or 'Given that...' before providing information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a client focuses on a specific aspect, acknowledge it, then broaden the conversation to understand the full context of their situation or needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a client asks about something specific, first confirm if that specific thing is the *only* thing they care about or if there are other factors.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to uncover the client's underlying goal or reason for asking about a specific detail.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the conversation around solving the client's problem or achieving their outcome, rather than just listing features or prices.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Can I ask you, what's the primary reason you're looking at something like this right now?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for understanding motivation."
+    },
+    {
+      "type": "technique",
+      "content": "If a client mentions a specific constraint or requirement, ask 'And is there anything else?' to uncover other potential needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions starting with 'What', 'How', or 'Tell me about...' to encourage the client to share more information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If asked about a complex topic early, offer a brief, high-level summary and then ask if they want to dive deeper into specifics.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Actively listen and reflect the client's language back to them to build rapport and show you understand their perspective.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on understanding the client's current situation and desired future state before presenting solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "See initial questions about price or specifics as an opportunity to qualify and gather more information, not just give an answer.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

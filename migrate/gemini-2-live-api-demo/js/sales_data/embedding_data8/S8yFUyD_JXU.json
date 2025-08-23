@@ -1,0 +1,54 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Let me have 30 seconds and if you don't want to talk to me at the end we can end it there sound fair?",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets a conditional boundary for the initial part of the call."
+    },
+    {
+      "type": "technique",
+      "content": "Clarify vague statements by asking for specificity: 'so when you say [X] what do you mean exactly? Can you give me an example?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to 'What specifically?' for understanding prospect's point."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend I could help your guys get through to more people at the right level and you believed I could do that. Is there any reason you want to write me in for half an hour 45 minutes?",
+      "speaker_perspective": "sales agent",
+      "notes": "Strong conditional close for securing the meeting. IF (value + belief), THEN (meeting)."
+    },
+    {
+      "type": "technique",
+      "content": "Assume the close after the conditional question is answered positively: 'Have you got your diary there then great what date you looking at?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Moves directly to scheduling once the conditional commitment is given."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If by the end of this meeting you don't feel comfortable with me or you don't think I'm someone you want to move forward with, would you feel okay telling me now?",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets a conditional agreement for honesty and the right to say no during the meeting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Likewise, look, if I don't feel I can help you, I'll be honest as well... you wouldn't be upset if I said I couldn't help you despite the fact you're agreeing to meet with me?",
+      "speaker_perspective": "sales agent",
+      "notes": "Establishes mutual conditional agreement on the right to disqualify."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If we don't say no to each other, do you mind spending a few minutes trying to figure out a concrete step on how we'd move forwards if we get there?",
+      "speaker_perspective": "sales agent",
+      "notes": "Conditional agreement setting expectation for discussing next steps if the meeting is successful."
+    },
+    {
+      "type": "technique",
+      "content": "Use an anti-cancellation question to solidify commitment after setting the appointment: 'Can you think of any reason you might want to cancel?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses potential cold feet proactively after the conditional close."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

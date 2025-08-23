@@ -1,0 +1,36 @@
+{
+  "source_video": "WBs5CRA1YAw",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Observing a private health clinic located in a prime retail space (like a shopping mall) as a potential model for healthcare facilities.",
+      "speaker_perspective": "sales agent",
+      "notes": "Seeing alternative models in action provides concrete examples for unique value propositions."
+    },
+    {
+      "type": "technique",
+      "content": "Framing a unique value proposition by proposing healthcare facilities in non-traditional, accessible locations like retail spaces.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions the offering as different and beneficial without directly criticizing existing models."
+    },
+    {
+      "type": "benefit_framing",
+      "content": "Highlighting the advantages of the proposed model, such as increased accessibility and building trust by being in familiar environments where people already shop/eat/have fun.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on the positive outcomes of the unique approach."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Using phrases like 'This is exactly how healthcare should be' to positively frame the desired or alternative model.",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates a vision of an ideal state, implicitly contrasting with the current state but focusing on the positive future."
+    },
+    {
+      "type": "technique",
+      "content": "Challenging the status quo with rhetorical questions like 'why can't we have healthcare in retail spaces?' to introduce an alternative positively.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prompts consideration of the new model's feasibility and benefits."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

@@ -1,0 +1,40 @@
+{
+  "source_video": "qYBB6WCcPYU",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Why though? (Asked about the reason for daily heavy drinking)",
+      "speaker_perspective": "sales agent",
+      "notes": "A simple clarifying question to uncover the root cause or motivation behind a behavior."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions about the impact or symptoms of the problem to understand its severity. (e.g., asking about hangovers, feeling strange)",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to isolate the core issue or dependence level. (e.g., asking if it was 'alcoholic level')",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "other",
+      "content": "Prospect revealing the root cause: 'I kind of just got so used to it and enjoyed it... it just became such a thing... felt strange if I wasn't drunk.'",
+      "speaker_perspective": "other",
+      "notes": "Understanding the habit and emotional dependence as underlying reasons."
+    },
+    {
+      "type": "other",
+      "content": "Identifying the ultimate, non-negotiable constraint or 'objection' forcing change: Doctor's warning of potential death if drinking resumes.",
+      "speaker_perspective": "other",
+      "notes": "A severe external factor that overrides other considerations."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect questions the severity of the stated 'objection' or constraint ('surely I can have a pine'), reiterate and clarify the root cause and consequences.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensuring the prospect fully understands the gravity of the issue."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

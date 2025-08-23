@@ -1,0 +1,30 @@
+{
+  "source_video": "2hn9ddCNAYc",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Present a list of common problems you solve to the prospect. If they don't recognize any, it indicates they likely don't have those specific issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to quickly identify if the prospect has the typical root causes for needing your solution."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect doesn't recognize the problems you describe, ask clarifying questions to understand their situation and the root cause of why they don't have those problems.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example questions: 'You don't have salespeople?', 'You don't have to prospect?'"
+    },
+    {
+      "type": "mindset",
+      "content": "If a prospect doesn't recognize the problems you fix, you have nothing to lose by continuing to ask questions to find out what IS going on in their business.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on understanding their reality, even if it doesn't fit your initial assumptions."
+    },
+    {
+      "type": "technique",
+      "content": "Clarify what a business actually does if their initial description seems inconsistent or suggests they wouldn't need your service, to understand the root cause of the disconnect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: Asking 'You just do marketing then, you don't sell events?' when they claim they don't sell."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

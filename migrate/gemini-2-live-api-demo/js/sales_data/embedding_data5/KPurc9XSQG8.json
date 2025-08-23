@@ -1,0 +1,42 @@
+{
+  "source_video": "KPurc9XSQG8",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "When asked a question, a good salesperson's job is not to give an answer, but to inquire why the question is important or what the true motive is.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Before answering a prospect's question, figure out the reason they asked it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not feel the need to immediately 'vomit up an answer' like a parrot returning a fact when asked a question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"That's a brilliant question... Do you mind, before I answer that question... because I feel you've asked me for a reason... do you mind sharing with me what that is?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Prospect asks 'will your system work on Windows?'. Instead of just saying 'yes', ask why they are asking to uncover past failures with other systems.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates uncovering the root cause (past negative experience) behind a technical question."
+    },
+    {
+      "type": "mindset",
+      "content": "Be comfortable challenging any question by asking what it means or why it was asked before providing an answer.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Asking 'why' the prospect asked a question helps uncover the underlying reason, potential objection, or past negative experience (the root cause).",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

@@ -1,0 +1,88 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to understand the prospect's current situation and isolate the 'no need' objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So you genuinely don't have to look for new customers?",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying question to probe the 'no need' objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I'm guessing you've got a pretty high retention rate by the sounds of it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying question related to the 'no need' objection."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and probe potential root causes of resistance, like past negative experiences.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "That sounds like you'd be burned at the past?",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging and probing a potential root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Present common problems related to your solution and ask which resonates most to identify the prospect's specific issue (root cause).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Of those three things (not picking up the phone, too quick to discount, quoting and hoping), if you could fix one, which would you pick? Something else?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of presenting problems to identify the root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Directly challenge a potential root cause, such as the belief that change is impossible due to long-standing practices.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you closed your mind to the possibility that it doesn't have to be this way because you've been doing it for 40 years?",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenging question probing the root cause of resistance to change."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's points to isolate the core objection or perceived root cause of their problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So what you're saying basically is even if you saw something you believed it could work, you're just at a stage where you're not wanting to try it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Summarizing and isolating the core objection (unwillingness to change)."
+    },
+    {
+      "type": "technique",
+      "content": "Use hypothetical scenarios to isolate the root cause of resistance, testing if the objection holds even when other factors are removed.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Let's pretend you spent half an hour with me, and by the end, you genuinely believed I could help and it would work. Would you throw me out or take it further?",
+      "speaker_perspective": "sales agent",
+      "notes": "Hypothetical question to isolate the root cause (unwillingness to change)."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that sometimes the root cause of a problem is the prospect's unwillingness to change, even if they need help.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Know when to disengage if the root cause of resistance (like unwillingness to change) is insurmountable.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

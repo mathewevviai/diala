@@ -1,0 +1,83 @@
+{
+  "source_video": "xvEKOLbY2ck",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Do you want to hang up now or let me have 30 seconds?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct conditional closing technique used at the start of a cold call."
+    },
+    {
+      "type": "technique",
+      "content": "Offer the prospect a clear choice at the beginning of the call, typically between ending the call or giving a short amount of time.",
+      "speaker_perspective": "sales agent",
+      "notes": "This is the structure of the conditional close."
+    },
+    {
+      "type": "technique",
+      "content": "Set a specific, short time limit (e.g., 30 seconds) when offering the prospect the option to listen.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Appeal to the prospect's rebellious nature by giving them permission to hang up; their instinct may be to do the opposite.",
+      "speaker_perspective": "sales agent",
+      "notes": "Psychological reason behind the 'hang up or listen' technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Use language that creates parity and equality with senior decision-makers, sounding confident and belonging.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies to delivering the conditional close effectively ('let me have' vs 'may I have')."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says they will hang up but doesn't immediately, challenge them gently: 'Well, you got to go first.'",
+      "speaker_perspective": "sales agent",
+      "notes": "A way to handle hesitation after the conditional close."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect expresses a common frustration (e.g., about calls), ask 'Why does everybody say that?' to probe for specifics and encourage them to vent.",
+      "speaker_perspective": "sales agent",
+      "notes": "Handling a general objection/sentiment by asking 'what specifically?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Before you hang up, can I ask a question?",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional phrase to extend the conversation and probe."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Before you go, one last thing then...",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional phrase to signal wrapping up while attempting one more point or question."
+    },
+    {
+      "type": "technique",
+      "content": "Constantly give the prospect an implied exit ('before you go', 'before you hang up') to make it easier for them to keep talking.",
+      "speaker_perspective": "sales agent",
+      "notes": "Tactical use of conditional phrasing."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I was to guarantee that the next 30 seconds would be completely different... would you hear me out?",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional closing variation used after addressing a common objection."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says no to hearing you out, ask 'Is there any particular reason why?' to probe for the specific objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Handling a 'no' by asking 'what specifically?'"
+    },
+    {
+      "type": "mindset",
+      "content": "Be emotionally detached from the outcome when using these techniques; if they hang up after you offered, you can't feel bad.",
+      "speaker_perspective": "sales agent",
+      "notes": "Essential mindset for effective delivery and resilience."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

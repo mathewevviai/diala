@@ -1,0 +1,30 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Challenge the prospect's current assumptions or practices by asking questions, e.g., 'Why do you quote and pitch?' or 'I'm assuming you charge for these?' (assumptive questioning).",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to provoke thought and uncover potential value gaps, aligning with Assess/Respond in LAARC or Ask in AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Listen carefully to the prospect's words and use their language to form follow-up questions. This is the 'art of selling' or 'art of prospecting'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Core principle of conversational questioning, fundamental to the 'Listen' and 'Ask' stages of frameworks like LAARC and AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Use hypothetical questions to explore value and overcome potential resistance, e.g., 'Let's Pretend... I could show you X... is there any reason you want to spend time exploring that further?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A way to isolate a specific value proposition and make it low-pressure for the prospect to consider, aiding in overcoming objections."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'It's great to say yes but... we're not going to get offend if you say no... our service isn't for everybody.'",
+      "speaker_perspective": "prospect",
+      "notes": "A phrase used by the prospect (learned from their training) to set expectations and reduce pressure, making it easier for the other party to say no without feeling guilty. This indirectly helps in handling potential objections by building trust."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

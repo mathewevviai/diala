@@ -1,0 +1,121 @@
+{
+  "source_video": "a0Qmp1x2TM8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When starting a cold call, acknowledge the unexpected nature of the call to disarm the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "This is a cold call, I know you weren't expecting my call...",
+      "speaker_perspective": "sales agent",
+      "notes": "Use at the very beginning of a cold call."
+    },
+    {
+      "type": "technique",
+      "content": "Immediately follow the cold call acknowledgement with a concise reason for calling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Gain permission to continue the call quickly after the introduction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Do you mind if I take 30 seconds to tell you why I'm calling?",
+      "speaker_perspective": "sales agent",
+      "notes": "A concise way to ask for permission on a cold call."
+    },
+    {
+      "type": "technique",
+      "content": "If permission is granted, proceed directly into your value proposition or discovery question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a low-pressure, casual tone, like you're not trying to sell anything.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps avoid triggering the prospect's sales defenses."
+    },
+    {
+      "type": "technique",
+      "content": "When scheduling a follow-up call, establish clear next steps and purpose.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What makes the most sense as a next step?",
+      "speaker_perspective": "sales agent",
+      "notes": "A question to transition to setting up the next meeting or action."
+    },
+    {
+      "type": "technique",
+      "content": "Suggest a specific time frame for the next call rather than leaving it vague.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "How about Thursday or Friday?",
+      "speaker_perspective": "sales agent",
+      "notes": "Offering specific days for the next meeting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "How about 10:00 AM or 2:00 PM?",
+      "speaker_perspective": "sales agent",
+      "notes": "Offering specific times for the next meeting."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the meeting time and send a calendar invitation immediately.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Briefly reiterate the purpose of the next meeting when confirming.",
+      "speaker_perspective": "sales agent",
+      "notes": "Aligns expectations for the follow-up call."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Okay, so Thursday at 10:00 AM to discuss X.",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirming the meeting time and topic."
+    },
+    {
+      "type": "technique",
+      "content": "Use 'we' language instead of 'I' to create a collaborative atmosphere.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "How can we figure this out?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of using 'we' language."
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and confirm understanding by paraphrasing what the prospect said.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So, if I understand correctly, you're saying...",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase to confirm understanding."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on solving the prospect's problem rather than just selling a product.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident but not overly aggressive posture during the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Affects tone and phrasing."
+    }
+  ]
+}

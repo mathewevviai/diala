@@ -1,0 +1,71 @@
+{
+  "source_video": "IJGzybTP9A0",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Selling is all about disqualifying, not qualifying. Figure out all the reasons why they *can't* work with you and have them argue why you're wrong.",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces the prospect to defend their situation against perceived barriers, revealing true objections or lack thereof."
+    },
+    {
+      "type": "technique",
+      "content": "Get prospects to rule out all alternative solutions before presenting yours. This isolates your offering as the remaining viable option.",
+      "speaker_perspective": "sales agent",
+      "notes": "A form of isolation by eliminating competitors and other internal fixes."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't accept excuses. Challenge prospects to uncover the real reasons behind hesitation or objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "People buy emotionally, justified intellectually. Your job is to find the compelling emotional reason why they need to act.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on the root cause: the feeling or impact of the problem, not just the logical need."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What is the compelling emotional reason why do you need to do this sir and if you don't how does that make you feel?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly probes for the emotional root cause and the consequence of inaction."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says no, fire out one last question to see if it's a real no or a failure to communicate the value. If still no, move on.",
+      "speaker_perspective": "sales agent",
+      "notes": "A quick isolation technique to test the depth of an objection before disengaging."
+    },
+    {
+      "type": "technique",
+      "content": "Don't talk about what you do; talk about what you fix. Focus the conversation on the prospect's problems and their symptoms.",
+      "speaker_perspective": "sales agent",
+      "notes": "Orients the discussion around the prospect's world and potential root causes for seeking a solution."
+    },
+    {
+      "type": "technique",
+      "content": "Identify the 3 biggest symptoms your prospects likely suffer from and ask them directly if they recognize any of them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Proactive discovery using clarifying questions based on common pain points."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"So when you say [symptom], what do you mean exactly?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A clarifying question to get the prospect to elaborate on their problem in their own words, revealing the root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Get the prospect to admit they have symptoms of a problem you fix. This is the basis for a conversation about how you can help.",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery through confirmation of pain points/symptoms."
+    },
+    {
+      "type": "mindset",
+      "content": "Know what you fix and how it manifests in the prospect's world. This allows you to ask targeted questions to uncover problems.",
+      "speaker_perspective": "sales agent",
+      "notes": "Requires deep understanding of the problem space from the prospect's perspective."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

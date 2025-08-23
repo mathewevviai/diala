@@ -1,0 +1,44 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Get the prospect to discover they have a problem; don't tell them directly to avoid upsetting them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "People buy emotionally; facts alone don't sell. Connect facts and figures to how they negatively impact the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid only asking factual 'who, what, when, where, why, how' questions; they gather facts but don't drive emotional realization.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use presumptive questions: ask a question assuming they know the answer or have already considered something.",
+      "speaker_perspective": "sales agent",
+      "notes": "A strategy to uncover reasons for inaction or potential barriers."
+    },
+    {
+      "type": "example",
+      "content": "Example presumptive question: 'When you were offered the opportunity to automate this... why did you say no to it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces the prospect to explain why they haven't solved the problem."
+    },
+    {
+      "type": "example",
+      "content": "Example presumptive question: 'When you turn to your sales guys and ask them why aren't you hitting target, what did they say?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Uncovers their perspective on internal issues or excuses."
+    },
+    {
+      "type": "technique",
+      "content": "Presumptive questions are a good strategy to develop; they force the prospect to justify their current state or lack of action.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

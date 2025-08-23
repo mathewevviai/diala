@@ -1,0 +1,76 @@
+{
+  "source_video": "2hn9ddCNAYc",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection, acknowledge their point immediately before responding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the LAARC framework for objections: Listen, Acknowledge, Assess, Respond, Confirm.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Assess the true nature of an objection by asking clarifying questions like 'What specifically concerns you about that?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Respond to price objections by focusing on the value and return on investment the solution provides.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'I need to think about it' by asking 'Besides what we've discussed, is there anything else holding you back?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address competitive objections by highlighting your unique differentiators and how they specifically benefit the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'feel-felt-found' story to relate to the prospect's objection and share how others overcame it successfully.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Test if an objection is the only barrier by asking 'If we could address [the objection], would you be ready to move forward?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejection, but as requests for more information or clarification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I understand exactly how you feel. Others have felt the same way, but here is what they found...\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If an objection seems vague, dig deeper by asking 'Could you elaborate on that?' or 'What makes you say that?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe a perceived negative objection into a positive benefit or desired outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the objection has been resolved by asking 'Does that make sense?' or 'Do you feel comfortable with that now?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Putting the investment aside for a moment, what results are you hoping to achieve?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to pivot from price objection to value discussion"
+    }
+  ]
+}

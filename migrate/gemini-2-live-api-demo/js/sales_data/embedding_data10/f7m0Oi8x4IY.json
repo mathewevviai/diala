@@ -1,0 +1,36 @@
+{
+  "source_video": "f7m0Oi8x4IY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame value by addressing common problems associated with alternative methods or past experiences (e.g., low connect rates, wasted time on voicemails) without directly attacking competitors.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions your solution as the fix to known industry/methodology pain points."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's current approach or past experience ('I've been in sales for like 25 years') before introducing how your solution addresses the related challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport and shows understanding before differentiating."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises a potential negative associated with a category of solutions (e.g., 'dropped calls and delay' with predictive dialers), address it by highlighting your solution's specific, superior performance ('almost instant connections').",
+      "speaker_perspective": "sales agent",
+      "notes": "Differentiates from the perceived flaws of a technology type."
+    },
+    {
+      "type": "technique",
+      "content": "Offer a live demonstration as proof to differentiate your solution's performance from perceived issues with similar technologies ('It's better to show you in action instead of explaining it over the text').",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides tangible evidence of unique value."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's specific unique needs or internal capabilities ('That makes perfect sense... I would never claim I could train...'), then reframe your value proposition to focus on a complementary area where you provide foundational value.",
+      "speaker_perspective": "sales agent",
+      "notes": "Differentiates service type without attacking internal methods or other providers."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

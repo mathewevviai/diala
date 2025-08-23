@@ -1,0 +1,92 @@
+{
+  "source_video": "XrJjUTLeots",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "You cannot solve a problem you don't understand. Your job is to understand the problem first.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Start by asking questions to uncover the prospect's situation and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Tell me a little bit about where you are now.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Opening question to understand current situation"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What are some of the biggest challenges you're facing in X area?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to identify problems"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What have you tried to do to solve that problem so far?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to understand past efforts and failures"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and patiently to understand the prospect's perspective and pain points.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"And what happened when you tried that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Follow-up question on past solutions to identify obstacles or reasons for failure"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How is that impacting you right now?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to quantify or clarify the impact of the problem"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What does the ideal situation look like for you?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to understand desired future state/goals"
+    },
+    {
+      "type": "technique",
+      "content": "Identify the gap between the prospect's current situation and their desired future state.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The sales process is about guiding the prospect, not pushing them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask open-ended questions that encourage the prospect to talk.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to help the prospect discover their own problem and need for a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus on understanding before attempting to be understood or sell.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If you could wave a magic wand, what would be different?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Alternative question to explore ideal situation"
+    },
+    {
+      "type": "technique",
+      "content": "Quantify the impact of the problem whenever possible (e.g., time, money, resources).",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

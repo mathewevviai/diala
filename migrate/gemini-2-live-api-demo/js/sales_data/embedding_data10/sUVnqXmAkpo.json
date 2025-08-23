@@ -1,0 +1,60 @@
+{
+  "source_video": "sUVnqXmAkpo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame the unique legal status of your product by comparing it to familiar legal items (e.g., cannabis seeds) to differentiate from illegal alternatives.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when explaining the THCA extract's legality in the UK."
+    },
+    {
+      "type": "technique",
+      "content": "Explain the technical reason behind your product's unique status (e.g., THCA state) to build credibility and highlight differentiation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when explaining why the THCA extract is legal."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "We got absolute fire. It's available to your door.",
+      "speaker_perspective": "sales agent",
+      "notes": "Value framing emphasizing quality and convenience."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "That is the strongest extract on the [__] planet.",
+      "speaker_perspective": "sales agent",
+      "notes": "Bold value framing emphasizing potency."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the core benefit of your service (e.g., algorithm trading) as passive income and freedom, contrasting implicitly with traditional work.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlighting the 'chilling and enjoying myself' aspect."
+    },
+    {
+      "type": "technique",
+      "content": "Address potential objections about complexity or cost by highlighting accessibility and low barrier to entry ('any of you can do this with a few hundred').",
+      "speaker_perspective": "sales agent",
+      "notes": "Implicitly contrasts with the difficulty of starting traditional businesses."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You can be making some nice money. Be 10 20 maybe 30% in a good month. That is crazy return.",
+      "speaker_perspective": "sales agent",
+      "notes": "Quantifying the potential value/returns."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "It's something you can do to enjoy yourself live your life and print cash.",
+      "speaker_perspective": "sales agent",
+      "notes": "Summarizing the ultimate lifestyle benefit of the service."
+    },
+    {
+      "type": "example",
+      "content": "Using a testimonial: 'He's made 1,600 quid on top of what he's doing his tennis job.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Validates the value proposition by showing real-world results alongside existing income."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

@@ -1,0 +1,33 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are opportunities for the prospect to request more information, not rejections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use presumptive questions to guide prospects to realize their problems without directly telling them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Presumptive questions assume the prospect knows the answer, shifting their perspective."
+    },
+    {
+      "type": "example",
+      "content": "Ask: 'When you were offered the opportunity to automate this to save an hour every day, why did you say no?'",
+      "speaker_perspective": "sales agent",
+      "notes": "This question frames the objection as a missed opportunity, not a rejection."
+    },
+    {
+      "type": "mindset",
+      "content": "People buy emotionally; facts alone don\u2019t sell. Use questions to connect facts to emotional pain.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid direct confrontation by asking questions that lead prospects to self-realize inefficiencies.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

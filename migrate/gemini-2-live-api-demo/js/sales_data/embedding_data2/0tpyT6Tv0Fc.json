@@ -1,0 +1,55 @@
+{
+  "source_video": "0tpyT6Tv0Fc",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Permission-based selling involves asking for the prospect's explicit agreement or willingness to engage in a sales conversation before proceeding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Fundamental concept for building trust and respect."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use permission-seeking openings in cold calls: 'Would it be okay to take 30 seconds to tell you why I called?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Alternative cold call permission opening: 'Do you have 30 seconds for me to explain the reason for my call?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Provocative permission opening for cold calls: 'Would you like to hang up or give me 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledges potential resistance, offers a clear choice."
+    },
+    {
+      "type": "technique",
+      "content": "In a meeting, set expectations and offer an exit ramp early: 'By the end of this, if you feel this isn't a good fit, please feel free to say so. There's no pressure.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Increases comfort and reduces pressure for the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for permission before demonstrating specific features or diving into details, linking it to prospect needs: 'Based on what you said, would it be okay if I showed you X?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for permission before moving to the next logical step in the conversation: 'Now that we've discussed Y, would you be open to exploring how our solution addresses X?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Incorporate permission-seeking phrases throughout the sales process: 'Is it okay?', 'Would you be open?', 'Do you have a few minutes?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to check understanding and gain buy-in for progression."
+    },
+    {
+      "type": "technique",
+      "content": "Ensure you have permission before pitching, attempting to close, addressing objections, or taking any significant next step.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids being pushy; aligns with a consultative approach."
+    }
+  ]
+}

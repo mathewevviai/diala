@@ -1,0 +1,36 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Respond to objections, including those about existing suppliers, by asking questions to determine if the statement is a fact or a smokescreen.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge the statement 'we're happy with our current supplier' by probing if their situation is truly 'perfect'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Didn't you mean to say everything's perfect?' (Used to challenge 'we're happy with our current supplier')",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge 'we already have a supplier' by pushing the prospect to an extreme, asking if they would *never* consider alternatives.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Would it be fair to say then that there is nothing anyone could say or do... you would never ever consider exploring it?' (Used to challenge 'we already have a supplier')",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not argue with competitive objections; instead, probe them with questions to uncover the underlying truth.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

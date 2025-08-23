@@ -1,0 +1,890 @@
+import { v } from "convex/values";
+import { action, mutation, query } from "./_generated/server";
+import { internal } from "./_generated/api";
+import { rag } from "./jinaIntegration";
+
+// Utility function to chunk content
+async function chunkContent(text: string, options: { chunkSize: number; overlap: number }): Promise<string[]> {
+  const { chunkSize, overlap } = options;
+  const chunks: string[] = [];
+  
+  if (!text || text.trim().length === 0) {
+    return [];
+  }
+  
+  const words = text.split(/\s+/);
+  
+  if (words.length <= chunkSize) {
+    return [text.trim()];
+  }
+  
+  for (let i = 0; i < words.length; i += chunkSize - overlap) {
+    const chunk = words.slice(i, i + chunkSize).join(' ');
+    if (chunk.trim().length > 0) {
+      chunks.push(chunk.trim());
+    }
+  }
+  
+  return chunks;
+}
+
+// JINA READER API INTEGRATION
+// Uses https://r.jina.ai/ to fetch web content as LLM-friendly markdown
+
+const JINA_READER_URL = 'https://r.jina.ai';
+
+/**
+ * Action to fetch web content using Jina Reader API
+ * This is the core functionality for processing web URLs in RAG workflows
+ */
+export const fetchWebContentWithJina = action({
+  args: {
+    url: v.string(),
+    workflowId: v.string(),
+    userId: v.string(),
+    options: v.optional(v.object({
+      includeImages: v.optional(v.boolean()),
+      includeLinks: v.optional(v.boolean()),
+      timeout: v.optional(v.number()),
+    })),
+  },
+  handler: async (ctx, { url, workflowId, userId, options = {} }): Promise<{
+    success: boolean;
+    documentId?: string;
+    title?: string;
+    wordCount?: number;
+    cached?: boolean;
+  }> => {
+    try {
+      console.log(`[Jina Reader] Processing URL: ${url}`);
+      console.log(`[Jina Reader] Workflow: ${workflowId}, User: ${userId}`);
+
+      // Check if already processed via internal query
+      const existingDocs = await ctx.runQuery(internal.ragActions.checkExistingWebDocument, {
+        url,
+        workflowId
+      });
+
+      if (existingDocs && existingDocs.hasValidContent) {
+        console.log(`[Jina Reader] URL already processed: ${url}`);
+        return {
+          success: true,
+          documentId: existingDocs.documentId,
+          title: existingDocs.title,
+          cached: true,
+        };
+      }
+
+      // Fetch content from Jina Reader API
+      const jinaUrl = `${JINA_READER_URL}/${url}`;
+      const apiKey = process.env.JINA_API_KEY || "";
+
+      console.log(`[Jina Reader] Calling API: ${jinaUrl}`);
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), options.timeout || 30000);
+      
+      const response = await fetch(jinaUrl, {
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': apiKey ? `Bearer ${apiKey}` : '',
+        },
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Jina API error: ${response.status} ${response.statusText}`);
+      }
+
+      const responseText = await response.text();
+      
+      // Parse the Jina response which is in markdown format
+      const lines = responseText.split('\n');
+      let extractedTitle = "Untitled";
+      let extractedContent = "";
+      let inContent = false;
+      
+      for (const line of lines) {
+        if (line.startsWith('Title:')) {
+          extractedTitle = line.replace('Title:', '').trim();
+        } else if (line.startsWith('Markdown Content:')) {
+          inContent = true;
+          continue;
+        } else if (inContent) {
+          extractedContent += line + '\n';
+        }
+      }
+      
+      // If we didn't find structured content, use the whole response
+      if (!extractedContent.trim()) {
+        extractedContent = responseText;
+      }
+
+      // Clean up the content
+      extractedContent = extractedContent.trim();
+      
+      if (!extractedContent || extractedContent.length < 50) {
+        console.warn(`[Jina Reader] Insufficient content extracted for ${url}: ${extractedContent.substring(0, 100) || 'empty'}`);
+        throw new Error(`Content too short or empty: ${extractedContent.length} characters`);
+      }
+
+      console.log(`[Jina Reader] Successfully extracted content: ${extractedTitle}`);
+      console.log(`[Jina Reader] Content length: ${extractedContent.length} characters`);
+
+      // Store web document
+      const documentId = await ctx.runMutation(internal.ragActions.storeWebDocument, {
+        url,
+        title: extractedTitle,
+        content: extractedContent,
+        markdown: extractedContent,
+        workflowId,
+        userId,
+        metadata: {
+          publishedTime: undefined, // Will extract from content if available
+          author: undefined,
+          description: undefined,
+          keywords: [],
+          language: 'en',
+          wordCount: extractedContent.split(/\s+/).length,
+        },
+      });
+
+      return {
+        success: true,
+        documentId,
+        title: extractedTitle,
+        wordCount: extractedContent.split(/\s+/).length,
+      };
+
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[Jina Reader] Error processing ${url}:`, error);
+      
+      // Store failed attempt for debugging
+      await ctx.runMutation(internal.ragActions.storeWebDocument, {
+        url,
+        title: `Failed: ${url}`,
+        content: `Error: ${errorMessage}`,
+        markdown: `Error: ${errorMessage}`,
+        workflowId,
+        userId,
+        metadata: {
+          keywords: [],
+          language: "en",
+          wordCount: 0,
+        },
+      });
+
+      throw error;
+    }
+  },
+});
+
+/**
+ * Batch process multiple URLs
+ */
+export const processWebUrlsBatch = action({
+  args: {
+    urls: v.array(v.string()),
+    workflowId: v.string(),
+    userId: v.string(),
+    options: v.optional(v.object({
+      includeImages: v.optional(v.boolean()),
+      includeLinks: v.optional(v.boolean()),
+      timeout: v.optional(v.number()),
+    })),
+  },
+  handler: async (ctx, { urls, workflowId, userId, options = {} }) => {
+    console.log(`[Web Processing] Starting batch processing for ${urls.length} URLs`);
+    
+    const results = [];
+    const concurrency = 3; // Process 3 URLs at a time
+
+    for (let i = 0; i < urls.length; i += concurrency) {
+      const batch = urls.slice(i, i + concurrency);
+      
+      const batchPromises = batch.map(url => 
+        ctx.runAction(internal.ragActions.fetchWebContentWithJina, {
+          url,
+          workflowId,
+          userId,
+          options,
+        })
+      );
+
+      try {
+        const batchResults = await Promise.allSettled(batchPromises);
+        
+        for (let j = 0; j < batchResults.length; j++) {
+          const result = batchResults[j];
+          const url = batch[j];
+          
+          if (result.status === 'fulfilled') {
+            results.push({
+              success: true,
+              url,
+              ...result.value,
+            });
+          } else {
+            results.push({
+              success: false,
+              url,
+              error: result.reason.message || 'Unknown error',
+            });
+          }
+        }
+        
+        // Small delay between batches to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+      } catch (error) {
+        console.error('[Web Processing] Batch error:', error);
+      }
+    }
+
+    console.log(`[Web Processing] Completed batch processing: ${results.filter(r => r.success).length}/${urls.length} successful`);
+    
+    return {
+      results,
+      total: urls.length,
+      successful: results.filter(r => r.success).length,
+      failed: results.filter(r => !r.success).length,
+    };
+  },
+});
+
+/**
+ * Store web document in database
+ */
+export const checkExistingWebDocument = query({
+  args: {
+    url: v.string(),
+    workflowId: v.string(),
+  },
+  handler: async (ctx, { url, workflowId }) => {
+    const existingDoc = await ctx.db
+      .query("webDocuments")
+      .withIndex("by_url", (q) => q.eq("url", url))
+      .filter((q) => q.eq("workflowId", workflowId))
+      .first();
+
+    if (existingDoc) {
+      // Check if content is empty or too short
+      const hasValidContent = existingDoc.content && existingDoc.content.trim().length > 100;
+      
+      return {
+        documentId: existingDoc._id,
+        title: existingDoc.title,
+        exists: true,
+        hasValidContent,
+      };
+    }
+    
+    return null;
+  },
+});
+
+export const getWebDocumentById = query({
+  args: { documentId: v.id("webDocuments") },
+  handler: async (ctx, { documentId }) => {
+    const document = await ctx.db.get(documentId);
+    return document;
+  },
+});
+
+export const storeWebDocument = mutation({
+  args: {
+    url: v.optional(v.string()),
+    title: v.string(),
+    content: v.string(),
+    markdown: v.string(),
+    workflowId: v.string(),
+    userId: v.string(),
+    metadata: v.optional(v.object({
+      publishedTime: v.optional(v.union(v.string(), v.null())),
+      author: v.optional(v.union(v.string(), v.null())),
+      description: v.optional(v.union(v.string(), v.null())),
+      keywords: v.optional(v.array(v.string())),
+      language: v.optional(v.union(v.string(), v.null())),
+      wordCount: v.optional(v.number()),
+    })),
+  },
+  handler: async (ctx, { url, title, content, markdown, workflowId, userId, metadata }) => {
+    console.log(`[Store Web Document] Storing: ${title}`);
+    
+    const documentId = await ctx.db.insert("webDocuments", {
+      url,
+      title,
+      content,
+      markdown,
+      metadata: {
+        publishedTime: metadata?.publishedTime ?? undefined,
+        author: metadata?.author ?? undefined,
+        description: metadata?.description ?? undefined,
+        keywords: metadata?.keywords ?? [],
+        language: metadata?.language ?? 'en',
+        wordCount: metadata?.wordCount ?? 0,
+      },
+      workflowId,
+      userId,
+      status: "completed",
+      processed: true,
+      createdAt: Date.now(),
+      processedAt: Date.now(),
+    });
+
+    return { documentId };
+  },
+});
+
+/**
+ * Get web documents for a workflow
+ */
+export const getWebDocuments = query({
+  args: { workflowId: v.string() },
+  handler: async (ctx, { workflowId }) => {
+    const documents = await ctx.db
+      .query("webDocuments")
+      .withIndex("by_workflow", (q) => q.eq("workflowId", workflowId))
+      .order("desc")
+      .collect();
+    
+    return documents.map(doc => ({
+      ...doc,
+      id: doc._id,
+    }));
+  },
+});
+
+export const getWebDocumentsByUrl = query({
+  args: { url: v.string(), workflowId: v.string() },
+  handler: async (ctx, { url, workflowId }) => {
+    const documents = await ctx.db
+      .query("webDocuments")
+      .withIndex("by_url", (q) => q.eq("url", url))
+      .filter((doc) => doc.workflowId === workflowId)
+      .collect();
+    
+    return documents;
+  },
+});
+
+/**
+ * Get single web document
+ */
+export const getWebDocument = query({
+  args: { documentId: v.id("webDocuments") },
+  handler: async (ctx, { documentId }) => {
+    const document = await ctx.db.get(documentId);
+    return document;
+  },
+});
+
+/**
+ * Delete web document
+ */
+export const deleteWebDocument = mutation({
+  args: { documentId: v.id("webDocuments") },
+  handler: async (ctx, { documentId }) => {
+    await ctx.db.delete(documentId);
+    return { success: true };
+  },
+});
+
+/**
+ * Main RAG processing action for web content
+ */
+export const processWebContentForRAG = action({
+  args: {
+    workflowId: v.string(),
+    userId: v.string(),
+    urls: v.array(v.string()),
+    config: v.object({
+      chunkSize: v.number(),
+      overlap: v.number(),
+      embeddingModel: v.string(),
+      vectorDb: v.optional(v.string()),
+    }),
+  },
+  handler: async (ctx, { workflowId, userId, urls, config }) => {
+    console.log(`[Web RAG] Starting RAG processing for web content: ${urls.length} URLs`);
+    
+    // Step 1: Fetch all web content
+    const fetchResult = await ctx.runAction(internal.ragActions.processWebUrlsBatch, {
+      urls,
+      workflowId,
+      userId,
+    });
+
+    if (fetchResult.failed === urls.length) {
+      throw new Error('Failed to fetch any web content');
+    }
+
+    // Step 2: Process successful content through RAG
+    const successfulUrls = fetchResult.results.filter(r => r.success);
+    
+    if (successfulUrls.length === 0) {
+      throw new Error('No valid web content to process');
+    }
+
+    console.log(`[Web RAG] Processing ${successfulUrls.length} successful URLs through RAG...`);
+
+    // Step 3: Create RAG namespace and process documents through embedding pipeline
+    const namespace = `web-rag-${workflowId}`;
+    
+    // Process documents with embeddings
+    for (const urlResult of successfulUrls) {
+      const webDoc = await ctx.runQuery(internal.ragActions.getWebDocumentById, urlResult.documentId);
+      if (!webDoc) continue;
+
+      // Ensure the namespace is initialized and process through embeddings
+      await rag.add(ctx, {
+        namespace,
+        key: webDoc._id,
+        title: webDoc.title,
+        content: webDoc.content,
+        metadata: {
+          workflowId,
+          userId,
+          url: webDoc.url,
+          type: 'web_content',
+          originalWordCount: webDoc.metadata.wordCount,
+        },
+      });
+      
+      // Mark document as processed
+      await ctx.runMutation(internal.ragMutations.markDocumentProcessed, {
+        documentId: webDoc._id
+      });
+    }
+    
+    // Update workflow status
+    await ctx.runMutation(internal.ragMutations.updateWorkflowStatus, {
+      workflowId,
+      status: 'completed'
+    });
+
+    return {
+      success: true,
+      totalUrls: urls.length,
+      processedUrls: successfulUrls.length,
+      failedUrls: fetchResult.failed,
+      totalWords: successfulUrls.reduce((sum: number, r: { wordCount?: number }) => sum + (r.wordCount || 0), 0),
+    };
+  },
+});
+
+/**
+ * Chunk web content for RAG processing - matches the expected signature
+ */
+export const chunkWebContentForRAG = action({
+  args: {
+    content: v.string(),
+    metadata: v.optional(v.object({
+      originalWordCount: v.number(),
+      title: v.string(),
+      type: v.string(),
+      url: v.string(),
+    })),
+  },
+  handler: async (ctx, { content, metadata }) => {
+    console.log(`[Chunk Web Content] Chunking content for: ${metadata?.title || 'Unknown'}`);
+    
+    // Use the same chunking strategy as other content types
+    const chunks = await chunkContent(content, {
+      chunkSize: 1000,
+      overlap: 200,
+    });
+
+    return {
+      chunks: chunks.map((chunk: string, index: number) => ({
+        content: chunk,
+        metadata: {
+          ...metadata,
+          chunkIndex: index,
+          chunkCount: chunks.length,
+        },
+      })),
+    };
+  },
+});
+
+/**
+ * Chunk web content by retrieving from database first
+ */
+
+
+/**
+ * Chunk file content for RAG processing - matches the expected signature
+ */
+export const chunkFile = action({
+  args: {
+    entry: v.optional(v.object({
+      entryId: v.string(),
+      filterValues: v.array(v.any()),
+      importance: v.float64(),
+      key: v.string(),
+      metadata: v.object({
+        originalWordCount: v.float64(),
+        type: v.string(),
+        url: v.string(),
+        userId: v.string(),
+        workflowId: v.string(),
+      }),
+      status: v.string(),
+      title: v.string(),
+    })),
+    content: v.optional(v.string()),
+    documentId: v.optional(v.id("webDocuments")),
+    insertChunks: v.optional(v.string()),
+    metadata: v.optional(v.object({
+      originalWordCount: v.float64(),
+      title: v.string(),
+      type: v.string(),
+      url: v.string(),
+    })),
+    namespace: v.optional(v.any()),
+  },
+  handler: async (ctx, { entry, content, documentId, insertChunks, metadata, namespace }) => {
+    let actualContent = content;
+    
+    // If content is not provided, try to get it from documentId or entry
+    if (!actualContent) {
+      if (documentId) {
+        console.log(`[Chunk File] Retrieving content from document: ${documentId}`);
+        const webDoc = await ctx.runQuery(internal.ragActions.getWebDocumentById, { documentId });
+        if (webDoc && webDoc.content) {
+          actualContent = webDoc.content;
+        } else {
+          console.log(`[Chunk File] No content found for document: ${documentId}`, webDoc);
+        }
+      } else if (entry?.key) {
+        // Convex RAG system passes document ID in entry.key
+        console.log(`[Chunk File] Using entry.key as documentId: ${entry.key}`);
+        const webDoc = await ctx.runQuery(internal.ragActions.getWebDocumentById, { 
+          documentId: entry.key as any
+        });
+        if (webDoc && webDoc.content) {
+          actualContent = webDoc.content;
+          console.log(`[Chunk File] Found content via entry.key: ${actualContent.length} chars`);
+        } else {
+          console.log(`[Chunk File] No content found for entry.key: ${entry.key}`, webDoc);
+        }
+      } else if (entry?.metadata?.url && entry.metadata.workflowId) {
+        console.log(`[Chunk File] Looking for document by URL: ${entry.metadata.url}`);
+        const webDocs = await ctx.runQuery(internal.ragActions.getWebDocumentsByUrl, {
+          url: entry.metadata.url,
+          workflowId: entry.metadata.workflowId
+        });
+        
+        if (webDocs && webDocs.length > 0 && webDocs[0].content) {
+          actualContent = webDocs[0].content;
+          console.log(`[Chunk File] Found document content via URL: ${actualContent.length} chars`);
+        } else {
+          console.log(`[Chunk File] No document found for URL: ${entry.metadata.url}`);
+        }
+      }
+    }
+    
+    if (!actualContent) {
+      console.error('[Chunk File] No content available for chunking');
+      console.error('[Chunk File] Parameters:', { documentId, entry: !!entry, content: !!content, metadata: !!metadata });
+      throw new Error('No content provided for chunking');
+    }
+    
+    const title = entry?.title || metadata?.title || 'Unknown';
+    console.log(`[Chunk File] Chunking content for: ${title}`);
+    
+    // Use the same chunking strategy as other content types
+    const chunks = await chunkContent(actualContent, {
+      chunkSize: 1000,
+      overlap: 200,
+    });
+    
+    // The Convex RAG system will handle chunk insertion automatically
+    // We don't need to manually call insertChunks - it will be handled by the system
+    console.log(`[Chunk File] Prepared ${chunks.length} chunks for system processing`);
+    
+    return {
+      chunks: chunks.length,
+      key: entry?.key || documentId || 'unknown',
+      metadata: entry?.metadata || metadata || {},
+      namespace: entry?.metadata?.workflowId ? `web-rag-${entry.metadata.workflowId}` : 'web-rag',
+      title: title,
+    };
+  },
+});
+
+/**
+ * Create embeddings from web documents using the RAG system
+ * This properly uses the RAG system to create embeddings
+ */
+// Existing document processing functions for backward compatibility
+export const addDocument = action({
+  args: {
+    storageId: v.id("_storage"),
+    jobId: v.id("bulkJobs"),
+    namespace: v.string(),
+    fileName: v.string(),
+  },
+  handler: async (ctx, { storageId, jobId, namespace, fileName }) => {
+    try {
+      console.log(`[RAG Action] Starting ingestion for file: ${fileName}`);
+      
+      await rag.add(ctx, {
+        namespace,
+        key: storageId,
+        title: fileName,
+        metadata: { jobId, storageId, fileName },
+      });
+
+      await ctx.runMutation(internal.bulkJobs.updateStatusMutation, {
+        jobId,
+        status: "processing",
+        statusMessage: `Embedding document: ${fileName}`,
+      });
+
+      return { success: true };
+    } catch (error) {
+      console.error("[RAG Action] Error starting document ingestion:", error);
+      throw error;
+    }
+  },
+});
+
+/**
+ * Create embeddings from web documents using the RAG system
+ * This properly uses the RAG system to create embeddings
+ */
+export const createWebEmbeddings = action({
+  args: {
+    workflowId: v.string(),
+    userId: v.string(),
+    urls: v.array(v.string()),
+    config: v.object({
+      chunkSize: v.number(),
+      overlap: v.number(),
+      embeddingModel: v.string(),
+    }),
+  },
+  handler: async (ctx, { workflowId, userId, urls, config }) => {
+    console.log(`[Web Embeddings] Creating embeddings for ${urls.length} URLs`);
+
+    // Step 1: Fetch web content and store as webDocuments
+    const fetchResult = await ctx.runAction(internal.ragActions.processWebUrlsBatch, {
+      urls,
+      workflowId,
+      userId,
+    });
+
+    if (fetchResult.failed === urls.length) {
+      throw new Error('Failed to fetch any web content');
+    }
+
+    const successfulUrls = fetchResult.results.filter(r => r.success);
+    if (successfulUrls.length === 0) {
+      throw new Error('No valid web content to process');
+    }
+
+    console.log(`[Web Embeddings] Processing ${successfulUrls.length} documents for embeddings...`);
+
+    let totalEmbeddings = 0;
+    let totalChunks = 0;
+
+    // Calculate total chunks for progress tracking
+    for (const urlResult of successfulUrls) {
+      const webDoc = await ctx.runQuery(internal.ragActions.getWebDocumentById, urlResult.documentId);
+      if (webDoc && webDoc.content) {
+        const chunks = await chunkContent(webDoc.content, {
+          chunkSize: config.chunkSize,
+          overlap: config.overlap,
+        });
+        totalChunks += chunks.length;
+      }
+    }
+
+    console.log(`[Web Embeddings] Total chunks to process: ${totalChunks}`);
+
+    // Step 3: Process each document and create embeddings with progress tracking
+    let processedChunks = 0;
+    for (const urlResult of successfulUrls) {
+      const webDoc = await ctx.runQuery(internal.ragActions.getWebDocumentById, urlResult.documentId);
+      if (!webDoc || !webDoc.content) continue;
+
+      console.log(`[Web Embeddings] Processing: ${webDoc.title}`);
+
+      // Chunk the content
+      const chunks = await chunkContent(webDoc.content, {
+        chunkSize: config.chunkSize,
+        overlap: config.overlap,
+      });
+
+      console.log(`[Web Embeddings] Created ${chunks.length} chunks from ${webDoc.title}`);
+
+      // Create embeddings for each chunk and store in database
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i];
+        const chunkId = `${webDoc._id}-chunk-${i}`;
+        
+        // Use Jina API to create embedding
+        const embedding = await ctx.runAction(internal.ragActions.createEmbeddingWithJina, {
+          text: chunk,
+          model: config.embeddingModel,
+        });
+
+        if (!embedding) {
+          console.error(`[Web Embeddings] Failed to create embedding for chunk ${i}`);
+          continue;
+        }
+
+        // Store the embedding in the database
+        await ctx.runMutation(internal.ragMutations.storeEmbedding, {
+          embeddingId: chunkId,
+          workflowId,
+          sourceId: webDoc._id,
+          userId,
+          chunkIndex: i,
+          chunkText: chunk,
+          chunkTokens: Math.ceil(chunk.split(/\s+/).length * 1.3),
+          embedding,
+          embeddingModel: config.embeddingModel,
+          dimensions: embedding.length,
+        });
+
+        totalEmbeddings++;
+        processedChunks++;
+        
+        // Update progress
+        const progress = Math.round((processedChunks / totalChunks) * 100);
+        console.log(`[Web Embeddings] Progress: ${progress}% (${processedChunks}/${totalChunks} chunks)`);
+        
+        // Update workflow progress in database
+        await ctx.runMutation(internal.ragMutations.updateWorkflowProgress, {
+          workflowId,
+          progress,
+          stage: "Creating embeddings",
+          processedSources: processedChunks,
+          totalSources: totalChunks,
+        });
+      }
+
+      // Mark document as processed
+      await ctx.runMutation(internal.ragMutations.markDocumentProcessed, {
+        documentId: webDoc._id
+      });
+    }
+
+    console.log(`[Web Embeddings] Created embeddings for ${totalEmbeddings} documents`);
+
+    return {
+      success: true,
+      totalUrls: urls.length,
+      processedUrls: successfulUrls.length,
+      totalEmbeddings,
+      totalChunks,
+    };
+  },
+});
+
+// Create embedding using Jina API
+export const createEmbeddingWithJina = action({
+  args: {
+    text: v.string(),
+    model: v.string(),
+  },
+  handler: async (ctx, { text, model }) => {
+    try {
+      // Use hardcoded model for testing
+      const actualModel = 'jina-embeddings-v4';
+      console.log('[Jina Embedding] Using actual model:', actualModel);
+      
+      // First, segment the content using Jina segmenter
+      console.log('[Jina Embedding] Starting segmentation...');
+      const segmentResponse = await fetch('https://api.jina.ai/v1/segment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.JINA_API_KEY}`,
+        },
+        body: JSON.stringify({
+          content: text,
+          return_chunks: true,
+          max_chunk_length: 1000,
+        }),
+      });
+
+      let chunks = [text]; // fallback
+      if (segmentResponse.ok) {
+        const segmentData = await segmentResponse.json();
+        chunks = segmentData.chunks || [text];
+        console.log('[Jina Embedding] Segmented into', chunks.length, 'chunks', chunks);
+      } else {
+        console.error('[Jina Embedding] Segmenter failed:', segmentResponse.status, segmentResponse.statusText);
+        chunks = [text.substring(0, 1000)]; // Fallback to simple truncation
+      }
+
+      // Create embeddings for each chunk
+      const embeddings = [];
+      for (let i = 0; i < chunks.length; i++) {
+        const chunk = chunks[i];
+        console.log(`[Jina Embedding] Processing chunk ${i+1}/${chunks.length}, length: ${chunk.length}`);
+        
+        const response = await fetch('https://api.jina.ai/v1/embeddings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.JINA_API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: 'jina-embeddings-v4',
+            task: 'retrieval.query',
+            input: [{ text: chunk }],
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          embeddings.push(data.data[0].embedding);
+          console.log(`[Jina Embedding] Successfully created embedding for chunk ${i+1}`);
+        } else {
+          console.error(`[Jina Embedding] Failed to create embedding for chunk ${i+1}:`, response.status, response.statusText);
+        }
+      }
+
+      // Return the first embedding, or average if multiple
+      if (embeddings.length > 0) {
+        console.log('[Jina Embedding] Successfully created', embeddings.length, 'embeddings');
+        return embeddings[0];
+      }
+      
+      console.error('[Jina Embedding] No embeddings created from', chunks.length, 'chunks');
+      console.log('[Jina Embedding] Using fallback - creating single embedding for entire text');
+      
+      // Fallback: create embedding for entire text
+      const fallbackResponse = await fetch('https://api.jina.ai/v1/embeddings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.JINA_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'jina-embeddings-v4',
+          task: 'retrieval.query',
+          input: [{ text: text.substring(0, 8000) }],
+        }),
+      });
+
+      if (fallbackResponse.ok) {
+        const data = await fallbackResponse.json();
+        return data.data[0].embedding;
+      }
+      
+      console.error('[Jina Embedding] Fallback also failed');
+      return null;
+    } catch (error) {
+      console.error('[Jina Embedding] Error creating embedding:', error);
+      return null;
+    }
+  },
+});

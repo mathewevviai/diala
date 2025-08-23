@@ -1,0 +1,174 @@
+{
+  "source_video": "iXEZkEPIJ5A",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask people for permission to talk about something before you start talking about it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Set an agenda at the beginning of a conversation to manage expectations.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Is it okay if I ask you a few questions first?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based opening question."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I'm going to ask you a few questions to understand X, Y, Z. If by the end of that, you don't feel it's a fit, that's perfectly okay. Does that sound fair?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based agenda setting, anchoring non-pressure."
+    },
+    {
+      "type": "technique",
+      "content": "Give the prospect an explicit 'out' clause at the beginning of the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, builds trust."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If by the end of this, you don't feel it's a fit, you can just tell me 'no', and that's perfectly okay.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of giving an explicit out."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial part of the conversation on discovery and understanding the prospect's situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Tailor your approach based on whether you initiated the call (outbound) or they did (inbound).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I called you because...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct opening for outbound calls."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"You reached out because...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Opening for inbound calls, referencing their action."
+    },
+    {
+      "type": "technique",
+      "content": "Use curiosity in your opening to engage the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I called you because I was curious about...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Using curiosity in an outbound opening."
+    },
+    {
+      "type": "technique",
+      "content": "Ask high-gain questions to understand the prospect's current process and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Can you tell me a little bit about how you're currently handling X?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to understand current state."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What happens when Y occurs in that process?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to understand consequences or flow."
+    },
+    {
+      "type": "technique",
+      "content": "Ask follow-up questions based on the prospect's answers to dig deeper into their situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Active listening and probing."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"And what impact does that have on...?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to explore the consequences of a problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How do you measure success or effectiveness in that area?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to understand their metrics."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid making assumptions about the prospect's needs; ask specific questions to uncover them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Summarize or reflect back what the prospect has said to show you are listening and confirm understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"So, if I understand correctly, you're currently doing X, and the challenge is Y, which results in Z. Is that right?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of summarizing the prospect's situation."
+    },
+    {
+      "type": "technique",
+      "content": "After understanding their situation, transition to explaining how you might help, linking it to their specific needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Based on what you've shared about X, Y, and Z, typically clients who face similar challenges find our solution helps by...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Transitioning from problem to solution, based on discovery."
+    },
+    {
+      "type": "technique",
+      "content": "Use permission-based transitions throughout the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Is it okay if I share a bit about how we approach that?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Is it okay if I share a little bit about how we typically help companies like yours address that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based transition to solution."
+    },
+    {
+      "type": "technique",
+      "content": "After presenting your solution, check for understanding and interest.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Does that make sense so far?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Checking for understanding."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How does that sound to you in relation to the challenges you mentioned?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Checking for interest and relevance."
+    },
+    {
+      "type": "technique",
+      "content": "If there seems to be a potential fit, propose a clear next step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Based on this conversation, it seems there might be a good fit. The typical next step is X. How would you feel about scheduling that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Proposing a next step based on perceived fit."
+    }
+  ]
+}

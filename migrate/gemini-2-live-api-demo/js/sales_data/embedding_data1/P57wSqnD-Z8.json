@@ -1,0 +1,122 @@
+{
+  "source_video": "P57wSqnD-Z8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a sales conversation by establishing the agenda or flow, setting expectations.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After briefly introducing yourself and purpose, propose the structure of the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Here's what I suggest: for the next few minutes, let's discuss [Topic 1] and [Topic 2].'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Here's what I suggest we do...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase to propose the conversation structure/agenda."
+    },
+    {
+      "type": "technique",
+      "content": "Gain agreement on the proposed conversation structure or agenda before proceeding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Does that sound like a good plan for you?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to gain agreement on the proposed agenda."
+    },
+    {
+      "type": "technique",
+      "content": "Use mirroring by repeating the last few words of a prospect's sentence to encourage them to elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "A subtle listening and probing technique."
+    },
+    {
+      "type": "technique",
+      "content": "Use labeling to acknowledge and validate a prospect's emotions or statements.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'It sounds like you're feeling frustrated with X.'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"It sounds like...\" or \"It feels like...\" or \"It looks like...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrases used for labeling emotions or situations."
+    },
+    {
+      "type": "technique",
+      "content": "Ask calibrated questions that start with 'How' or 'What' to encourage deeper thinking and explanation from the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid 'Why' questions as they can sound accusatory."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How am I supposed to do that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a calibrated 'How' question to challenge gently or uncover constraints."
+    },
+    {
+      "type": "technique",
+      "content": "Periodically summarize the key points or agreements made during the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures mutual understanding and reinforces value."
+    },
+    {
+      "type": "technique",
+      "content": "Negotiate using principles, focusing on win-win outcomes rather than just compromising on positions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Prepare specific fallback options or offers in advance for negotiation flexibility.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Aim to get a 'That's Right' from the prospect, confirming you've accurately summarized or understood their position.",
+      "speaker_perspective": "sales agent",
+      "notes": "More powerful than a simple 'Yes'."
+    },
+    {
+      "type": "technique",
+      "content": "Silence can be a powerful tool after asking a question; resist the urge to speak first.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Approach objections or difficult questions with curiosity rather than defensiveness.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Before responding to an objection, pause and acknowledge the prospect's point.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the phrase 'Help me understand...' to invite the prospect to elaborate on their concerns.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Help me understand [their point/concern].\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A non-confrontational way to ask for clarification on an objection or statement."
+    },
+    {
+      "type": "technique",
+      "content": "Set clear next steps at the end of a call or meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What should our next step be?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A collaborative way to define follow-up actions."
+    }
+  ]
+}

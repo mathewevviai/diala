@@ -1,0 +1,442 @@
+[
+  {
+    "type": "directory_site",
+    "query": "site:linkedin.com/company roofing Manchester \"contact us\"",
+    "intent": "company_page",
+    "tags": [
+      "linkedin",
+      "company",
+      "contact"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "directory_site",
+    "query": "site:trustpilot.com roofing Manchester review contact",
+    "intent": "review",
+    "tags": [
+      "trustpilot",
+      "review",
+      "contact"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "directory_site",
+    "query": "site:checkatrade.com roofing Manchester contact",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "Manchester",
+      "listing"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:yell.com roofing contractors Greater Manchester phone",
+    "intent": "directory_listing",
+    "tags": [
+      "yell",
+      "contractors",
+      "phone"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:contact roofing contractors Manchester",
+    "intent": "contact",
+    "tags": [
+      "inurl",
+      "contact",
+      "Manchester"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:.co.uk roofing contractors Manchester contact",
+    "intent": "contact",
+    "tags": [
+      "co.uk",
+      "UK",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:.uk roofing services Manchester email address",
+    "intent": "contact",
+    "tags": [
+      ".uk",
+      "email",
+      "address"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:facebook.com roofing services Manchester message",
+    "intent": "social",
+    "tags": [
+      "facebook",
+      "message",
+      "services"
+    ],
+    "_score": 35
+  },
+  {
+    "type": "longtail",
+    "query": "guttering specialists Manchester business owner contact",
+    "intent": "contact",
+    "tags": [
+      "guttering",
+      "specialists",
+      "owner"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "role_offer",
+    "query": "small roofing business owner Manchester phone number",
+    "intent": "contact",
+    "tags": [
+      "small",
+      "owner",
+      "phone"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:about-us roofing services Manchester",
+    "intent": "company_page",
+    "tags": [
+      "about",
+      "services",
+      "Manchester"
+    ],
+    "_score": 25
+  },
+  {
+    "type": "longtail",
+    "query": "roofing contractors Manchester contact email phone",
+    "intent": "contact",
+    "tags": [
+      "roofing",
+      "Manchester",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "slate roofing companies Greater Manchester owner email",
+    "intent": "contact",
+    "tags": [
+      "slate",
+      "owner",
+      "email"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roof repair services Manchester small business phone number",
+    "intent": "contact",
+    "tags": [
+      "repair",
+      "small",
+      "phone"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "tile roofing contractors Stockport contact details",
+    "intent": "contact",
+    "tags": [
+      "tile",
+      "Stockport",
+      "details"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "flat roof contractors Bolton email address",
+    "intent": "contact",
+    "tags": [
+      "flat",
+      "Bolton",
+      "email"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "emergency roofing services Manchester 24 hour contact",
+    "intent": "contact",
+    "tags": [
+      "emergency",
+      "24h",
+      "services"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roofing companies Oldham managing director phone",
+    "intent": "contact",
+    "tags": [
+      "Oldham",
+      "director",
+      "phone"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "commercial roofing contractors Manchester contact page",
+    "intent": "contact",
+    "tags": [
+      "commercial",
+      "page",
+      "Manchester"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "residential roofing services Bury owner email address",
+    "intent": "contact",
+    "tags": [
+      "residential",
+      "Bury",
+      "owner"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "inurl_title",
+    "query": "intitle:\"contact us\" roofing company Manchester",
+    "intent": "contact",
+    "tags": [
+      "intitle",
+      "company",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "roofing company director Manchester contact email",
+    "intent": "contact",
+    "tags": [
+      "director",
+      "email",
+      "company"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "roofing contractors Manchester \"free quote\" contact",
+    "intent": "service_page",
+    "tags": [
+      "quote",
+      "free",
+      "service"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "emergency roof leak Manchester 24 hour contact",
+    "intent": "service_page",
+    "tags": [
+      "leak",
+      "emergency",
+      "24h"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "storm damage roofing Manchester urgent contact",
+    "intent": "service_page",
+    "tags": [
+      "storm",
+      "damage",
+      "urgent"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roofing contractors\" AND \"Manchester\" AND (\"contact\" OR \"email\")",
+    "intent": "contact",
+    "tags": [
+      "boolean",
+      "contact",
+      "email"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roof repair\" AND \"Manchester\" AND \"phone number\" -jobs",
+    "intent": "contact",
+    "tags": [
+      "repair",
+      "phone",
+      "-jobs"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"slate roofing\" OR \"tile roofing\" Manchester contact page",
+    "intent": "contact",
+    "tags": [
+      "slate",
+      "tile",
+      "page"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "roofing contractors Manchester contact -job -forum -blog",
+    "intent": "contact",
+    "tags": [
+      "exclude",
+      "-job",
+      "-forum"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "roofing services Manchester email -recruitment -careers",
+    "intent": "contact",
+    "tags": [
+      "exclude",
+      "-recruitment",
+      "-careers"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "roofing company Manchester phone -directory -listing",
+    "intent": "contact",
+    "tags": [
+      "exclude",
+      "-directory",
+      "-listing"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "social_profile",
+    "query": "roofing contractors Manchester twitter contact",
+    "intent": "social",
+    "tags": [
+      "twitter",
+      "social",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "social_profile",
+    "query": "roofing company Manchester instagram business contact",
+    "intent": "social",
+    "tags": [
+      "instagram",
+      "business",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "press",
+    "query": "roofing contractors Manchester press contact media",
+    "intent": "press",
+    "tags": [
+      "press",
+      "media",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "job_posting",
+    "query": "roofing company Manchester hiring contact manager",
+    "intent": "job_posting",
+    "tags": [
+      "hiring",
+      "manager",
+      "posting"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "local roofing experts Manchester family business contact",
+    "intent": "contact",
+    "tags": [
+      "local",
+      "family",
+      "experts"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roofing maintenance services Manchester small team contact",
+    "intent": "contact",
+    "tags": [
+      "maintenance",
+      "small",
+      "team"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "chimney repair roofing Manchester contact details",
+    "intent": "contact",
+    "tags": [
+      "chimney",
+      "repair",
+      "details"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "\"Business Owner\" AND \"roofing company\" AND Manchester",
+    "intent": "contact",
+    "tags": [
+      "owner",
+      "company",
+      "Manchester"
+    ],
+    "_score": 15
+  },
+  {
+    "type": "role_offer",
+    "query": "\"Operations Manager\" roofing contractors Greater Manchester",
+    "intent": "contact",
+    "tags": [
+      "manager",
+      "contractors",
+      "Greater"
+    ],
+    "_score": 15
+  }
+]

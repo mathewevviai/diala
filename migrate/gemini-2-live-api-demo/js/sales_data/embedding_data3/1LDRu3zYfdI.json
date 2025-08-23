@@ -1,0 +1,65 @@
+{
+  "source_video": "1LDRu3zYfdI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's concern or objection with empathy.",
+      "speaker_perspective": "sales agent",
+      "notes": "Establishes rapport and shows you are listening."
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel, Felt, Found' framework: 'I understand how you feel... Other clients felt the same way... But what they found was...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Effective for common objections by relating and providing social proof."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to ensure it's the only barrier: 'Okay, other than [objection], is there anything else holding you back?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Prevents new objections from appearing after the current one is handled."
+    },
+    {
+      "type": "technique",
+      "content": "Dig deeper into the objection by asking clarifying questions to understand the root cause.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids making assumptions and allows for a more targeted response."
+    },
+    {
+      "type": "technique",
+      "content": "Reframe a price objection by focusing on value, ROI, or the cost of inaction.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from cost to benefit."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Compared to what?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Useful probe when a prospect says something is 'expensive' or 'too much'."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it,' ask 'What specifically do you need to think about?' or 'What gives you pause?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Uncovers the real, underlying objection."
+    },
+    {
+      "type": "technique",
+      "content": "Turn an objection into a question to help the prospect think differently about their concern.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'How would this impact your timeline?' instead of just accepting 'we don't have time'."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejection, but as opportunities to further clarify value and build trust.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positive perspective towards handling pushback."
+    },
+    {
+      "type": "technique",
+      "content": "Agree partially or entirely with the prospect's statement before offering your perspective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'You're right, it is a significant investment...'"
+    }
+  ]
+}

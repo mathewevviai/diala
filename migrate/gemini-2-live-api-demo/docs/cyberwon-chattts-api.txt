@@ -1,0 +1,3264 @@
+Directory structure:
+└── cyberwon-chattts-api/
+    ├── README.md
+    ├── api.md
+    ├── api.py
+    ├── example.ipynb
+    ├── LICENSE
+    ├── README_CN.md
+    ├── requirements.txt
+    ├── webui.py
+    ├── ChatTTS/
+    │   ├── __init__.py
+    │   ├── core.py
+    │   ├── experimental/
+    │   │   └── llm.py
+    │   ├── infer/
+    │   │   └── api.py
+    │   ├── model/
+    │   │   ├── dvae.py
+    │   │   └── gpt.py
+    │   └── utils/
+    │       ├── gpu_utils.py
+    │       ├── infer_utils.py
+    │       └── io_utils.py
+    └── utils/
+        ├── __init__.py
+        ├── text_split_method.py
+        └── zh_normalization/
+            ├── README.md
+            ├── __init__.py
+            ├── char_convert.py
+            ├── chronology.py
+            ├── constants.py
+            ├── num.py
+            ├── phonecode.py
+            ├── quantifier.py
+            └── text_normlization.py
+
+================================================
+FILE: README.md
+================================================
+# ChatTTS
+[**English**](./README.md) | [**中文简体**](./README_CN.md)
+
+ChatTTS is a text-to-speech model designed specifically for dialogue scenario such as LLM assistant. It supports both English and Chinese languages. Our model is trained with 100,000+ hours composed of chinese and english. The open-source version on **[HuggingFace](https://huggingface.co/2Noise/ChatTTS)** is a 40,000 hours pre trained model without SFT.
+
+For formal inquiries about model and roadmap, please contact us at **open-source@2noise.com**. You could join our QQ group: ~~808364215 (Full)~~ 230696694 (Group 2) for discussion. Adding github issues is always welcomed.
+
+---
+## Highlights
+1. **Conversational TTS**: ChatTTS is optimized for dialogue-based tasks, enabling natural and expressive speech synthesis. It supports multiple speakers, facilitating interactive conversations.
+2. **Fine-grained Control**: The model could predict and control fine-grained prosodic features, including laughter, pauses, and interjections. 
+3. **Better Prosody**: ChatTTS surpasses most of open-source TTS models in terms of prosody. We provide pretrained models to support further research and development.
+
+For the detailed description of the model, you can refer to **[video on Bilibili](https://www.bilibili.com/video/BV1zn4y1o7iV)**
+
+---
+
+## Disclaimer
+
+This repo is for academic purposes only. It is intended for educational and research use, and should not be used for any commercial or legal purposes. The authors do not guarantee the accuracy, completeness, or reliability of the information. The information and data used in this repo, are for academic and research purposes only. The data obtained from publicly available sources, and the authors do not claim any ownership or copyright over the data.
+
+ChatTTS is a powerful text-to-speech system. However, it is very important to utilize this technology responsibly and ethically. To limit the use of ChatTTS, we added a small amount of high-frequency noise during the training of the 40,000-hour model, and compressed the audio quality as much as possible using MP3 format, to prevent malicious actors from potentially using it for criminal purposes. At the same time, we have internally trained a detection model and plan to open-source it in the future.
+
+
+---
+## Usage
+
+<h4>Basic usage</h4>
+
+```python
+import ChatTTS
+from IPython.display import Audio
+
+chat = ChatTTS.Chat()
+chat.load_models(compile=False) # Set to True for better performance
+
+texts = ["PUT YOUR TEXT HERE",]
+
+wavs = chat.infer(texts, )
+
+torchaudio.save("output1.wav", torch.from_numpy(wavs[0]), 24000)
+```
+
+<h4>Advanced usage</h4>
+
+```python
+###################################
+# Sample a speaker from Gaussian.
+
+rand_spk = chat.sample_random_speaker()
+
+params_infer_code = {
+  'spk_emb': rand_spk, # add sampled speaker 
+  'temperature': .3, # using custom temperature
+  'top_P': 0.7, # top P decode
+  'top_K': 20, # top K decode
+}
+
+###################################
+# For sentence level manual control.
+
+# use oral_(0-9), laugh_(0-2), break_(0-7) 
+# to generate special token in text to synthesize.
+params_refine_text = {
+  'prompt': '[oral_2][laugh_0][break_6]'
+} 
+
+wav = chat.infer(texts, params_refine_text=params_refine_text, params_infer_code=params_infer_code)
+
+###################################
+# For word level manual control.
+text = 'What is [uv_break]your favorite english food?[laugh][lbreak]'
+wav = chat.infer(text, skip_refine_text=True, params_refine_text=params_refine_text,  params_infer_code=params_infer_code)
+torchaudio.save("output2.wav", torch.from_numpy(wavs[0]), 24000)
+```
+
+<details open>
+  <summary><h4>Example: self introduction</h4></summary>
+
+```python
+inputs_en = """
+chat T T S is a text to speech model designed for dialogue applications. 
+[uv_break]it supports mixed language input [uv_break]and offers multi speaker 
+capabilities with precise control over prosodic elements [laugh]like like 
+[uv_break]laughter[laugh], [uv_break]pauses, [uv_break]and intonation. 
+[uv_break]it delivers natural and expressive speech,[uv_break]so please
+[uv_break] use the project responsibly at your own risk.[uv_break]
+""".replace('\n', '') # English is still experimental.
+
+params_refine_text = {
+  'prompt': '[oral_2][laugh_0][break_4]'
+} 
+# audio_array_cn = chat.infer(inputs_cn, params_refine_text=params_refine_text)
+audio_array_en = chat.infer(inputs_en, params_refine_text=params_refine_text)
+torchaudio.save("output3.wav", torch.from_numpy(audio_array_en[0]), 24000)
+```
+[male speaker](https://github.com/2noise/ChatTTS/assets/130631963/e0f51251-db7f-4d39-a0e9-3e095bb65de1)
+
+[female speaker](https://github.com/2noise/ChatTTS/assets/130631963/f5dcdd01-1091-47c5-8241-c4f6aaaa8bbd)
+</details>
+
+---
+## Roadmap
+- [x] Open-source the 40k hour base model and spk_stats file
+- [ ] Open-source VQ encoder and Lora training code
+- [ ] Streaming audio generation without refining the text*
+- [ ] Open-source the 40k hour version with multi-emotion control
+- [ ] ChatTTS.cpp maybe? (PR or new repo are welcomed.)
+ 
+----
+## FAQ
+
+##### How much VRAM do I need? How about infer speed?
+For a 30-second audio clip, at least 4GB of GPU memory is required. For the 4090 GPU, it can generate audio corresponding to approximately 7 semantic tokens per second. The Real-Time Factor (RTF) is around 0.3.
+
+##### model stability is not good enough, with issues such as multi speakers or poor audio quality.
+
+This is a problem that typically occurs with autoregressive models(for bark and valle). It's generally difficult to avoid. One can try multiple samples to find a suitable result.
+
+##### Besides laughter, can we control anything else? Can we control other emotions?
+
+In the current released model, the only token-level control units are [laugh], [uv_break], and [lbreak]. In future versions, we may open-source models with additional emotional control capabilities.
+
+---
+## Acknowledgements
+- [bark](https://github.com/suno-ai/bark), [XTTSv2](https://github.com/coqui-ai/TTS) and [valle](https://arxiv.org/abs/2301.02111) demostrate a remarkable TTS result by a autoregressive-style system.
+- [fish-speech](https://github.com/fishaudio/fish-speech) reveals capability of GVQ as audio tokenizer for LLM modeling.
+- [vocos](https://github.com/gemelo-ai/vocos) which is used as a pretrained vocoder.
+
+---
+## Special Appreciation
+- [wlu-audio lab](https://audio.westlake.edu.cn/) for early algorithm experiments.
+
+
+
+================================================
+FILE: api.md
+================================================
+# API使用说明
+
+API是使用FastAPI开发的，目前没考虑并发，在4090 没使用flash attn推理，速度在80左右。
+
+# 更新说明
+
+## 2024-06-01 1.0.1
+```text
+1.新增中英混合，其他语言没试
+2.支持一些字符规格化，比如手机号、时间、单位等。
+```
+## 2024-5-31 1.0.0
+```text
+1. 支持长文本一次生成，支持流式返回。(目前不知道为什么速度会降低？)
+2. 支持固定音色，支持将上次生成的音色保存下来，下次生成可以指定
+```
+
+# API 说明
+
+## 获取音频
+```http request
+GET /?spk=可选1&text=你好
+Content-Type: audio/wav
+```
+## 保存音色
+```http request
+POST /speaker
+Content-Type: application/json
+{
+"name": "音色名"
+}
+```
+
+# 环境要求
+python: 3.9+1
+torch: 2.2
+transformers: 4.41
+
+
+# 安装
+```bash
+pip install -r requirements.txt
+# 需要自己提前下载 https://huggingface.co/2Noise/ChatTTS
+# 想通过网盘下载的话：https://pan.baidu.com/s/1IfkPvkAqHMSZy1w5m-Paqw?pwd=psvs 
+python api.py --model-dir "本地权重路径"
+```
+
+# 使用
+```
+curl http://localhost:12456?text=你好 -o output.wav
+```
+
+# 已知问题
+1. 文本过长会有问题，暂时不要超过100个字。
+2. 不支持并发，请不要尝试
+3. 采样率为24000，有一些软件用起来会有问题
+4. 不能固定音色，等后续更新
+
+
+
+================================================
+FILE: api.py
+================================================
+import io
+
+import os
+import wave
+import numpy as np
+import torch
+from fastapi import FastAPI, Query, Depends
+from fastapi.responses import StreamingResponse
+
+from pydantic import BaseModel
+from LangSegment import LangSegment
+import ChatTTS
+import uvicorn
+
+import argparse
+from loguru import logger
+from utils.zh_normalization import text_normalize
+from utils.text_split_method import text_split_registry
+
+
+class TTS(BaseModel):
+    """TTS GET/POST request"""
+    text: str = Query("欢迎使用ChatTTS API", description="text to synthesize")
+    spk: str = Query("random", description="speaker id")
+    text_split_method: str = Query("cut2", description="text split mode")
+
+
+class Speaker(BaseModel):
+    name: str = Query("", description="speaker name")
+
+
+app = FastAPI()
+
+chat = ChatTTS.Chat()
+args = None
+
+speaker = {}
+
+curr_speaker = None
+LangSegment.setfilters(["zh", "ja", "en"])
+
+
+def wave_header_chunk(frame_input=b"", channels=1, sample_width=2, sample_rate=24000):
+    wav_buf = io.BytesIO()
+    with wave.open(wav_buf, "wb") as vfout:
+        vfout.setnchannels(channels)
+        vfout.setsampwidth(sample_width)
+        vfout.setframerate(sample_rate)
+        vfout.writeframes(frame_input)
+    wav_buf.seek(0)
+    return wav_buf.read()
+
+
+def infer(texts, spk="random"):
+    global curr_speaker
+    if speaker.get(spk) is None or spk == "random":
+        spk_emb = chat.sample_random_speaker()
+        curr_speaker = spk_emb
+    else:
+        spk_emb = speaker[spk]
+    params_infer_code = {'spk_emb': spk_emb, }
+    yield wave_header_chunk()
+    for text in texts:
+        audio_data = chat.infer(text, use_decoder=True,
+                                params_infer_code=params_infer_code,
+                                do_text_normalization=False)[0]
+        audio_data = audio_data / np.max(np.abs(audio_data))
+        chunks = (audio_data * 32768).astype(np.int16)
+        for chunk in chunks:
+            if chunk is not None:
+                chunk = chunk.tobytes()
+                yield chunk
+
+
+def tts_handle(params: TTS):
+    logger.debug(params)
+    # 主要是为了格式化一下数字和一些文字的读法
+
+    # 将长文本分割成短文本,最好就用cut2
+    texts = text_split_registry[params.text_split_method](params.text)
+    text_list = []
+    for text in texts:
+        for tmp in LangSegment.getTexts(text):
+            normalize = text_normalize(tmp.get("text"))
+            logger.debug(f"{tmp} {normalize}")
+            if normalize != "" and tmp.get("lang") == "en" and normalize not in ["."]:
+                if len(text_list) > 0:
+                    text_list[-1] += normalize
+                else:
+                    text_list.append(normalize)
+            elif tmp.get("lang") == "zh":
+                text_list.append(normalize)
+            else:
+                text_list.append(tmp.get("text"))
+    wavs = infer(text_list, params.spk)
+    logger.debug(text_list)
+    return StreamingResponse(wavs, media_type="audio/wav")
+
+
+@app.get("/")
+async def index(params: TTS = Depends(TTS)):
+    return tts_handle(params)
+
+
+@app.post("/")
+async def index_post(params: TTS):
+    return tts_handle(params)
+
+
+@app.post("/speaker")
+async def speaker_handle(params: Speaker):
+    if params.name != "":
+        # 使用torch将上一个发音人embedding保存到本地
+        torch.save(curr_speaker, os.path.join(args.spk_dir, f"{params.name}.pt"))
+        speaker[params.name] = curr_speaker
+    return {'code': 200, 'msg': 'success'}
+
+
+@app.get("/speaker")
+async def speaker_list():
+    l = list(speaker.keys())
+    return {'code': 200, 'msg': 'success', 'data': l}
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", type=str, default="0.0.0.0")
+    parser.add_argument("--port", type=int, default=12456)
+    parser.add_argument("--model-dir", type=str, default="./models")
+    parser.add_argument("--compile", type=bool, default=False)
+    parser.add_argument("--spk-dir", type=str, default="./configs")
+    args = parser.parse_args()
+    logger.debug(f"model_dir: {args.model_dir}")
+    for file in os.listdir(args.spk_dir):
+        if file.endswith(".pt"):
+            logger.debug(f"loading speaker model:{file[:-3]}")
+            speaker[file[:-3]] = torch.load(os.path.join(args.spk_dir, file))
+    chat.load_models(source="local", force_redownload=False, local_path=args.model_dir, compile=args.compile)
+    uvicorn.run(app, host=args.host, port=args.port)
+
+
+
+================================================
+FILE: example.ipynb
+================================================
+# Jupyter notebook converted to Python script.
+
+import torch
+torch._dynamo.config.cache_size_limit = 64
+torch._dynamo.config.suppress_errors = True
+torch.set_float32_matmul_precision('high')
+
+import ChatTTS
+from IPython.display import Audio
+
+"""
+## Load Models
+"""
+
+chat = ChatTTS.Chat()
+chat.load_models()
+
+# Use force_redownload=True if the weights updated.
+# chat.load_models(force_redownload=True)
+
+# If you download the weights manually, set source='locals'.
+# chat.load_models(source='local', local_path='YOUR LOCAL PATH')
+
+"""
+## Inference
+"""
+
+"""
+### Batch infer
+"""
+
+texts = ["So we found being competitive and collaborative was a huge way of staying motivated towards our goals, so one person to call when you fall off, one person who gets you back on then one person to actually do the activity with.",]*3 \
+        + ["我觉得像我们这些写程序的人，他，我觉得多多少少可能会对开源有一种情怀在吧我觉得开源是一个很好的形式。现在其实最先进的技术掌握在一些公司的手里的话，就他们并不会轻易的开放给所有的人用。"]*3     
+        
+wavs = chat.infer(texts)
+# Output:
+#   INFO:ChatTTS.core:All initialized.
+
+#    28%|██▊       | 106/384 [00:00<00:01, 140.38it/s]
+
+#    47%|████▋     | 960/2048 [00:07<00:08, 133.25it/s]
+
+
+Audio(wavs[0], rate=24_000, autoplay=True)
+# Output:
+#   <IPython.lib.display.Audio object>
+
+Audio(wavs[3], rate=24_000, autoplay=True)
+# Output:
+#   <IPython.lib.display.Audio object>
+
+"""
+### Custom params
+"""
+
+params_infer_code = {'prompt':'[speed_5]', 'temperature':.3}
+params_refine_text = {'prompt':'[oral_2][laugh_0][break_6]'}
+
+wav = chat.infer('四川美食可多了，有麻辣火锅、宫保鸡丁、麻婆豆腐、担担面、回锅肉、夫妻肺片等，每样都让人垂涎三尺。', \
+    params_refine_text=params_refine_text, params_infer_code=params_infer_code)
+# Output:
+#   INFO:ChatTTS.core:All initialized.
+
+#    14%|█▍        | 53/384 [00:00<00:02, 146.65it/s]
+
+#    22%|██▏       | 452/2048 [00:03<00:11, 140.51it/s]
+
+
+Audio(wav[0], rate=24_000, autoplay=True)
+# Output:
+#   <IPython.lib.display.Audio object>
+
+"""
+### fix random speaker
+"""
+
+rand_spk = chat.sample_random_speaker()
+params_infer_code = {'spk_emb' : rand_spk, }
+
+wav = chat.infer('四川美食确实以辣闻名，但也有不辣的选择。比如甜水面、赖汤圆、蛋烘糕、叶儿粑等，这些小吃口味温和，甜而不腻，也很受欢迎。', \
+    params_refine_text=params_refine_text, params_infer_code=params_infer_code)
+
+Audio(wav[0], rate=24_000, autoplay=True)
+# Output:
+#   <IPython.lib.display.Audio object>
+
+"""
+### Two stage control
+"""
+
+text = "So we found being competitive and collaborative was a huge way of staying motivated towards our goals, so one person to call when you fall off, one person who gets you back on then one person to actually do the activity with."
+chat.infer(text, refine_text_only=True)
+# Output:
+#   INFO:ChatTTS.core:All initialized.
+
+#    23%|██▎       | 87/384 [00:00<00:01, 150.60it/s]
+
+#   ['so we found being competitive and collaborative [uv_break] was a huge way of staying [uv_break] motivated towards our goals, [uv_break] so [uv_break] one person to call [uv_break] when you fall off, [uv_break] one person who [uv_break] gets you back [uv_break] on then [uv_break] one person [uv_break] to actually do the activity with.']
+
+text = 'so we found being competitive and collaborative [uv_break] was a huge way of staying [uv_break] motivated towards our goals, [uv_break] so [uv_break] one person to call [uv_break] when you fall off, [uv_break] one person who [uv_break] gets you back [uv_break] on then [uv_break] one person [uv_break] to actually do the activity with.'
+wav = chat.infer(text, skip_refine_text=True)
+# Output:
+#   INFO:ChatTTS.core:All initialized.
+
+#    49%|████▊     | 995/2048 [00:07<00:07, 141.85it/s]
+
+
+"""
+## LLM Call
+"""
+
+from ChatTTS.experimental.llm import llm_api
+
+API_KEY = ''
+client = llm_api(api_key=API_KEY,
+        base_url="https://api.deepseek.com",
+        model="deepseek-chat")
+
+user_question = '四川有哪些好吃的美食呢?'
+text = client.call(user_question, prompt_version = 'deepseek')
+print(text)
+text = client.call(text, prompt_version = 'deepseek_TN')
+print(text)
+# Output:
+#   INFO:httpx:HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+
+#   四川美食可多了, 有麻辣火锅、宫保鸡丁、麻婆豆腐、担担面、回锅肉、夫妻肺片、串串香、龙抄手、宜宾燃面、乐山钵钵鸡等, 每样都让人垂涎三尺。
+
+#   INFO:httpx:HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+
+#   四川美食可多了，有麻辣火锅、宫保鸡丁、麻婆豆腐、担担面、回锅肉、夫妻肺片、串串香、龙抄手、宜宾燃面、乐山钵钵鸡等，每样都让人垂涎三尺。
+
+
+params_infer_code = {'spk_emb' : rand_spk, 'temperature':.3}
+
+wav = chat.infer(text, params_infer_code=params_infer_code)
+# Output:
+#   INFO:ChatTTS.core:All initialized.
+
+#    20%|█▉        | 75/384 [00:00<00:02, 144.93it/s]
+
+#    32%|███▏      | 647/2048 [00:04<00:09, 140.27it/s]
+
+
+
+
+================================================
+FILE: LICENSE
+================================================
+Attribution-NonCommercial 4.0 International
+
+=======================================================================
+
+Creative Commons Corporation ("Creative Commons") is not a law firm and
+does not provide legal services or legal advice. Distribution of
+Creative Commons public licenses does not create a lawyer-client or
+other relationship. Creative Commons makes its licenses and related
+information available on an "as-is" basis. Creative Commons gives no
+warranties regarding its licenses, any material licensed under their
+terms and conditions, or any related information. Creative Commons
+disclaims all liability for damages resulting from their use to the
+fullest extent possible.
+
+Using Creative Commons Public Licenses
+
+Creative Commons public licenses provide a standard set of terms and
+conditions that creators and other rights holders may use to share
+original works of authorship and other material subject to copyright
+and certain other rights specified in the public license below. The
+following considerations are for informational purposes only, are not
+exhaustive, and do not form part of our licenses.
+
+     Considerations for licensors: Our public licenses are
+     intended for use by those authorized to give the public
+     permission to use material in ways otherwise restricted by
+     copyright and certain other rights. Our licenses are
+     irrevocable. Licensors should read and understand the terms
+     and conditions of the license they choose before applying it.
+     Licensors should also secure all rights necessary before
+     applying our licenses so that the public can reuse the
+     material as expected. Licensors should clearly mark any
+     material not subject to the license. This includes other CC-
+     licensed material, or material used under an exception or
+     limitation to copyright. More considerations for licensors:
+    wiki.creativecommons.org/Considerations_for_licensors
+
+     Considerations for the public: By using one of our public
+     licenses, a licensor grants the public permission to use the
+     licensed material under specified terms and conditions. If
+     the licensor's permission is not necessary for any reason--for
+     example, because of any applicable exception or limitation to
+     copyright--then that use is not regulated by the license. Our
+     licenses grant only permissions under copyright and certain
+     other rights that a licensor has authority to grant. Use of
+     the licensed material may still be restricted for other
+     reasons, including because others have copyright or other
+     rights in the material. A licensor may make special requests,
+     such as asking that all changes be marked or described.
+     Although not required by our licenses, you are encouraged to
+     respect those requests where reasonable. More considerations
+     for the public:
+    wiki.creativecommons.org/Considerations_for_licensees
+
+=======================================================================
+
+Creative Commons Attribution-NonCommercial 4.0 International Public
+License
+
+By exercising the Licensed Rights (defined below), You accept and agree
+to be bound by the terms and conditions of this Creative Commons
+Attribution-NonCommercial 4.0 International Public License ("Public
+License"). To the extent this Public License may be interpreted as a
+contract, You are granted the Licensed Rights in consideration of Your
+acceptance of these terms and conditions, and the Licensor grants You
+such rights in consideration of benefits the Licensor receives from
+making the Licensed Material available under these terms and
+conditions.
+
+
+Section 1 -- Definitions.
+
+  a. Adapted Material means material subject to Copyright and Similar
+     Rights that is derived from or based upon the Licensed Material
+     and in which the Licensed Material is translated, altered,
+     arranged, transformed, or otherwise modified in a manner requiring
+     permission under the Copyright and Similar Rights held by the
+     Licensor. For purposes of this Public License, where the Licensed
+     Material is a musical work, performance, or sound recording,
+     Adapted Material is always produced where the Licensed Material is
+     synched in timed relation with a moving image.
+
+  b. Adapter's License means the license You apply to Your Copyright
+     and Similar Rights in Your contributions to Adapted Material in
+     accordance with the terms and conditions of this Public License.
+
+  c. Copyright and Similar Rights means copyright and/or similar rights
+     closely related to copyright including, without limitation,
+     performance, broadcast, sound recording, and Sui Generis Database
+     Rights, without regard to how the rights are labeled or
+     categorized. For purposes of this Public License, the rights
+     specified in Section 2(b)(1)-(2) are not Copyright and Similar
+     Rights.
+  d. Effective Technological Measures means those measures that, in the
+     absence of proper authority, may not be circumvented under laws
+     fulfilling obligations under Article 11 of the WIPO Copyright
+     Treaty adopted on December 20, 1996, and/or similar international
+     agreements.
+
+  e. Exceptions and Limitations means fair use, fair dealing, and/or
+     any other exception or limitation to Copyright and Similar Rights
+     that applies to Your use of the Licensed Material.
+
+  f. Licensed Material means the artistic or literary work, database,
+     or other material to which the Licensor applied this Public
+     License.
+
+  g. Licensed Rights means the rights granted to You subject to the
+     terms and conditions of this Public License, which are limited to
+     all Copyright and Similar Rights that apply to Your use of the
+     Licensed Material and that the Licensor has authority to license.
+
+  h. Licensor means the individual(s) or entity(ies) granting rights
+     under this Public License.
+
+  i. NonCommercial means not primarily intended for or directed towards
+     commercial advantage or monetary compensation. For purposes of
+     this Public License, the exchange of the Licensed Material for
+     other material subject to Copyright and Similar Rights by digital
+     file-sharing or similar means is NonCommercial provided there is
+     no payment of monetary compensation in connection with the
+     exchange.
+
+  j. Share means to provide material to the public by any means or
+     process that requires permission under the Licensed Rights, such
+     as reproduction, public display, public performance, distribution,
+     dissemination, communication, or importation, and to make material
+     available to the public including in ways that members of the
+     public may access the material from a place and at a time
+     individually chosen by them.
+
+  k. Sui Generis Database Rights means rights other than copyright
+     resulting from Directive 96/9/EC of the European Parliament and of
+     the Council of 11 March 1996 on the legal protection of databases,
+     as amended and/or succeeded, as well as other essentially
+     equivalent rights anywhere in the world.
+
+  l. You means the individual or entity exercising the Licensed Rights
+     under this Public License. Your has a corresponding meaning.
+
+
+Section 2 -- Scope.
+
+  a. License grant.
+
+       1. Subject to the terms and conditions of this Public License,
+          the Licensor hereby grants You a worldwide, royalty-free,
+          non-sublicensable, non-exclusive, irrevocable license to
+          exercise the Licensed Rights in the Licensed Material to:
+
+            a. reproduce and Share the Licensed Material, in whole or
+               in part, for NonCommercial purposes only; and
+
+            b. produce, reproduce, and Share Adapted Material for
+               NonCommercial purposes only.
+
+       2. Exceptions and Limitations. For the avoidance of doubt, where
+          Exceptions and Limitations apply to Your use, this Public
+          License does not apply, and You do not need to comply with
+          its terms and conditions.
+
+       3. Term. The term of this Public License is specified in Section
+          6(a).
+
+       4. Media and formats; technical modifications allowed. The
+          Licensor authorizes You to exercise the Licensed Rights in
+          all media and formats whether now known or hereafter created,
+          and to make technical modifications necessary to do so. The
+          Licensor waives and/or agrees not to assert any right or
+          authority to forbid You from making technical modifications
+          necessary to exercise the Licensed Rights, including
+          technical modifications necessary to circumvent Effective
+          Technological Measures. For purposes of this Public License,
+          simply making modifications authorized by this Section 2(a)
+          (4) never produces Adapted Material.
+
+       5. Downstream recipients.
+
+            a. Offer from the Licensor -- Licensed Material. Every
+               recipient of the Licensed Material automatically
+               receives an offer from the Licensor to exercise the
+               Licensed Rights under the terms and conditions of this
+               Public License.
+
+            b. No downstream restrictions. You may not offer or impose
+               any additional or different terms or conditions on, or
+               apply any Effective Technological Measures to, the
+               Licensed Material if doing so restricts exercise of the
+               Licensed Rights by any recipient of the Licensed
+               Material.
+
+       6. No endorsement. Nothing in this Public License constitutes or
+          may be construed as permission to assert or imply that You
+          are, or that Your use of the Licensed Material is, connected
+          with, or sponsored, endorsed, or granted official status by,
+          the Licensor or others designated to receive attribution as
+          provided in Section 3(a)(1)(A)(i).
+
+  b. Other rights.
+
+       1. Moral rights, such as the right of integrity, are not
+          licensed under this Public License, nor are publicity,
+          privacy, and/or other similar personality rights; however, to
+          the extent possible, the Licensor waives and/or agrees not to
+          assert any such rights held by the Licensor to the limited
+          extent necessary to allow You to exercise the Licensed
+          Rights, but not otherwise.
+
+       2. Patent and trademark rights are not licensed under this
+          Public License.
+
+       3. To the extent possible, the Licensor waives any right to
+          collect royalties from You for the exercise of the Licensed
+          Rights, whether directly or through a collecting society
+          under any voluntary or waivable statutory or compulsory
+          licensing scheme. In all other cases the Licensor expressly
+          reserves any right to collect such royalties, including when
+          the Licensed Material is used other than for NonCommercial
+          purposes.
+
+
+Section 3 -- License Conditions.
+
+Your exercise of the Licensed Rights is expressly made subject to the
+following conditions.
+
+  a. Attribution.
+
+       1. If You Share the Licensed Material (including in modified
+          form), You must:
+
+            a. retain the following if it is supplied by the Licensor
+               with the Licensed Material:
+
+                 i. identification of the creator(s) of the Licensed
+                    Material and any others designated to receive
+                    attribution, in any reasonable manner requested by
+                    the Licensor (including by pseudonym if
+                    designated);
+
+                ii. a copyright notice;
+
+               iii. a notice that refers to this Public License;
+
+                iv. a notice that refers to the disclaimer of
+                    warranties;
+
+                 v. a URI or hyperlink to the Licensed Material to the
+                    extent reasonably practicable;
+
+            b. indicate if You modified the Licensed Material and
+               retain an indication of any previous modifications; and
+
+            c. indicate the Licensed Material is licensed under this
+               Public License, and include the text of, or the URI or
+               hyperlink to, this Public License.
+
+       2. You may satisfy the conditions in Section 3(a)(1) in any
+          reasonable manner based on the medium, means, and context in
+          which You Share the Licensed Material. For example, it may be
+          reasonable to satisfy the conditions by providing a URI or
+          hyperlink to a resource that includes the required
+          information.
+
+       3. If requested by the Licensor, You must remove any of the
+          information required by Section 3(a)(1)(A) to the extent
+          reasonably practicable.
+
+       4. If You Share Adapted Material You produce, the Adapter's
+          License You apply must not prevent recipients of the Adapted
+          Material from complying with this Public License.
+
+
+Section 4 -- Sui Generis Database Rights.
+
+Where the Licensed Rights include Sui Generis Database Rights that
+apply to Your use of the Licensed Material:
+
+  a. for the avoidance of doubt, Section 2(a)(1) grants You the right
+     to extract, reuse, reproduce, and Share all or a substantial
+     portion of the contents of the database for NonCommercial purposes
+     only;
+
+  b. if You include all or a substantial portion of the database
+     contents in a database in which You have Sui Generis Database
+     Rights, then the database in which You have Sui Generis Database
+     Rights (but not its individual contents) is Adapted Material; and
+
+  c. You must comply with the conditions in Section 3(a) if You Share
+     all or a substantial portion of the contents of the database.
+
+For the avoidance of doubt, this Section 4 supplements and does not
+replace Your obligations under this Public License where the Licensed
+Rights include other Copyright and Similar Rights.
+
+
+Section 5 -- Disclaimer of Warranties and Limitation of Liability.
+
+  a. UNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE
+     EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS
+     AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF
+     ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS,
+     IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION,
+     WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR
+     PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS,
+     ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT
+     KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT
+     ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.
+
+  b. TO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE
+     TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION,
+     NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT,
+     INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES,
+     COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR
+     USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN
+     ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR
+     DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR
+     IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.
+
+  c. The disclaimer of warranties and limitation of liability provided
+     above shall be interpreted in a manner that, to the extent
+     possible, most closely approximates an absolute disclaimer and
+     waiver of all liability.
+
+
+Section 6 -- Term and Termination.
+
+  a. This Public License applies for the term of the Copyright and
+     Similar Rights licensed here. However, if You fail to comply with
+     this Public License, then Your rights under this Public License
+     terminate automatically.
+
+  b. Where Your right to use the Licensed Material has terminated under
+     Section 6(a), it reinstates:
+
+       1. automatically as of the date the violation is cured, provided
+          it is cured within 30 days of Your discovery of the
+          violation; or
+
+       2. upon express reinstatement by the Licensor.
+
+     For the avoidance of doubt, this Section 6(b) does not affect any
+     right the Licensor may have to seek remedies for Your violations
+     of this Public License.
+
+  c. For the avoidance of doubt, the Licensor may also offer the
+     Licensed Material under separate terms or conditions or stop
+     distributing the Licensed Material at any time; however, doing so
+     will not terminate this Public License.
+
+  d. Sections 1, 5, 6, 7, and 8 survive termination of this Public
+     License.
+
+
+Section 7 -- Other Terms and Conditions.
+
+  a. The Licensor shall not be bound by any additional or different
+     terms or conditions communicated by You unless expressly agreed.
+
+  b. Any arrangements, understandings, or agreements regarding the
+     Licensed Material not stated herein are separate from and
+     independent of the terms and conditions of this Public License.
+
+
+Section 8 -- Interpretation.
+
+  a. For the avoidance of doubt, this Public License does not, and
+     shall not be interpreted to, reduce, limit, restrict, or impose
+     conditions on any use of the Licensed Material that could lawfully
+     be made without permission under this Public License.
+
+  b. To the extent possible, if any provision of this Public License is
+     deemed unenforceable, it shall be automatically reformed to the
+     minimum extent necessary to make it enforceable. If the provision
+     cannot be reformed, it shall be severed from this Public License
+     without affecting the enforceability of the remaining terms and
+     conditions.
+
+  c. No term or condition of this Public License will be waived and no
+     failure to comply consented to unless expressly agreed to by the
+     Licensor.
+
+  d. Nothing in this Public License constitutes or may be interpreted
+     as a limitation upon, or waiver of, any privileges and immunities
+     that apply to the Licensor or You, including from the legal
+     processes of any jurisdiction or authority.
+
+=======================================================================
+
+Creative Commons is not a party to its public
+licenses. Notwithstanding, Creative Commons may elect to apply one of
+its public licenses to material it publishes and in those instances
+will be considered the “Licensor.” The text of the Creative Commons
+public licenses is dedicated to the public domain under the CC0 Public
+Domain Dedication. Except for the limited purpose of indicating that
+material is shared under a Creative Commons public license or as
+otherwise permitted by the Creative Commons policies published at
+creativecommons.org/policies, Creative Commons does not authorize the
+use of the trademark "Creative Commons" or any other trademark or logo
+of Creative Commons without its prior written consent including,
+without limitation, in connection with any unauthorized modifications
+to any of its public licenses or any other arrangements,
+understandings, or agreements concerning use of licensed material. For
+the avoidance of doubt, this paragraph does not form part of the
+public licenses.
+
+Creative Commons may be contacted at creativecommons.org.
+
+
+
+================================================
+FILE: README_CN.md
+================================================
+# ChatTTS
+[**English**](./README.md) | [**中文简体**](./README_CN.md)
+
+ChatTTS是专门为对话场景设计的文本转语音模型，例如LLM助手对话任务。它支持英文和中文两种语言。最大的模型使用了10万小时以上的中英文数据进行训练。在HuggingFace中开源的版本为4万小时训练且未SFT的版本.
+
+如需就模型进行正式商业咨询，请发送邮件至 **open-source@2noise.com**。对于中文用户，您可以加入我们的QQ群：~~808364215 (已满)~~ 230696694 (二群) 进行讨论。同时欢迎在GitHub上提出问题。如果遇到无法使用 **[HuggingFace](https://huggingface.co/2Noise/ChatTTS)** 的情况,可以在 [modelscope](https://www.modelscope.cn/models/pzc163/chatTTS) 上进行下载. 
+
+---
+## 亮点
+1. **对话式 TTS**: ChatTTS针对对话式任务进行了优化，实现了自然流畅的语音合成，同时支持多说话人。
+2. **细粒度控制**: 该模型能够预测和控制细粒度的韵律特征，包括笑声、停顿和插入词等。
+3. **更好的韵律**: ChatTTS在韵律方面超越了大部分开源TTS模型。同时提供预训练模型，支持进一步的研究。
+
+对于模型的具体介绍, 可以参考B站的 **[宣传视频](https://www.bilibili.com/video/BV1zn4y1o7iV)**
+
+---
+
+## 免责声明
+本文件中的信息仅供学术交流使用。其目的是用于教育和研究，不得用于任何商业或法律目的。作者不保证信息的准确性、完整性或可靠性。本文件中使用的信息和数据，仅用于学术研究目的。这些数据来自公开可用的来源，作者不对数据的所有权或版权提出任何主张。
+
+ChatTTS是一个强大的文本转语音系统。然而，负责任地和符合伦理地利用这项技术是非常重要的。为了限制ChatTTS的使用，我们在4w小时模型的训练过程中添加了少量额外的高频噪音，并用mp3格式尽可能压低了音质，以防不法分子用于潜在的犯罪可能。同时我们在内部训练了检测模型，并计划在未来开放。
+
+---
+## 用法
+
+<h4>基本用法</h4>
+
+```python
+import ChatTTS
+from IPython.display import Audio
+
+chat = ChatTTS.Chat()
+chat.load_models(compile=False) # 设置为True以获得更快速度
+
+texts = ["在这里输入你的文本",]
+
+wavs = chat.infer(texts, use_decoder=True)
+
+torchaudio.save("output1.wav", torch.from_numpy(wavs[0]), 24000)
+```
+
+<h4>进阶用法</h4>
+
+```python
+###################################
+# Sample a speaker from Gaussian.
+
+rand_spk = chat.sample_random_speaker()
+
+params_infer_code = {
+  'spk_emb': rand_spk, # add sampled speaker 
+  'temperature': .3, # using custom temperature
+  'top_P': 0.7, # top P decode
+  'top_K': 20, # top K decode
+}
+
+###################################
+# For sentence level manual control.
+
+# use oral_(0-9), laugh_(0-2), break_(0-7) 
+# to generate special token in text to synthesize.
+params_refine_text = {
+  'prompt': '[oral_2][laugh_0][break_6]'
+} 
+
+wav = chat.infer(texts, params_refine_text=params_refine_text, params_infer_code=params_infer_code)
+
+###################################
+# For word level manual control.
+# use_decoder=False to infer faster with a bit worse quality
+text = 'What is [uv_break]your favorite english food?[laugh][lbreak]'
+wav = chat.infer(text, skip_refine_text=True, params_infer_code=params_infer_code, use_decoder=False)
+
+torchaudio.save("output2.wav", torch.from_numpy(wavs[0]), 24000)
+```
+
+<details open>
+  <summary><h4>自我介绍样例</h4></summary>
+
+```python
+inputs_cn = """
+chat T T S 是一款强大的对话式文本转语音模型。它有中英混读和多说话人的能力。
+chat T T S 不仅能够生成自然流畅的语音，还能控制[laugh]笑声啊[laugh]，
+停顿啊[uv_break]语气词啊等副语言现象[uv_break]。这个韵律超越了许多开源模型[uv_break]。
+请注意，chat T T S 的使用应遵守法律和伦理准则，避免滥用的安全风险。[uv_break]'
+""".replace('\n', '')
+
+params_refine_text = {
+  'prompt': '[oral_2][laugh_0][break_4]'
+} 
+audio_array_cn = chat.infer(inputs_cn, params_refine_text=params_refine_text)
+# audio_array_en = chat.infer(inputs_en, params_refine_text=params_refine_text)
+
+torchaudio.save("output3.wav", torch.from_numpy(audio_array_cn[0]), 24000)
+```
+[男说话人](https://github.com/2noise/ChatTTS/assets/130631963/bbfa3b83-2b67-4bb6-9315-64c992b63788)
+
+[女说话人](https://github.com/2noise/ChatTTS/assets/130631963/e061f230-0e05-45e6-8e4e-0189f2d260c4)
+</details>
+
+
+---
+## 计划路线
+- [x] 开源4w小时基础模型和spk_stats文件
+- [ ] 开源VQ encoder和Lora 训练代码
+- [ ] 在非refine text情况下, 流式生成音频*
+- [ ] 开源多情感可控的4w小时版本
+- [ ] ChatTTS.cpp maybe? (欢迎社区PR或独立的新repo)
+
+---
+## 常见问题
+
+##### 连不上HuggingFace
+请使用[modelscope](https://www.modelscope.cn/models/pzc163/chatTTS)的版本. 并设置cache的位置:
+```python
+chat.load_models(source='local', local_path='你的下载位置')
+```
+
+##### 我要多少显存? Infer的速度是怎么样的?
+对于30s的音频, 至少需要4G的显存. 对于4090, 1s生成约7个字所对应的音频. RTF约0.3.
+
+##### 模型稳定性似乎不够好, 会出现其他说话人或音质很差的现象.
+这是自回归模型通常都会出现的问题. 说话人可能会在中间变化, 可能会采样到音质非常差的结果, 这通常难以避免. 可以多采样几次来找到合适的结果.
+
+##### 除了笑声还能控制什么吗? 还能控制其他情感吗?
+在现在放出的模型版本中, 只有[laugh]和[uv_break], [lbreak]作为字级别的控制单元. 在未来的版本中我们可能会开源其他情感控制的版本.
+
+---
+## 致谢
+- [bark](https://github.com/suno-ai/bark),[XTTSv2](https://github.com/coqui-ai/TTS)和[valle](https://arxiv.org/abs/2301.02111)展示了自回归任务用于TTS任务的可能性.
+- [fish-speech](https://github.com/fishaudio/fish-speech)一个优秀的自回归TTS模型, 揭示了GVQ用于LLM任务的可能性.
+- [vocos](https://github.com/gemelo-ai/vocos)作为模型中的vocoder.
+
+---
+## 特别致谢
+- [wlu-audio lab](https://audio.westlake.edu.cn/)为我们提供了早期算法试验的支持.
+
+
+
+================================================
+FILE: requirements.txt
+================================================
+omegaconf~=2.3.0
+torch~=2.1.0
+tqdm
+einops
+vector_quantize_pytorch
+transformers~=4.41.1
+vocos
+IPython
+fastapi
+soundfile
+loguru
+pypinyin
+Cython
+LangSegment
+
+
+================================================
+FILE: webui.py
+================================================
+import os
+import random
+import argparse
+
+import torch
+import gradio as gr
+import numpy as np
+
+import ChatTTS
+
+
+def generate_seed():
+    new_seed = random.randint(1, 100000000)
+    return {
+        "__type__": "update",
+        "value": new_seed
+        }
+
+
+def generate_audio(text, temperature, top_P, top_K, audio_seed_input, text_seed_input, refine_text_flag):
+
+    torch.manual_seed(audio_seed_input)
+    rand_spk = chat.sample_random_speaker()
+    params_infer_code = {
+        'spk_emb': rand_spk, 
+        'temperature': temperature,
+        'top_P': top_P,
+        'top_K': top_K,
+        }
+    params_refine_text = {'prompt': '[oral_2][laugh_0][break_6]'}
+    
+    torch.manual_seed(text_seed_input)
+
+    if refine_text_flag:
+        text = chat.infer(text, 
+                          skip_refine_text=False,
+                          refine_text_only=True,
+                          params_refine_text=params_refine_text,
+                          params_infer_code=params_infer_code
+                          )
+    
+    wav = chat.infer(text, 
+                     skip_refine_text=True, 
+                     params_refine_text=params_refine_text, 
+                     params_infer_code=params_infer_code
+                     )
+    
+    audio_data = np.array(wav[0]).flatten()
+    sample_rate = 24000
+    text_data = text[0] if isinstance(text, list) else text
+
+    return [(sample_rate, audio_data), text_data]
+
+
+def main():
+
+    with gr.Blocks() as demo:
+        gr.Markdown("# ChatTTS Webui")
+        gr.Markdown("ChatTTS Model: [2noise/ChatTTS](https://github.com/2noise/ChatTTS)")
+
+        default_text = "四川美食确实以辣闻名，但也有不辣的选择。比如甜水面、赖汤圆、蛋烘糕、叶儿粑等，这些小吃口味温和，甜而不腻，也很受欢迎。"        
+        text_input = gr.Textbox(label="Input Text", lines=4, placeholder="Please Input Text...", value=default_text)
+
+        with gr.Row():
+            refine_text_checkbox = gr.Checkbox(label="Refine text", value=True)
+            temperature_slider = gr.Slider(minimum=0.00001, maximum=1.0, step=0.00001, value=0.3, label="Audio temperature")
+            top_p_slider = gr.Slider(minimum=0.1, maximum=0.9, step=0.05, value=0.7, label="top_P")
+            top_k_slider = gr.Slider(minimum=1, maximum=20, step=1, value=20, label="top_K")
+
+        with gr.Row():
+            audio_seed_input = gr.Number(value=2, label="Audio Seed")
+            generate_audio_seed = gr.Button("\U0001F3B2")
+            text_seed_input = gr.Number(value=42, label="Text Seed")
+            generate_text_seed = gr.Button("\U0001F3B2")
+
+        generate_button = gr.Button("Generate")
+        
+        text_output = gr.Textbox(label="Output Text", interactive=False)
+        audio_output = gr.Audio(label="Output Audio")
+
+        generate_audio_seed.click(generate_seed, 
+                                  inputs=[], 
+                                  outputs=audio_seed_input)
+        
+        generate_text_seed.click(generate_seed, 
+                                 inputs=[], 
+                                 outputs=text_seed_input)
+        
+        generate_button.click(generate_audio, 
+                              inputs=[text_input, temperature_slider, top_p_slider, top_k_slider, audio_seed_input, text_seed_input, refine_text_checkbox], 
+                              outputs=[audio_output, text_output])
+
+    parser = argparse.ArgumentParser(description='ChatTTS demo Launch')
+    parser.add_argument('--server_name', type=str, default='0.0.0.0', help='Server name')
+    parser.add_argument('--server_port', type=int, default=8080, help='Server port')
+    parser.add_argument('--local_path', type=str, default=None, help='the local_path if need')
+    args = parser.parse_args()
+
+    print("loading ChatTTS model...")
+    global chat
+    chat = ChatTTS.Chat()
+
+    if args.local_path == None:
+        chat.load_models()
+    else:
+        print('local model path:', args.local_path)
+        chat.load_models('local', local_path=args.local_path)
+
+    demo.launch(server_name=args.server_name, server_port=args.server_port, inbrowser=True)
+
+
+if __name__ == '__main__':
+    main()
+
+
+================================================
+FILE: ChatTTS/__init__.py
+================================================
+from .core import Chat
+
+
+================================================
+FILE: ChatTTS/core.py
+================================================
+
+import os
+import logging
+from functools import partial
+from omegaconf import OmegaConf
+
+import torch
+from vocos import Vocos
+from .model.dvae import DVAE
+from .model.gpt import GPT_warpper
+from .utils.gpu_utils import select_device
+from .utils.infer_utils import count_invalid_characters, detect_language, apply_character_map, apply_half2full_map
+from .utils.io_utils import get_latest_modified_file
+from .infer.api import refine_text, infer_code
+
+from huggingface_hub import snapshot_download
+
+logging.basicConfig(level = logging.INFO)
+
+
+class Chat:
+    def __init__(self, ):
+        self.pretrain_models = {}
+        self.normalizer = {}
+        self.logger = logging.getLogger(__name__)
+        
+    def check_model(self, level = logging.INFO, use_decoder = False):
+        not_finish = False
+        check_list = ['vocos', 'gpt', 'tokenizer']
+        
+        if use_decoder:
+            check_list.append('decoder')
+        else:
+            check_list.append('dvae')
+            
+        for module in check_list:
+            if module not in self.pretrain_models:
+                self.logger.log(logging.WARNING, f'{module} not initialized.')
+                not_finish = True
+                
+        if not not_finish:
+            self.logger.log(level, f'All initialized.')
+            
+        return not not_finish
+        
+    def load_models(self, source='huggingface', force_redownload=False, local_path='<LOCAL_PATH>', **kwargs):
+        if source == 'huggingface':
+            hf_home = os.getenv('HF_HOME', os.path.expanduser("~/.cache/huggingface"))
+            try:
+                download_path = get_latest_modified_file(os.path.join(hf_home, 'hub/models--2Noise--ChatTTS/snapshots'))
+            except:
+                download_path = None
+            if download_path is None or force_redownload: 
+                self.logger.log(logging.INFO, f'Download from HF: https://huggingface.co/2Noise/ChatTTS')
+                download_path = snapshot_download(repo_id="2Noise/ChatTTS", allow_patterns=["*.pt", "*.yaml"])
+            else:
+                self.logger.log(logging.INFO, f'Load from cache: {download_path}')
+        elif source == 'local':
+            self.logger.log(logging.INFO, f'Load from local: {local_path}')
+            download_path = local_path
+
+        self._load(**{k: os.path.join(download_path, v) for k, v in OmegaConf.load(os.path.join(download_path, 'config', 'path.yaml')).items()}, **kwargs)
+        
+    def _load(
+        self, 
+        vocos_config_path: str = None, 
+        vocos_ckpt_path: str = None,
+        dvae_config_path: str = None,
+        dvae_ckpt_path: str = None,
+        gpt_config_path: str = None,
+        gpt_ckpt_path: str = None,
+        decoder_config_path: str = None,
+        decoder_ckpt_path: str = None,
+        tokenizer_path: str = None,
+        device: str = None,
+        compile: bool = True,
+    ):
+        if not device:
+            device = select_device(4096)
+            self.logger.log(logging.INFO, f'use {device}')
+            
+        if vocos_config_path:
+            vocos = Vocos.from_hparams(vocos_config_path).to(device).eval()
+            assert vocos_ckpt_path, 'vocos_ckpt_path should not be None'
+            vocos.load_state_dict(torch.load(vocos_ckpt_path))
+            self.pretrain_models['vocos'] = vocos
+            self.logger.log(logging.INFO, 'vocos loaded.')
+        
+        if dvae_config_path:
+            cfg = OmegaConf.load(dvae_config_path)
+            dvae = DVAE(**cfg).to(device).eval()
+            assert dvae_ckpt_path, 'dvae_ckpt_path should not be None'
+            dvae.load_state_dict(torch.load(dvae_ckpt_path, map_location='cpu'))
+            self.pretrain_models['dvae'] = dvae
+            self.logger.log(logging.INFO, 'dvae loaded.')
+            
+        if gpt_config_path:
+            cfg = OmegaConf.load(gpt_config_path)
+            gpt = GPT_warpper(**cfg).to(device).eval()
+            assert gpt_ckpt_path, 'gpt_ckpt_path should not be None'
+            gpt.load_state_dict(torch.load(gpt_ckpt_path, map_location='cpu'))
+            if compile and 'cuda' in str(device):
+                gpt.gpt.forward = torch.compile(gpt.gpt.forward,  backend='inductor', dynamic=True)
+            self.pretrain_models['gpt'] = gpt
+            spk_stat_path = os.path.join(os.path.dirname(gpt_ckpt_path), 'spk_stat.pt')
+            assert os.path.exists(spk_stat_path), f'Missing spk_stat.pt: {spk_stat_path}'
+            self.pretrain_models['spk_stat'] = torch.load(spk_stat_path).to(device)
+            self.logger.log(logging.INFO, 'gpt loaded.')
+            
+        if decoder_config_path:
+            cfg = OmegaConf.load(decoder_config_path)
+            decoder = DVAE(**cfg).to(device).eval()
+            assert decoder_ckpt_path, 'decoder_ckpt_path should not be None'
+            decoder.load_state_dict(torch.load(decoder_ckpt_path, map_location='cpu'))
+            self.pretrain_models['decoder'] = decoder
+            self.logger.log(logging.INFO, 'decoder loaded.')
+        
+        if tokenizer_path:
+            tokenizer = torch.load(tokenizer_path, map_location='cpu')
+            tokenizer.padding_side = 'left'
+            self.pretrain_models['tokenizer'] = tokenizer
+            self.logger.log(logging.INFO, 'tokenizer loaded.')
+            
+        self.check_model()
+    
+    def infer(
+        self, 
+        text, 
+        skip_refine_text=False, 
+        refine_text_only=False, 
+        params_refine_text={}, 
+        params_infer_code={'prompt':'[speed_5]'}, 
+        use_decoder=True,
+        do_text_normalization=True,
+        lang=None,
+    ):
+        
+        assert self.check_model(use_decoder=use_decoder)
+        
+        if not isinstance(text, list): 
+            text = [text]
+        
+        if do_text_normalization:
+            for i, t in enumerate(text):
+                _lang = detect_language(t) if lang is None else lang
+                self.init_normalizer(_lang)
+                text[i] = self.normalizer[_lang](t)
+                if _lang == 'zh':
+                    text[i] = apply_half2full_map(text[i])
+            
+        for i, t in enumerate(text):
+            invalid_characters = count_invalid_characters(t)
+            if len(invalid_characters):
+                self.logger.log(logging.WARNING, f'Invalid characters found! : {invalid_characters}')
+                text[i] = apply_character_map(t)
+                
+        if not skip_refine_text:
+            text_tokens = refine_text(self.pretrain_models, text, **params_refine_text)['ids']
+            text_tokens = [i[i < self.pretrain_models['tokenizer'].convert_tokens_to_ids('[break_0]')] for i in text_tokens]
+            text = self.pretrain_models['tokenizer'].batch_decode(text_tokens)
+            if refine_text_only:
+                return text
+            
+        text = [params_infer_code.get('prompt', '') + i for i in text]
+        params_infer_code.pop('prompt', '')
+        result = infer_code(self.pretrain_models, text, **params_infer_code, return_hidden=use_decoder)
+        
+        if use_decoder:
+            mel_spec = [self.pretrain_models['decoder'](i[None].permute(0,2,1)) for i in result['hiddens']]
+        else:
+            mel_spec = [self.pretrain_models['dvae'](i[None].permute(0,2,1)) for i in result['ids']]
+            
+        wav = [self.pretrain_models['vocos'].decode(i).cpu().numpy() for i in mel_spec]
+        
+        return wav
+    
+    def sample_random_speaker(self, ):
+        
+        dim = self.pretrain_models['gpt'].gpt.layers[0].mlp.gate_proj.in_features
+        std, mean = self.pretrain_models['spk_stat'].chunk(2)
+        return torch.randn(dim, device=std.device) * std + mean
+    
+    def init_normalizer(self, lang):
+        
+        if lang not in self.normalizer:
+            if lang == 'zh':
+                try:
+                    from tn.chinese.normalizer import Normalizer
+                except:
+                    self.logger.log(logging.WARNING, f'Package WeTextProcessing not found! \
+                        Run: conda install -c conda-forge pynini=2.1.5 && pip install WeTextProcessing')
+                self.normalizer[lang] = Normalizer().normalize
+            else:
+                try:
+                    from nemo_text_processing.text_normalization.normalize import Normalizer
+                except:
+                    self.logger.log(logging.WARNING, f'Package nemo_text_processing not found! \
+                        Run: conda install -c conda-forge pynini=2.1.5 && pip install nemo_text_processing')
+                self.normalizer[lang] = partial(Normalizer(input_case='cased', lang=lang).normalize, verbose=False, punct_post_process=True)
+
+
+
+
+================================================
+FILE: ChatTTS/experimental/llm.py
+================================================
+
+from openai import OpenAI
+ 
+prompt_dict = {
+    'kimi': [ {"role": "system", "content": "你是 Kimi，由 Moonshot AI 提供的人工智能助手，你更擅长中文和英文的对话。"},
+              {"role": "user", "content": "你好，请注意你现在生成的文字要按照人日常生活的口吻，你的回复将会后续用TTS模型转为语音，并且请把回答控制在100字以内。并且标点符号仅包含逗号和句号，将数字等转为文字回答。"},
+              {"role": "assistant", "content": "好的，我现在生成的文字将按照人日常生活的口吻， 并且我会把回答控制在一百字以内, 标点符号仅包含逗号和句号，将阿拉伯数字等转为中文文字回答。下面请开始对话。"},],
+    'deepseek': [
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，请注意你现在生成的文字要按照人日常生活的口吻，你的回复将会后续用TTS模型转为语音，并且请把回答控制在100字以内。并且标点符号仅包含逗号和句号，将数字等转为文字回答。"},
+        {"role": "assistant", "content": "好的，我现在生成的文字将按照人日常生活的口吻， 并且我会把回答控制在一百字以内, 标点符号仅包含逗号和句号，将阿拉伯数字等转为中文文字回答。下面请开始对话。"},],
+    'deepseek_TN': [
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，现在我们在处理TTS的文本输入，下面将会给你输入一段文本，请你将其中的阿拉伯数字等等转为文字表达，并且输出的文本里仅包含逗号和句号这两个标点符号"},
+        {"role": "assistant", "content": "好的，我现在对TTS的文本输入进行处理。这一般叫做text normalization。下面请输入"},
+        {"role": "user", "content": "We paid $123 for this desk."},
+        {"role": "assistant", "content": "We paid one hundred and twenty three dollars for this desk."},
+        {"role": "user", "content": "详询请拨打010-724654"},
+        {"role": "assistant", "content": "详询请拨打零幺零，七二四六五四"},
+        {"role": "user", "content": "罗森宣布将于7月24日退市，在华门店超6000家！"},
+        {"role": "assistant", "content": "罗森宣布将于七月二十四日退市，在华门店超过六千家。"},
+        ],
+}          
+                
+class llm_api:
+    def __init__(self, api_key, base_url, model):
+        self.client =  OpenAI(
+            api_key = api_key,
+            base_url = base_url,
+        )
+        self.model = model
+    def call(self, user_question, temperature = 0.3, prompt_version='kimi', **kwargs):
+    
+        completion = self.client.chat.completions.create(
+            model = self.model,
+            messages = prompt_dict[prompt_version]+[{"role": "user", "content": user_question},],
+            temperature = temperature,
+            **kwargs
+        )
+        return completion.choices[0].message.content
+
+
+
+================================================
+FILE: ChatTTS/infer/api.py
+================================================
+
+import torch
+import torch.nn.functional as F
+from transformers.generation import TopKLogitsWarper, TopPLogitsWarper
+from ..utils.infer_utils import CustomRepetitionPenaltyLogitsProcessorRepeat
+
+def infer_code(
+    models,
+    text, 
+    spk_emb = None,
+    top_P = 0.7, 
+    top_K = 20, 
+    temperature = 0.3, 
+    repetition_penalty = 1.05,
+    max_new_token = 2048,
+    **kwargs
+):
+    
+    device = next(models['gpt'].parameters()).device
+    
+    if not isinstance(text, list): 
+        text = [text]
+        
+    if not isinstance(temperature, list):
+        temperature = [temperature] * models['gpt'].num_vq
+    
+    if spk_emb is not None:
+        text = [f'[Stts][spk_emb]{i}[Ptts]' for i in text] 
+    else:
+        text = [f'[Stts][empty_spk]{i}[Ptts]' for i in text]
+    
+    text_token = models['tokenizer'](text, return_tensors='pt', add_special_tokens=False, padding=True).to(device)
+    input_ids = text_token['input_ids'][...,None].expand(-1, -1, models['gpt'].num_vq)
+    text_mask = torch.ones(text_token['input_ids'].shape, dtype=bool, device=device)
+    
+    inputs = {
+        'input_ids': input_ids,
+        'text_mask': text_mask,
+        'attention_mask': text_token['attention_mask'],
+    }
+
+    emb = models['gpt'].get_emb(**inputs)
+    if spk_emb is not None:
+        emb[inputs['input_ids'][..., 0] == models['tokenizer'].convert_tokens_to_ids('[spk_emb]')] = \
+            F.normalize(spk_emb.to(device).to(emb.dtype)[None].expand(len(text), -1), p=2.0, dim=1, eps=1e-12)  
+    
+    num_code = models['gpt'].emb_code[0].num_embeddings - 1
+    
+    LogitsWarpers = []
+    if top_P is not None:
+        LogitsWarpers.append(TopPLogitsWarper(top_P, min_tokens_to_keep=3))
+    if top_K is not None:
+        LogitsWarpers.append(TopKLogitsWarper(top_K, min_tokens_to_keep=3))
+        
+    LogitsProcessors = []
+    if repetition_penalty is not None and repetition_penalty != 1:
+        LogitsProcessors.append(CustomRepetitionPenaltyLogitsProcessorRepeat(\
+            repetition_penalty, num_code, 16))
+    
+    result = models['gpt'].generate(
+        emb, inputs['input_ids'], 
+        temperature = torch.tensor(temperature, device=device), 
+        attention_mask = inputs['attention_mask'],
+        LogitsWarpers = LogitsWarpers,
+        LogitsProcessors = LogitsProcessors,
+        eos_token = num_code, 
+        max_new_token = max_new_token, 
+        infer_text = False,
+        **kwargs
+    )
+    
+    return result
+
+
+def refine_text(
+    models, 
+    text,
+    top_P = 0.7, 
+    top_K = 20, 
+    temperature = 0.7, 
+    repetition_penalty = 1.0,
+    max_new_token = 384,
+    prompt = '',
+    **kwargs
+):
+    
+    device = next(models['gpt'].parameters()).device
+    
+    if not isinstance(text, list): 
+        text = [text]
+    
+    assert len(text), 'text should not be empty'
+
+    text = [f"[Sbreak]{i}[Pbreak]{prompt}" for i in text]
+    text_token = models['tokenizer'](text, return_tensors='pt', add_special_tokens=False, padding=True).to(device)
+    text_mask = torch.ones(text_token['input_ids'].shape, dtype=bool, device=device)
+
+    inputs = {
+        'input_ids': text_token['input_ids'][...,None].expand(-1, -1, models['gpt'].num_vq),
+        'text_mask': text_mask,
+        'attention_mask': text_token['attention_mask'],
+    }
+    
+    LogitsWarpers = []
+    if top_P is not None:
+        LogitsWarpers.append(TopPLogitsWarper(top_P, min_tokens_to_keep=3))
+    if top_K is not None:
+        LogitsWarpers.append(TopKLogitsWarper(top_K, min_tokens_to_keep=3))
+        
+    LogitsProcessors = []
+    if repetition_penalty is not None and repetition_penalty != 1:
+        LogitsProcessors.append(CustomRepetitionPenaltyLogitsProcessorRepeat(repetition_penalty, len(models['tokenizer']), 16))
+    
+    result = models['gpt'].generate(
+        models['gpt'].get_emb(**inputs), inputs['input_ids'], 
+        temperature = torch.tensor([temperature,], device=device), 
+        attention_mask = inputs['attention_mask'],
+        LogitsWarpers = LogitsWarpers,
+        LogitsProcessors = LogitsProcessors,
+        eos_token = torch.tensor(models['tokenizer'].convert_tokens_to_ids('[Ebreak]'), device=device)[None], 
+        max_new_token = max_new_token, 
+        infer_text = True,
+        **kwargs
+    )
+    return result
+
+
+================================================
+FILE: ChatTTS/model/dvae.py
+================================================
+import math
+from einops import rearrange
+from vector_quantize_pytorch import GroupedResidualFSQ
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class ConvNeXtBlock(nn.Module):
+    def __init__(
+        self,
+        dim: int,
+        intermediate_dim: int,
+        kernel, dilation,
+        layer_scale_init_value: float = 1e-6,
+    ):
+        # ConvNeXt Block copied from Vocos.
+        super().__init__()
+        self.dwconv = nn.Conv1d(dim, dim, 
+                                kernel_size=kernel, padding=dilation*(kernel//2), 
+                                dilation=dilation, groups=dim
+                            )  # depthwise conv
+        
+        self.norm = nn.LayerNorm(dim, eps=1e-6)
+        self.pwconv1 = nn.Linear(dim, intermediate_dim)  # pointwise/1x1 convs, implemented with linear layers
+        self.act = nn.GELU()
+        self.pwconv2 = nn.Linear(intermediate_dim, dim)
+        self.gamma = (
+            nn.Parameter(layer_scale_init_value * torch.ones(dim), requires_grad=True)
+            if layer_scale_init_value > 0
+            else None
+        )
+
+    def forward(self, x: torch.Tensor, cond = None) -> torch.Tensor:
+        residual = x
+        x = self.dwconv(x)
+        x = x.transpose(1, 2)  # (B, C, T) -> (B, T, C)
+        x = self.norm(x)
+        x = self.pwconv1(x)
+        x = self.act(x)
+        x = self.pwconv2(x)
+        if self.gamma is not None:
+            x = self.gamma * x
+        x = x.transpose(1, 2)  # (B, T, C) -> (B, C, T)
+
+        x = residual + x
+        return x
+    
+
+
+class GFSQ(nn.Module):
+
+    def __init__(self, 
+            dim, levels, G, R, eps=1e-5, transpose = True
+        ):
+        super(GFSQ, self).__init__()
+        self.quantizer = GroupedResidualFSQ(
+            dim=dim,
+            levels=levels,
+            num_quantizers=R,
+            groups=G,
+        )
+        self.n_ind = math.prod(levels)
+        self.eps = eps
+        self.transpose = transpose
+        self.G = G
+        self.R = R
+        
+    def _embed(self, x):
+        if self.transpose:
+            x = x.transpose(1,2)
+        x = rearrange(
+            x, "b t (g r) -> g b t r", g = self.G, r = self.R,
+        )  
+        feat = self.quantizer.get_output_from_indices(x)
+        return feat.transpose(1,2) if self.transpose else feat
+        
+    def forward(self, x,):
+        if self.transpose:
+            x = x.transpose(1,2)
+        feat, ind = self.quantizer(x)
+        ind = rearrange(
+            ind, "g b t r ->b t (g r)",
+        )  
+        embed_onehot = F.one_hot(ind.long(), self.n_ind).to(x.dtype)
+        e_mean = torch.mean(embed_onehot, dim=[0,1])
+        e_mean = e_mean / (e_mean.sum(dim=1) + self.eps).unsqueeze(1)
+        perplexity = torch.exp(-torch.sum(e_mean * torch.log(e_mean + self.eps), dim=1))
+        
+        return (
+            torch.zeros(perplexity.shape, dtype=x.dtype, device=x.device),
+            feat.transpose(1,2) if self.transpose else feat,
+            perplexity,
+            None,
+            ind.transpose(1,2) if self.transpose else ind,
+        )
+        
+class DVAEDecoder(nn.Module):
+    def __init__(self, idim, odim,
+                 n_layer = 12, bn_dim = 64, hidden = 256, 
+                 kernel = 7, dilation = 2, up = False
+                ):
+        super().__init__()
+        self.up = up
+        self.conv_in = nn.Sequential(
+            nn.Conv1d(idim, bn_dim, 3, 1, 1), nn.GELU(),
+            nn.Conv1d(bn_dim, hidden, 3, 1, 1)
+        )
+        self.decoder_block = nn.ModuleList([
+            ConvNeXtBlock(hidden, hidden* 4, kernel, dilation,)
+            for _ in range(n_layer)])
+        self.conv_out = nn.Conv1d(hidden, odim, kernel_size=1, bias=False)
+
+    def forward(self, input, conditioning=None):
+        # B, T, C
+        x = input.transpose(1, 2)
+        x = self.conv_in(x)
+        for f in self.decoder_block:
+            x = f(x, conditioning)
+        
+        x = self.conv_out(x)
+        return x.transpose(1, 2)
+    
+
+class DVAE(nn.Module):
+    def __init__(
+        self, decoder_config, vq_config, dim=512
+    ):
+        super().__init__()
+        self.register_buffer('coef', torch.randn(1, 100, 1))
+
+        self.decoder = DVAEDecoder(**decoder_config)
+        self.out_conv = nn.Conv1d(dim, 100, 3, 1, 1, bias=False)
+        if vq_config is not None:
+            self.vq_layer = GFSQ(**vq_config)
+        else:
+            self.vq_layer = None
+
+    def forward(self, inp):
+
+        if self.vq_layer is not None:
+            vq_feats = self.vq_layer._embed(inp)
+        else:
+            vq_feats = inp.detach().clone()
+            
+        temp = torch.chunk(vq_feats, 2, dim=1) # flatten trick :)
+        temp = torch.stack(temp, -1)
+        vq_feats = temp.reshape(*temp.shape[:2], -1)
+
+        vq_feats = vq_feats.transpose(1, 2)
+        dec_out = self.decoder(input=vq_feats)
+        dec_out = self.out_conv(dec_out.transpose(1, 2))
+        mel = dec_out * self.coef
+
+        return mel
+
+
+
+================================================
+FILE: ChatTTS/model/gpt.py
+================================================
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+import logging
+from tqdm import tqdm
+from einops import rearrange
+from transformers.cache_utils import Cache
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.nn.utils.parametrize as P
+from torch.nn.utils.parametrizations import weight_norm
+from transformers import LlamaModel, LlamaConfig
+    
+    
+class LlamaMLP(nn.Module):
+    def __init__(self, hidden_size, intermediate_size):
+        super().__init__()
+        self.hidden_size = hidden_size
+        self.intermediate_size = intermediate_size
+        self.gate_proj = nn.Linear(self.hidden_size, self.intermediate_size, bias=False)
+        self.up_proj = nn.Linear(self.hidden_size, self.intermediate_size, bias=False)
+        self.down_proj = nn.Linear(self.intermediate_size, self.hidden_size, bias=False)
+        self.act_fn = F.silu
+
+    def forward(self, x):
+        down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+        return down_proj
+    
+    
+class GPT_warpper(nn.Module):
+    def __init__(
+        self, 
+        gpt_config, 
+        num_audio_tokens,
+        num_text_tokens,
+        num_vq=4,
+        **kwargs,
+        ):
+        super().__init__()
+
+        self.logger = logging.getLogger(__name__)
+        self.gpt = self.build_model(gpt_config)
+        self.model_dim = self.gpt.config.hidden_size 
+
+        self.num_vq = num_vq
+        self.emb_code = nn.ModuleList([nn.Embedding(num_audio_tokens, self.model_dim) for i in range(self.num_vq)])
+        self.emb_text = nn.Embedding(num_text_tokens, self.model_dim)
+        self.head_text = weight_norm(nn.Linear(self.model_dim, num_text_tokens, bias=False), name='weight')
+        self.head_code = nn.ModuleList([weight_norm(nn.Linear(self.model_dim, num_audio_tokens, bias=False), name='weight') for i in range(self.num_vq)])
+
+    def build_model(self, config):
+        
+        configuration = LlamaConfig(**config)
+        model = LlamaModel(configuration)
+        del model.embed_tokens
+        
+        return model
+    
+    def get_emb(self, input_ids, text_mask, **kwargs):
+
+        emb_text = self.emb_text(input_ids[text_mask][:, 0])
+        
+        emb_code = [self.emb_code[i](input_ids[~text_mask][:, i]) for i in range(self.num_vq)]
+        emb_code = torch.stack(emb_code, 2).sum(2)
+        
+        emb = torch.zeros((input_ids.shape[:-1])+(emb_text.shape[-1],), device=emb_text.device, dtype=emb_text.dtype)
+        emb[text_mask] = emb_text
+        emb[~text_mask] = emb_code.to(emb.dtype)
+        
+        return emb
+    
+    def prepare_inputs_for_generation(
+        self, input_ids, past_key_values=None, attention_mask=None, inputs_embeds=None, cache_position=None, **kwargs
+    ):
+        # With static cache, the `past_key_values` is None
+        # TODO joao: standardize interface for the different Cache classes and remove of this if
+        has_static_cache = False
+        if past_key_values is None:
+            past_key_values = getattr(self.gpt.layers[0].self_attn, "past_key_value", None)
+            has_static_cache = past_key_values is not None
+
+        past_length = 0
+        if past_key_values is not None:
+            if isinstance(past_key_values, Cache):
+                past_length = cache_position[0] if cache_position is not None else past_key_values.get_seq_length()
+                max_cache_length = (
+                    torch.tensor(past_key_values.get_max_length(), device=input_ids.device)
+                    if past_key_values.get_max_length() is not None
+                    else None
+                )
+                cache_length = past_length if max_cache_length is None else torch.min(max_cache_length, past_length)
+            # TODO joao: remove this `else` after `generate` prioritizes `Cache` objects
+            else:
+                cache_length = past_length = past_key_values[0][0].shape[2]
+                max_cache_length = None
+
+            # Keep only the unprocessed tokens:
+            # 1 - If the length of the attention_mask exceeds the length of input_ids, then we are in a setting where
+            # some of the inputs are exclusively passed as part of the cache (e.g. when passing input_embeds as
+            # input)
+            if attention_mask is not None and attention_mask.shape[1] > input_ids.shape[1]:
+                input_ids = input_ids[:, -(attention_mask.shape[1] - past_length) :]
+            # 2 - If the past_length is smaller than input_ids', then input_ids holds all input tokens. We can discard
+            # input_ids based on the past_length.
+            elif past_length < input_ids.shape[1]:
+                input_ids = input_ids[:, past_length:]
+            # 3 - Otherwise (past_length >= input_ids.shape[1]), let's assume input_ids only has unprocessed tokens.
+
+            # If we are about to go beyond the maximum cache length, we need to crop the input attention mask.
+            if (
+                max_cache_length is not None
+                and attention_mask is not None
+                and cache_length + input_ids.shape[1] > max_cache_length
+            ):
+                attention_mask = attention_mask[:, -max_cache_length:]
+
+        position_ids = kwargs.get("position_ids", None)
+        if attention_mask is not None and position_ids is None:
+            # create position_ids on the fly for batch generation
+            position_ids = attention_mask.long().cumsum(-1) - 1
+            position_ids.masked_fill_(attention_mask == 0, 1)
+            if past_key_values:
+                position_ids = position_ids[:, -input_ids.shape[1] :]
+
+        # if `inputs_embeds` are passed, we only want to use them in the 1st generation step
+        if inputs_embeds is not None and past_key_values is None:
+            model_inputs = {"inputs_embeds": inputs_embeds}
+        else:
+            # The `contiguous()` here is necessary to have a static stride during decoding. torchdynamo otherwise
+            # recompiles graphs as the stride of the inputs is a guard. Ref: https://github.com/huggingface/transformers/pull/29114
+            # TODO: use `next_tokens` directly instead.
+            model_inputs = {"input_ids": input_ids.contiguous()}
+
+        input_length = position_ids.shape[-1] if position_ids is not None else input_ids.shape[-1]
+        if cache_position is None:
+            cache_position = torch.arange(past_length, past_length + input_length, device=input_ids.device)
+        else:
+            cache_position = cache_position[-input_length:]
+
+        if has_static_cache:
+            past_key_values = None
+
+        model_inputs.update(
+            {
+                "position_ids": position_ids,
+                "cache_position": cache_position,
+                "past_key_values": past_key_values,
+                "use_cache": kwargs.get("use_cache"),
+                "attention_mask": attention_mask,
+            }
+        )
+        return model_inputs
+    
+    def generate(
+        self, 
+        emb, 
+        inputs_ids, 
+        temperature, 
+        eos_token, 
+        attention_mask = None,
+        max_new_token = 2048, 
+        min_new_token = 0,
+        LogitsWarpers = [],
+        LogitsProcessors = [],
+        infer_text=False,
+        return_attn=False,
+        return_hidden=False,
+    ):
+        
+        with torch.no_grad():   
+        
+            attentions = []
+            hiddens = []
+            
+            start_idx, end_idx = inputs_ids.shape[1], torch.zeros(inputs_ids.shape[0], device=inputs_ids.device, dtype=torch.long)
+            finish = torch.zeros(inputs_ids.shape[0], device=inputs_ids.device).bool()
+            
+            temperature = temperature[None].expand(inputs_ids.shape[0], -1)
+            temperature = rearrange(temperature, "b n -> (b n) 1")
+
+            attention_mask_cache = torch.ones((inputs_ids.shape[0], inputs_ids.shape[1]+max_new_token,), dtype=torch.bool, device=inputs_ids.device)
+            if attention_mask is not None:
+                attention_mask_cache[:, :attention_mask.shape[1]] = attention_mask
+            
+            for i in tqdm(range(max_new_token)):
+        
+                model_input = self.prepare_inputs_for_generation(inputs_ids, 
+                    outputs.past_key_values if i!=0 else None, 
+                    attention_mask_cache[:, :inputs_ids.shape[1]], use_cache=True)
+            
+                if i == 0:
+                    model_input['inputs_embeds'] = emb
+                else:
+                    if infer_text:
+                        model_input['inputs_embeds'] = self.emb_text(model_input['input_ids'][:,:,0])
+                    else:
+                        code_emb = [self.emb_code[i](model_input['input_ids'][:,:,i]) for i in range(self.num_vq)]
+                        model_input['inputs_embeds'] = torch.stack(code_emb, 3).sum(3)
+                
+                model_input['input_ids'] = None
+                outputs = self.gpt.forward(**model_input, output_attentions=return_attn)
+                attentions.append(outputs.attentions)
+                hidden_states = outputs[0] # 🐻
+                if return_hidden:
+                    hiddens.append(hidden_states[:, -1])
+
+                with P.cached():
+                    if infer_text:
+                        logits = self.head_text(hidden_states) 
+                    else:
+                        logits = torch.stack([self.head_code[i](hidden_states) for i in range(self.num_vq)], 3)
+        
+                logits = logits[:, -1].float()
+
+                if not infer_text:
+                    logits = rearrange(logits, "b c n -> (b n) c")
+                    logits_token = rearrange(inputs_ids[:, start_idx:], "b c n -> (b n) c")
+                else:
+                    logits_token = inputs_ids[:, start_idx:, 0]
+                    
+                logits = logits / temperature
+                
+                for logitsProcessors in LogitsProcessors:
+                    logits = logitsProcessors(logits_token, logits)
+                    
+                for logitsWarpers in LogitsWarpers:
+                    logits = logitsWarpers(logits_token, logits)
+                    
+                if i < min_new_token:
+                    logits[:, eos_token] = -torch.inf
+                
+                scores = F.softmax(logits, dim=-1)
+            
+                idx_next = torch.multinomial(scores, num_samples=1)
+                
+                if not infer_text:
+                    idx_next = rearrange(idx_next, "(b n) 1 -> b n", n=self.num_vq)
+                    finish = finish | (idx_next == eos_token).any(1)
+                    inputs_ids = torch.cat([inputs_ids, idx_next.unsqueeze(1)], 1)
+                else:
+                    finish = finish | (idx_next == eos_token).any(1)
+                    inputs_ids = torch.cat([inputs_ids, idx_next.unsqueeze(-1).expand(-1, -1, self.num_vq)], 1)
+
+                end_idx = end_idx + (~finish).int()
+            
+                if finish.all():
+                    break
+            
+            inputs_ids = [inputs_ids[idx, start_idx: start_idx+i] for idx, i in enumerate(end_idx.int())]
+            inputs_ids = [i[:, 0] for i in inputs_ids] if infer_text else inputs_ids
+            
+            if return_hidden:
+                hiddens = torch.stack(hiddens, 1)
+                hiddens = [hiddens[idx, :i] for idx, i in enumerate(end_idx.int())]
+                    
+            if not finish.all():
+                self.logger.warn(f'Incomplete result. hit max_new_token: {max_new_token}')    
+                   
+            return {
+                'ids': inputs_ids, 
+                'attentions': attentions,
+                'hiddens':hiddens,
+            }
+
+
+================================================
+FILE: ChatTTS/utils/gpu_utils.py
+================================================
+
+import torch
+import logging
+
+def select_device(min_memory = 2048):
+    logger = logging.getLogger(__name__)
+    if torch.cuda.is_available():
+        available_gpus = []
+        for i in range(torch.cuda.device_count()):
+            props = torch.cuda.get_device_properties(i)
+            free_memory = props.total_memory - torch.cuda.memory_reserved(i)
+            available_gpus.append((i, free_memory))
+        selected_gpu, max_free_memory = max(available_gpus, key=lambda x: x[1])
+        device = torch.device(f'cuda:{selected_gpu}')
+        free_memory_mb = max_free_memory / (1024 * 1024)
+        if free_memory_mb < min_memory:
+            logger.log(logging.WARNING, f'GPU {selected_gpu} has {round(free_memory_mb, 2)} MB memory left.')
+            device = torch.device('cpu')
+    else:
+        logger.log(logging.WARNING, f'No GPU found, use CPU instead')
+        device = torch.device('cpu')
+    
+    return device
+
+
+
+================================================
+FILE: ChatTTS/utils/infer_utils.py
+================================================
+
+import re
+import torch
+import torch.nn.functional as F
+
+    
+class CustomRepetitionPenaltyLogitsProcessorRepeat():
+
+    def __init__(self, penalty: float, max_input_ids, past_window):
+        if not isinstance(penalty, float) or not (penalty > 0):
+            raise ValueError(f"`penalty` has to be a strictly positive float, but is {penalty}")
+
+        self.penalty = penalty
+        self.max_input_ids = max_input_ids
+        self.past_window = past_window
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
+        
+        input_ids = input_ids[:, -self.past_window:]
+        freq = F.one_hot(input_ids, scores.size(1)).sum(1)
+        freq[self.max_input_ids:] = 0
+        alpha = self.penalty**freq
+        scores = torch.where(scores < 0, scores*alpha, scores/alpha)
+
+        return scores
+    
+class CustomRepetitionPenaltyLogitsProcessor():
+
+    def __init__(self, penalty: float, max_input_ids, past_window):
+        if not isinstance(penalty, float) or not (penalty > 0):
+            raise ValueError(f"`penalty` has to be a strictly positive float, but is {penalty}")
+
+        self.penalty = penalty
+        self.max_input_ids = max_input_ids
+        self.past_window = past_window
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
+        
+        input_ids = input_ids[:, -self.past_window:]
+        score = torch.gather(scores, 1, input_ids)
+        _score = score.detach().clone()
+        score = torch.where(score < 0, score * self.penalty, score / self.penalty)
+        score[input_ids>=self.max_input_ids] = _score[input_ids>=self.max_input_ids]
+        scores.scatter_(1, input_ids, score)
+        
+        return scores
+    
+def count_invalid_characters(s):
+    
+    s = re.sub(r'\[uv_break\]|\[laugh\]|\[lbreak\]', '', s)
+    pattern = re.compile(r'[^\u4e00-\u9fffA-Za-z，。、,\. ]')
+    non_alphabetic_chinese_chars = pattern.findall(s)
+    return set(non_alphabetic_chinese_chars)
+
+def detect_language(sentence):
+
+    chinese_char_pattern = re.compile(r'[\u4e00-\u9fff]')
+    english_word_pattern = re.compile(r'\b[A-Za-z]+\b')
+
+    chinese_chars = chinese_char_pattern.findall(sentence)
+    english_words = english_word_pattern.findall(sentence)
+
+    if len(chinese_chars) > len(english_words):
+        return "zh"
+    else:
+        return "en"
+    
+    
+character_map = {
+    '：': '，',
+    '；': '，',
+    '！': '。',
+    '（': '，',
+    '）': '，',
+    '【': '，',
+    '】': '，',
+    '『': '，',
+    '』': '，',
+    '「': '，',
+    '」': '，',
+    '《': '，',
+    '》': '，',
+    '－': '，',
+    '‘': '',
+    '“': '',
+    '’': '',
+    '”': '',
+    ':': ',',
+    ';': ',',
+    '!': '.',
+    '(': ',',
+    ')': ',',
+    '[': ',',
+    ']': ',',
+    '>': ',',
+    '<': ',',
+    '-': ',',
+}
+
+halfwidth_2_fullwidth_map = {
+        '!': '！',
+        '"': '“',
+        "'": '‘',
+        '#': '＃',
+        '$': '＄',
+        '%': '％',
+        '&': '＆',
+        '(': '（',
+        ')': '）',
+        ',': '，',
+        '-': '－',
+        '*': '＊',
+        '+': '＋',
+        '.': '。',
+        '/': '／',
+        ':': '：',
+        ';': '；',
+        '<': '＜',
+        '=': '＝',
+        '>': '＞',
+        '?': '？',
+        '@': '＠',
+        # '[': '［',
+        '\\': '＼',
+        # ']': '］',
+        '^': '＾',
+        # '_': '＿',
+        '`': '｀',
+        '{': '｛',
+        '|': '｜',
+        '}': '｝',
+        '~': '～'
+    }
+
+def apply_half2full_map(text):
+    translation_table = str.maketrans(halfwidth_2_fullwidth_map)
+    return text.translate(translation_table)
+
+def apply_character_map(text):
+    translation_table = str.maketrans(character_map)
+    return text.translate(translation_table)
+
+
+================================================
+FILE: ChatTTS/utils/io_utils.py
+================================================
+
+import os
+import logging
+
+def get_latest_modified_file(directory):
+    logger = logging.getLogger(__name__)
+    
+    files = [os.path.join(directory, f) for f in os.listdir(directory)] 
+    if not files:
+        logger.log(logging.WARNING, f'No files found in the directory: {directory}')
+        return None
+    latest_file = max(files, key=os.path.getmtime)
+
+    return latest_file
+
+
+================================================
+FILE: utils/__init__.py
+================================================
+
+
+
+================================================
+FILE: utils/text_split_method.py
+================================================
+import re
+
+splits = {"，", "。", "？", "！", ",", ".", "?", "!", "~", ":", "：", "—", "…", }
+
+text_split_registry = {}
+
+
+def register(key):
+    """注册装饰器"""
+
+    def decorator(cls):
+        text_split_registry[key] = cls
+        return cls
+
+    return decorator
+
+
+def split(todo_text):
+    todo_text = todo_text.replace("……", "。").replace("——", "，")
+    if len(todo_text): return []
+    if todo_text[-1] not in splits:
+        todo_text += "。"
+    i_split_head = i_split_tail = 0
+    len_text = len(todo_text)
+    todo_texts = []
+    while 1:
+        if i_split_head >= len_text:
+            break  # 结尾一定有标点，所以直接跳出即可，最后一段在上次已加入
+        if todo_text[i_split_head] in splits:
+            i_split_head += 1
+            todo_texts.append(todo_text[i_split_tail:i_split_head])
+            i_split_tail = i_split_head
+        else:
+            i_split_head += 1
+    return todo_texts
+
+
+@register("cut2")
+def cut2(inp):
+    inp = inp.strip("\n")
+    inps = split(inp)
+    if len(inps) < 2:
+        return [inp]
+    opts = []
+    summ = 0
+    tmp_str = ""
+    for i in range(len(inps)):
+        summ += len(inps[i])
+        tmp_str += inps[i]
+        if summ > 50:
+            summ = 0
+            opts.append(tmp_str)
+            tmp_str = ""
+    if tmp_str != "":
+        opts.append(tmp_str)
+    # print(opts)
+    if len(opts) > 1 and len(opts[-1]) < 50:  ##如果最后一个太短了，和前一个合一起
+        opts[-2] = opts[-2] + opts[-1]
+        opts = opts[:-1]
+    return opts
+
+
+@register("cut5")
+def cut5(inp):
+    # if not re.search(r'[^\w\s]', inp[-1]):
+    # inp += '。'
+    inp = inp.strip("\n")
+    # punds = r'[,.;?!、，。？！;：…]'
+    punds = r'[,.;?!、，。？！；：:…]'
+    items = re.split(f'({punds})', inp)
+    mergeitems = ["".join(group) for group in zip(items[::2], items[1::2])]
+    # 在句子不存在符号或句尾无符号的时候保证文本完整
+    if len(items) % 2 == 1:
+        mergeitems.append(items[-1])
+    return mergeitems
+
+
+
+================================================
+FILE: utils/zh_normalization/README.md
+================================================
+## Supported NSW (Non-Standard-Word) Normalization
+
+|NSW type|raw|normalized|
+|:--|:-|:-|
+|serial number|电影中梁朝伟扮演的陈永仁的编号27149|电影中梁朝伟扮演的陈永仁的编号二七一四九|
+|cardinal|这块黄金重达324.75克<br>我们班的最高总分为583分|这块黄金重达三百二十四点七五克<br>我们班的最高总分为五百八十三分|
+|numeric range |12\~23<br>-1.5\~2|十二到二十三<br>负一点五到二|
+|date|她出生于86年8月18日，她弟弟出生于1995年3月1日|她出生于八六年八月十八日， 她弟弟出生于一九九五年三月一日|
+|time|等会请在12:05请通知我|等会请在十二点零五分请通知我
+|temperature|今天的最低气温达到-10°C|今天的最低气温达到零下十度
+|fraction|现场有7/12的观众投出了赞成票|现场有十二分之七的观众投出了赞成票|
+|percentage|明天有62％的概率降雨|明天有百分之六十二的概率降雨|
+|money|随便来几个价格12块5，34.5元，20.1万|随便来几个价格十二块五，三十四点五元，二十点一万|
+|telephone|这是固话0421-33441122<br>这是手机+86 18544139121|这是固话零四二一三三四四一一二二<br>这是手机八六一八五四四一三九一二一|
+## References
+[Pull requests #658 of DeepSpeech](https://github.com/PaddlePaddle/DeepSpeech/pull/658/files)
+
+
+
+================================================
+FILE: utils/zh_normalization/__init__.py
+================================================
+# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+from .text_normlization import *
+
+rep_map = {
+    "：": ",",
+    "；": ",",
+    "，": ",",
+    "。": ".",
+    "！": "!",
+    "？": "?",
+    "\n": ".",
+    "·": ",",
+    "、": ",",
+    "...": "…",
+    "$": ".",
+    "/": ",",
+    "—": "-",
+    "~": "…",
+    "～": "…",
+}
+
+
+def replace_punctuation(text):
+    text = text.replace("嗯", "恩").replace("呣", "母")
+    pattern = re.compile("|".join(re.escape(p) for p in rep_map.keys()))
+
+    replaced_text = pattern.sub(lambda x: rep_map[x.group()], text)
+    punctuation = ["!", "?", "…", ",", "."]
+    replaced_text = re.sub(
+        r"[^\u4e00-\u9fa5" + "".join(punctuation) + r"]+", "", replaced_text
+    )
+
+    return replaced_text
+
+
+def text_normalize(text):
+    # https://github.com/PaddlePaddle/PaddleSpeech/tree/develop/paddlespeech/t2s/frontend/zh_normalization
+    tx = TextNormalizer()
+    sentences = tx.normalize(text)
+    dest_text = ""
+    for sentence in sentences:
+        dest_text += replace_punctuation(sentence)
+    return dest_text
+
+
+
+================================================
+FILE: utils/zh_normalization/char_convert.py
+================================================
+# coding=utf-8
+# Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""Traditional and simplified Chinese conversion, a simplified character may correspond to multiple traditional characters.
+"""
+simplified_charcters = '制咖片型超声盘鉴定仔点他命书歌粉巾字帐恤手指记忆棒形转弯沟光○〇㐄㐅㐆㐌㐖毒㐜㐡㐤㐰㐺㑇㑳㒳㒸㔾㗂㗎㝵㞎㞙㞞以㢲㢴㤅㥁㥯㨗㫺㬎㮎㮚㮸㲋㲱㲾㳮涧㵪㶸㷖㷭㹢㹴犬㺢狓㺵碗㽮㿝䍃䔢䖟䖸䗈䗥䗪䝓射䥯䦉䯝鲃鱼䲔䳗鹅䵹鼄䶑一对应映射丁不识下儿子做二休世丘之貉并中台原则串为甚谓干净了百事无成八变五十些人得道鸡升天代如并来去个国政策劲幽灵在欧洲游荡接样萝卜坑侧化传价元论醇共再准刀两断切分耕耘收获钱货物向看旧就绪险刻千金动劳永逸匙零夜半卡通回复返影踪反常态口咬气句话同吐快吹周味呼诺呜品红锅哄而散起唱和问三知生熟团漆黑火糟堆场空块面塌糊涂尘染壁厢夔已足多情露水大早到晚夫妻当关万莫开失古恨套所料既往孔见提师要家主审寸阴难买斗牛小撮部阵局展身层巴掌帆风顺席地带过年计于春头载四季期被蛇怕井绳度愿式份弹顷深前律径心意念差愁孤行俱全房厅交遮打技长把抓死拿眼泪鼻涕钥锁折段抿拍即合扫排掬挥拨拥上入击洞掷揽改故辙败文值名斑方面旁族日秋餐隔雅里终父旦时晌会霎间晃暴寒曝更月望垠际朝夕本正经利杯羹东西板枝独秀根筋杆进条龙服务概模次函数又性程总付步脚印趋登毛拔呵氧氮碳决雌雄波未平派谎言流清楚白准溜烟潭有获闻是处降琴鹤甲病发可拾沙目然了直以相眨穿睹瞥瞬矢的解石鸟神教秉虔诚秘种窝蜂穷窍笑置笔苟勾销抹杀煞等奖箍节吃箭仇双雕诗筹箩筐系列纸级士官统丝毫挂维网尽线微吭响股脑胎脉承腔臂力致效资源址器举功投般说讲规贸易叶障着慎满皆输号木电池衣倾钟高低视仁觉醒览遗角银币触溃九鼎蔽抄出驷马追重语破贫洗贯走路安蹴至几蹶振跃役胆汗较辈轮辞赞退六连遍递边针血锤音错门思闪真倒项栽雾类保护川先惊乍体哄鳞爪鸣滴泡邻域党专鼓作齐炒丑烯亥克内酯冬加奴卯肝炎基尺梁街裤镐客宠庭巳汝昌烷玲磊糖肇酉醛啷青县韪良香骨鲷丂七集河市弦喜嘴张舌堵区工业姊妹星架构巧彩扭歪拼凑余热曜武州爷浮屠美乡老阶树荤素碎落能魄鳃鳗珠丄丅丆万俟丈尚摸母娘量管群亚虎必我堂令申件装伏位博侠义界表女墟台戏臭皮匠胜诸葛亮赛顶倍催请运算包立叉戟离疫苗土史志演围揭瓦晒夷姑婆帝村宝烂尖杉碱屉桌山岔岛由纪峡坝库镇废从德后拗汤治旬食明昧曹朋友框栏极权幂曲归依猫民氟硼氯磷铁江侗自旅法司洋浦梅园温暖湾焦班幸用田略番叠皇炮捶硝苯酸腺苷棱草镜穗跳远索锦纲聚氰胺联店胚膲爱色堇紫罗兰芝茶饭菱云虫藏藩乱叛苏亲债凳学座恐恋柱测肌腹衩锥系貂企乌跪叩军车农题迭都甘油屯奏键短阿姨陪姐只顾茅庐槽驾魂鲜鹿页其菜单乘任供势午齿汉组织吊调泻唇坡城报坟外夸将尉建筑岸岗公床扬新剑升杭林栗校楼标款汽社浣海商馆剧院钢华港机械广媒环球融第医科证券综财乐育游涨犹岭疏瘾睑确兵领导缴肢膛船艾瑟尔苍蔡虞效衫覆访诉课谕议轨述野钩限敌鞋颌颔颚饶首龈站例修凡划垂届属崽颏厨拜挫摆放旋削棋榻槛礼沉注滑营狱画确仪聘花葬诏员跌辖周达酒锚闸陷陆雨雪飞威丌于丹久乏予理评产亢卑亦乎舞己悲矩圆词害志但住佞佳便俗信票案幅翁倦伦假偏倚斜亏鬼敲停备伤脾胃仅此像俭匮免宜穴焉戴兼容许冻伯仲负彼昼皂轩轾实刊划颠卫战哥比省非好黄饰别拘束掩奶睬选择摇扰烦苦枚写协厌及格受欢迎约只估侵犯割状告或缺抗拒挽撤救药喻磨灭端倪少逆逾越避靠适吉誉吝玉含延咎歹听啻渊善谋均匀堪忍够太惹妙妥妨孕症孝术室完纳推冠积宣疑辩栗碴称屈挠屑干涉衡待很忙恶忿怎么怠急耻恭息悦惑惜惟想愉愧怍慌愤启懂懈怀材才紧招认扣抵拉舍也罢插揣冒搭撞南墙扩核支攻敢雷攀敬里吗需景智暇曾罪遇朽枉止况竞争辱求愈渝溶济左右袒困补爽特寂寞示弱找谢畏强疾徐痛痒冤符眠睦瞅董何厚云措活疲羞者轻玻璃祥兆禁移稂莠稳佛换答简结果盟绝缕途给谈否羁翼耐肖胫毋宁兴舒若菲莱痕迹窠臼虚衰脸兔撒鹰棺范该详讳抬泰让须眉象众赀账费灰赖奇虑训辍辨菽麦辛近送透逞徒速续逮捕遂遑违逊斧钺艰醉锈随观弃显饱脂肪使丏丐帮丒且慢末丕替桃宗王尊凉爵各图屋脊粮署录坛吾禄职胄袭君厦丗北壑桐疹损逢陵鹬丙寅戌氨腈唑纶辰酮脱氢酶醚丞丢现掉纱帽弄扯炮碗丠両丣坐存激肩臻蒂莲悖序驱丨丩丫挺杈髻鬟细介俄伊犁京尼布订普渡央委监察检查剂圈设警队斯督剩震境航舶革防托播促质版蝾螈锋研艺历残消频谱精密制造陲邮候埔坚压坜凹汇执府究邦俘摄寮彬狼岳肺肿庸英讯诊埋粒胞括控码韩暑枪枢砥澳哇牟寿甸钻探篇签缀缝继耳肯照妇埃悬璧轴柜台辣搁浅邪跑纤阮阳私囊魔丮丰姿采丱烧丳丵丶丷丸参寨朗桂瑞砂衷霞貌凤仆舰因嫌宰峰干络牌持旨祭祷簿编罚宾办丼丿乀乂乃乄仰慕盛旷留考验阔乆乇么丑麽乊湖燃乑乒乓乕乖僻忤戾离谬迕乗危肥劫除隙浪婿乙炔肠酰吡咯盐乚乛乜嘢卿玄宫尾狐龟塔嶷兄弟泉章霄钉耙乞扎哀怜恕讨乢乣乤乥乧乨乩童乪乫乭乳晕汁液瑶浆牙癌突窦罩腐胶猪酪蛋糕菌瘤乴乵乶乷乸乹乺乼乾俸冰嘉哕嚎坤妈尸垒旱枯涸俐渴潮涩煸豆燥爹瘦瘪癣瞪袋脆姜贝隆馏乿亀亁叫咕攘扔搞男砸窜蓬麻亃亄亅却亇迟典今临繁累卵奉婚聪躬巨与迁添裂副宿岁怪恶尕仑愣杆硅硫钛铀锰芑杂异钠砷胂磺琥珀舱棍簧胡茬盗浩盆贩郎腿亍洪亐互欠助勉惠操斥诿系户译亓墓碑刑铃卅渠缤纷斗米旗宪钒灯徽瘟祖拳福谷丰脏腑绑肉腌苓蕴桥铺霸颜闹判喷冈底蛙陉矿亖亘亜罕们娜桑那努哈喀弗烈曼松森杜氏杯奥琛敦戊穆圣裔汇薛孙亟亡佚虏羊牢奋释卷卸契媾感额睫缠谊趾塞挤纽阻还配驰庄亨洛祚亪享津沪畿郊慈菴枇杷膏亭阁锃丽亳亶亹诛初责翻疯偶杰丛稠妖拖寰居吸授慧蜗吞壮魅狗矛盾益渣患忧稀描猿梦暂涯畜祸缘沸搜引擎臣横纭谁混援蒸兽狮税剖亻亼亽亡什献刹邡么仂仃仄仆富怨仈仉毕昔晨壳绍仍仏仒仕宦仗欺恃腰叹叹炬梓讫施仙后琼逝仚仝仞仟悔仡佬偿填泊拓扑簇羔购顿钦佩发棻阃驭养亿儆尤借帧赈凌叙帖李柔刚沃眦睚戒讹取飨读仨仫仮著泳卧躺韶夏裁仳仵唯贤凭钓诞仿似宋佛讽伀硕盼鹅伄儅伈伉俪柯始娃迈戈坦堡帕茨萨庙玛莉莎藤霍姆伋伍奢胥廷芳豪伎俩侍汛勒希羲雏伐憩整谟闲闲伕伙伴颐伜伝伢叔恒兹恩翰伱伲侣伶俜悧鼬伸懒缩喇叭伹伺伻伽倻辐伾似佃伫布乔妮墨佉卢佌贷劣廉昂档浓矮伞洼缓耗胸谷迷挡率龋宅沫舍疗佐贰佑占优据铧尝呢须鲁晓佗佘余坪寺瓜铳僧蒙芒陀龛哼呕坊奸孽弊揖祟茧缚誓贼佝偻瞀佟你夺赶佡佢佣佤佧贾佪佫佯佰佱洁绩酿肴佴卷佶佷佸佹佺佻佼佽佾具唤窘坏娱怒慨硬习惯聋膨胀蔓骇贵痹侀侁侂侃侄侅鸿燕侇侈糜靡侉侌妾侏儒仓鼠侐侑侔仑侘侚链侜偎傍钴循柳葫芦附価侮骂蔑侯岩截蚀局贴壶嬛宴捷携桶笺酌俣狭膝狄俅俉俊俏俎俑俓俔谚俚俛黎健呈固墒增守康箱湿祐镖镳杠盒靖膜龄俞豹猎噪孚封札筒托衍鸽剪撰稿炼厂禊练缮葺俯瞰撑冲效俳俴俵俶俷俺备俾伥倂倅储卒惶敷猝逃颉蓄崇隐倌倏忽刺蜡烛噍嚼坍扁抽毙葱楣灌灶粪背薮卖赔闭霉腾倓倔幸倘倜傥倝借箸挹浇阅倡狂倢倣値倥偬倨傲倩匡嗣冲柝珍倬倭寇猩倮倶倷倹勤赞偁偃充伪吏嗓寐惺扮拱芫茜藉虢钞偈伟晶偌宕距析滤殿疼瘫注颇偓偕鸭歇滞偝偟偢忘怡旺偨偩逼偫偭偯偰偱偲侦缉蹄偷减惰漏窥窃偸偺迹傀儡傅傈僳骂篱傎奎琳迪叟芭傒傔傕伧悉荒傜傞傢傣芽逼佣婢傮睨寄檄诵谣颂伛担辜弓惨蒿悼疤傺傻屄臆巢泄箧羡盖轧颓傿㑩僄僇佥僊働僎侨僔僖僚僝伪僣僤侥僦猴偾僩僬僭僮僯僰雇僵殖签静僾僿征陇儁侬儃儇侩朴薄儊儋儌儍傧儓俦侪拟尽儜儞儤儦儩汰哉寡渥裕酷儭儱罐儳儵儹傩俨儽兀臬臲鹫允勋勋宙宵帅憝彝谐嫂阋畅沛溢盈饥赫凶悍狠猛顽愚妣斩秦遣鞭耀敏荣槃泽爆碟磁秃缆辉霁卤朵娄孜烽酱勃汀箕裘钳耶蒙蕾彻兑软遭黜兎児韵媳爸兕觥兖兙兛兜售鍪肚兝兞兟兡兢兣樽殓涅睡禀籍赘泌啡肽奸幕涵涝熵疚眷稃衬讧赴焕椒歼植跏没试误猜栖窗肋袖颊兪卦撇胡岐廓轿疸枫茴珑厕秩募勺吨寓斤历亩迫筷厘最淫螺韬兮宽匪筛襄赢轭复兲诈刃堰戎痞蚁饷它冀铸冂冃円冇冉册嫁厉砺竭醮冏牧冑冓冔冕冖冗冘冞冢窄抑诬冥冫烘菇蛰冷凝坨橇淇淋炭饼砖碛窖醋雕雹霜冱冶炉艳嘲峻滩淡漠煖飕饮冼冽凃凄怆梗凅凇净凊凋敝蒙凔凛遵汞脢凞几凢処凰凯凵凶焰凸折刷纹预丧喽奔巡榜殡芙蓉租笼辑鞘萃凼锯镬刁蛮刂娩崩批拆摊掰蘖骤歧颗秒袂赃勿嘱忌磋琢肤刈羽刎讼戮舂桨艇刓刖霹雳刜创犊刡恙墅帜筵致劫劫刨昏默攸尿欲熏润薰圭删刮痧铲刱刲刳刴刵踏磅戳柏槐绣芹苋猬舟铭鹄鹜劫剁剃辫刭锉履铅克剌姻咽哨廊掠桅沿召瞻翅赵卜渺茫郭剒剔剕沥剚愎毅讷才剜剥啄采剞剟剡剣剤䌽剐肾驶黏剰袍剀紊铲剸剺剽剿劁劂札劈啪柴扳啦刘奭姥夼昫涓熙禅禹锡翔雁鹗刽刿弩柄蜻蛉劒劓劖劘劙澜篑赏矶釜晋甜薪逐劦熔纣虐赤囚劬劭労劵效劻劼劾峭艮勅勇励勍勐腊脖庞漫饲荡粥辄勖勗勘骄馁碌泮雇捐竹骑殊阱绩朴恳谨剿勧勩勯勰劢勋勷劝惩慰诫谏勹芡践阑匁庇拯粟扎袱裹饺匆遽匈匉匊匋匍匐茎匏匕妆痰脓蛹斋苑烤蹈塘羌熊阀螳螂疆碚竿纬荷茵邙魏匚匜匝匟扶稷匣匦拢匸匹耦匽匾匿卂叮疮禧轸堤棚迢钧炼卄卆遐卉瓷盲瓶当胱腱裸卋卌卍卐怯污贱鄙龌龊陋卓溪唐梯渔陈枣泥漳浔涧梨芬谯赡辕迦郑単驴弈洽鳌卛占筮卝卞卟吩啉屎翠厄卣卨卪卬卮榫袄玺绶钮蚤惧殆笃耸卲帘帙绕恤卼卽厂厎厓厔厖厗奚厘厍厜厝谅厕厤厥厪腻孢厮厰厳厣厹厺粕垢芜菁厼厾叁悟茸薯叄吵笄悌哺讥坫垄弧芯杠潜婴刍袁诘贪谍煽馈驳収岳缔灾贿骗叚叡吻拦蘑蜜诀燧玩砚筝椎蔺铜逗骊另觅叨唠谒杵姓喊嚷嚣咚咛塑寻恼憎擦只泣渗蝠叱吒咄咤喝籀黛舵舷叵叶铎懿昭穰苴辽叻叼吁堑嫖赌瞧爬众抒吅吆夥卺橡涤抱纵摩郡唁坠扇篮膀袜颈吋忾谘酬哭妓媛暗表缰迩妃羿絮蕃浑拐葵暮隅吔吖啶嗪戚吜啬噬咽吟哦咏吠吧唧嗒咐吪隽咀征燐苞茹钙哧吮吰吱嘎吲哚吴栋娇窟孟箫忠晗淞阖闾趼宇呐睛嘘拂捧疵熄竽笛糠吼吽呀吕韦蒙呃呆笨呇贡呉罄呋喃呎呏呔呠呡痴呣呤呦呧瑛眩扒晬淑姬瑜璇鹃呪呫哔嚅嗫呬呯呰呱呲咧噌钝呴呶呷呸呺呻哱咻啸噜吁坎坷逻呿咁咂咆哮咇咈咋蟹煦珅蔼咍咑咒诅咔哒嚓咾哝哩喱咗咠咡咢咣咥咦咨嗟询咩咪咫啮啮咭咮咱咲咳呛嗽咴啕咸咹咺呙喉咿婉恸悯赋矜绿茗蓝哂抢瞒哆嗦啰噻啾滨彗哋哌哎唷哟哏哐哞哢哤哪里哫啼喘哰哲萎蚌哳咩哽哿呗唅唆唈唉唎唏哗尧棣殇璜睿肃唔睇唕吣唞唣喳唪唬唰喏唲唳唵嘛唶唸唹唻唼唾唿啁啃鹦鹉啅埠栈榷祺铺鞅飙啊啍啎啐啓啕啖啗啜哑祈啢衔啤啥啫啱啲啵啺饥啽噶昆沁喁喂喆裙喈咙喋喌喎喑喒喓喔粗喙幛庆滋鹊喟喣喤喥喦喧骚喨喩梆吃葡萄喭驼挑吓碰枞瓣纯疱藻趟铬喵営喹喺喼喿嗀嗃嗄嗅嗈嗉嗊嗍嗐嗑嗔诟嗕嗖嗙嗛嗜痂癖嗝嗡嗤嗥嗨唢嗬嗯嗰嗲嗵叽嗷嗹嗾嗿嘀嘁嘂嘅惋嘈峪禾荫啀嘌嘏嘐嘒啯啧嘚唛嘞嘟囔嘣嘥嘦嘧嘬嘭这谑严敞馋松哓嘶嗥呒虾嘹嘻啴嘿噀噂噅噇噉噎噏噔噗噘噙噚咝噞噢噤蝉皿噩噫噭嗳噱哙噳嚏涌洒欲巫霏噷噼嚃嚄嚆抖哜尝嚔苏嚚嚜嚞嚟呖嚬嚭嚮嚯亸喾饬按竣苛嚵嘤啭冁呓膪谦囍囒囓囗囘萧酚飘溅谛囝溯眸纥銮鹘囟殉囡団囤囥囧囨囱囫囵囬囮囯囲図囶囷囸囹圄圉拟囻囿圀圂圃圊粹蠹赦圌垦圏滚鲱凿枘圕圛圜圞坯埂壤骸炕祠窑豚绅魠鲮鳖圧握圩圪垯圬圮圯炸岬幔毯祇窨菩溉圳圴圻圾坂坆沾坋坌舛壈昆垫墩椅坒坓坩埚坭坰坱坳坴坵坻坼杨挣涎帘垃垈垌垍垓垔垕垗垚垛垝垣垞垟垤垧垮垵垺垾垿埀畔埄埆埇埈埌殃隍埏埒埕埗埜垭埤埦埧埭埯埰埲埳埴埵埶绋埸培怖桩础辅埼埽堀诃侄庑堃堄摧磐贞韧砌堈堉垩堋堌堍堎垴堙堞堠礁堧堨舆堭堮蜓摘堲堳堽堿塁塄塈煤茔棵塍垲埘塓绸塕鸦沽虱塙冢塝缪塡坞埙塥塩塬塱场螨塼塽塾塿墀墁墈墉墐夯増毁墝墠墦渍钵墫墬堕墰墺墙橱壅壆壊壌壎壒榨蒜壔壕壖圹垆壜壝垅壡壬壭壱売壴壹壻壸寝壿夂夅夆変夊夌漱邑夓腕泄甥御骼夗夘夙衮瑙妊娠醣枭珊莺鹭戗幻魇夤蹀秘擂鸫姚宛闺屿庾挞拇賛蛤裨菠氅漓捞湄蚊霆鲨箐篆篷荆肆舅荔鲆巷惭骰辟邱镕镰阪漂烩鲵鲽鳄鸨胪鹏妒峨谭枰晏玑癸祝秤竺牡籁恢罡蝼蝎赐绒御梭夬夭砣榆怙枕夶夹馅奄崛葩谲奈贺祀赠奌奂奓奕䜣詝奘奜奠奡奣陶奨奁魁奫奬奰娲孩贬隶酥宄狡猾她姹嫣妁毡荼皋膻蝇嫔妄妍嫉媚娆妗趣妚妞妤碍妬娅妯娌妲妳妵妺姁姅姉姗姒姘姙姜姝姞姣姤姧姫姮娥姱姸姺姽婀娀诱慑胁娉婷娑娓娟娣娭娯娵娶娸娼婊婐婕婞婤婥溪孺婧婪婬婹婺婼婽媁媄媊媕媞媟媠媢媬媮妫媲媵媸媺媻媪眯媿嫄嫈袅嫏嫕妪嫘嫚嫜嫠嫡嫦嫩嫪毐嫫嫬嫰妩嫺娴嫽嫿妫嬃嬅嬉耍婵痴艳嬔嬖嬗嫱袅嫒嬢嬷嬦嬬嬭幼嬲嬴婶嬹嬾嬿孀娘孅娈孏曰癫屏孑孓雀孖斟篓谜摺孛矻鸠崮轲祜鸾孥邈毓棠膑孬孭孰孱孳孵泛罔衔孻孪宀宁冗拙株薇掣抚琪瓿榴谧弥宊濂祁瑕宍宏碁宓邸谳実潢町宥宧宨宬徵崎骏掖阙臊煮禽蚕宸豫寀寁寥寃檐庶寎暄碜寔寖寘寙寛寠苫寤肘洱滥蒗陕核寪弘绰螽宝擅疙瘩晷対檐専尃尅赎绌缭畴衅尌峙醌襟痲碧屁昊槌淘恵瀑牝畑莓缸羚觑蔻脏躁尔尓锐尗尙尜尟尢尥尨尪尬尭尰擒尲尶尴尸尹潽蠖蛾尻扣梢蚴鳍脬蹲屇屌蚵屐屃挪屖屘屙屛屝屡屣峦嶂岩舄屧屦屩屪屃屮戍驻钾崖嵛巅旮旯楂榄榉芋茱萸靛麓屴屹屺屼岀岊岌岍阜岑彭巩岒岝岢岚岣岧岨岫岱岵岷峁峇峋峒峓峞峠嵋峨峰峱岘峹峿崀崁崆祯崋崌崃岖昆崒崔嵬巍萤颢崚崞崟崠峥巆崤崦崧殂岽崱崳崴崶崿嵂嵇嵊泗嵌嵎嵒嵓岁嵙嵞嵡嵩嵫嵯嵴嵼嵾嵝崭崭晴嶋嶌嶒嶓嵚崂嶙嶝嶞峤嶡嶢峄嶨嶭嶮嶰嶲岙嵘巂巃巇巉岿巌巓巘巛滇芎巟巠弋回巣巤炊擘蜥蟒蛊觋巰蜀彦淖杏茂甫楞巻巽帼巿帛斐鲫蕊帑帔帗帚琉汶帟帡帣帨裙帯帰帷帹暆帏幄帮幋幌幏帻幙帮幞幠幡幢幦幨幩幪帱幭幯幰遥蹉跎馀庚鉴幵幷稚邃庀庁広庄庈庉笠庋跋庖牺庠庤庥鲸庬庱庳庴庵馨衢庹庿廃厩廆廋廌廎廏廐廑廒荫廖廛厮搏锣廞弛袤廥廧廨廪廱绵踵髓廸迫瓯邺廻廼廾廿躔弁皱弇弌弍弎弐弑吊诡憾荐弝弢弣弤弨弭弮弰弪霖繇焘斌旭溥骞弶弸弼弾彀彄别累纠强彔彖彘彟彟陌彤贻彧绘虹彪炳雕蔚鸥彰瘅彲彳彴仿彷徉徨彸彽踩敛旆徂徇徊渭畲铉裼従筌徘徙徜徕膳苏萌渐徬徭醺徯徳徴潘徻徼忀瘁胖燎怦悸颤扉犀澎湃砰恍惚绞隘忉惮挨饿忐忑忒忖応忝忞耿忡忪忭忮忱忸怩忻悠懑怏遏怔怗怚怛怞怼黍讶怫怭懦怱怲恍怵惕怸怹恁恂恇恉恌恏恒恓恔恘恚恛恝恞恟恠恣恧眄恪恫恬澹恰恿悀悁悃悄悆悊悐悒晦悚悛悜悝悤您悩悪悮悰悱凄恻德悴怅惘闷悻悾惄愫钟蒐惆惇惌惎惏惓惔惙惛耄惝疟浊恿惦德恽惴蠢惸拈愀愃愆愈愊愍愐愑愒愓愔愕恪氓蠢騃昵惬赧悫愬愮愯恺愼慁恿慅慆慇霭慉慊愠慝慥怄怂慬慱悭慴慵慷戚焚憀灼郁憃惫憋憍眺捏轼愦憔憖憙憧憬憨憪憭怃憯憷憸憹憺懃懅懆邀懊懋怿懔懐懞懠懤懥恹懫懮懰懱毖懵遁梁雍忏懽戁戄戆戉戋戕戛戝戛戠戡戢戣戤戥戦戬戭戯轰戱披菊牖戸戹戺戻卯戽锹扂楔扃扆扈扊杖牵绢铐镯赉扐搂搅烊盹瞌跟趸镲靶鼾払扗玫腮扛扞扠扡扢盔押扤扦扱罾揄绥鞍郤窾扻扼扽抃抆抈抉抌抏瞎抔缳缢擞抜拗択抨摔歉蹿牾抶抻搐泵菸拃拄拊髀抛拌脯拎拏拑擢秧沓曳挛迂拚拝拠拡拫拭拮踢拴拶拷攒拽掇芥橐簪摹疔挈瓢骥捺蹻挌挍挎挐拣挓挖掘浚挙揍聩挲挶挟挿捂捃捄捅捆捉捋胳膊揎捌捍捎躯蛛捗捘捙捜捥捩扪捭据捱捻捼捽掀掂抡臀膘掊掎掏掐笙掔掗掞棉芍掤搪阐掫掮掯揉掱掲掽掾揃揅揆搓揌诨揕揗揘揜揝揞揠揥揩揪揫橥遒麈揰揲揵揶揸背揺搆搉搊搋搌搎搔搕撼橹捣搘搠搡搢搣搤搥搦搧搨搬楦裢讪赸掏搰搲搳搴揾搷搽搾搿摀摁摂摃摎掴摒摓跤摙摛掼摞摠摦喉羯摭摮挚摰摲抠摴抟摷掺摽撂撃撅稻撊撋挦锏泼撕撙撚㧑挢撢掸撦撅撩撬撱朔揿蚍蜉挝捡擀掳闯擉缶觚擐擕擖擗擡擣擤澡腚擧擨擩擫擭摈拧撷擸撸擽擿攃摅撵攉攥攐攓撄搀撺每攩攫辔澄攮攰攲攴轶攷砭讦攽碘敁敃敇敉叙敎筏敔敕敖闰诲敜煌敧敪敳敹敺敻敿斁衽斄牒绉诌斉斎斓鹑谰驳鳢斒筲斛斝斞斠斡斢斨斫斮晾沂潟颖绛邵斲斸釳於琅斾斿旀旗旃旄涡旌旎旐旒旓旖旛旝旟旡旣浴旰獭魃旴时旻旼旽昀昃昄昇昉晰躲澈熹皎皓矾昑昕昜昝昞昡昤晖笋昦昨是昱昳昴昶昺昻晁蹇隧蔬髦晄晅晒晛晜晞晟晡晢晤晥曦晩萘莹顗晿暁暋暌暍暐暔暕煅旸暝暠暡曚暦暨暪朦胧昵暲殄冯暵暸暹暻暾曀晔昙曈曌曏曐暧曘曙曛叠昽曩骆曱甴肱曷牍禺锟曽沧耽朁朅朆杪栓夸竟粘绦朊膺朏朐朓朕朘朙瞄觐溘饔飧朠朢朣栅椆淀虱朩朮朰朱炆璋钰炽鹮朳槿朵朾朿杅杇杌陧欣钊湛漼楷瀍煜玟缨翱肇舜贽适逵杓杕杗杙荀蘅杝杞脩珓筊杰榔狍閦颦缅莞杲杳眇杴杶杸杻杼枋枌枒枓衾葄翘纾逋枙狸桠枟槁枲枳枴枵枷枸橼枹枻柁柂柃柅柈柊柎某柑橘柒柘柙柚柜柞栎柟柢柣柤柩柬柮柰柲橙柶柷柸柺査柿栃栄栒栔栘栝栟柏栩栫栭栱栲栳栴檀栵栻桀骜桁镁桄桉桋桎梏椹葚桓桔桕桜桟桫椤桭杯桯桲桴桷桹湘溟梃梊梍梐潼栀枧梜梠梡梣梧梩梱梲梳梴梵梹棁棃樱棐棑棕榈簑绷蓑枨棘棜棨棩棪棫棬棯棰棱棳棸棹椁棼碗椄苕椈椊椋椌椐椑椓椗検椤椪椰椳椴椵椷椸椽椿楀匾楅篪楋楍楎楗楘楙楛楝楟楠楢楥桢楩楪楫楬楮楯楰梅楸楹楻楽榀榃榊榎槺榕榖榘榛狉莽搒笞榠榡榤榥榦榧杩榭榰榱梿霰榼榾桤槊闩槎槑槔槖様槜槢槥椠槪槭椮槱槲槻槼槾樆樊樏樑樕樗樘樛樟樠樧樨権樲樴樵猢狲桦樻罍樾樿橁橄橆桡笥龠橕橚橛辆椭橤橧竖膈跨橾橿檩檃檇柽檍檎檑檖檗桧槚檠樯檨檫檬梼槟檴檵柠棹櫆櫌栉櫜椟櫡槠栌枥榇栊櫹棂茄櫽欀欂欃欐欑栾欙棂溴欨欬欱欵欶欷歔欸欹欻欼欿歁歃歆艎歈歊莳蝶歓歕歘歙歛歜欤歠蹦诠镶蹒跚升陟歩歮歯歰歳歴璞歺瞑歾殁夭殈殍殑殗殜殙殛殒殢殣殥殪殚僵殰殳荃殷殸殹蛟殻肴谤殴毈毉喂毎毑蕈毗毘毚茛邓毧毬毳毷毹毽毾毵牦氄氆靴氉氊氇氍氐聊氕氖気氘氙氚氛氜氝氡汹焊痉氤氲氥氦铝锌氪烃氩铵痤汪浒漉痘盂碾菖蒲蕹蛭螅氵冰氹氺氽烫氾氿渚汆汊汋汍汎汏汐汔汕褟汙汚汜蓠沼秽蔑汧汨汩汭汲汳汴堤汾沄沅沆瀣沇沈葆浸沦湎溺痼疴沌沍沏沐沔沕沘浜畹砾沚沢沬沭沮沰沱灢沴沷籽沺烹濡洄泂肛泅泆涌肓泐泑泒泓泔泖泙泚泜泝泠漩馍涛粼泞藓鳅泩泫泭泯铢泱泲洇洊泾琵琶荽蓟箔洌洎洏洑潄濯洙洚洟洢洣洧洨洩痢滔洫洮洳洴洵洸洹洺洼洿淌蜚浄浉浙赣渫浠浡浤浥淼瀚浬浭翩萍浯浰蜃淀苔蛞蝓蜇螵蛸煲鲤浃浼浽溦涂涊涐涑涒涔滂莅涘涙涪涫涬涮涴涶涷涿淄淅淆淊凄黯淓淙涟淜淝淟淠淢淤渌淦淩猥藿亵淬淮淯淰淳诣涞纺淸淹炖癯绮渇済渉渋渓渕涣渟渢滓渤澥渧渨渮渰渲渶渼湅湉湋湍湑湓湔黔湜湝浈湟湢湣湩湫湮麟湱湲湴涅満沩溍溎溏溛舐漭溠溤溧驯溮溱溲溳溵溷溻溼溽溾滁滃滉滊荥滏稽滕滘汇滝滫滮羼耷卤滹浐煎漈漊漎绎漕漖漘漙沤漜漪漾漥漦漯漰溆漶漷濞潀颍潎潏潕潗潚潝潞潠潦祉疡潲潵滗潸潺潾涠澁澂澃澉澌澍澐澒澔澙渑澣澦澧澨澫澬浍澰澴澶澼熏郁濆濇濈濉濊貊濔疣濜濠濩觞浚濮盥潍濲泺瀁滢渎渖瀌浏瀒瀔濒泸瀛潇潆瀡潴泷濑瀬弥潋瀳瀵瀹瀺瀼沣滠灉灋灒漓灖灏灞灠滦灥灨滟灪蜴灮烬獴灴灸灺炁炅鱿炗炘炙炤炫疽烙钎炯炰炱炲炴炷毁炻烀烋瘴鲳烓烔焙烜烝烳饪烺焃焄耆焌焐焓焗焜焞焠焢焮焯焱焼煁煃煆煇煊熠煍熬煐炜煕暖熏硷霾煚煝煟煠茕矸煨琐炀萁煳煺煻熀熅熇熉罴荧穹炝熘熛熜稔谙烁熤熨熯熰眶蚂颎熳熸熿燀烨燂燄盏燊燋燏燔隼燖焖燠燡灿燨燮燹燻燽燿爇爊爓爚爝爟爨蟾爯爰为爻丬爿牀牁牂牄牋窗牏牓窗釉牚腩蒡虻牠虽蛎牣牤牮牯牲牳牴牷牸牼绊牿靬犂犄犆犇犉犍犎犒荦犗犛犟犠犨犩犪犮犰狳犴犵犺狁甩狃狆狎狒獾狘狙黠狨狩狫狴狷狺狻豕狈蜘猁猇猈猊猋猓猖獗猗猘狰狞犸猞猟獕猭猱猲猳猷猸猹猺玃獀獃獉獍獏獐獒毙獙獚獜獝獞獠獢獣獧鼇蹊狯猃獬豸狝獯鬻獳犷猕猡玁菟玅玆玈珉糁禛郅玍玎玓瓅玔玕玖玗玘玞玠玡玢玤玥玦珏瑰玭玳瑁玶玷玹玼珂珇珈瑚珌馐馔珔珖珙珛珞珡珣珥珧珩珪佩珶珷珺珽琀琁陨玡琇琖琚琠琤琦琨琫琬琭琮琯琰琱琲琅琴珐珲瑀瑂瑄瑉玮瑑瑔瑗瑢瑭瑱瑲瑳瑽瑾瑿璀璨璁璅璆璈琏璊璐璘璚璝璟璠璡璥瑷璩璪璫璯璲玙璸璺璿瓀璎瓖瓘瓒瓛脐瓞瓠瓤瓧瓩瓮瓰瓱瓴瓸瓻瓼甀甁甃甄甇甋甍甎甏甑甒甓甔瓮甖甗饴蔗甙诧钜粱盎锈团甡褥産甪甬甭甮宁铠甹甽甾甿畀畁畇畈畊畋畎畓畚畛畟鄂畤畦畧荻畯畳畵畷畸畽畾疃叠疋疍疎箪疐疒疕疘疝疢疥疧疳疶疿痁痄痊痌痍痏痐痒痔痗瘢痚痠痡痣痦痩痭痯痱痳痵痻痿瘀痖瘃瘈瘉瘊瘌瘏瘐痪瘕瘖瘙瘚瘛疭瘜瘝瘗瘠瘥瘨瘭瘆瘯瘰疬瘳疠瘵瘸瘺瘘瘼癃痨痫癈癎癐癔癙癜癠疖症癞蟆癪瘿痈発踔绀蔫酵皙砬砒翎翳蔹钨镴皑鹎驹暨粤褶皀皁荚皃镈皈皌皋皒朱皕皖皘皜皝皞皤皦皨皪皫皭糙绽皴皲皻皽盅盋碗盍盚盝踞盦盩秋千盬盭眦睁瞤盯盱眙裰盵盻睐眂眅眈眊県眑眕眚眛眞眢眣眭眳眴眵眹瞓眽郛睃睅睆睊睍睎困睒睖睙睟睠睢睥睪睾睯睽睾眯瞈瞋瞍逛瞏瞕瞖眍䁖瞟瞠瞢瞫瞭瞳瞵瞷瞹瞽阇瞿眬矉矍铄矔矗矙瞩矞矟矠矣矧矬矫矰矱硪碇磙罅舫阡、矼矽礓砃砅砆砉砍砑砕砝砟砠砢砦砧砩砫砮砳艏砵砹砼硇硌硍硎硏硐硒硜硖砗磲茚钡硭硻硾碃碉碏碣碓碔碞碡碪碫碬砀碯碲砜碻礴磈磉磎硙磔磕磖磛磟磠磡磤磥蹭磪磬磴磵磹磻硗礀硚礅礌礐礚礜礞礤礧礮砻礲礵礽礿祂祄祅祆禳祊祍祏祓祔祕祗祘祛祧祫祲祻祼饵脔锢禂禇禋祦禔祎隋禖禘禚禜禝禠祃禢禤禥禨禫祢禴禸秆秈秊闱飒秋秏秕笈蘵赁秠秣秪秫秬秭秷秸稊稌稍稑稗稙稛稞稬秸稲稹稼颡稿穂穄穇穈穉穋稣贮穏穜穟秾穑穣穤穧穨穭穮穵穸窿阒窀窂窅窆窈窕窊窋窌窒窗窔窞窣窬黩蹙窑窳窴窵窭窸窗竁竃竈竑竜并竦竖篦篾笆鲛竾笉笊笎笏笐靥笓笤箓笪笫笭笮笰笱笲笳笵笸笻筀筅筇筈筎筑筘筠筤筥筦笕筒筭箸筰筱筳筴宴筸箂个箊箎箑箒箘箙箛箜篌箝箠箬镞箯箴箾篁筼筜篘篙篚篛篜篝篟篠篡篢篥篧篨篭篰篲筚篴篶篹篼箦簁簃簆簉簋簌簏簜簟簠簥簦簨簬簰簸簻籊藤籒籓籔签籚篯箨籣籥籧笾簖籫籯芾麴籵籸籹籼粁秕粋粑粔粝粛粞粢粧粨粲粳稗粻粽辟粿糅糆糈糌糍糒糔萼糗蛆蹋糢糨糬粽糯糱籴粜糸糺紃蹼鲣霉纡纨绔纫闽襻紑纰纮锭鸢鹞纴紞紟扎紩紬绂绁纻紽紾绐絁絃絅経絍绗絏缡褵絓絖絘絜绚絣螯絪絫聒絰絵绝絺絻絿綀绡綅绠绨绣綌綍綎捆綖綘継続缎绻綦綪线綮綯绾罟蝽綷縩绺绫緁绲緅緆缁绯緌緎総緑绱緖缃缄缂绵缗緤褓缌纂緪緰缑缈缏缇縁縃縄萦缙缒縏缣縕缞縚缜缟缛縠縡縢縦绦縯縰骋缧縳纤缦絷缥縻衙縿繄缫繈繊繋繐缯繖繘繙繠缋繣繨缰缲繸繻缱纁纆纇缬缵纩纑纕缵纙纚纛缾罃罆坛罋罂罎罏罖罘罛罝罠罣罥罦罨罫罭锾罳罶罹罻罽罿羂羃羇芈蕉５１鸵羑羖羌羜羝羢羣羟羧羭羮羰羱羵羶羸藜鲐翀翃翅翊翌翏翕翛翟翡翣翥翦跹翪翫翚翮翯翱翽翾翿板饕鸹锨耋耇耎耏专耒耜耔耞耡耤耨耩耪耧耰鬓耵聍聃聆聎聝聡聦聱聴聂聼阈聿肄肏肐肕腋肙肜肟肧胛肫肬肭肰肴肵肸肼胊胍胏胑胔胗胙胝胠铨胤胦胩胬胭胯胰胲胴胹胻胼胾脇脘脝脞脡脣脤脥脧脰脲脳腆腊腌臜腍腒腓胨腜腠脶腥腧腬腯踝蹬镣腴腶蠕诽膂腽嗉膇膋膔腘膗膙膟黐膣膦膫膰膴膵膷脍臃臄臇臈臌臐臑臓膘臖臙臛臝臞臧蓐诩臽臾臿舀舁鳑鲏舋舎舔舗馆舝舠舡舢舨舭舲舳舴舸舺艁艄艅艉艋艑艕艖艗艘艚艜艟艣舣艨艩舻艬艭荏艴艳艸艹艻艿芃芄芊萰陂藭芏芔芘芚蕙芟芣芤茉芧芨芩芪芮芰鲢芴芷芸荛豢芼芿苄苒苘苙苜蓿苠苡苣荬苤苎苪镑苶苹苺苻苾茀茁范蠡萣茆茇茈茌茍茖茞茠茢茥茦菰茭茯茳藨茷藘茼荁荄荅荇荈菅蜢鸮荍荑荘豆荵荸荠莆莒莔莕莘莙莚莛莜莝莦莨菪莩莪莭莰莿菀菆菉菎菏菐菑菓菔芲菘菝菡菢菣菥蓂菧菫毂蓥菶菷菹醢菺菻菼菾萅萆苌萋萏萐萑萜萩萱萴莴扁萻葇葍葎葑荭葖葙葠葥苇葧葭药葳葴葶葸葹葽蒄蒎莼茏薹莅蒟蒻蒢蒦蒨蒭藁蒯蒱鉾蒴蒹蒺蒽荪蓁蓆蓇蓊蓌蓍蓏蓓蓖蓧蓪蓫荜跣藕苁蓰蓱莼蓷蓺蓼蔀蔂蔃蔆蔇蔉蔊蔋蔌蔎蔕蔘蔙蒌蔟锷蒋雯茑蔯蔳麻蔵蔸蔾荨蒇蕋蕍荞蕐蕑芸莸蕖蕗蕝蕞蕠蕡蒉蕣蕤蕨蕳蓣蕸蕺蕻薀薁薃薅薆荟薉芗薏薐蔷薖薘剃谔钗薜薠薢薤薧薨薫薬薳薶薷薸薽薾薿藄藇藋荩藐藙藚藟藦藳藴苈藷藾蘀蘁蕲苹蘗蘘蘝蘤蘧蘩蘸蘼虀虆虍蟠虒虓虖虡虣虥虩虬虰蛵蛇虷鳟虺虼蚆蚈蚋蚓蚔蚖蚘蚜蚡蚣蚧蚨蚩蚪蚯蚰蜒蚱蚳蚶蚹蚺蚻蚿蛀蛁蛄蛅蝮蛌蛍蛐蟮蛑蛓蛔蛘蛚蛜蛡蛣蜊蛩蛱蜕螫蜅蚬蜈蝣蜋蜍蜎蜑蠊蜛饯蜞蜣蜨蜩蜮蜱蜷蜺蜾蜿蝀蝃蝋蝌蝍蝎蝏蝗蝘蝙蝝鲼蝡蝤蝥猿蝰虻蝲蝴蝻螃蠏蛳螉螋螒螓螗螘螙螚蟥螟螣螥螬螭䗖螾螀蟀蟅蝈蟊蟋蟑蟓蟛蟜蟟蟢虮蟨蟪蟭蛲蟳蛏蟷蟺蟿蠁蠂蠃虿蠋蛴蠓蚝蠗蠙蠚蠛蠜蠧蟏蠩蜂蠮蠰蠲蠵蠸蠼蠽衁衄衄衇衈衉衋衎衒同衖胡衞裳钩衭衲衵衹衺衿袈裟袗袚袟袢袪袮袲袴袷袺袼褙袽裀裉袅裋夹裍裎裒裛裯裱裲裴裾褀褂褉褊裈褎褐褒褓褔褕袆褚褡褢褦褧褪褫袅褯褰褱裆褛褽褾襁褒襆裥襉襋襌襏襚襛襜裣襞襡襢褴襦襫襬襭襮襕襶襼襽襾覂覃覅霸覉覊覌覗觇覚覜觍觎覧覩觊觏覰観觌觔觕觖觜觽觝觡酲觩觫觭觱觳觯觷觼觾觿言赅讣訇訏訑訒诂讬訧訬訳訹证訾詀詅诋毁詈詊讵詑诒诐詗诎察詨诜詶詸詹詻诙诖誂誃诔锄诓誋诳诶悖誙诮诰誧説読誯谇訚谄谆諆諌诤诹诼諕谂谀諝谝諟喧谥諴諵谌谖誊謆謇歌謍謏謑谡谥謡謦謪谪讴謷謼谩哗譅譆譈譊讹譒撰谮鑫譞噪譩谵譬譱譲谴譸譹谫讅讆詟䜩雠讐谗谶讙谠讟谽豁豉豇岂豊豋豌豏豔豞豖豗豜豝豣豦豨豭豱豳豵豶豷豺豻貅貆狸猊貔貘䝙貜貤餍贳餸贶贲赂賏赊赇赒賝赓赕賨赍斗賮賵賸赚赙赜赟贉赆赑贕赝赬赭赱赳迄趁趂趄趐趑趒趔趡趦趫趮趯趱趴趵趷趹趺趿跁跂跅跆踬跄跐跕跖跗跙跛跦跧跩跫跬跮跱跲跴跺跼跽踅踆踈踉踊踒踖踘踜踟躇蹰踠踡踣踤踥踦踧跷踫踮逾踱踊踶踹踺踼踽躞蹁蹂躏蹎蹐蹓蹔跸蹚蹜蹝迹蹠蹡蹢跶蹧蹩蹪蹯鞠蹽躃躄躅踌跻躐踯跞躘躙躗躝躠蹑躜躧躩躭躰躬躶軃軆辊軏轫軘軜軝腭転軥軨軭軱轱辘軷轵轺軽軿輀輂辇辂辁輈挽輗辄辎辋輠輤輬輭輮辏輴輵輶輹輼辗辒轇轏轑轒辚轕轖轗轘轙轝轞轹轳罪辣辞辵辶辺込辿迅迋迍麿迓迣迤逦迥迨迮迸迺迻迿逄逅逌逍逑逓迳逖逡逭逯逴逶逹遄遅侦遘遛遝遢遨遫遯遰遴绕遹遻邂邅邉邋邎邕邗邘邛邠邢邧邨邯郸邰邲邳邴邶邷邽邾邿郃郄郇郈郔郕郗郙郚郜郝郞郏郠郢郪郫郯郰郲郳郴郷郹郾郿鄀鄄郓鄇鄈鄋鄍鄎鄏鄐鄑邹邬鄕郧鄗鄘鄚鄜鄞鄠鄢鄣鄤鄦鄩鄫鄬鄮鄯鄱郐鄷鄹邝鄻鄾鄿酃酅酆酇郦酊酋酎酏酐酣酔酕醄酖酗酞酡酢酤酩酴酹酺醁醅醆醊醍醐醑醓醖醝酝醡醤醨醪醭醯醰酦醲醴醵醸醹醼醽醾釂酾酽釆釈鲈镏阊钆钇钌钯钋鼢鼹钐钏釪釬釭釱钍釸钕钫鈃钭鈆鈇钚鈊鈌钤钣鈒鈤钬钪鈬铌铈钶铛钹铍钸钿鉄鉆铊铇鉌铋鉏铂钷铆钵鉥钲鉨钼钽鉱鉲鉶铰铒鉼铪銍銎铣銕镂铫铦铑铷銤铱铟銧铥铕铯銭銰焊銶锑锉汞鋂锒鋆鋈鋊铤鋍铗鋐鋑鋕鋘鋙锊锓锔锇铓鋭铖锆锂铽鋳鋹鋺鉴镚钎錀锞锖锫锩錍铔锕錔锱铮锛錞锬锜錤錩錬録铼錼锝钔锴鍉镀鍏鍐铡鍚锻锽锸锲锘鍫鍭鍱鍴锶鍹锗针锺锿镅鎉鎋鎌鎍鎏鎒鎓鎗镉鎚鎞镃鎤铩锼鎭鎯镒镍鎴镓鎸鎹镎镟鏊镆镠镝鏖铿锵鏚镗镘镛鏠鏦錾镤鏸镪鏻鏽鏾铙鐄鐇鐏铹镦镡鐗馗镫镢镨鐡锎镄鐩镌鐬鐱镭鐶鐻鐽镱鑀鑅镔鑐鑕鑚鑛鑢鑤镥鑪镧鑯鑱鑴鑵镊镢钃镻闫闬闶闳閒闵閗閟阂関合閤哄阆閲阉閺阎阏阍阌暗闉阕阗闑闒闿闘闚阚闟闠闤闼阞阢阤阨阬阯阹阼阽陁陑陔陛陜陡陥陬骘陴険陼陾阴隃隈隒隗隞隠隣隤隩隮隰颧隳隷隹雂雈雉雊雎雑雒雗雘雚雝雟雩雰雱驿霂霅霈霊沾霒霓霙霝霢霣霤霨霩霪霫霮靁叇叆靑靓靣腼靪靮靰靳靷靸靺靼靿鞀鞃鞄鞍鞗鞙鞚鞝鞞鞡鞣鞨鞫鞬鞮鞶鞹鞾鞑韅鞯驮韍韎韔韖韘韝韫韡韣韭韭韱韹韺頀刮頄顸顼頍颀颃颁頖頞頠頫頬颅頯頲颕頼悴顋顑颙颛颜顕顚顜颟顣颥颞飐飑台飓颸飏飖颽颾颿飀飂飚飌翻飡飣饲飥饨饫飮飧飶餀餂饸饹餇餈饽哺馂餖餗餚馄馃餟餠餤餧餩餪餫糊餮糇餲饧馎糕饩馈馊馌馒饇馑馓膳饎饐饘饟馕馘馥馝馡馣骝骡馵馹駃駄駅駆駉駋驽駓驵駗骀驸駜骂骈駪駬骃駴骎駹駽駾騂騄骓騆騉騋骒骐麟騑騒験騕骛騠騢騣騤騧骧騵驺骟騺蓦骖骠骢驆驈骅驌骁驎骣驒驔驖驙驦驩驫骺鲠骫骭肮骱骴骶骷髅骾髁髂髄髆膀髇髑髌髋髙髝髞髟髡髣髧髪髫髭髯髲髳髹髺髽髾鬁鬃鬅鬈鬋鬎鬏鬐鬑鬒鬖鬗鬘鬙鬠鬣斗鬫鬬阄鬯鬰鬲鬵鬷魆魈魊魋魍魉魑魖鳔魛魟魣魦魨魬鲂魵魸鮀鲅鮆鲧鲇鲍鲋鮓鲒鲕鮟鱇鮠鮦鮨鲔鲑鮶鮸鮿鲧鯄鯆鲩鯈鲻鯕鲭鲞鯙鯠鲲鯥鲰鲶鳀鯸鳊鲗䲠鹣鳇鰋鳄鳆鰕鰛鰜鲥鰤鳏鰦鳎鳐鳁鳓鰶鲦鲡鰼鰽鱀鱄鳙鱆鳕鱎鱐鳝鳝鳜鲟鲎鱠鳣鱨鲚鱮鱲鱵鱻鲅鳦凫鳯鳲鳷鳻鴂鴃鴄鸩鴈鴎鸰鴔鴗鸳鸯鸲鹆鸱鴠鴢鸪鴥鸸鹋鴳鸻鴷鴽鵀鵁鸺鹁鵖鵙鹈鹕鹅鵟鵩鹌鵫鵵鵷鵻鹍鶂鶊鶏鶒鹙鶗鶡鶤鶦鶬鶱鹟鶵鶸鶹鹡鶿鹚鷁鷃鷄鷇䴘䴘鷊鷏鹧鷕鹥鸷鷞鷟鸶鹪鹩鷩鷫鷭鹇鹇鸴鷾䴙鸂鸇䴙鸏鸑鸒鸓鸬鹳鸜鹂鹸咸鹾麀麂麃麄麇麋麌麐麑麒麚麛麝麤麸面麫麮麯麰麺麾黁黈黉黢黒黓黕黙黝黟黥黦黧黮黰黱黪黶黹黻黼黾鼋鼂鼃鼅鼈鼍鼏鼐鼒冬鼖鼙鼚鼛鼡鼩鼱鼪鼫鼯鼷鼽齁齆齇齈齉齌赍齑龀齕齗龅齚龇齞龃龉龆齢出齧齩齮齯齰齱齵齾厐龑龒龚龖龘龝龡龢龤'
+
+traditional_characters = '制咖片型超聲盤鑒定仔點他命書歌粉巾字帳恤手指記憶棒形轉彎溝光○〇㐄㐅㐆㐌㐖毒㐜㐡㐤㐰㐺㑇㑳㒳㒸㔾㗂㗎㝵㞎㞙㞞㠯㢲㢴㤅㥁㥯㨗㫺㬎㮎㮚㮸㲋㲱㲾㳮㵎㵪㶸㷖㷭㹢㹴犬㺢狓㺵㼝㽮㿝䍃䔢䖟䖸䗈䗥䗪䝓䠶䥯䦉䯝䰾魚䲔䳗䳘䵹鼄䶑一對應映射丁不識下兒子做二休世丘之貉並中台原則串為甚謂乾淨了百事無成八變五十些人得道雞升天代如併來去個國政策勁幽靈在歐洲遊蕩接樣蘿蔔坑側化傳價元論醇共再准刀兩斷切分耕耘收穫錢貨物向看舊就緒險刻千金動勞永逸匙零夜半卡通回復返影蹤反常態口咬氣句話同吐快吹周味呼諾嗚品紅鍋哄而散起唱和問三知生熟團漆黑火糟堆場空塊麵塌糊塗塵染壁廂夔已足多情露水大早到晚夫妻當關萬莫開失古恨套所料既往孔見提師要家主審寸陰難買鬥牛小撮部陣局展身層巴掌帆風順席地帶過年計於春頭載四季期被蛇怕井繩度願式份彈頃深前律徑心意念差愁孤行俱全房廳交遮打技長把抓死拿眼淚鼻涕鑰鎖折段抿拍即合掃排掬揮撥擁上入擊洞擲攬改故轍敗文值名斑方面旁族日秋餐隔雅里終父旦時晌會霎間晃暴寒曝更月望垠際朝夕本正經利杯羹東西板枝獨秀根筋桿進條龍服務概模次函數又性程總付步腳印趨登毛拔呵氧氮碳決雌雄波未平派謊言流清楚白準溜煙潭有獲聞是處降琴鶴甲病發可拾沙目然瞭直以相眨穿睹瞥瞬矢的解石鳥神教秉虔誠秘種窩蜂窮竅笑置筆苟勾銷抹殺煞等獎箍節吃箭仇雙鵰詩籌籮筐系列紙級士官統絲毫掛維網盡線微吭響股腦胎脈承腔臂力致效資源址器舉功投般說講規貿易葉障著慎滿皆輸號木電池衣傾鐘高低視仁覺醒覽遺角銀幣觸潰九鼎蔽抄出駟馬追重語破貧洗貫走路安蹴至幾蹶振躍役膽汗較輩輪辭贊退六連遍遞邊針血錘音錯門思閃真倒項栽霧類保護川先驚乍體鬨鱗爪鳴滴泡鄰域黨專鼓作齊炒丑烯亥克內酯冬加奴卯肝炎基尺梁街褲鎬客寵庭巳汝昌烷玲磊糖肇酉醛啷青縣韙良香骨鯛丂七集河市弦喜嘴張舌堵區工業姊妹星架構巧彩扭歪拼湊餘熱曜武州爺浮屠美鄉老階樹葷素碎落能魄鰓鰻珠丄丅丆万俟丈尚摸母娘量管群亞虎必我堂令申件裝伏位博俠義界表女墟臺戲臭皮匠勝諸葛亮賽頂倍催請運算包立叉戟離疫苗土史志演圍揭瓦曬夷姑婆帝村寶爛尖杉鹼屜桌山岔島由紀峽壩庫鎮廢從德後拗湯治旬食明昧曹朋友框欄極權冪曲歸依貓民氟硼氯磷鐵江侗自旅法司洋浦梅園溫暖灣焦班幸用田略番疊皇炮捶硝苯酸腺苷稜草鏡穗跳遠索錦綱聚氰胺聯店胚膲愛色堇紫羅蘭芝茶飯菱雲蟲藏藩亂叛蘇親債凳學座恐戀柱測肌腹衩錐係貂企烏跪叩軍車農題迭都甘油屯奏鍵短阿姨陪姐隻顧茅廬槽駕魂鮮鹿頁其菜單乘任供勢午齒漢組織吊調瀉唇坡城報墳外夸將尉建築岸崗公床揚新劍昇杭林栗校樓標款汽社浣海商館劇院鋼華港機械廣媒環球融第醫科證券綜財樂育游漲猶嶺疏癮瞼確兵領導繳肢膛船艾瑟爾蒼蔡虞傚衫覆訪訴課諭議軌述野鉤限敵鞋頜頷顎饒首齦站例修凡劃垂屆屬崽頦廚拜挫擺放旋削棋榻檻禮沉注滑營獄畫确儀聘花葬詔員跌轄週達酒錨閘陷陸雨雪飛威丌于丹久乏予理評產亢卑亦乎舞己悲矩圓詞害誌但住佞佳便俗信票案幅翁倦倫假偏倚斜虧鬼敲停備傷脾胃僅此像儉匱免宜穴焉戴兼容許凍伯仲負彼晝皂軒輊實刊划顛衛戰哥比省非好黃飾別拘束掩奶睬選擇搖擾煩苦枚寫協厭及格受歡迎約只估侵犯割狀告或缺抗拒挽撤救藥喻磨滅端倪少逆逾越避靠適吉譽吝玉含延咎歹聽啻淵善謀均勻堪忍夠太惹妙妥妨孕症孝術室完納推冠積宣疑辯慄碴稱屈撓屑干涉衡待很忙惡忿怎麼怠急恥恭息悅惑惜惟想愉愧怍慌憤啟懂懈懷材才緊招認扣抵拉捨也罷插揣冒搭撞南牆擴核支攻敢雷攀敬裡嗎需景智暇曾罪遇朽枉止況競爭辱求癒渝溶濟左右袒困補爽特寂寞示弱找謝畏強疾徐痛癢冤符眠睦瞅董何厚云措活疲羞者輕玻璃祥兆禁移稂莠穩佛換答簡結果盟絕縷途給談否羈翼耐肖脛毋寧興舒若菲萊痕跡窠臼虛衰臉兔撒鷹棺範該詳諱抬泰讓鬚眉象眾貲賬費灰賴奇慮訓輟辨菽麥辛近送透逞徒速續逮捕遂遑違遜斧鉞艱醉鏽隨觀棄顯飽脂肪使丏丐幫丒且慢末丕替桃宗王尊涼爵各圖屋脊糧署錄壇吾祿職胄襲君廈丗北壑桐疹損逢陵鷸丙寅戌氨腈唑綸辰酮脫氫酶醚丞丟現掉紗帽弄扯砲碗丠両丣坐存激肩臻蒂蓮悖序驅丨丩丫挺杈髻鬟細介俄伊犁京尼布訂普渡央委監察檢查劑圈設警隊斯督剩震境航舶革防托播促質版蠑螈鋒研藝歷殘消頻譜精密製造陲郵候埔堅壓壢凹匯執府究邦俘攝寮彬狼嶽肺腫庸英訊診埋粒胞括控碼韓暑槍樞砥澳哇牟壽甸鑽探篇簽綴縫繼耳肯照婦埃懸璧軸櫃檯辣擱淺邪跑纖阮陽私囊魔丮丰姿采丱燒丳丵丶丷丸參寨朗桂瑞砂衷霞貌鳳僕艦因嫌宰峰幹絡牌持旨祭禱簿編罰賓辦丼丿乀乂乃乄仰慕盛曠留考驗闊乆乇么醜麼乊湖燃乑乒乓乕乖僻忤戾离謬迕乗危肥劫除隙浪婿乙炔腸酰吡咯鹽乚乛乜嘢卿玄宮尾狐龜塔嶷兄弟泉章霄釘耙乞扎哀憐恕討乢乣乤乥乧乨乩童乪乫乭乳暈汁液瑤漿牙癌突竇罩腐膠豬酪蛋糕菌瘤乴乵乶乷乸乹乺乼乾俸冰嘉噦嚎坤媽屍壘旱枯涸俐渴潮澀煸豆燥爹瘦癟癬瞪袋脆薑貝隆餾乿亀亁叫咕攘扔搞男砸竄蓬麻亃亄亅卻亇遲典今臨繁累卵奉婚聰躬巨與遷添裂副宿歲怪噁尕崙愣杆硅硫鈦鈾錳芑雜異鈉砷胂磺琥珀艙棍簧胡茬盜浩盆販郎腿亍洪亐互欠助勉惠操斥諉繫戶譯亓墓碑刑鈴卅渠繽紛斗米旗憲釩燈徽瘟祖拳福穀豐臟腑綁肉醃苓蘊橋鋪霸顏鬧判噴岡底蛙陘礦亖亙亜罕們娜桑那努哈喀弗烈曼松森杜氏盃奧琛敦戊穆聖裔彙薛孫亟亡佚虜羊牢奮釋卷卸契媾感額睫纏誼趾塞擠紐阻還配馳莊亨洛祚亪享津滬畿郊慈菴枇杷膏亭閣鋥麗亳亶亹誅初責翻瘋偶傑叢稠妖拖寰居吸授慧蝸吞壯魅狗矛盾益渣患憂稀描猿夢暫涯畜禍緣沸搜引擎臣橫紜誰混援蒸獸獅稅剖亻亼亽亾什獻剎邡麽仂仃仄仆富怨仈仉畢昔晨殼紹仍仏仒仕宦仗欺恃腰嘆歎炬梓訖施仙后瓊逝仚仝仞仟悔仡佬償填泊拓撲簇羔購頓欽佩髮棻閫馭養億儆尤藉幀賑凌敘帖李柔剛沃眥睚戒訛取饗讀仨仫仮著泳臥躺韶夏裁仳仵唯賢憑釣誕仿似宋彿諷伀碩盼鵝伄儅伈伉儷柯始娃邁戈坦堡帕茨薩廟瑪莉莎藤霍姆伋伍奢胥廷芳豪伎倆侍汛勒希羲雛伐憩整謨閑閒伕伙伴頤伜伝伢叔恆茲恩翰伱伲侶伶俜悧鼬伸懶縮喇叭伹伺伻伽倻輻伾佀佃佇佈喬妮墨佉盧佌貸劣廉昂檔濃矮傘窪緩耗胸谷迷擋率齲宅沫舍療佐貳佑佔優據鏵嘗呢須魯曉佗佘余坪寺瓜銃僧蒙芒陀龕哼嘔坊姦孽弊揖祟繭縛誓賊佝僂瞀佟你奪趕佡佢佣佤佧賈佪佫佯佰佱潔績釀餚佴捲佶佷佸佹佺佻佼佽佾具喚窘壞娛怒慨硬習慣聾膨脹蔓駭貴痺侀侁侂侃侄侅鴻燕侇侈糜靡侉侌妾侏儒倉鼠侐侑侔侖侘侚鏈侜偎傍鈷循柳葫蘆附価侮罵蔑侯岩截蝕侷貼壺嬛宴捷攜桶箋酌俁狹膝狄俅俉俊俏俎俑俓俔諺俚俛黎健呈固墒增守康箱濕祐鏢鑣槓盒靖膜齡俞豹獵噪孚封札筒託衍鴿剪撰稿煉廠禊練繕葺俯瞰撐衝俲俳俴俵俶俷俺俻俾倀倂倅儲卒惶敷猝逃頡蓄崇隱倌倏忽刺蠟燭噍嚼坍扁抽斃蔥楣灌灶糞背藪賣賠閉霉騰倓倔倖倘倜儻倝借箸挹澆閱倡狂倢倣値倥傯倨傲倩匡嗣沖柝珍倬倭寇猩倮倶倷倹勤讚偁偃充偽吏嗓寐惺扮拱芫茜藉虢鈔偈偉晶偌宕距析濾殿疼癱註頗偓偕鴨歇滯偝偟偢忘怡旺偨偩偪偫偭偯偰偱偲偵緝蹄偷減惰漏窺竊偸偺迹傀儡傅傈僳傌籬傎奎琳迪叟芭傒傔傕傖悉荒傜傞傢傣芽逼傭婢傮睨寄檄誦謠頌傴擔辜弓慘蒿悼疤傺傻屄臆巢洩篋羨蓋軋頹傿儸僄僇僉僊働僎僑僔僖僚僝僞僣僤僥僦猴僨僩僬僭僮僯僰僱僵殖籤靜僾僿征隴儁儂儃儇儈朴薄儊儋儌儍儐儓儔儕儗儘儜儞儤儦儩汰哉寡渥裕酷儭儱罐儳儵儹儺儼儽兀臬臲鷲允勛勳宙宵帥憝彞諧嫂鬩暢沛溢盈飢赫兇悍狠猛頑愚妣斬秦遣鞭耀敏榮槃澤爆碟磁禿纜輝霽鹵朵婁孜烽醬勃汀箕裘鉗耶懞蕾徹兌軟遭黜兎児韻媳爸兕觥兗兙兛兜售鍪肚兝兞兟兡兢兣樽殮涅睡稟籍贅泌啡肽奸幕涵澇熵疚眷稃襯訌赴煥椒殲植跏沒試誤猜棲窗肋袖頰兪卦撇鬍岐廓轎疸楓茴瓏廁秩募勺噸寓斤曆畝迫筷釐最淫螺韜兮寬匪篩襄贏軛複兲詐刃堰戎痞蟻餉它冀鑄冂冃円冇冉冊嫁厲礪竭醮冏牧冑冓冔冕冖冗冘冞冢窄抑誣冥冫烘菇蟄冷凝坨橇淇淋炭餅磚磧窖醋雕雹霜冱冶爐艷嘲峻灘淡漠煖颼飲冼冽凃凄愴梗凅凇凈凊凋敝濛凔凜遵汞脢凞几凢処凰凱凵凶焰凸摺刷紋預喪嘍奔巡榜殯芙蓉租籠輯鞘萃凼鋸鑊刁蠻刂娩崩批拆攤掰櫱驟歧顆秒袂贓勿囑忌磋琢膚刈羽刎訟戮舂槳艇刓刖霹靂刜創犢刡恙墅幟筵緻刦刧刨昏默攸尿慾薰潤薰圭刪刮痧鏟刱刲刳刴刵踏磅戳柏槐繡芹莧蝟舟銘鵠鶩刼剁剃辮剄剉履鉛剋剌姻咽哨廊掠桅沿召瞻翅趙卜渺茫郭剒剔剕瀝剚愎毅訥纔剜剝啄採剞剟剡剣剤綵剮腎駛黏剰袍剴紊剷剸剺剽剿劁劂劄劈啪柴扳啦劉奭姥夼昫涓熙禪禹錫翔雁鶚劊劌弩柄蜻蛉劒劓劖劘劙瀾簣賞磯釜晉甜薪逐劦熔紂虐赤囚劬劭労劵効劻劼劾峭艮勅勇勵勍勐臘脖龐漫飼盪粥輒勖勗勘驕餒碌泮雇捐竹騎殊阱勣樸懇謹勦勧勩勯勰勱勲勷勸懲慰誡諫勹芡踐闌匁庇拯粟紮袱裹餃匆遽匈匉匊匋匍匐莖匏匕妝痰膿蛹齋苑烤蹈塘羌熊閥螳螂疆碚竿緯荷茵邙魏匚匜匝匟扶稷匣匭攏匸匹耦匽匾匿卂叮瘡禧軫堤棚迢鈞鍊卄卆遐卉瓷盲瓶噹胱腱裸卋卌卍卐怯污賤鄙齷齪陋卓溪唐梯漁陳棗泥漳潯澗梨芬譙贍轅迦鄭単驢弈洽鰲卛占筮卝卞卟吩啉屎翠厄卣卨卪卬卮榫襖璽綬鈕蚤懼殆篤聳卲帘帙繞卹卼卽厂厎厓厔厖厗奚厘厙厜厝諒厠厤厥厪膩孢厮厰厳厴厹厺粕垢蕪菁厼厾叁悟茸薯叄吵笄悌哺譏坫壟弧芯杠潛嬰芻袁詰貪諜煽饋駁収岳締災賄騙叚叡吻攔蘑蜜訣燧玩硯箏椎藺銅逗驪另覓叨嘮謁杵姓喊嚷囂咚嚀塑尋惱憎擦祇泣滲蝠叱吒咄咤喝籀黛舵舷叵叶鐸懿昭穰苴遼叻叼吁塹嫖賭瞧爬衆抒吅吆夥巹橡滌抱縱摩郡唁墜扇籃膀襪頸吋愾諮酬哭妓媛暗錶韁邇妃羿絮蕃渾拐葵暮隅吔吖啶嗪戚吜嗇噬嚥吟哦詠吠吧唧嗒咐吪雋咀徵燐苞茹鈣哧吮吰吱嘎吲哚吳棟嬌窟孟簫忠晗淞闔閭趼宇吶睛噓拂捧疵熄竽笛糠吼吽呀呂韋矇呃呆笨呇貢呉罄呋喃呎呏呔呠呡癡呣呤呦呧瑛眩扒晬淑姬瑜璇鵑呪呫嗶嚅囁呬呯呰呱呲咧噌鈍呴呶呷呸呺呻哱咻嘯嚕籲坎坷邏呿咁咂咆哮咇咈咋蟹煦珅藹咍咑咒詛咔噠嚓咾噥哩喱咗咠咡咢咣咥咦咨嗟詢咩咪咫嚙齧咭咮咱咲咳嗆嗽咴咷咸咹咺咼喉咿婉慟憫賦矜綠茗藍哂搶瞞哆嗦囉噻啾濱彗哋哌哎唷喲哏哐哞哢哤哪裏哫啼喘哰哲萎蚌哳哶哽哿唄唅唆唈唉唎唏嘩堯棣殤璜睿肅唔睇唕唚唞唣喳唪唬唰喏唲唳唵嘛唶唸唹唻唼唾唿啁啃鸚鵡啅埠棧榷祺舖鞅飆啊啍啎啐啓啕啖啗啜啞祈啢啣啤啥啫啱啲啵啺饑啽噶崑沁喁喂喆裙喈嚨喋喌喎喑喒喓喔粗喙幛慶滋鵲喟喣喤喥喦喧騷喨喩梆喫葡萄喭駝挑嚇碰樅瓣純皰藻趟鉻喵営喹喺喼喿嗀嗃嗄嗅嗈嗉嗊嗍嗐嗑嗔詬嗕嗖嗙嗛嗜痂癖嗝嗡嗤嗥嗨嗩嗬嗯嗰嗲嗵嘰嗷嗹嗾嗿嘀嘁嘂嘅惋嘈峪禾蔭嘊嘌嘏嘐嘒嘓嘖嘚嘜嘞嘟囔嘣嘥嘦嘧嘬嘭這謔嚴敞饞鬆嘵嘶嘷嘸蝦嘹嘻嘽嘿噀噂噅噇噉噎噏噔噗噘噙噚噝噞噢噤蟬皿噩噫噭噯噱噲噳嚏涌灑欲巫霏噷噼嚃嚄嚆抖嚌嚐嚔囌嚚嚜嚞嚟嚦嚬嚭嚮嚯嚲嚳飭按竣苛嚵嚶囀囅囈膪謙囍囒囓囗囘蕭酚飄濺諦囝溯眸紇鑾鶻囟殉囡団囤囥囧囨囪囫圇囬囮囯囲図囶囷囸囹圄圉擬囻囿圀圂圃圊粹蠹赦圌墾圏滾鯡鑿枘圕圛圜圞坯埂壤骸炕祠窯豚紳魠鯪鱉圧握圩圪垯圬圮圯炸岬幔毯祇窨菩溉圳圴圻圾坂坆沾坋坌舛壈昆墊墩椅坒坓坩堝坭坰坱坳坴坵坻坼楊掙涎簾垃垈垌垍垓垔垕垗垚垛垝垣垞垟垤垧垮垵垺垾垿埀畔埄埆埇埈埌殃隍埏埒埕埗埜埡埤埦埧埭埯埰埲埳埴埵埶紼埸培怖樁礎輔埼埽堀訶姪廡堃堄摧磐貞韌砌堈堉堊堋堌堍堎堖堙堞堠礁堧堨輿堭堮蜓摘堲堳堽堿塁塄塈煤塋棵塍塏塒塓綢塕鴉沽虱塙塚塝繆塡塢塤塥塩塬塱塲蟎塼塽塾塿墀墁墈墉墐夯増毀墝墠墦漬缽墫墬墮墰墺墻櫥壅壆壊壌壎壒榨蒜壔壕壖壙壚壜壝壠壡壬壭壱売壴壹壻壼寢壿夂夅夆変夊夌漱邑夓腕泄甥禦骼夗夘夙袞瑙妊娠醣梟珊鶯鷺戧幻魘夤蹀祕擂鶇姚宛閨嶼庾撻拇賛蛤裨菠氅漓撈湄蚊霆鯊箐篆篷荊肆舅荔鮃巷慚骰辟邱鎔鐮阪漂燴鯢鰈鱷鴇臚鵬妒峨譚枰晏璣癸祝秤竺牡籟恢罡螻蠍賜絨御梭夬夭砣榆怙枕夶夾餡奄崛葩譎奈賀祀贈奌奐奓奕訢詝奘奜奠奡奣陶奨奩魁奫奬奰媧孩貶隸酥宄狡猾她奼嫣妁氈荼皋膻蠅嬪妄妍嫉媚嬈妗趣妚妞妤礙妬婭妯娌妲妳妵妺姁姅姉姍姒姘姙姜姝姞姣姤姧姫姮娥姱姸姺姽婀娀誘懾脅娉婷娑娓娟娣娭娯娵娶娸娼婊婐婕婞婤婥谿孺婧婪婬婹婺婼婽媁媄媊媕媞媟媠媢媬媮媯媲媵媸媺媻媼眯媿嫄嫈嫋嫏嫕嫗嫘嫚嫜嫠嫡嫦嫩嫪毐嫫嫬嫰嫵嫺嫻嫽嫿嬀嬃嬅嬉耍嬋痴豔嬔嬖嬗嬙嬝嬡嬢嬤嬦嬬嬭幼嬲嬴嬸嬹嬾嬿孀孃孅孌孏曰癲屏孑孓雀孖斟簍謎摺孛矻鳩崮軻祜鸞孥邈毓棠臏孬孭孰孱孳孵泛罔銜孻孿宀宁宂拙株薇掣撫琪瓿榴謐彌宊濂祁瑕宍宏碁宓邸讞実潢町宥宧宨宬徵崎駿掖闕臊煮禽蠶宸豫寀寁寥寃簷庶寎暄磣寔寖寘寙寛寠苫寤肘洱濫蒗陝覈寪弘綽螽寳擅疙瘩晷対檐専尃尅贖絀繚疇釁尌峙醌襟痲碧屁昊槌淘恵瀑牝畑莓缸羚覷蔻髒躁尒尓銳尗尙尜尟尢尥尨尪尬尭尰擒尲尶尷尸尹潽蠖蛾尻釦梢蚴鰭脬蹲屇屌蚵屐屓挪屖屘屙屛屝屢屣巒嶂巖舄屧屨屩屪屭屮戍駐鉀崖嵛巔旮旯楂欖櫸芋茱萸靛麓屴屹屺屼岀岊岌岍阜岑彭鞏岒岝岢嵐岣岧岨岫岱岵岷峁峇峋峒峓峞峠嵋峩峯峱峴峹峿崀崁崆禎崋崌崍嶇崐崒崔嵬巍螢顥崚崞崟崠崢巆崤崦崧殂崬崱崳崴崶崿嵂嵇嵊泗嵌嵎嵒嵓嵗嵙嵞嵡嵩嵫嵯嵴嵼嵾嶁嶃嶄晴嶋嶌嶒嶓嶔嶗嶙嶝嶞嶠嶡嶢嶧嶨嶭嶮嶰嶲嶴嶸巂巃巇巉巋巌巓巘巛滇芎巟巠弋迴巣巤炊擘蜥蟒蠱覡巰蜀彥淖杏茂甫楞巻巽幗巿帛斐鯽蕊帑帔帗帚琉汶帟帡帣帨帬帯帰帷帹暆幃幄幇幋幌幏幘幙幚幞幠幡幢幦幨幩幪幬幭幯幰遙蹉跎餘庚鑑幵幷稚邃庀庁広庄庈庉笠庋跋庖犧庠庤庥鯨庬庱庳庴庵馨衢庹庿廃廄廆廋廌廎廏廐廑廒廕廖廛廝搏鑼廞弛袤廥廧廨廩廱綿踵髓廸廹甌鄴廻廼廾廿躔弁皺弇弌弍弎弐弒弔詭憾薦弝弢弣弤弨弭弮弰弳霖繇燾斌旭溥騫弶弸弼弾彀彄彆纍糾彊彔彖彘彟彠陌彤貽彧繪虹彪炳彫蔚鷗彰癉彲彳彴彷彷徉徨彸彽踩斂旆徂徇徊渭畬鉉裼従筌徘徙徜徠膳甦萌漸徬徭醺徯徳徴潘徻徼忀瘁胖燎怦悸顫扉犀澎湃砰恍惚絞隘忉憚挨餓忐忑忒忖応忝忞耿忡忪忭忮忱忸怩忻悠懣怏遏怔怗怚怛怞懟黍訝怫怭懦怱怲怳怵惕怸怹恁恂恇恉恌恏恒恓恔恘恚恛恝恞恟恠恣恧眄恪恫恬澹恰恿悀悁悃悄悆悊悐悒晦悚悛悜悝悤您悩悪悮悰悱悽惻悳悴悵惘悶悻悾惄愫鍾蒐惆惇惌惎惏惓惔惙惛耄惝瘧濁惥惦惪惲惴惷惸拈愀愃愆愈愊愍愐愑愒愓愔愕愙氓蠢騃昵愜赧愨愬愮愯愷愼慁慂慅慆慇靄慉慊慍慝慥慪慫慬慱慳慴慵慷慼焚憀灼鬱憃憊憋憍眺捏軾憒憔憖憙憧憬憨憪憭憮憯憷憸憹憺懃懅懆邀懊懋懌懍懐懞懠懤懥懨懫懮懰懱毖懵遁樑雍懺懽戁戄戇戉戔戕戛戝戞戠戡戢戣戤戥戦戩戭戯轟戱披菊牖戸戹戺戻戼戽鍬扂楔扃扆扈扊杖牽絹銬鐲賚扐摟攪烊盹瞌跟躉鑔靶鼾払扗玫腮扛扞扠扡扢盔押扤扦扱罾揄綏鞍郤窾扻扼扽抃抆抈抉抌抏瞎抔繯縊擻抜抝択抨摔歉躥牾抶抻搐泵菸拃拄拊髀拋拌脯拎拏拑擢秧沓曳攣迂拚拝拠拡拫拭拮踢拴拶拷攢拽掇芥橐簪摹疔挈瓢驥捺蹻挌挍挎挐揀挓挖掘浚挙揍聵挲挶挾挿捂捃捄捅捆捉捋胳膊揎捌捍捎軀蛛捗捘捙捜捥捩捫捭据捱捻捼捽掀掂掄臀膘掊掎掏掐笙掔掗掞棉芍掤搪闡掫掮掯揉掱掲掽掾揃揅揆搓揌諢揕揗揘揜揝揞揠揥揩揪揫櫫遒麈揰揲揵揶揸揹揺搆搉搊搋搌搎搔搕撼櫓搗搘搠搡搢搣搤搥搦搧搨搬楦褳訕赸搯搰搲搳搴搵搷搽搾搿摀摁摂摃摎摑摒摓跤摙摛摜摞摠摦睺羯摭摮摯摰摲摳摴摶摷摻摽撂撃撅稻撊撋撏鐧潑撕撙撚撝撟撢撣撦撧撩撬撱朔撳蚍蜉撾撿擀擄闖擉缶觚擐擕擖擗擡擣擤澡腚擧擨擩擫擭擯擰擷擸擼擽擿攃攄攆攉攥攐攓攖攙攛每攩攫轡澄攮攰攲攴軼攷砭訐攽碘敁敃敇敉敍敎筏敔敕敖閏誨敜煌敧敪敱敹敺敻敿斁衽斄牒縐謅斉斎斕鶉讕駮鱧斒筲斛斝斞斠斡斢斨斫斮晾沂潟穎絳邵斲斸釳於琅斾斿旀旂旃旄渦旌旎旐旒旓旖旛旝旟旡旣浴旰獺魃旴旹旻旼旽昀昃昄昇昉晰躲澈熹皎皓礬昑昕昜昝昞昡昤暉筍昦昨昰昱昳昴昶昺昻晁蹇隧蔬髦晄晅晒晛晜晞晟晡晢晤晥曦晩萘瑩顗晿暁暋暌暍暐暔暕煅暘暝暠暡曚暦暨暪朦朧暱暲殄馮暵暸暹暻暾曀曄曇曈曌曏曐曖曘曙曛曡曨曩駱曱甴肱曷牘禺錕曽滄耽朁朅朆杪栓誇竟粘絛朊膺朏朐朓朕朘朙瞄覲溘饔飧朠朢朣柵椆澱蝨朩朮朰朱炆璋鈺熾鹮朳槿朶朾朿杅杇杌隉欣釗湛漼楷瀍煜玟纓翱肈舜贄适逵杓杕杗杙荀蘅杝杞脩珓筊杰榔狍閦顰緬莞杲杳眇杴杶杸杻杼枋枌枒枓衾葄翹紓逋枙狸椏枟槁枲枳枴枵枷枸櫞枹枻柁柂柃柅柈柊柎某柑橘柒柘柙柚柜柞櫟柟柢柣柤柩柬柮柰柲橙柶柷柸柺査柿栃栄栒栔栘栝栟栢栩栫栭栱栲栳栴檀栵栻桀驁桁鎂桄桉桋桎梏椹葚桓桔桕桜桟桫欏桭桮桯桲桴桷桹湘溟梃梊梍梐潼梔梘梜梠梡梣梧梩梱梲梳梴梵梹棁棃櫻棐棑棕櫚簑繃蓑棖棘棜棨棩棪棫棬棯棰棱棳棸棹槨棼椀椄苕椈椊椋椌椐椑椓椗検椤椪椰椳椴椵椷椸椽椿楀楄楅篪楋楍楎楗楘楙楛楝楟楠楢楥楨楩楪楫楬楮楯楰楳楸楹楻楽榀榃榊榎槺榕榖榘榛狉莽榜笞榠榡榤榥榦榧榪榭榰榱槤霰榼榾榿槊閂槎槑槔槖様槜槢槥槧槪槭槮槱槲槻槼槾樆樊樏樑樕樗樘樛樟樠樧樨権樲樴樵猢猻樺樻罍樾樿橁橄橆橈笥龠橕橚橛輛橢橤橧豎膈跨橾橿檁檃檇檉檍檎檑檖檗檜檟檠檣檨檫檬檮檳檴檵檸櫂櫆櫌櫛櫜櫝櫡櫧櫨櫪櫬櫳櫹櫺茄櫽欀欂欃欐欑欒欙欞溴欨欬欱欵欶欷歔欸欹欻欼欿歁歃歆艎歈歊蒔蝶歓歕歘歙歛歜歟歠蹦詮鑲蹣跚陞陟歩歮歯歰歳歴璞歺瞑歾歿殀殈殍殑殗殜殙殛殞殢殣殥殪殫殭殰殳荃殷殸殹蛟殻殽謗毆毈毉餵毎毑蕈毗毘毚茛鄧毧毬毳毷毹毽毾毿氂氄氆靴氉氊氌氍氐聊氕氖気氘氙氚氛氜氝氡洶焊痙氤氳氥氦鋁鋅氪烴氬銨痤汪滸漉痘盂碾菖蒲蕹蛭螅氵氷氹氺氽燙氾氿渚汆汊汋汍汎汏汐汔汕褟汙汚汜蘺沼穢衊汧汨汩汭汲汳汴隄汾沄沅沆瀣沇沈葆浸淪湎溺痼痾沌沍沏沐沔沕沘浜畹礫沚沢沬沭沮沰沱灢沴沷籽沺烹濡洄泂肛泅泆湧肓泐泑泒泓泔泖泙泚泜泝泠漩饃濤粼濘蘚鰍泩泫泭泯銖泱泲洇洊涇琵琶荽薊箔洌洎洏洑潄濯洙洚洟洢洣洧洨洩痢滔洫洮洳洴洵洸洹洺洼洿淌蜚浄浉浙贛渫浠浡浤浥淼瀚浬浭翩萍浯浰蜃淀苔蛞蝓蜇螵蛸煲鯉浹浼浽溦涂涊涐涑涒涔滂涖涘涙涪涫涬涮涴涶涷涿淄淅淆淊淒黯淓淙漣淜淝淟淠淢淤淥淦淩猥藿褻淬淮淯淰淳詣淶紡淸淹燉癯綺渇済渉渋渓渕渙渟渢滓渤澥渧渨渮渰渲渶渼湅湉湋湍湑湓湔黔湜湝湞湟湢湣湩湫湮麟湱湲湴湼満溈溍溎溏溛舐漭溠溤溧馴溮溱溲溳溵溷溻溼溽溾滁滃滉滊滎滏稽滕滘滙滝滫滮羼耷滷滹滻煎漈漊漎繹漕漖漘漙漚漜漪漾漥漦漯漰漵漶漷濞潀潁潎潏潕潗潚潝潞潠潦祉瘍潲潵潷潸潺潾潿澁澂澃澉澌澍澐澒澔澙澠澣澦澧澨澫澬澮澰澴澶澼熏郁濆濇濈濉濊貊濔疣濜濠濩觴濬濮盥濰濲濼瀁瀅瀆瀋瀌瀏瀒瀔瀕瀘瀛瀟瀠瀡瀦瀧瀨瀬瀰瀲瀳瀵瀹瀺瀼灃灄灉灋灒灕灖灝灞灠灤灥灨灩灪蜴灮燼獴灴灸灺炁炅魷炗炘炙炤炫疽烙釺炯炰炱炲炴炷燬炻烀烋瘴鯧烓烔焙烜烝烳飪烺焃焄耆焌焐焓焗焜焞焠焢焮焯焱焼煁煃煆煇煊熠煍熬煐煒煕煗燻礆霾煚煝煟煠煢矸煨瑣煬萁煳煺煻熀熅熇熉羆熒穹熗熘熛熜稔諳爍熤熨熯熰眶螞熲熳熸熿燀燁燂燄盞燊燋燏燔隼燖燜燠燡燦燨燮燹燻燽燿爇爊爓爚爝爟爨蟾爯爰爲爻爿爿牀牁牂牄牋牎牏牓牕釉牚腩蒡虻牠雖蠣牣牤牮牯牲牳牴牷牸牼絆牿靬犂犄犆犇犉犍犎犒犖犗犛犟犠犨犩犪犮犰狳犴犵犺狁甩狃狆狎狒獾狘狙黠狨狩狫狴狷狺狻豕狽蜘猁猇猈猊猋猓猖獗猗猘猙獰獁猞猟獕猭猱猲猳猷猸猹猺玃獀獃獉獍獏獐獒獘獙獚獜獝獞獠獢獣獧鼇蹊獪獫獬豸獮獯鬻獳獷獼玀玁菟玅玆玈珉糝禛郅玍玎玓瓅玔玕玖玗玘玞玠玡玢玤玥玦玨瑰玭玳瑁玶玷玹玼珂珇珈瑚珌饈饌珔珖珙珛珞珡珣珥珧珩珪珮珶珷珺珽琀琁隕琊琇琖琚琠琤琦琨琫琬琭琮琯琰琱琲瑯琹琺琿瑀瑂瑄瑉瑋瑑瑔瑗瑢瑭瑱瑲瑳瑽瑾瑿璀璨璁璅璆璈璉璊璐璘璚璝璟璠璡璥璦璩璪璫璯璲璵璸璺璿瓀瓔瓖瓘瓚瓛臍瓞瓠瓤瓧瓩瓮瓰瓱瓴瓸瓻瓼甀甁甃甄甇甋甍甎甏甑甒甓甔甕甖甗飴蔗甙詫鉅粱盎銹糰甡褥産甪甬甭甮甯鎧甹甽甾甿畀畁畇畈畊畋畎畓畚畛畟鄂畤畦畧荻畯畳畵畷畸畽畾疃疉疋疍疎簞疐疒疕疘疝疢疥疧疳疶疿痁痄痊痌痍痏痐痒痔痗瘢痚痠痡痣痦痩痭痯痱痳痵痻痿瘀瘂瘃瘈瘉瘊瘌瘏瘐瘓瘕瘖瘙瘚瘛瘲瘜瘝瘞瘠瘥瘨瘭瘮瘯瘰癧瘳癘瘵瘸瘺瘻瘼癃癆癇癈癎癐癔癙癜癠癤癥癩蟆癪癭癰発踔紺蔫酵皙砬砒翎翳蘞鎢鑞皚鵯駒鱀粵褶皀皁莢皃鎛皈皌皐皒硃皕皖皘皜皝皞皤皦皨皪皫皭糙綻皴皸皻皽盅盋盌盍盚盝踞盦盩鞦韆盬盭眦睜瞤盯盱眙裰盵盻睞眂眅眈眊県眑眕眚眛眞眢眣眭眳眴眵眹瞓眽郛睃睅睆睊睍睎睏睒睖睙睟睠睢睥睪睪睯睽睾瞇瞈瞋瞍逛瞏瞕瞖瞘瞜瞟瞠瞢瞫瞭瞳瞵瞷瞹瞽闍瞿矓矉矍鑠矔矗矙矚矞矟矠矣矧矬矯矰矱硪碇磙罅舫阡、矼矽礓砃砅砆砉砍砑砕砝砟砠砢砦砧砩砫砮砳艏砵砹砼硇硌硍硎硏硐硒硜硤硨磲茚鋇硭硻硾碃碉碏碣碓碔碞碡碪碫碬碭碯碲碸碻礡磈磉磎磑磔磕磖磛磟磠磡磤磥蹭磪磬磴磵磹磻磽礀礄礅礌礐礚礜礞礤礧礮礱礲礵礽礿祂祄祅祆禳祊祍祏祓祔祕祗祘祛祧祫祲祻祼餌臠錮禂禇禋禑禔禕隋禖禘禚禜禝禠禡禢禤禥禨禫禰禴禸稈秈秊闈颯秌秏秕笈蘵賃秠秣秪秫秬秭秷秸稊稌稍稑稗稙稛稞稬稭稲稹稼顙稾穂穄穇穈穉穋穌貯穏穜穟穠穡穣穤穧穨穭穮穵穸窿闃窀窂窅窆窈窕窊窋窌窒窓窔窞窣窬黷蹙窰窳窴窵窶窸窻竁竃竈竑竜竝竦竪篦篾笆鮫竾笉笊笎笏笐靨笓笤籙笪笫笭笮笰笱笲笳笵笸笻筀筅筇筈筎筑筘筠筤筥筦筧筩筭筯筰筱筳筴讌筸箂箇箊箎箑箒箘箙箛箜篌箝箠箬鏃箯箴箾篁篔簹篘篙篚篛篜篝篟篠篡篢篥篧篨篭篰篲篳篴篶篹篼簀簁簃簆簉簋簌簏簜簟簠簥簦簨簬簰簸簻籊籐籒籓籔籖籚籛籜籣籥籧籩籪籫籯芾麴籵籸籹籼粁粃粋粑粔糲粛粞粢粧粨粲粳粺粻粽闢粿糅糆糈糌糍糒糔萼糗蛆蹋糢糨糬糭糯糱糴糶糸糺紃蹼鰹黴紆紈絝紉閩襻紑紕紘錠鳶鷂紝紞紟紥紩紬紱紲紵紽紾紿絁絃絅経絍絎絏縭褵絓絖絘絜絢絣螯絪絫聒絰絵絶絺絻絿綀綃綅綆綈綉綌綍綎綑綖綘継続緞綣綦綪綫綮綯綰罟蝽綷縩綹綾緁緄緅緆緇緋緌緎総緑緔緖緗緘緙緜緡緤緥緦纂緪緰緱緲緶緹縁縃縄縈縉縋縏縑縕縗縚縝縞縟縠縡縢縦縧縯縰騁縲縳縴縵縶縹縻衙縿繄繅繈繊繋繐繒繖繘繙繠繢繣繨繮繰繸繻繾纁纆纇纈纉纊纑纕纘纙纚纛缾罃罆罈罋罌罎罏罖罘罛罝罠罣罥罦罨罫罭鍰罳罶罹罻罽罿羂羃羇羋蕉５１鴕羑羖羗羜羝羢羣羥羧羭羮羰羱羵羶羸藜鮐翀翃翄翊翌翏翕翛翟翡翣翥翦躚翪翫翬翮翯翺翽翾翿闆饕鴰鍁耋耇耎耏耑耒耜耔耞耡耤耨耩耪耬耰鬢耵聹聃聆聎聝聡聦聱聴聶聼閾聿肄肏肐肕腋肙肜肟肧胛肫肬肭肰肴肵肸肼胊胍胏胑胔胗胙胝胠銓胤胦胩胬胭胯胰胲胴胹胻胼胾脇脘脝脞脡脣脤脥脧脰脲脳腆腊腌臢腍腒腓腖腜腠腡腥腧腬腯踝蹬鐐腴腶蠕誹膂膃膆膇膋膔膕膗膙膟黐膣膦膫膰膴膵膷膾臃臄臇臈臌臐臑臓臕臖臙臛臝臞臧蓐詡臽臾臿舀舁鰟鮍舋舎舔舗舘舝舠舡舢舨舭舲舳舴舸舺艁艄艅艉艋艑艕艖艗艘艚艜艟艣艤艨艩艫艬艭荏艴艶艸艹艻艿芃芄芊萰陂藭芏芔芘芚蕙芟芣芤茉芧芨芩芪芮芰鰱芴芷芸蕘豢芼芿苄苒苘苙苜蓿苠苡苣蕒苤苧苪鎊苶苹苺苻苾茀茁范蠡萣茆茇茈茌茍茖茞茠茢茥茦菰茭茯茳藨茷藘茼荁荄荅荇荈菅蜢鴞荍荑荘荳荵荸薺莆莒莔莕莘莙莚莛莜莝莦莨菪莩莪莭莰莿菀菆菉菎菏菐菑菓菔菕菘菝菡菢菣菥蓂菧菫轂鎣菶菷菹醢菺菻菼菾萅萆萇萋萏萐萑萜萩萱萴萵萹萻葇葍葎葑葒葖葙葠葥葦葧葭葯葳葴葶葸葹葽蒄蒎蒓蘢薹蒞蒟蒻蒢蒦蒨蒭藁蒯蒱鉾蒴蒹蒺蒽蓀蓁蓆蓇蓊蓌蓍蓏蓓蓖蓧蓪蓫蓽跣藕蓯蓰蓱蓴蓷蓺蓼蔀蔂蔃蔆蔇蔉蔊蔋蔌蔎蔕蔘蔙蔞蔟鍔蔣雯蔦蔯蔳蔴蔵蔸蔾蕁蕆蕋蕍蕎蕐蕑蕓蕕蕖蕗蕝蕞蕠蕡蕢蕣蕤蕨蕳蕷蕸蕺蕻薀薁薃薅薆薈薉薌薏薐薔薖薘薙諤釵薜薠薢薤薧薨薫薬薳薶薷薸薽薾薿藄藇藋藎藐藙藚藟藦藳藴藶藷藾蘀蘁蘄蘋蘗蘘蘝蘤蘧蘩蘸蘼虀虆虍蟠虒虓虖虡虣虥虩虯虰蛵虵虷鱒虺虼蚆蚈蚋蚓蚔蚖蚘蚜蚡蚣蚧蚨蚩蚪蚯蚰蜒蚱蚳蚶蚹蚺蚻蚿蛀蛁蛄蛅蝮蛌蛍蛐蟮蛑蛓蛔蛘蛚蛜蛡蛣蜊蛩蛺蛻螫蜅蜆蜈蝣蜋蜍蜎蜑蠊蜛餞蜞蜣蜨蜩蜮蜱蜷蜺蜾蜿蝀蝃蝋蝌蝍蝎蝏蝗蝘蝙蝝鱝蝡蝤蝥蝯蝰蝱蝲蝴蝻螃蠏螄螉螋螒螓螗螘螙螚蟥螟螣螥螬螭螮螾螿蟀蟅蟈蟊蟋蟑蟓蟛蟜蟟蟢蟣蟨蟪蟭蟯蟳蟶蟷蟺蟿蠁蠂蠃蠆蠋蠐蠓蠔蠗蠙蠚蠛蠜蠧蠨蠩蠭蠮蠰蠲蠵蠸蠼蠽衁衂衄衇衈衉衋衎衒衕衖衚衞裳鈎衭衲衵衹衺衿袈裟袗袚袟袢袪袮袲袴袷袺袼褙袽裀裉裊裋裌裍裎裒裛裯裱裲裴裾褀褂褉褊褌褎褐褒褓褔褕褘褚褡褢褦褧褪褫褭褯褰褱襠褸褽褾襁襃襆襇襉襋襌襏襚襛襜襝襞襡襢襤襦襫襬襭襮襴襶襼襽襾覂覃覅覇覉覊覌覗覘覚覜覥覦覧覩覬覯覰観覿觔觕觖觜觽觝觡酲觩觫觭觱觳觶觷觼觾觿言賅訃訇訏訑訒詁託訧訬訳訹証訾詀詅詆譭詈詊詎詑詒詖詗詘詧詨詵詶詸詹詻詼詿誂誃誄鋤誆誋誑誒誖誙誚誥誧説読誯誶誾諂諄諆諌諍諏諑諕諗諛諝諞諟諠諡諴諵諶諼謄謆謇謌謍謏謑謖謚謡謦謪謫謳謷謼謾譁譅譆譈譊譌譒譔譖鑫譞譟譩譫譬譱譲譴譸譹譾讅讆讋讌讎讐讒讖讙讜讟谽豁豉豇豈豊豋豌豏豔豞豖豗豜豝豣豦豨豭豱豳豵豶豷豺豻貅貆貍貎貔貘貙貜貤饜貰餸貺賁賂賏賒賕賙賝賡賧賨賫鬭賮賵賸賺賻賾贇贉贐贔贕贗赬赭赱赳迄趁趂趄趐趑趒趔趡趦趫趮趯趲趴趵趷趹趺趿跁跂跅跆躓蹌跐跕跖跗跙跛跦跧跩跫跬跮跱跲跴跺跼跽踅踆踈踉踊踒踖踘踜踟躇躕踠踡踣踤踥踦踧蹺踫踮踰踱踴踶踹踺踼踽躞蹁蹂躪蹎蹐蹓蹔蹕蹚蹜蹝蹟蹠蹡蹢躂蹧蹩蹪蹯鞠蹽躃躄躅躊躋躐躑躒躘躙躛躝躠躡躦躧躩躭躰躳躶軃軆輥軏軔軘軜軝齶転軥軨軭軱軲轆軷軹軺軽軿輀輂輦輅輇輈輓輗輙輜輞輠輤輬輭輮輳輴輵輶輹輼輾轀轇轏轑轒轔轕轖轗轘轙轝轞轢轤辠辢辤辵辶辺込辿迅迋迍麿迓迣迤邐迥迨迮迸迺迻迿逄逅逌逍逑逓逕逖逡逭逯逴逶逹遄遅遉遘遛遝遢遨遫遯遰遴遶遹遻邂邅邉邋邎邕邗邘邛邠邢邧邨邯鄲邰邲邳邴邶邷邽邾邿郃郄郇郈郔郕郗郙郚郜郝郞郟郠郢郪郫郯郰郲郳郴郷郹郾郿鄀鄄鄆鄇鄈鄋鄍鄎鄏鄐鄑鄒鄔鄕鄖鄗鄘鄚鄜鄞鄠鄢鄣鄤鄦鄩鄫鄬鄮鄯鄱鄶鄷鄹鄺鄻鄾鄿酃酅酆酇酈酊酋酎酏酐酣酔酕醄酖酗酞酡酢酤酩酴酹酺醁醅醆醊醍醐醑醓醖醝醞醡醤醨醪醭醯醰醱醲醴醵醸醹醼醽醾釂釃釅釆釈鱸鎦閶釓釔釕鈀釙鼢鼴釤釧釪釬釭釱釷釸釹鈁鈃鈄鈆鈇鈈鈊鈌鈐鈑鈒鈤鈥鈧鈬鈮鈰鈳鐺鈸鈹鈽鈿鉄鉆鉈鉋鉌鉍鉏鉑鉕鉚鉢鉥鉦鉨鉬鉭鉱鉲鉶鉸鉺鉼鉿銍銎銑銕鏤銚銛銠銣銤銥銦銧銩銪銫銭銰銲銶銻銼銾鋂鋃鋆鋈鋊鋌鋍鋏鋐鋑鋕鋘鋙鋝鋟鋦鋨鋩鋭鋮鋯鋰鋱鋳鋹鋺鋻鏰鐱錀錁錆錇錈錍錏錒錔錙錚錛錞錟錡錤錩錬録錸錼鍀鍆鍇鍉鍍鍏鍐鍘鍚鍛鍠鍤鍥鍩鍫鍭鍱鍴鍶鍹鍺鍼鍾鎄鎇鎉鎋鎌鎍鎏鎒鎓鎗鎘鎚鎞鎡鎤鎩鎪鎭鎯鎰鎳鎴鎵鎸鎹鎿鏇鏊鏌鏐鏑鏖鏗鏘鏚鏜鏝鏞鏠鏦鏨鏷鏸鏹鏻鏽鏾鐃鐄鐇鐏鐒鐓鐔鐗馗鐙鐝鐠鐡鐦鐨鐩鐫鐬鐱鐳鐶鐻鐽鐿鑀鑅鑌鑐鑕鑚鑛鑢鑤鑥鑪鑭鑯鑱鑴鑵鑷钁钃镻閆閈閌閎閒閔閗閟閡関閤閤閧閬閲閹閺閻閼閽閿闇闉闋闐闑闒闓闘闚闞闟闠闤闥阞阢阤阨阬阯阹阼阽陁陑陔陛陜陡陥陬騭陴険陼陾隂隃隈隒隗隞隠隣隤隩隮隰顴隳隷隹雂雈雉雊雎雑雒雗雘雚雝雟雩雰雱驛霂霅霈霊霑霒霓霙霝霢霣霤霨霩霪霫霮靁靆靉靑靚靣靦靪靮靰靳靷靸靺靼靿鞀鞃鞄鞌鞗鞙鞚鞝鞞鞡鞣鞨鞫鞬鞮鞶鞹鞾韃韅韉馱韍韎韔韖韘韝韞韡韣韭韮韱韹韺頀颳頄頇頊頍頎頏頒頖頞頠頫頬顱頯頲頴頼顇顋顑顒顓顔顕顚顜顢顣顬顳颭颮颱颶颸颺颻颽颾颿飀飂飈飌飜飡飣飤飥飩飫飮飱飶餀餂餄餎餇餈餑餔餕餖餗餚餛餜餟餠餤餧餩餪餫餬餮餱餲餳餺餻餼餽餿饁饅饇饉饊饍饎饐饘饟饢馘馥馝馡馣騮騾馵馹駃駄駅駆駉駋駑駓駔駗駘駙駜駡駢駪駬駰駴駸駹駽駾騂騄騅騆騉騋騍騏驎騑騒験騕騖騠騢騣騤騧驤騵騶騸騺驀驂驃驄驆驈驊驌驍驎驏驒驔驖驙驦驩驫骺鯁骫骭骯骱骴骶骷髏骾髁髂髄髆髈髐髑髕髖髙髝髞髟髡髣髧髪髫髭髯髲髳髹髺髽髾鬁鬃鬅鬈鬋鬎鬏鬐鬑鬒鬖鬗鬘鬙鬠鬣鬪鬫鬬鬮鬯鬰鬲鬵鬷魆魈魊魋魍魎魑魖鰾魛魟魣魦魨魬魴魵魸鮀鮁鮆鮌鮎鮑鮒鮓鮚鮞鮟鱇鮠鮦鮨鮪鮭鮶鮸鮿鯀鯄鯆鯇鯈鯔鯕鯖鯗鯙鯠鯤鯥鯫鯰鯷鯸鯿鰂鰆鶼鰉鰋鰐鰒鰕鰛鰜鰣鰤鰥鰦鰨鰩鰮鰳鰶鰷鱺鰼鰽鱀鱄鱅鱆鱈鱎鱐鱓鱔鱖鱘鱟鱠鱣鱨鱭鱮鱲鱵鱻鲅鳦鳧鳯鳲鳷鳻鴂鴃鴄鴆鴈鴎鴒鴔鴗鴛鴦鴝鵒鴟鴠鴢鴣鴥鴯鶓鴳鴴鴷鴽鵀鵁鵂鵓鵖鵙鵜鶘鵞鵟鵩鵪鵫鵵鵷鵻鵾鶂鶊鶏鶒鶖鶗鶡鶤鶦鶬鶱鶲鶵鶸鶹鶺鶿鷀鷁鷃鷄鷇鷈鷉鷊鷏鷓鷕鷖鷙鷞鷟鷥鷦鷯鷩鷫鷭鷳鷴鷽鷾鷿鸂鸇鸊鸏鸑鸒鸓鸕鸛鸜鸝鹸鹹鹺麀麂麃麄麇麋麌麐麑麒麚麛麝麤麩麪麫麮麯麰麺麾黁黈黌黢黒黓黕黙黝黟黥黦黧黮黰黱黲黶黹黻黼黽黿鼂鼃鼅鼈鼉鼏鼐鼒鼕鼖鼙鼚鼛鼡鼩鼱鼪鼫鼯鼷鼽齁齆齇齈齉齌齎齏齔齕齗齙齚齜齞齟齬齠齢齣齧齩齮齯齰齱齵齾龎龑龒龔龖龘龝龡龢龤'
+
+assert len(simplified_charcters) == len(simplified_charcters)
+
+s2t_dict = {}
+t2s_dict = {}
+for i, item in enumerate(simplified_charcters):
+    s2t_dict[item] = traditional_characters[i]
+    t2s_dict[traditional_characters[i]] = item
+
+
+def tranditional_to_simplified(text: str) -> str:
+    return "".join(
+        [t2s_dict[item] if item in t2s_dict else item for item in text])
+
+
+def simplified_to_traditional(text: str) -> str:
+    return "".join(
+        [s2t_dict[item] if item in s2t_dict else item for item in text])
+
+
+if __name__ == "__main__":
+    text = "一般是指存取一個應用程式啟動時始終顯示在網站或網頁瀏覽器中的一個或多個初始網頁等畫面存在的站點"
+    print(text)
+    text_simple = tranditional_to_simplified(text)
+    print(text_simple)
+    text_traditional = simplified_to_traditional(text_simple)
+    print(text_traditional)
+
+
+
+================================================
+FILE: utils/zh_normalization/chronology.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+
+from .num import DIGITS
+from .num import num2str
+from .num import verbalize_cardinal
+from .num import verbalize_digit
+
+
+def _time_num2str(num_string: str) -> str:
+    """A special case for verbalizing number in time."""
+    result = num2str(num_string.lstrip('0'))
+    if num_string.startswith('0'):
+        result = DIGITS['0'] + result
+    return result
+
+
+# 时刻表达式
+RE_TIME = re.compile(r'([0-1]?[0-9]|2[0-3])'
+                     r':([0-5][0-9])'
+                     r'(:([0-5][0-9]))?')
+
+# 时间范围，如8:30-12:30
+RE_TIME_RANGE = re.compile(r'([0-1]?[0-9]|2[0-3])'
+                           r':([0-5][0-9])'
+                           r'(:([0-5][0-9]))?'
+                           r'(~|-)'
+                           r'([0-1]?[0-9]|2[0-3])'
+                           r':([0-5][0-9])'
+                           r'(:([0-5][0-9]))?')
+
+
+def replace_time(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+
+    is_range = len(match.groups()) > 5
+
+    hour = match.group(1)
+    minute = match.group(2)
+    second = match.group(4)
+
+    if is_range:
+        hour_2 = match.group(6)
+        minute_2 = match.group(7)
+        second_2 = match.group(9)
+
+    result = f"{num2str(hour)}点"
+    if minute.lstrip('0'):
+        if int(minute) == 30:
+            result += "半"
+        else:
+            result += f"{_time_num2str(minute)}分"
+    if second and second.lstrip('0'):
+        result += f"{_time_num2str(second)}秒"
+
+    if is_range:
+        result += "至"
+        result += f"{num2str(hour_2)}点"
+        if minute_2.lstrip('0'):
+            if int(minute) == 30:
+                result += "半"
+            else:
+                result += f"{_time_num2str(minute_2)}分"
+        if second_2 and second_2.lstrip('0'):
+            result += f"{_time_num2str(second_2)}秒"
+
+    return result
+
+
+RE_DATE = re.compile(r'(\d{4}|\d{2})年'
+                     r'((0?[1-9]|1[0-2])月)?'
+                     r'(((0?[1-9])|((1|2)[0-9])|30|31)([日号]))?')
+
+
+def replace_date(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    year = match.group(1)
+    month = match.group(3)
+    day = match.group(5)
+    result = ""
+    if year:
+        result += f"{verbalize_digit(year)}年"
+    if month:
+        result += f"{verbalize_cardinal(month)}月"
+    if day:
+        result += f"{verbalize_cardinal(day)}{match.group(9)}"
+    return result
+
+
+# 用 / 或者 - 分隔的 YY/MM/DD 或者 YY-MM-DD 日期
+RE_DATE2 = re.compile(
+    r'(\d{4})([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])')
+
+
+def replace_date2(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    year = match.group(1)
+    month = match.group(3)
+    day = match.group(4)
+    result = ""
+    if year:
+        result += f"{verbalize_digit(year)}年"
+    if month:
+        result += f"{verbalize_cardinal(month)}月"
+    if day:
+        result += f"{verbalize_cardinal(day)}日"
+    return result
+
+
+
+================================================
+FILE: utils/zh_normalization/constants.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+import string
+
+from pypinyin.constants import SUPPORT_UCS4
+
+# 全角半角转换
+# 英文字符全角 -> 半角映射表 (num: 52)
+F2H_ASCII_LETTERS = {
+    ord(char) + 65248: ord(char)
+    for char in string.ascii_letters
+}
+
+# 英文字符半角 -> 全角映射表
+H2F_ASCII_LETTERS = {value: key for key, value in F2H_ASCII_LETTERS.items()}
+
+# 数字字符全角 -> 半角映射表 (num: 10)
+F2H_DIGITS = {ord(char) + 65248: ord(char) for char in string.digits}
+# 数字字符半角 -> 全角映射表
+H2F_DIGITS = {value: key for key, value in F2H_DIGITS.items()}
+
+# 标点符号全角 -> 半角映射表 (num: 32)
+F2H_PUNCTUATIONS = {ord(char) + 65248: ord(char) for char in string.punctuation}
+# 标点符号半角 -> 全角映射表
+H2F_PUNCTUATIONS = {value: key for key, value in F2H_PUNCTUATIONS.items()}
+
+# 空格 (num: 1)
+F2H_SPACE = {'\u3000': ' '}
+H2F_SPACE = {' ': '\u3000'}
+
+# 非"有拼音的汉字"的字符串，可用于NSW提取
+if SUPPORT_UCS4:
+    RE_NSW = re.compile(r'(?:[^'
+                        r'\u3007'  # 〇
+                        r'\u3400-\u4dbf'  # CJK扩展A:[3400-4DBF]
+                        r'\u4e00-\u9fff'  # CJK基本:[4E00-9FFF]
+                        r'\uf900-\ufaff'  # CJK兼容:[F900-FAFF]
+                        r'\U00020000-\U0002A6DF'  # CJK扩展B:[20000-2A6DF]
+                        r'\U0002A703-\U0002B73F'  # CJK扩展C:[2A700-2B73F]
+                        r'\U0002B740-\U0002B81D'  # CJK扩展D:[2B740-2B81D]
+                        r'\U0002F80A-\U0002FA1F'  # CJK兼容扩展:[2F800-2FA1F]
+                        r'])+')
+else:
+    RE_NSW = re.compile(  # pragma: no cover
+        r'(?:[^'
+        r'\u3007'  # 〇
+        r'\u3400-\u4dbf'  # CJK扩展A:[3400-4DBF]
+        r'\u4e00-\u9fff'  # CJK基本:[4E00-9FFF]
+        r'\uf900-\ufaff'  # CJK兼容:[F900-FAFF]
+        r'])+')
+
+
+
+================================================
+FILE: utils/zh_normalization/num.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""
+Rules to verbalize numbers into Chinese characters.
+https://zh.wikipedia.org/wiki/中文数字#現代中文
+"""
+import re
+from collections import OrderedDict
+from typing import List
+
+DIGITS = {str(i): tran for i, tran in enumerate('零一二三四五六七八九')}
+UNITS = OrderedDict({
+    1: '十',
+    2: '百',
+    3: '千',
+    4: '万',
+    8: '亿',
+})
+
+COM_QUANTIFIERS = '(封|艘|把|目|套|段|人|所|朵|匹|张|座|回|场|尾|条|个|首|阙|阵|网|炮|顶|丘|棵|只|支|袭|辆|挑|担|颗|壳|窠|曲|墙|群|腔|砣|座|客|贯|扎|捆|刀|令|打|手|罗|坡|山|岭|江|溪|钟|队|单|双|对|出|口|头|脚|板|跳|枝|件|贴|针|线|管|名|位|身|堂|课|本|页|家|户|层|丝|毫|厘|分|钱|两|斤|担|铢|石|钧|锱|忽|(千|毫|微)克|毫|厘|(公)分|分|寸|尺|丈|里|寻|常|铺|程|(千|分|厘|毫|微)米|米|撮|勺|合|升|斗|石|盘|碗|碟|叠|桶|笼|盆|盒|杯|钟|斛|锅|簋|篮|盘|桶|罐|瓶|壶|卮|盏|箩|箱|煲|啖|袋|钵|年|月|日|季|刻|时|周|天|秒|分|小时|旬|纪|岁|世|更|夜|春|夏|秋|冬|代|伏|辈|丸|泡|粒|颗|幢|堆|条|根|支|道|面|片|张|颗|块|元|(亿|千万|百万|万|千|百)|(亿|千万|百万|万|千|百|美|)元|(亿|千万|百万|万|千|百|十|)吨|(亿|千万|百万|万|千|百|)块|角|毛|分)'
+
+# 分数表达式
+RE_FRAC = re.compile(r'(-?)(\d+)/(\d+)')
+
+
+def replace_frac(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    sign = match.group(1)
+    nominator = match.group(2)
+    denominator = match.group(3)
+    sign: str = "负" if sign else ""
+    nominator: str = num2str(nominator)
+    denominator: str = num2str(denominator)
+    result = f"{sign}{denominator}分之{nominator}"
+    return result
+
+
+# 百分数表达式
+RE_PERCENTAGE = re.compile(r'(-?)(\d+(\.\d+)?)%')
+
+
+def replace_percentage(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    sign = match.group(1)
+    percent = match.group(2)
+    sign: str = "负" if sign else ""
+    percent: str = num2str(percent)
+    result = f"{sign}百分之{percent}"
+    return result
+
+
+# 整数表达式
+# 带负号的整数 -10
+RE_INTEGER = re.compile(r'(-)' r'(\d+)')
+
+
+def replace_negative_num(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    sign = match.group(1)
+    number = match.group(2)
+    sign: str = "负" if sign else ""
+    number: str = num2str(number)
+    result = f"{sign}{number}"
+    return result
+
+
+# 编号-无符号整形
+# 00078
+RE_DEFAULT_NUM = re.compile(r'\d{3}\d*')
+
+
+def replace_default_num(match):
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    number = match.group(0)
+    return verbalize_digit(number, alt_one=True)
+
+
+# 加减乘除
+RE_ASMD = re.compile(
+    r'((-?)((\d+)(\.\d+)?)|(\.(\d+)))([\+\-\×÷=])((-?)((\d+)(\.\d+)?)|(\.(\d+)))')
+asmd_map = {
+    '+': '加',
+    '-': '减',
+    '×': '乘',
+    '÷': '除',
+    '=': '等于'
+}
+
+
+def replace_asmd(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    result = match.group(1) + asmd_map[match.group(8)] + match.group(9)
+    return result
+
+
+# 数字表达式
+# 纯小数
+RE_DECIMAL_NUM = re.compile(r'(-?)((\d+)(\.\d+))' r'|(\.(\d+))')
+# 正整数 + 量词
+RE_POSITIVE_QUANTIFIERS = re.compile(r"(\d+)([多余几\+])?" + COM_QUANTIFIERS)
+RE_NUMBER = re.compile(r'(-?)((\d+)(\.\d+)?)' r'|(\.(\d+))')
+
+
+def replace_positive_quantifier(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    number = match.group(1)
+    match_2 = match.group(2)
+    if match_2 == "+":
+        match_2 = "多"
+    match_2: str = match_2 if match_2 else ""
+    quantifiers: str = match.group(3)
+    number: str = num2str(number)
+    result = f"{number}{match_2}{quantifiers}"
+    return result
+
+
+def replace_number(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    sign = match.group(1)
+    number = match.group(2)
+    pure_decimal = match.group(5)
+    if pure_decimal:
+        result = num2str(pure_decimal)
+    else:
+        sign: str = "负" if sign else ""
+        number: str = num2str(number)
+        result = f"{sign}{number}"
+    return result
+
+
+# 范围表达式
+# match.group(1) and match.group(8) are copy from RE_NUMBER
+
+RE_RANGE = re.compile(
+    r"""
+    (?<![\d\+\-\×÷=])      # 使用反向前瞻以确保数字范围之前没有其他数字和操作符
+    ((-?)((\d+)(\.\d+)?))  # 匹配范围起始的负数或正数（整数或小数）
+    [-~]                   # 匹配范围分隔符
+    ((-?)((\d+)(\.\d+)?))  # 匹配范围结束的负数或正数（整数或小数）
+    (?![\d\+\-\×÷=])       # 使用正向前瞻以确保数字范围之后没有其他数字和操作符
+    """, re.VERBOSE)
+
+
+def replace_range(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    first, second = match.group(1), match.group(6)
+    first = RE_NUMBER.sub(replace_number, first)
+    second = RE_NUMBER.sub(replace_number, second)
+    result = f"{first}到{second}"
+    return result
+
+
+# ~至表达式
+RE_TO_RANGE = re.compile(
+    r'((-?)((\d+)(\.\d+)?)|(\.(\d+)))(%|°C|℃|度|摄氏度|cm2|cm²|cm3|cm³|cm|db|ds|kg|km|m2|m²|m³|m3|ml|m|mm|s)[~]((-?)((\d+)(\.\d+)?)|(\.(\d+)))(%|°C|℃|度|摄氏度|cm2|cm²|cm3|cm³|cm|db|ds|kg|km|m2|m²|m³|m3|ml|m|mm|s)')
+
+def replace_to_range(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    result = match.group(0).replace('~', '至')
+    return result
+
+
+def _get_value(value_string: str, use_zero: bool=True) -> List[str]:
+    stripped = value_string.lstrip('0')
+    if len(stripped) == 0:
+        return []
+    elif len(stripped) == 1:
+        if use_zero and len(stripped) < len(value_string):
+            return [DIGITS['0'], DIGITS[stripped]]
+        else:
+            return [DIGITS[stripped]]
+    else:
+        largest_unit = next(
+            power for power in reversed(UNITS.keys()) if power < len(stripped))
+        first_part = value_string[:-largest_unit]
+        second_part = value_string[-largest_unit:]
+        return _get_value(first_part) + [UNITS[largest_unit]] + _get_value(
+            second_part)
+
+
+def verbalize_cardinal(value_string: str) -> str:
+    if not value_string:
+        return ''
+
+    # 000 -> '零' , 0 -> '零'
+    value_string = value_string.lstrip('0')
+    if len(value_string) == 0:
+        return DIGITS['0']
+
+    result_symbols = _get_value(value_string)
+    # verbalized number starting with '一十*' is abbreviated as `十*`
+    if len(result_symbols) >= 2 and result_symbols[0] == DIGITS[
+            '1'] and result_symbols[1] == UNITS[1]:
+        result_symbols = result_symbols[1:]
+    return ''.join(result_symbols)
+
+
+def verbalize_digit(value_string: str, alt_one=False) -> str:
+    result_symbols = [DIGITS[digit] for digit in value_string]
+    result = ''.join(result_symbols)
+    if alt_one:
+        result = result.replace("一", "幺")
+    return result
+
+
+def num2str(value_string: str) -> str:
+    integer_decimal = value_string.split('.')
+    if len(integer_decimal) == 1:
+        integer = integer_decimal[0]
+        decimal = ''
+    elif len(integer_decimal) == 2:
+        integer, decimal = integer_decimal
+    else:
+        raise ValueError(
+            f"The value string: '${value_string}' has more than one point in it."
+        )
+
+    result = verbalize_cardinal(integer)
+
+    decimal = decimal.rstrip('0')
+    if decimal:
+        # '.22' is verbalized as '零点二二'
+        # '3.20' is verbalized as '三点二
+        result = result if result else "零"
+        result += '点' + verbalize_digit(decimal)
+    return result
+
+
+
+================================================
+FILE: utils/zh_normalization/phonecode.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+
+from .num import verbalize_digit
+
+# 规范化固话/手机号码
+# 手机
+# http://www.jihaoba.com/news/show/13680
+# 移动：139、138、137、136、135、134、159、158、157、150、151、152、188、187、182、183、184、178、198
+# 联通：130、131、132、156、155、186、185、176
+# 电信：133、153、189、180、181、177
+RE_MOBILE_PHONE = re.compile(
+    r"(?<!\d)((\+?86 ?)?1([38]\d|5[0-35-9]|7[678]|9[89])\d{8})(?!\d)")
+RE_TELEPHONE = re.compile(
+    r"(?<!\d)((0(10|2[1-3]|[3-9]\d{2})-?)?[1-9]\d{6,7})(?!\d)")
+
+# 全国统一的号码400开头
+RE_NATIONAL_UNIFORM_NUMBER = re.compile(r"(400)(-)?\d{3}(-)?\d{4}")
+
+
+def phone2str(phone_string: str, mobile=True) -> str:
+    if mobile:
+        sp_parts = phone_string.strip('+').split()
+        result = '，'.join(
+            [verbalize_digit(part, alt_one=True) for part in sp_parts])
+        return result
+    else:
+        sil_parts = phone_string.split('-')
+        result = '，'.join(
+            [verbalize_digit(part, alt_one=True) for part in sil_parts])
+        return result
+
+
+def replace_phone(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    return phone2str(match.group(0), mobile=False)
+
+
+def replace_mobile(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    return phone2str(match.group(0))
+
+
+
+================================================
+FILE: utils/zh_normalization/quantifier.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+
+from .num import num2str
+
+# 温度表达式，温度会影响负号的读法
+# -3°C 零下三度
+RE_TEMPERATURE = re.compile(r'(-?)(\d+(\.\d+)?)(°C|℃|度|摄氏度)')
+measure_dict = {
+    "cm2": "平方厘米",
+    "cm²": "平方厘米",
+    "cm3": "立方厘米",
+    "cm³": "立方厘米",
+    "cm": "厘米",
+    "db": "分贝",
+    "ds": "毫秒",
+    "kg": "千克",
+    "km": "千米",
+    "m2": "平方米",
+    "m²": "平方米",
+    "m³": "立方米",
+    "m3": "立方米",
+    "ml": "毫升",
+    "m": "米",
+    "mm": "毫米",
+    "s": "秒"
+}
+
+
+def replace_temperature(match) -> str:
+    """
+    Args:
+        match (re.Match)
+    Returns:
+        str
+    """
+    sign = match.group(1)
+    temperature = match.group(2)
+    unit = match.group(3)
+    sign: str = "零下" if sign else ""
+    temperature: str = num2str(temperature)
+    unit: str = "摄氏度" if unit == "摄氏度" else "度"
+    result = f"{sign}{temperature}{unit}"
+    return result
+
+
+def replace_measure(sentence) -> str:
+    for q_notation in measure_dict:
+        if q_notation in sentence:
+            sentence = sentence.replace(q_notation, measure_dict[q_notation])
+    return sentence
+
+
+
+================================================
+FILE: utils/zh_normalization/text_normlization.py
+================================================
+# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+from typing import List
+
+from .char_convert import tranditional_to_simplified
+from .chronology import RE_DATE
+from .chronology import RE_DATE2
+from .chronology import RE_TIME
+from .chronology import RE_TIME_RANGE
+from .chronology import replace_date
+from .chronology import replace_date2
+from .chronology import replace_time
+from .constants import F2H_ASCII_LETTERS
+from .constants import F2H_DIGITS
+from .constants import F2H_SPACE
+from .num import RE_DECIMAL_NUM
+from .num import RE_DEFAULT_NUM
+from .num import RE_FRAC
+from .num import RE_INTEGER
+from .num import RE_NUMBER
+from .num import RE_PERCENTAGE
+from .num import RE_POSITIVE_QUANTIFIERS
+from .num import RE_RANGE
+from .num import RE_TO_RANGE
+from .num import RE_ASMD
+from .num import replace_default_num
+from .num import replace_frac
+from .num import replace_negative_num
+from .num import replace_number
+from .num import replace_percentage
+from .num import replace_positive_quantifier
+from .num import replace_range
+from .num import replace_to_range
+from .num import replace_asmd
+from .phonecode import RE_MOBILE_PHONE
+from .phonecode import RE_NATIONAL_UNIFORM_NUMBER
+from .phonecode import RE_TELEPHONE
+from .phonecode import replace_mobile
+from .phonecode import replace_phone
+from .quantifier import RE_TEMPERATURE
+from .quantifier import replace_measure
+from .quantifier import replace_temperature
+
+
+class TextNormalizer():
+    def __init__(self):
+        self.SENTENCE_SPLITOR = re.compile(r'([：、，；。？！,;?!][”’]?)')
+
+    def _split(self, text: str, lang="zh") -> List[str]:
+        """Split long text into sentences with sentence-splitting punctuations.
+        Args:
+            text (str): The input text.
+        Returns:
+            List[str]: Sentences.
+        """
+        # Only for pure Chinese here
+        if lang == "zh":
+            text = text.replace(" ", "")
+            # 过滤掉特殊字符
+            text = re.sub(r'[——《》【】<>{}()（）#&@“”^_|\\]', '', text)
+        text = self.SENTENCE_SPLITOR.sub(r'\1\n', text)
+        text = text.strip()
+        sentences = [sentence.strip() for sentence in re.split(r'\n+', text)]
+        return sentences
+
+    def _post_replace(self, sentence: str) -> str:
+        sentence = sentence.replace('/', '每')
+        # sentence = sentence.replace('~', '至')
+        # sentence = sentence.replace('～', '至')
+        sentence = sentence.replace('①', '一')
+        sentence = sentence.replace('②', '二')
+        sentence = sentence.replace('③', '三')
+        sentence = sentence.replace('④', '四')
+        sentence = sentence.replace('⑤', '五')
+        sentence = sentence.replace('⑥', '六')
+        sentence = sentence.replace('⑦', '七')
+        sentence = sentence.replace('⑧', '八')
+        sentence = sentence.replace('⑨', '九')
+        sentence = sentence.replace('⑩', '十')
+        sentence = sentence.replace('α', '阿尔法')
+        sentence = sentence.replace('β', '贝塔')
+        sentence = sentence.replace('γ', '伽玛').replace('Γ', '伽玛')
+        sentence = sentence.replace('δ', '德尔塔').replace('Δ', '德尔塔')
+        sentence = sentence.replace('ε', '艾普西龙')
+        sentence = sentence.replace('ζ', '捷塔')
+        sentence = sentence.replace('η', '依塔')
+        sentence = sentence.replace('θ', '西塔').replace('Θ', '西塔')
+        sentence = sentence.replace('ι', '艾欧塔')
+        sentence = sentence.replace('κ', '喀帕')
+        sentence = sentence.replace('λ', '拉姆达').replace('Λ', '拉姆达')
+        sentence = sentence.replace('μ', '缪')
+        sentence = sentence.replace('ν', '拗')
+        sentence = sentence.replace('ξ', '克西').replace('Ξ', '克西')
+        sentence = sentence.replace('ο', '欧米克伦')
+        sentence = sentence.replace('π', '派').replace('Π', '派')
+        sentence = sentence.replace('ρ', '肉')
+        sentence = sentence.replace('ς', '西格玛').replace('Σ', '西格玛').replace(
+            'σ', '西格玛')
+        sentence = sentence.replace('τ', '套')
+        sentence = sentence.replace('υ', '宇普西龙')
+        sentence = sentence.replace('φ', '服艾').replace('Φ', '服艾')
+        sentence = sentence.replace('χ', '器')
+        sentence = sentence.replace('ψ', '普赛').replace('Ψ', '普赛')
+        sentence = sentence.replace('ω', '欧米伽').replace('Ω', '欧米伽')
+        # re filter special characters, have one more character "-" than line 68
+        sentence = re.sub(r'[-——《》【】<=>{}()（）#&@“”^_|\\]', '', sentence)
+        return sentence
+
+    def normalize_sentence(self, sentence: str) -> str:
+        # basic character conversions
+        sentence = tranditional_to_simplified(sentence)
+        sentence = sentence.translate(F2H_ASCII_LETTERS).translate(
+            F2H_DIGITS).translate(F2H_SPACE)
+
+        # number related NSW verbalization
+        sentence = RE_DATE.sub(replace_date, sentence)
+        sentence = RE_DATE2.sub(replace_date2, sentence)
+
+        # range first
+        sentence = RE_TIME_RANGE.sub(replace_time, sentence)
+        sentence = RE_TIME.sub(replace_time, sentence)
+
+        # 处理~波浪号作为至的替换
+        sentence = RE_TO_RANGE.sub(replace_to_range, sentence)
+        sentence = RE_TEMPERATURE.sub(replace_temperature, sentence)
+        sentence = replace_measure(sentence)
+        sentence = RE_FRAC.sub(replace_frac, sentence)
+        sentence = RE_PERCENTAGE.sub(replace_percentage, sentence)
+        sentence = RE_MOBILE_PHONE.sub(replace_mobile, sentence)
+
+        sentence = RE_TELEPHONE.sub(replace_phone, sentence)
+        sentence = RE_NATIONAL_UNIFORM_NUMBER.sub(replace_phone, sentence)
+
+        sentence = RE_RANGE.sub(replace_range, sentence)
+
+        # 处理加减乘除
+        while RE_ASMD.search(sentence):
+            sentence = RE_ASMD.sub(replace_asmd, sentence)
+
+        sentence = RE_INTEGER.sub(replace_negative_num, sentence)
+        sentence = RE_DECIMAL_NUM.sub(replace_number, sentence)
+        sentence = RE_POSITIVE_QUANTIFIERS.sub(replace_positive_quantifier,
+                                               sentence)
+        sentence = RE_DEFAULT_NUM.sub(replace_default_num, sentence)
+        sentence = RE_NUMBER.sub(replace_number, sentence)
+        sentence = self._post_replace(sentence)
+
+        return sentence
+
+    def normalize(self, text: str) -> List[str]:
+        sentences = self._split(text)
+        sentences = [self.normalize_sentence(sent) for sent in sentences]
+        return sentences
+
+

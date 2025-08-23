@@ -1,0 +1,42 @@
+{
+  "source_video": "MR3ZdbjN8e0",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "See an objection not as a rejection, but as a request for more information or a sign they need more conviction. It's often a question in disguise.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and isolate the objection: State you understand their concern, then ask 'Besides [stated objection], are there any other concerns you have?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps validate the stated concern and reveal any hidden objections."
+    },
+    {
+      "type": "technique",
+      "content": "Use reframing: Reframe the objection from the risk of changing to the opportunity cost and missed benefits of *not* changing.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When reframing, quantify the value provided or the cost of inaction (e.g., missing out on a benefit that costs X annually).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For the 'I need to talk to my partner/boss' objection, get clarity on their internal discussion points. Ask 'What aspects do you think they might have questions about?' or 'What points would be most important to discuss?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps understand their situation and potentially equip them for the internal conversation."
+    },
+    {
+      "type": "technique",
+      "content": "Always confirm you have handled the objection. After addressing it, ask 'Does that make sense?' or 'Do you feel comfortable with our discussion on this point now?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Prevent objections by addressing potential concerns proactively earlier in the conversation.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

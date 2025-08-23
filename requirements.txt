@@ -1,0 +1,5 @@
+
+# ── runtime orchestration ──
+celery[redis]>=5.3.6
+librosa>=0.10.2
+transformers>=4.41.0

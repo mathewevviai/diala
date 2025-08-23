@@ -1,0 +1,82 @@
+{
+  "source_video": "ThWTOw93u3k",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Replace 'I have customers like you' with 'We have individuals who have successfully used our solution that are just like you'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sounds more like peers, less like being sold to, building rapport early."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid starting a cold call with 'Is now a good time?' or 'Did I catch you at a bad time?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledges the unexpected nature of the call."
+    },
+    {
+      "type": "technique",
+      "content": "Request a specific, low-commitment timeframe at the start of a cold call: 'Do you mind if I take 30 seconds to tell you why I called?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Quantifiable, easy for the prospect to agree to, reduces lizard brain reaction."
+    },
+    {
+      "type": "technique",
+      "content": "Never use the phrase 'I'm not trying to sell you anything.'",
+      "speaker_perspective": "sales agent",
+      "notes": "It immediately makes the prospect think you are trying to sell them."
+    },
+    {
+      "type": "mindset",
+      "content": "Prospects buy results and outcomes, not just features, claims, or products.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Instead of generic claims like 'We're the number one,' quantify results: 'My clients see an X% increase in Y within Z timeframe.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides specific, results-focused value that resonates with prospects."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid asking to 'pick someone's brain.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Often perceived as vague, time-consuming, or a veiled sales attempt."
+    },
+    {
+      "type": "technique",
+      "content": "For a targeted request, use 'I have a specific question about X and I thought you'd be the right person to ask.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows preparation, respects their expertise, and is more direct."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid generic follow-up phrases like 'Just circling back' or 'Checking in.'",
+      "speaker_perspective": "sales agent",
+      "notes": "These phrases lack value and can be perceived negatively."
+    },
+    {
+      "type": "technique",
+      "content": "Add specific value with every follow-up touch (e.g., share relevant content, client insights, market trends).",
+      "speaker_perspective": "sales agent",
+      "notes": "Keeps you top-of-mind positively and demonstrates expertise."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid asking 'Can I send you some information?' or simply stating 'I'll send you an email.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Contributes to information overload; lacks specific purpose tied to the prospect's needs."
+    },
+    {
+      "type": "technique",
+      "content": "Before sending information, summarize the prospect's specific problem and desired outcome and get their agreement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures alignment and frames the value of the subsequent information."
+    },
+    {
+      "type": "technique",
+      "content": "After confirming problem/outcome, propose sharing a *brief overview* of *how* your solution addresses *their confirmed needs*.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions information as a targeted solution, not generic data. Gain permission based on relevance."
+    }
+  ]
+}

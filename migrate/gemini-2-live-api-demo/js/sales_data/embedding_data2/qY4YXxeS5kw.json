@@ -1,0 +1,56 @@
+{
+  "source_video": "qY4YXxeS5kw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start calls by asking for brief permission to speak, e.g., 'Would you hang up or let me have 30 seconds?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify early by understanding the prospect's budget parameters before discussing price.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions to encourage the prospect to share more information about their needs and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Frame rejection as the prospect rejecting the proposition, not a personal attack on you.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Anchor future interactions or meetings by setting a clear expectation of value and a low-pressure opt-out.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively to understand the prospect's underlying motivations and pain points, not just their words.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Just curious, what did you have budgeted for a solution like this?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for budget qualification."
+    },
+    {
+      "type": "technique",
+      "content": "Handle objections by first acknowledging the prospect's concern before providing a relevant response.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Mirror the prospect's language and tone subtly to build rapport and trust.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When leaving a voicemail, keep it brief and focused on providing value or solving a specific problem, not just asking for a callback.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

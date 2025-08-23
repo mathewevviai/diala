@@ -1,0 +1,36 @@
+{
+  "source_video": "yVhPNOZvCUo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to uncover the root cause of objections, such as 'What motivated or inspired you to put that post up?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to dig deeper into the prospect's underlying motivations."
+    },
+    {
+      "type": "example",
+      "content": "Isolate the objection by addressing it directly: 'Despite my academic achievements... I've been judged on my looks and not my abilities.'",
+      "speaker_perspective": "guest",
+      "notes": "Demonstrates how to separate the objection from other factors."
+    },
+    {
+      "type": "mindset",
+      "content": "Approach objections with radical honesty and authenticity to build trust and understanding.",
+      "speaker_perspective": "guest",
+      "notes": "Emphasizes the importance of transparency in objection handling."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What would you say to someone that says...?",
+      "speaker_perspective": "sales agent",
+      "notes": "A phrase used to explore objections and prepare responses."
+    },
+    {
+      "type": "technique",
+      "content": "Use statistical engagement data to drive content strategy, such as selecting pictures that increase interaction.",
+      "speaker_perspective": "guest",
+      "notes": "Shows how data can be leveraged to address potential objections preemptively."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

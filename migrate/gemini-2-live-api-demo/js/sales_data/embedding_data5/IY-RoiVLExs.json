@@ -1,0 +1,48 @@
+{
+  "source_video": "IY-RoiVLExs",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Customer pain point: Feeling treated like a baby by the OS. Root cause: Excessive prompts and menu clicking for simple tasks.",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifying the feeling and the specific action causing it."
+    },
+    {
+      "type": "example",
+      "content": "Customer pain point: Bloatware requiring significant time to remove. Root cause: Pre-installed, unwanted software from the vendor.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlighting a specific frustration and its source."
+    },
+    {
+      "type": "example",
+      "content": "Customer pain point: Ads appearing in the OS interface (e.g., Start menu). Root cause: Vendor monetization strategies.",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifying a specific frustration and its perceived business motive."
+    },
+    {
+      "type": "example",
+      "content": "Customer pain point: Difficulty cancelling a service. Root cause: Contract terms with early termination fees.",
+      "speaker_perspective": "sales agent",
+      "notes": "Analyzing the root cause of dissatisfaction with a vendor's business practice."
+    },
+    {
+      "type": "example",
+      "content": "Potential objection/difficulty with a solution: Hardware/driver issues requiring manual fixing. Root cause: Less vendor support compared to more popular platforms.",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging a known potential problem and its systemic cause."
+    },
+    {
+      "type": "mindset",
+      "content": "Develop the ability to immediately identify the root cause of a problem or frustration expressed by the customer.",
+      "speaker_perspective": "sales agent",
+      "notes": "Framed as a core skill for understanding customer issues."
+    },
+    {
+      "type": "technique",
+      "content": "When a customer describes a problem, analyze the underlying reason ('root cause') rather than just the symptom.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focusing on the 'why' behind the customer's pain point."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

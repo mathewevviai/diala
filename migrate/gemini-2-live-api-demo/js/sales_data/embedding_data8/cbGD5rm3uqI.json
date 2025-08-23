@@ -1,0 +1,54 @@
+{
+  "source_video": "cbGD5rm3uqI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says they don't recognize the problems, use a conditional statement to challenge their disbelief, e.g., 'I get the feeling you wouldn't believe me anyway, would you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when initial problem statements don't resonate. Frames their potential disbelief."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect expresses doubt or difficulty seeing how your solution applies, immediately ask 'Can I ask why?' to probe the reason for their hesitation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gets the prospect talking about their specific concerns or worldview."
+    },
+    {
+      "type": "technique",
+      "content": "Probe the root cause of objections like 'we've tried this before' by asking if past negative experiences are preventing them from trying again. 'Would it be fair to say that because you've been burnt once you never want to take that chance again?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses underlying fear or past pain points."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect gives a non-committal answer like 'not necessarily', probe for specifics: 'When you say not necessarily, what do you mean?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Similar to asking 'What specifically?' to uncover the details behind a vague response."
+    },
+    {
+      "type": "technique",
+      "content": "Use a conditional close based on belief: 'Let's pretend I could convince you, what would you do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Removes immediate pressure while getting the prospect to consider the desired outcome."
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'What is it that you do?' interruption by linking it to problem elimination via a conditional question: 'If I told you I helped companies eliminate the problems we've just discussed, what would you say?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Refocuses the conversation on value and their problems rather than just describing the service."
+    },
+    {
+      "type": "technique",
+      "content": "Employ a strong conditional close: 'If you saw my solution and genuinely believed it could fix those problems, what would you do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gets commitment to the next step based on seeing the solution and believing in its effectiveness."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect responds positively to a conditional close ('I'd be interested'), immediately move to scheduling the next step: 'Have you got your diary there?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Capitalizes on the momentum created by the conditional agreement."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

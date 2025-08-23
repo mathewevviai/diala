@@ -1,0 +1,61 @@
+2025-08-04 08:59:27,867 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint save hook for _speechbrain_save
+2025-08-04 08:59:27,867 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint load hook for _speechbrain_load
+2025-08-04 08:59:27,868 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint save hook for save
+2025-08-04 08:59:27,868 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint load hook for load
+2025-08-04 08:59:28,071 - speechbrain.utils.quirks - INFO - Applied quirks (see `speechbrain.utils.quirks`): [disable_jit_profiling, allow_tf32]
+2025-08-04 08:59:28,071 - speechbrain.utils.quirks - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-08-04 08:59:28,072 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint save hook for _save
+2025-08-04 08:59:28,072 - speechbrain.utils.checkpoints - DEBUG - Registered checkpoint load hook for _recover
+2025-08-04 08:59:29,259 - src.services.audio_separation_service - INFO - Audio Separation Service initialized - Device: cuda
+2025-08-04 08:59:58,148 - src.services.audio_preparation_service - INFO - Audio Preparation Service initialized - Using Granite ASR via stream simulation
+2025-08-04 08:59:58,156 - src.api.public.tiktok_content - INFO - Initializing Convex client with URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,007 - src.services.chatterbox_service - WARNING - Flash Attention 2 not available
+2025-08-04 08:59:30,008 - src.services.chatterbox_service - INFO - Detected GPU backend: cuda
+2025-08-04 08:59:30,009 - src.services.chatterbox_service - INFO - GPU detected: NVIDIA GeForce RTX 4060 Laptop GPU
+2025-08-04 08:59:30,010 - src.services.chatterbox_service - INFO - GPU memory: 8.00 GB
+2025-08-04 08:59:30,010 - src.services.chatterbox_client - INFO - ChatterboxClient initialized in LOCAL mode
+2025-08-04 08:59:30,010 - src.services.voice_clone_jobs - INFO - Voice Clone Job Manager initialized - Convex URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,010 - src.services.tts_manager - INFO - TTS Manager initialized - Environment: development, Mode: local
+2025-08-04 08:59:30,010 - src.services.voice_clone_jobs - INFO - Voice Clone Job Manager initialized - Convex URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,066 - services.bulk_processing_service - INFO - Bulk Processing Service initialized - temp_dir: /tmp/bulk_processing_a6h560ge
+2025-08-04 08:59:30,069 - services.bulk_job_manager - INFO - Bulk Job Manager initialized - Convex URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,069 - services.bulk_job_manager - INFO - Export path: /tmp/bulk_exports, retention: 24h
+2025-08-04 08:59:30,071 - src.api.public.bulk - INFO - Initializing Convex client with URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,072 - services.bulk_job_manager - INFO - Bulk Job Manager initialized - Convex URL: http://127.0.0.1:3210
+2025-08-04 08:59:30,072 - services.bulk_job_manager - INFO - Export path: /tmp/bulk_exports, retention: 24h
+
+============================================================
+🚀 Starting Diala Backend Server
+============================================================
+
+📍 API Endpoints:
+   - Documentation: http://localhost:8001/docs
+   - ReDoc: http://localhost:8001/redoc
+   - Health Check: http://localhost:8001/health
+
+📚 Public APIs:
+   - YouTube Transcript: POST http://localhost:8001/api/public/youtube/transcript
+   - Direct Transcript: GET http://localhost:8001/api/public/youtube/transcript/{video_id}
+
+🔒 Protected APIs (require authentication):
+   - Example endpoints at /api/protected/*
+
+============================================================
+
+INFO:     Started server process [12155]
+INFO:     Waiting for application startup.
+2025-08-04 08:59:30,147 - src.main - INFO - Diala Backend API starting up...
+2025-08-04 08:59:30,147 - src.main - INFO - Server is running. Model loading continues in the background.
+2025-08-04 08:59:30,148 - src.main - INFO - Background model loading initiated...
+2025-08-04 08:59:30,148 - src.services.realtime_analysis_service - INFO - Loading models for RealtimeAnalysisService...
+2025-08-04 08:59:30,148 - src.services.realtime_analysis_service - INFO - Loading Whisper ASR model: distil-whisper/distil-large-v2
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+2025-08-04 08:59:33,967 - src.services.realtime_analysis_service - INFO - Whisper ASR model loaded successfully on cpu
+2025-08-04 08:59:33,967 - src.services.realtime_analysis_service - INFO - Loading sentiment analysis model...
+2025-08-04 08:59:34,492 - src.services.realtime_analysis_service - INFO - Sentiment model loaded successfully.
+2025-08-04 08:59:34,492 - src.services.realtime_analysis_service - INFO - All models for RealtimeAnalysisService loaded successfully.
+2025-08-04 08:59:34,492 - src.main - INFO - ✅ All models have been pre-loaded and the server is ready.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8001): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.

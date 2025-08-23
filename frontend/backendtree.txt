@@ -1,0 +1,433 @@
+Directory structure:
+└── frontend/
+    ├── README.md
+    ├── clear_cached_transcripts.ts
+    ├── components.json
+    ├── next.config.mjs
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.ts
+    ├── test-convex-connection.js
+    ├── test-hunter-integration.js
+    ├── tsconfig.json
+    ├── .env.local.example
+    ├── .eslintrc.json
+    ├── convex/
+    │   ├── audioTranscriptActions.ts
+    │   ├── bulkJobs.ts
+    │   ├── convex.config.ts
+    │   ├── http.ts
+    │   ├── hunterActions.ts
+    │   ├── hunterHttpEndpoints.ts
+    │   ├── hunterMutations.ts
+    │   ├── hunterQueries.ts
+    │   ├── initializeHunter.ts
+    │   ├── jinaIntegration.ts
+    │   ├── proceduralAudio.ts
+    │   ├── ragActions.ts
+    │   ├── ragMutations.ts
+    │   ├── ragQueries.ts
+    │   ├── ragSocialActions.ts
+    │   ├── rateLimitHelpers.ts
+    │   ├── scheduledFunctions.ts
+    │   ├── schema.ts
+    │   ├── telephonyActions.ts
+    │   ├── testSetup.ts
+    │   ├── voiceCloneJobs.ts
+    │   ├── youtubeContentActions.ts
+    │   ├── youtubeTranscriptActions.ts
+    │   ├── youtubeTranscripts.ts
+    │   ├── _generated/
+    │   │   ├── api.d.ts
+    │   │   ├── api.js
+    │   │   ├── dataModel.d.ts
+    │   │   ├── server.d.ts
+    │   │   └── server.js
+    │   ├── actions/
+    │   │   ├── instagramContent.ts
+    │   │   ├── tiktokContent.ts
+    │   │   └── twitchContent.ts
+    │   ├── mutations/
+    │   │   ├── audioTranscripts.ts
+    │   │   ├── callsPage.ts
+    │   │   ├── clearCachedTranscripts.ts
+    │   │   ├── instagramContent.ts
+    │   │   ├── telephony.ts
+    │   │   ├── tiktokContent.ts
+    │   │   ├── twitchContent.ts
+    │   │   ├── youtubeContent.ts
+    │   │   └── youtubeTranscripts.ts
+    │   └── queries/
+    │       ├── audioTranscripts.ts
+    │       ├── callsPage.ts
+    │       ├── debugYouTube.ts
+    │       ├── instagramContent.ts
+    │       ├── telephony.ts
+    │       ├── tiktokContent.ts
+    │       ├── twitchContent.ts
+    │       └── youtubeContent.ts
+    ├── data/
+    │   ├── query_cache.json
+    │   ├── search_results.json
+    │   └── debug/
+    │       ├── jina_request_20250620_081341_Roofing and Construc.json
+    │       ├── jina_request_20250620_081343_Roofing and Construc.json
+    │       ├── jina_request_20250620_081345_Roofing and Construc.json
+    │       ├── jina_request_20250620_081348_Roofing and Construc.json
+    │       ├── jina_request_20250620_081350_Roofing and Construc.json
+    │       ├── jina_request_20250620_081407_Roofing and Construc.json
+    │       ├── jina_request_20250620_081412_Roofing and Construc.json
+    │       ├── jina_request_20250620_081414_Roofing and Construc.json
+    │       └── jina_request_20250620_081416_Roofing and Construc.json
+    ├── docs/
+    │   ├── README.md
+    │   ├── 08_chatterbox_integration.md
+    │   ├── AUDIO_TRANSCRIPTION_API.md
+    │   ├── AUTOMATION_INTEGRATION.md
+    │   ├── davidteather-tiktok-api.git.txt
+    │   ├── davidteather-tiktok-api.git.txt:Zone.Identifier
+    │   ├── loo-kuhs-tiktok-video-downloader.txt
+    │   ├── loo-kuhs-tiktok-video-downloader.txt:Zone.Identifier
+    │   ├── lyst0 - Twitch.html
+    │   ├── OUTBOUND_CALLING_SERVICE.md
+    │   ├── transcribingplan.md
+    │   ├── tyrrrz-youtubeexplode.git (1).txt
+    │   ├── tyrrrz-youtubeexplode.git (1).txt:Zone.Identifier
+    │   ├── YOUTUBE_TRANSCRIPT_INTEGRATION.md
+    │   ├── AutoRAG/
+    │   │   ├── 00_overview.md
+    │   │   ├── 01_youtube_processing.md
+    │   │   ├── 03_convex_cloudflare_architecture.md
+    │   │   ├── 04_embedding_data_structure.md
+    │   │   └── 05_implementation_roadmap.md
+    │   ├── Business-Hunter/
+    │   │   ├── README.md
+    │   │   ├── configuration-examples.md
+    │   │   ├── architecture/
+    │   │   │   ├── data-flow.md
+    │   │   │   └── system-overview.md
+    │   │   └── phases/
+    │   │       ├── phase-1-search-GENERAL.md
+    │   │       ├── phase-1-search.md
+    │   │       ├── phase-2-extract.md
+    │   │       ├── phase-3-content.md
+    │   │       ├── phase-4-save.md
+    │   │       ├── phase-5-validate.md
+    │   │       └── phase-6-report.md
+    │   ├── convex/
+    │   │   ├── agents/
+    │   │   │   └── modals/
+    │   │   │       └── CreateAgentModal/
+    │   │   │           ├── mutations.md
+    │   │   │           ├── queries.md
+    │   │   │           └── schema.md
+    │   │   ├── autorag/
+    │   │   │   └── modals/
+    │   │   │       ├── README.md
+    │   │   │       ├── CreateRAGWorkflowModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       ├── DeleteConfirmationModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       ├── SettingsRAGWorkflowModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       └── ViewRAGWorkflowModal/
+    │   │   │           ├── mutations.md
+    │   │   │           ├── queries.md
+    │   │   │           └── schema.md
+    │   │   ├── business-hunter/
+    │   │   │   └── modals/
+    │   │   │       ├── DeleteConfirmationModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       ├── HuntConfigurationModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       ├── SettingsWorkflowModal/
+    │   │   │       │   ├── mutations.md
+    │   │   │       │   ├── queries.md
+    │   │   │       │   └── schema.md
+    │   │   │       └── ViewWorkflowModal/
+    │   │   │           ├── mutations.md
+    │   │   │           ├── queries.md
+    │   │   │           └── schema.md
+    │   │   └── calls/
+    │   │       └── modals/
+    │   │           ├── CallAnalyticsModal/
+    │   │           │   ├── mutations.md
+    │   │           │   ├── queries.md
+    │   │           │   └── schema.md
+    │   │           ├── LiveCallMonitorModal/
+    │   │           │   ├── mutations.md
+    │   │           │   ├── queries.md
+    │   │           │   └── schema.md
+    │   │           └── SwarmOverviewModal/
+    │   │               ├── mutations.md
+    │   │               ├── queries.md
+    │   │               └── schema.md
+    │   ├── embeddings/
+    │   │   └── jina/
+    │   │       ├── README.md
+    │   │       ├── api-documentation.md
+    │   │       ├── examples-and-use-cases.md
+    │   │       ├── huggingface-models.md
+    │   │       ├── jina-clip-v2-paper.md
+    │   │       ├── jina-embeddings-v3-paper.md
+    │   │       ├── late-chunking-paper.md
+    │   │       ├── model-comparison.md
+    │   │       ├── overview.md
+    │   │       └── related_urls.json
+    │   ├── jina-extracts/
+    │   │   ├── 20250622_022136/
+    │   │   │   ├── content.md
+    │   │   │   ├── summary.txt
+    │   │   │   └── urls.json
+    │   │   ├── 20250622_022239/
+    │   │   │   ├── content.md
+    │   │   │   ├── summary.txt
+    │   │   │   └── urls.json
+    │   │   └── 20250622_022302/
+    │   │       ├── content.md
+    │   │       ├── summary.txt
+    │   │       └── urls.json
+    │   ├── lyst0 - Twitch_files/
+    │   │   ├── 01446d6a-1841-465f-9664-d92b8704b870-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── 1.0
+    │   │   ├── 1.0:Zone.Identifier
+    │   │   ├── 18243-94b41e349093da21b07e.js.download
+    │   │   ├── 18243-94b41e349093da21b07e.js.download:Zone.Identifier
+    │   │   ├── 20312-17ca21e784f6fef3ca2d.js.download
+    │   │   ├── 20312-17ca21e784f6fef3ca2d.js.download:Zone.Identifier
+    │   │   ├── 21002-8beffca02b82848493c6.css
+    │   │   ├── 21002-8beffca02b82848493c6.css:Zone.Identifier
+    │   │   ├── 2232-b53f06e563cf819eb9b9.js.download
+    │   │   ├── 2232-b53f06e563cf819eb9b9.js.download:Zone.Identifier
+    │   │   ├── 23321-e73cddf5831137ee3c10.js.download
+    │   │   ├── 23321-e73cddf5831137ee3c10.js.download:Zone.Identifier
+    │   │   ├── 2441-00723ac43125c30df83c.js.download
+    │   │   ├── 2441-00723ac43125c30df83c.js.download:Zone.Identifier
+    │   │   ├── 25470-c093f0f6a1d609e320f3.js.download
+    │   │   ├── 25470-c093f0f6a1d609e320f3.js.download:Zone.Identifier
+    │   │   ├── 26905-7cd162837386c6ec237f.css
+    │   │   ├── 26905-7cd162837386c6ec237f.css:Zone.Identifier
+    │   │   ├── 27561-6c232c4dc02717265cb9.js.download
+    │   │   ├── 27561-6c232c4dc02717265cb9.js.download:Zone.Identifier
+    │   │   ├── 28121-e82fd7b05d4f430e233b.js.download
+    │   │   ├── 28121-e82fd7b05d4f430e233b.js.download:Zone.Identifier
+    │   │   ├── 29751-32508e5e77ab130ade8f.js.download
+    │   │   ├── 29751-32508e5e77ab130ade8f.js.download:Zone.Identifier
+    │   │   ├── 301d06a0-5387-4b71-9471-38d7ea1ac80e-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── 35461-ae77356e54fff102ce0a.js.download
+    │   │   ├── 35461-ae77356e54fff102ce0a.js.download:Zone.Identifier
+    │   │   ├── 37073-e3bb2526b7148980ffa5.js.download
+    │   │   ├── 37073-e3bb2526b7148980ffa5.js.download:Zone.Identifier
+    │   │   ├── 38430-3107e301e2afa256b2f2.js.download
+    │   │   ├── 38430-3107e301e2afa256b2f2.js.download:Zone.Identifier
+    │   │   ├── 43318-f9f6e632be714d8fb7ae.js.download
+    │   │   ├── 43318-f9f6e632be714d8fb7ae.js.download:Zone.Identifier
+    │   │   ├── 46031-0d312136bfdb2871c40b.js.download
+    │   │   ├── 46031-0d312136bfdb2871c40b.js.download:Zone.Identifier
+    │   │   ├── 46126-875743d2938434c14cf6.js.download
+    │   │   ├── 46126-875743d2938434c14cf6.js.download:Zone.Identifier
+    │   │   ├── 465cd136-b191-4b65-942a-4131bd31fe4d-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── 46663-7d459249bfbf09363777.js.download
+    │   │   ├── 46663-7d459249bfbf09363777.js.download:Zone.Identifier
+    │   │   ├── 49168-dd8114dcd3f05eb95436.js.download
+    │   │   ├── 49168-dd8114dcd3f05eb95436.js.download:Zone.Identifier
+    │   │   ├── 4d2f4f20-4dba-4866-8a41-542378cb7089-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── 51a4255c-176f-4d60-bf73-d1231ab1d553-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── 54538-ea48530668b31c47ed75.js.download
+    │   │   ├── 54538-ea48530668b31c47ed75.js.download:Zone.Identifier
+    │   │   ├── 55293-e974a9dc1aa0e7360635.js.download
+    │   │   ├── 55293-e974a9dc1aa0e7360635.js.download:Zone.Identifier
+    │   │   ├── 60761-e1e8f4edc59b03253c83.js.download
+    │   │   ├── 60761-e1e8f4edc59b03253c83.js.download:Zone.Identifier
+    │   │   ├── 63062-9994cc2aff9d6e060c0c.js.download
+    │   │   ├── 63062-9994cc2aff9d6e060c0c.js.download:Zone.Identifier
+    │   │   ├── 6411-9f5e77558af00b1acec0.js.download
+    │   │   ├── 6411-9f5e77558af00b1acec0.js.download:Zone.Identifier
+    │   │   ├── 65239-5ae21c46142801629a2c.js.download
+    │   │   ├── 65239-5ae21c46142801629a2c.js.download:Zone.Identifier
+    │   │   ├── 67813-76a88ec384280a5e925c.js.download
+    │   │   ├── 67813-76a88ec384280a5e925c.js.download:Zone.Identifier
+    │   │   ├── 67954-27b24cc22471c20373d8.js.download
+    │   │   ├── 67954-27b24cc22471c20373d8.js.download:Zone.Identifier
+    │   │   ├── 69028-1e755e3238e8ec382752.js.download
+    │   │   ├── 69028-1e755e3238e8ec382752.js.download:Zone.Identifier
+    │   │   ├── 72149-f8da6020354ebb7bf505.css
+    │   │   ├── 72149-f8da6020354ebb7bf505.css:Zone.Identifier
+    │   │   ├── 72401-307964bd24efb0a3dc62.js.download
+    │   │   ├── 72401-307964bd24efb0a3dc62.js.download:Zone.Identifier
+    │   │   ├── 75115-20eb0447915526bf5090.js.download
+    │   │   ├── 75115-20eb0447915526bf5090.js.download:Zone.Identifier
+    │   │   ├── 75331-e2dd1c1a66cba4e40511.js.download
+    │   │   ├── 75331-e2dd1c1a66cba4e40511.js.download:Zone.Identifier
+    │   │   ├── 75451-eb34b4e976d4577f47ea.js.download
+    │   │   ├── 75451-eb34b4e976d4577f47ea.js.download:Zone.Identifier
+    │   │   ├── 75539-bcce5c92ccf3f56334c9.js.download
+    │   │   ├── 75539-bcce5c92ccf3f56334c9.js.download:Zone.Identifier
+    │   │   ├── 75569-fee9d27affcc66f3a555.js.download
+    │   │   ├── 75569-fee9d27affcc66f3a555.js.download:Zone.Identifier
+    │   │   ├── 77293-4a6a1eea0e05f036a9d8.js.download
+    │   │   ├── 77293-4a6a1eea0e05f036a9d8.js.download:Zone.Identifier
+    │   │   ├── 79025-2601433df308b0458702.js.download
+    │   │   ├── 79025-2601433df308b0458702.js.download:Zone.Identifier
+    │   │   ├── 79831-92f53ca7fce9c173540c.js.download
+    │   │   ├── 79831-92f53ca7fce9c173540c.js.download:Zone.Identifier
+    │   │   ├── 81653-a5b01f5b295197403fec.js.download
+    │   │   ├── 81653-a5b01f5b295197403fec.js.download:Zone.Identifier
+    │   │   ├── 82110-d6ce1ac29df4f013f512.js.download
+    │   │   ├── 82110-d6ce1ac29df4f013f512.js.download:Zone.Identifier
+    │   │   ├── 85958-c22ae214e65725521820.js.download
+    │   │   ├── 85958-c22ae214e65725521820.js.download:Zone.Identifier
+    │   │   ├── 87004-9ee91092428f5fc47571.js.download
+    │   │   ├── 87004-9ee91092428f5fc47571.js.download:Zone.Identifier
+    │   │   ├── 87656-65555f4e423f20d552f2.js.download
+    │   │   ├── 87656-65555f4e423f20d552f2.js.download:Zone.Identifier
+    │   │   ├── 87791-bd14971f8b0c0e071963.js.download
+    │   │   ├── 87791-bd14971f8b0c0e071963.js.download:Zone.Identifier
+    │   │   ├── 88480-501885f732245748fcee.js.download
+    │   │   ├── 88480-501885f732245748fcee.js.download:Zone.Identifier
+    │   │   ├── 88862-d5e143d99ec540a9ec38.js.download
+    │   │   ├── 88862-d5e143d99ec540a9ec38.js.download:Zone.Identifier
+    │   │   ├── 89319-30aa2f21c4dcaf821408.js.download
+    │   │   ├── 89319-30aa2f21c4dcaf821408.js.download:Zone.Identifier
+    │   │   ├── 97320-1629c4a6923502534ec3.js.download
+    │   │   ├── 97320-1629c4a6923502534ec3.js.download:Zone.Identifier
+    │   │   ├── 9829-66e8dfb7102582c488f0.js.download
+    │   │   ├── 9829-66e8dfb7102582c488f0.js.download:Zone.Identifier
+    │   │   ├── 98724-de02293ec0a1319810ad.js.download
+    │   │   ├── 98724-de02293ec0a1319810ad.js.download:Zone.Identifier
+    │   │   ├── beacon.js.download
+    │   │   ├── beacon.js.download:Zone.Identifier
+    │   │   ├── cast_framework.js.download
+    │   │   ├── cast_framework.js.download:Zone.Identifier
+    │   │   ├── cast_sender(1).js.download
+    │   │   ├── cast_sender(1).js.download:Zone.Identifier
+    │   │   ├── cast_sender.js.download
+    │   │   ├── cast_sender.js.download:Zone.Identifier
+    │   │   ├── ce57700a-def9-11e9-842d-784f43822e80-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── cfeb00fa-fcfe-4df4-9fd3-413e5dcacbf7-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── config
+    │   │   ├── config:Zone.Identifier
+    │   │   ├── core-1b1b2fb887a54c92c8ad.js.download
+    │   │   ├── core-1b1b2fb887a54c92c8ad.js.download:Zone.Identifier
+    │   │   ├── core-adc7f9f615baea941f45.css
+    │   │   ├── core-adc7f9f615baea941f45.css:Zone.Identifier
+    │   │   ├── dark-649b4a4625649be7bf30.svg:Zone.Identifier
+    │   │   ├── df6f775d-8794-4cbe-aa85-dbdc72975696-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── e166f259-6e78-4389-b8a3-6aa1b3279f28-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── e7707a9f-af06-4db1-82dc-2f058024b145-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── e9f84ea0-72b8-486f-9afd-4a5e8c62305f-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── ebb84563-db81-4b9c-8940-64ed33ccfc7b-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── f68f6640-0b38-4853-9c64-0eb52837f31c-profile_image-70x70.png:Zone.Identifier
+    │   │   ├── features.auth.components.account-checkup-manager-98fd8fb2c3ebfc60dc50.css
+    │   │   ├── features.auth.components.account-checkup-manager-98fd8fb2c3ebfc60dc50.css:Zone.Identifier
+    │   │   ├── features.badges.components.chat-badge-carousel-ee9adf320fb69b7f69c0.css
+    │   │   ├── features.badges.components.chat-badge-carousel-ee9adf320fb69b7f69c0.css:Zone.Identifier
+    │   │   ├── features.bits-6be75749bacabbd7a1a0.css
+    │   │   ├── features.bits-6be75749bacabbd7a1a0.css:Zone.Identifier
+    │   │   ├── features.channel-celebrations.components.celebration-display-1a8de823d298a3eb6dd1.css
+    │   │   ├── features.channel-celebrations.components.celebration-display-1a8de823d298a3eb6dd1.css:Zone.Identifier
+    │   │   ├── features.channel-goals.components.partner-plus-widget-panel-093618fd86af5e509622.css
+    │   │   ├── features.channel-goals.components.partner-plus-widget-panel-093618fd86af5e509622.css:Zone.Identifier
+    │   │   ├── features.channel-goals.components.persistent-goals-panel-ac33e97cfd66b46715a8.css
+    │   │   ├── features.channel-goals.components.persistent-goals-panel-ac33e97cfd66b46715a8.css:Zone.Identifier
+    │   │   ├── features.channel-leaderboard-d608d3c05977593ad095.css
+    │   │   ├── features.channel-leaderboard-d608d3c05977593ad095.css:Zone.Identifier
+    │   │   ├── features.channel-skins.banner-91eb1b62341e474ee2b4.css
+    │   │   ├── features.channel-skins.banner-91eb1b62341e474ee2b4.css:Zone.Identifier
+    │   │   ├── features.channel-skins.ribbon-8875d7f4016c71825b8d.css
+    │   │   ├── features.channel-skins.ribbon-8875d7f4016c71825b8d.css:Zone.Identifier
+    │   │   ├── features.channel-skins.video-overlay-287e9c7eac94d7606c41.css
+    │   │   ├── features.channel-skins.video-overlay-287e9c7eac94d7606c41.css:Zone.Identifier
+    │   │   ├── features.chat-community-highlights.components.community-highlight-stack-manager-c431f3fe118a973a7906.css
+    │   │   ├── features.chat-community-highlights.components.community-highlight-stack-manager-c431f3fe118a973a7906.css:Zone.Identifier
+    │   │   ├── features.chat-private-callouts.components.chat-private-callout-queue-51ec159811a2a7f4bb7e.css
+    │   │   ├── features.chat-private-callouts.components.chat-private-callout-queue-51ec159811a2a7f4bb7e.css:Zone.Identifier
+    │   │   ├── features.chat-settings.components.chat-settings.component-afa0b66c4916d2bd8274.css
+    │   │   ├── features.chat-settings.components.chat-settings.component-afa0b66c4916d2bd8274.css:Zone.Identifier
+    │   │   ├── features.chat.components.chat-command-handlers.component-fe27809cf748fa554c1b.css
+    │   │   ├── features.chat.components.chat-command-handlers.component-fe27809cf748fa554c1b.css:Zone.Identifier
+    │   │   ├── features.chat.components.chat-input.components.wysiwyg-chat-input.component-a7e61bcee9c4e8b04de0.css
+    │   │   ├── features.chat.components.chat-input.components.wysiwyg-chat-input.component-a7e61bcee9c4e8b04de0.css:Zone.Identifier
+    │   │   ├── features.chat.components.chat-room.components.acknowledge-unban-request-prompt-1ea40e349ff5cd1dee26.css
+    │   │   ├── features.chat.components.chat-room.components.acknowledge-unban-request-prompt-1ea40e349ff5cd1dee26.css:Zone.Identifier
+    │   │   ├── features.chat.components.orbis-9f8bf4e7574df9506d51.css
+    │   │   ├── features.chat.components.orbis-9f8bf4e7574df9506d51.css:Zone.Identifier
+    │   │   ├── features.community-points.components.flame-animation-314a12d02d4204b12196.css
+    │   │   ├── features.community-points.components.flame-animation-314a12d02d4204b12196.css:Zone.Identifier
+    │   │   ├── features.community-points.components.reward-center-c16464b2df5f8b663d8b.css
+    │   │   ├── features.community-points.components.reward-center-c16464b2df5f8b663d8b.css:Zone.Identifier
+    │   │   ├── features.community-points.contexts.watch-streak-context.provider-db3dc539fba0ac4531dd.css
+    │   │   ├── features.community-points.contexts.watch-streak-context.provider-db3dc539fba0ac4531dd.css:Zone.Identifier
+    │   │   ├── features.consent.components.cmp-api-e5c4430847218b51331d.css
+    │   │   ├── features.consent.components.cmp-api-e5c4430847218b51331d.css:Zone.Identifier
+    │   │   ├── features.dmca-strike-banner-86f518fca63df0689a07.css
+    │   │   ├── features.dmca-strike-banner-86f518fca63df0689a07.css:Zone.Identifier
+    │   │   ├── features.emote-picker-3e9483f63070680efcb1.css
+    │   │   ├── features.emote-picker-3e9483f63070680efcb1.css:Zone.Identifier
+    │   │   ├── features.last-x-events-5fe3c9e51e0767c04a69.css
+    │   │   ├── features.last-x-events-5fe3c9e51e0767c04a69.css:Zone.Identifier
+    │   │   ├── features.one-tap.components.overlays-e773b452992ea716b0ea.css
+    │   │   ├── features.one-tap.components.overlays-e773b452992ea716b0ea.css:Zone.Identifier
+    │   │   ├── features.onsite-notifications.components.onsite-notifications.container-4079ea4c73a24118efe8.css
+    │   │   ├── features.onsite-notifications.components.onsite-notifications.container-4079ea4c73a24118efe8.css:Zone.Identifier
+    │   │   ├── features.paid-pinned-chat.components.message-list.component-8051179b682788c59fbd.css
+    │   │   ├── features.paid-pinned-chat.components.message-list.component-8051179b682788c59fbd.css:Zone.Identifier
+    │   │   ├── features.side-nav.guest-star.components.side-nav-online-channel-guest-star-tooltip-dd3b2a7900776536f16f.css
+    │   │   ├── features.side-nav.guest-star.components.side-nav-online-channel-guest-star-tooltip-dd3b2a7900776536f16f.css:Zone.Identifier
+    │   │   ├── features.sub-modal.components.sub-modal-8a550618f2daccdc2b54.css
+    │   │   ├── features.sub-modal.components.sub-modal-8a550618f2daccdc2b54.css:Zone.Identifier
+    │   │   ├── features.subscribe-button.components.subscribe-button-ac33e97cfd66b46715a8.css
+    │   │   ├── features.subscribe-button.components.subscribe-button-ac33e97cfd66b46715a8.css:Zone.Identifier
+    │   │   ├── features.support-panel.components.support-panel-container-46a3bc5a388859311d35.css
+    │   │   ├── features.support-panel.components.support-panel-container-46a3bc5a388859311d35.css:Zone.Identifier
+    │   │   ├── features.verify-email-2505975f2755019b06a9.css
+    │   │   ├── features.verify-email-2505975f2755019b06a9.css:Zone.Identifier
+    │   │   ├── features.video-player-core.components.video-ads.audio-ad-overlay.component-d74158bfd9ea923ff5c4.css
+    │   │   ├── features.video-player-core.components.video-ads.audio-ad-overlay.component-d74158bfd9ea923ff5c4.css:Zone.Identifier
+    │   │   ├── features.whispers-b3e8a0b3b7a98f545099.css
+    │   │   ├── features.whispers-b3e8a0b3b7a98f545099.css:Zone.Identifier
+    │   │   ├── flags-3d45758f7bdfd1658d5f.js.download
+    │   │   ├── flags-3d45758f7bdfd1658d5f.js.download:Zone.Identifier
+    │   │   ├── iu3.html
+    │   │   ├── nomodulePolyfills-59cabede3604edd623fd.js.download
+    │   │   ├── nomodulePolyfills-59cabede3604edd623fd.js.download:Zone.Identifier
+    │   │   ├── p.js.download
+    │   │   ├── p.js.download:Zone.Identifier
+    │   │   ├── pages.channel.components.channel-panels-0ba2e2a4d0c64b87011d.css
+    │   │   ├── pages.channel.components.channel-panels-0ba2e2a4d0c64b87011d.css:Zone.Identifier
+    │   │   ├── pages.channel.components.channel-root.components.about-panel-b005e0a7170b9e8dad35.css
+    │   │   ├── pages.channel.components.channel-root.components.about-panel-b005e0a7170b9e8dad35.css:Zone.Identifier
+    │   │   ├── pages.channel.components.channel-shell.components.chat-shell.components.chat-live-4a03f30a862e422100e2.css
+    │   │   ├── pages.channel.components.channel-shell.components.chat-shell.components.chat-live-4a03f30a862e422100e2.css:Zone.Identifier
+    │   │   ├── pages.channel.components.channel-shell.components.content-metadata.stream-metadata-278009ae5a3aecc77316.css
+    │   │   ├── pages.channel.components.channel-shell.components.content-metadata.stream-metadata-278009ae5a3aecc77316.css:Zone.Identifier
+    │   │   ├── pages.directory-game-044293a143c9cc1204c3.css
+    │   │   ├── pages.directory-game-044293a143c9cc1204c3.css:Zone.Identifier
+    │   │   ├── polyfills-b746ce78392fc20d68fa.js.download
+    │   │   ├── polyfills-b746ce78392fc20d68fa.js.download:Zone.Identifier
+    │   │   ├── settings.f0a2d5b109f58e5df4f0d2dd43fed1f8.js.download
+    │   │   ├── settings.f0a2d5b109f58e5df4f0d2dd43fed1f8.js.download:Zone.Identifier
+    │   │   ├── v6s.js.download
+    │   │   └── v6s.js.download:Zone.Identifier
+    │   ├── onboarding/
+    │   │   └── HUNTER_LEADGEN_API.md
+    │   ├── rocm/
+    │   │   ├── content.txt
+    │   │   ├── github.com_amd_rocm-examples.md
+    │   │   ├── rocm.docs.amd.com_en_latest_#amd-rocm-documentation.md
+    │   │   ├── rocm.docs.amd.com_en_latest_about_license.md
+    │   │   ├── rocm.docs.amd.com_en_latest_about_release-notes.md
+    │   │   ├── rocm.docs.amd.com_en_latest_compatibility_compatibility-matrix.md
+    │   │   ├── rocm.docs.amd.com_en_latest_conceptual_ai-pytorch-inception.md
+    │   │   ├── rocm.docs.amd.com_en_latest_conceptual_cmake-packages.md
+    │   │   ├── rocm.docs.amd.com_en_latest_conceptual_compiler-topics.md

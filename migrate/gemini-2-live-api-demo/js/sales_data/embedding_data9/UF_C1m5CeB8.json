@@ -1,0 +1,24 @@
+{
+  "source_video": "UF_C1m5CeB8",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Most people are polite and will politely exit the call by saying, 'Look, I don't have time for this, try me later.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Describes a common, polite, timing-based rejection."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says they don't have time or to try later, that's fine; you move on. Your job isn't to fight or beg them to talk.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prescribes the action to take when timing is the stated reason for disinterest."
+    },
+    {
+      "type": "mindset",
+      "content": "'No' is part of the job. It doesn't mean you're failing; it means you're getting closer to finding opportunities.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the mindset needed when receiving rejections, including timing-based ones."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

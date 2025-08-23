@@ -1,0 +1,29 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are information requests, not rejections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Speaker treats objections as opportunities to gather more info rather than seeing them as outright rejections."
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions to uncover the real objection behind initial resistance.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used probing questions to understand prospect's true concerns rather than taking surface objections at face value."
+    },
+    {
+      "type": "example",
+      "content": "When prospect said 'no' to needing help, asked follow-ups about their sales process to uncover actual pain points.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you closed your mind to the possibility that it doesn't have to be this way?",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges objection by reframing it as a mindset limitation rather than product fit."
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

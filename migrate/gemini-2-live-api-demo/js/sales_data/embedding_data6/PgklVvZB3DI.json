@@ -1,0 +1,52 @@
+{
+  "source_video": "PgklVvZB3DI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle questions by responding with another question to understand the prospect's motive, cause, or intent before answering.",
+      "speaker_perspective": "sales agent",
+      "notes": "Aligns with the 'Clarify' step of frameworks like Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "mindset",
+      "content": "There are no 'difficult questions,' only questions where you don't understand the motive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "You cannot answer a question effectively without knowing the motive behind it; it's 'stupid' to try.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Where are you based?', respond with 'I'm assuming my location is important to you?' to clarify the motive.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of clarifying the 'why' behind the question."
+    },
+    {
+      "type": "example",
+      "content": "If location is important because they want someone 'local,' clarify further: 'When you say local, do you mean within the Southwest, specifically Bournemouth, or something else?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Further clarification to isolate the specific requirement."
+    },
+    {
+      "type": "technique",
+      "content": "Asking questions in response to questions is not about being evasive but about understanding 'why' they asked.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emphasizes the purpose of clarification."
+    },
+    {
+      "type": "mindset",
+      "content": "Only give an answer once you know the reason (motive) they asked the question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces the 'Clarify before Overcome' principle."
+    },
+    {
+      "type": "technique",
+      "content": "Responding to questions with questions is a skill requiring practice; doing it poorly will annoy people.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the need for skillful execution of the clarification technique."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

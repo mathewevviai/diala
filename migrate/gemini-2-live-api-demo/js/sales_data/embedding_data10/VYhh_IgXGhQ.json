@@ -1,0 +1,42 @@
+{
+  "source_video": "VYhh_IgXGhQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Challenge the prospect's belief that they can't do any better by suggesting the possibility it could be done differently.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect seems resistant or satisfied with status quo."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the value proposition as a low-risk exploration of potential help or a different approach.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on discovery of potential value, not asserting superiority."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that your value is contingent on the prospect believing improvement is possible; frame your offering as the means to achieve that potential improvement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions value relative to the prospect's internal goal, not external comparison."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling you've closed your mind perhaps to the possibility it could be done differently maybe?",
+      "speaker_perspective": "sales agent",
+      "notes": "Gently challenges the status quo assumption."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend you believed I could help you... is there any reason you wouldn't invite me in for half an hour to explore that?",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the next step as a low-commitment exploration of potential value."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "if you don't think you can do any better nothing I seen you is going to make that click in your head is it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights that the barrier is the prospect's belief in potential improvement, not an external factor."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

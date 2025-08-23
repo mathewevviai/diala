@@ -1,0 +1,32 @@
+{
+  "source_video": "KPurc9XSQG8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect asks a question, don't immediately give the answer. Instead, inquire about the reason or motive behind their question first.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "A good salesman's job is to understand *why* a prospect is asking a specific question, not just to provide the technical answer.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Do you mind before I answer that question, because I feel you've asked me for a reason... Do you mind sharing with me what that is?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to probe the motive behind a prospect's question."
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the underlying reason for a prospect's concern or question to diagnose the real issue, such as past negative experiences or failed attempts.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't feel the need to immediately 'vomit up' an answer like a parrot; take time to understand the prospect's perspective.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

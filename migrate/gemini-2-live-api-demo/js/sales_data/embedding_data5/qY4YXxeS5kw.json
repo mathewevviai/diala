@@ -1,0 +1,36 @@
+{
+  "source_video": "qY4YXxeS5kw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a meeting feels fractured or adversarial, ask clarifying questions to address the situation directly. Example: 'It sounds like we're off the wrong tracks here.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to test the prospect's stance and uncover the root cause of resistance."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect is resistant, try pulling away or testing their commitment. If they pull you back, they likely have genuine interest. If not, it reveals the deal's true status.",
+      "speaker_perspective": "sales agent",
+      "notes": "A way to isolate the objection or lack of interest and determine the root cause."
+    },
+    {
+      "type": "mindset",
+      "content": "Be prepared to walk away from a deal. This mindset allows you to ask tougher questions and test the prospect's true interest, which helps uncover underlying objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Overcomes the fear of loss and need for approval."
+    },
+    {
+      "type": "mindset",
+      "content": "Need for approval (desire to be liked, fear of pissing off prospect) prevents salespeople from asking the tough, clarifying questions needed to discover objections and root causes.",
+      "speaker_perspective": "sales agent",
+      "notes": "A major barrier to effective objection handling and deal qualification."
+    },
+    {
+      "type": "technique",
+      "content": "Salespeople often let deals die in 'no decision' because their need for approval prevents them from asking tough questions that would uncover the real reasons for stalled progress or objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the consequence of failing to uncover the root cause of resistance."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

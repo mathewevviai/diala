@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: diala-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: diala-backend
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - CHATTERBOX_API_URL=http://chatterbox-streaming:8001
+      - TTS_PROVIDER=chatterbox
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - redis
+      - chatterbox-streaming
+    restart: unless-stopped
+
+  chatterbox-streaming:
+    build: ./backend/src/chatterbox/streaming
+    container_name: diala-chatterbox
+    runtime: nvidia  # ROCm uses the same runtime interface
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    group_add:
+      - video
+    environment:
+      # ROCm specific environment variables
+      - HSA_OVERRIDE_GFX_VERSION=11.0.0
+      - ROCM_PATH=/opt/rocm
+      - HIP_VISIBLE_DEVICES=0
+      - PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
+      # Performance optimizations
+      - PYTORCH_TUNABLEOP_ENABLED=1
+      - PYTORCH_TUNABLEOP_TUNING=1
+      - PYTORCH_TUNABLEOP_FILENAME=/app/tunableop_results.csv
+      # Disable NUMA balancing
+      - NUMA_BALANCING=0
+      # Service configuration
+      - LOG_LEVEL=INFO
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./models:/app/models  # Mount models directory
+      - chatterbox_cache:/root/.cache  # Cache for model downloads
+      - ./tunableop:/app/tunableop  # TunableOp results
+    # Add capabilities for profiling
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    restart: unless-stopped
+    # Resource limits (adjust based on your GPU)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  frontend:
+    build: ./frontend
+    container_name: diala-frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  chatterbox_cache:
+  models:
+  tunableop:

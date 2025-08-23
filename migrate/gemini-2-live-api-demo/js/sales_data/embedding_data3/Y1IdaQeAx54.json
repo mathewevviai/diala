@@ -1,0 +1,121 @@
+{
+  "source_video": "Y1IdaQeAx54",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "View objections as a positive sign, indicating the prospect is engaged and revealing what they need to overcome to say yes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that an objection is often an unanswered question or an unresolved concern in the prospect's mind.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Never attempt to *answer* an objection directly; instead, *handle* it by asking clarifying questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Utilize the Clarify, Isolate, Overcome, Close framework for handling any objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Framework Step 1: Clarify the objection by asking questions to understand the true nature of the concern.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To clarify an objection, ask questions like, 'Is it the price, the time, or something else?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Framework Step 2: Isolate the objection using questions to confirm it's the *only* thing preventing them from moving forward.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To isolate an objection, ask: 'Besides [the stated objection], is there any other reason you wouldn't move forward today?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Framework Step 3: Overcome the specific, isolated objection based on its type (trust, need, urgency, money, spouse).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Framework Step 4: Attempt to close immediately after successfully overcoming the isolated objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that most objections fall into five core categories: No Trust, No Need, No Urgency, No Money, or No Spouse/Partner buy-in.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For the 'No Money' objection, first clarify: 'If money were no issue, is this something you would move forward with?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If 'No Money' is isolated, ask collaboratively: 'Okay, how can we figure out the money?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Common strategies to overcome the money objection include financing, payment plans, breaking down the cost (e.g., per month/day), focusing on ROI, or offering a discount.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For the 'I need to think about it' objection, clarify: 'Completely understand. What specifically do you need to think about?'",
+      "speaker_perspective": "sales agent",
+      "notes": "This question reveals the underlying objection category."
+    },
+    {
+      "type": "technique",
+      "content": "For the 'Too Busy' objection, clarify: 'If your calendar freed up tomorrow, is this something you would move forward with?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If 'Too Busy' is isolated, ask collaboratively: 'Okay, how can we figure out how to make time?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Alternative for 'Too Busy': 'If this is important, what would we need to deprioritize to make time for this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For 'Need to talk to spouse/partner' objection, clarify: 'If [they] were here right now and loved the idea, is this something you would move forward with?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If 'Need to talk to spouse/partner' is isolated, ask: 'What do you think their main concerns would be?' or 'How can we get their buy-in?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If clarifying or isolating reveals the stated objection is false, ask: 'Okay, so if it's not [the stated objection], what else is holding you back?' to find the real one.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to 'peel back the onion' and understand the deep-seated reason behind an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Example flow for 'think about it' leading to money: Prospect says 'Need to think about it.' Sales agent asks 'What specifically?' Prospect says 'The money.' Sales agent confirms 'So it's just money? Anything else?' If isolated, proceeds to overcome money.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

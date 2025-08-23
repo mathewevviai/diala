@@ -1,0 +1,30 @@
+{
+  "source_video": "IY-RoiVLExs",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Contrast the cost and annoyances of alternatives (e.g., paying for Windows with ads/bloat) with the value and freedom offered by your solution (Linux).",
+      "speaker_perspective": "sales agent",
+      "notes": "Implicitly uses 'Compared to what?' to highlight value."
+    },
+    {
+      "type": "technique",
+      "content": "Reframe the 'sacrifice' or perceived cost of switching (e.g., giving up familiar software) as an investment that yields significantly greater returns in terms of freedom and control.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies an ROI-like perspective to the cost/benefit trade-off."
+    },
+    {
+      "type": "technique",
+      "content": "Break down the perceived unfairness of a cost by comparing it to situations where similar fees are justified, highlighting the lack of underlying reason for the cost in the current context.",
+      "speaker_perspective": "sales agent",
+      "notes": "Uses comparison and breakdown to analyze and object to a price/fee."
+    },
+    {
+      "type": "technique",
+      "content": "Highlight the hidden costs of the alternative in terms of wasted time, effort, and 'brain power' due to poor usability, positioning your solution's efficiency as the valuable return.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes cost from monetary to time/effort, emphasizing efficiency as the benefit."
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

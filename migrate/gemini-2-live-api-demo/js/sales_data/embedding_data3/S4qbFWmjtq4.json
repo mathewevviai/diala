@@ -1,0 +1,59 @@
+{
+  "source_video": "S4qbFWmjtq4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it', probe by asking 'What specifically is making you hesitate or what details would you like to clarify?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe a price objection by focusing on the value delivered and the potential return on investment, not just the cost.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel, Felt, Found' method to handle common concerns: 'I understand how you feel. Others have felt the same way, but what they found was...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Empathy and social proof method for objection handling"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the objection empathetically before responding. Start with phrases like 'That's a valid concern,' or 'I appreciate you bringing that up.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport and shows you are listening"
+    },
+    {
+      "type": "technique",
+      "content": "Instead of directly refuting an objection, ask clarifying questions to understand the root cause. 'Could you tell me more about why that's a concern?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Turn a feature-based objection into a benefit-based solution. Connect the feature to the prospect's specific needs or desired outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejections, but as requests for more information or clarification from the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positive reframing of objections"
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to ensure it's the only barrier. Ask 'Besides [the stated objection], is there anything else preventing us from moving forward?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a trial close after handling an objection to test if you've successfully addressed their concern and gauge readiness to proceed.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Compared to what?' used subtly can help a prospect articulate their benchmark when discussing price or alternatives.",
+      "speaker_perspective": "sales agent",
+      "notes": "Useful for price or comparison objections"
+    }
+  ]
+}

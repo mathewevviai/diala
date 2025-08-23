@@ -1,0 +1,47 @@
+{
+  "source_video": "UF_C1m5CeB8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start sales calls by getting straight to the point and respecting the prospect's time immediately.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Clearly state the specific, valuable reason for calling the prospect upfront.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use the opening phrase 'The only reason for the call is...' to concisely state the purpose.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Briefly explain the specific qualification or reason why you are calling *them* specifically.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Present the potential value or benefit the prospect could gain from the conversation in the opening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After stating your value proposition, explicitly ask for permission to ask questions to understand their needs.",
+      "speaker_perspective": "sales agent",
+      "notes": "This handles the implicit 'Why are you asking me questions?' objection by earning the right."
+    },
+    {
+      "type": "technique",
+      "content": "Pause and wait for the prospect's response after delivering your initial opening statement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge that the prospect likely receives many calls to differentiate your direct and valuable approach.",
+      "speaker_perspective": "sales agent",
+      "notes": "Proactively addresses the 'I get calls like this all the time' sentiment."
+    }
+  ]
+}

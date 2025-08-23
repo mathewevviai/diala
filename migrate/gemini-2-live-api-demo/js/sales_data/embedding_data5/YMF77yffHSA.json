@@ -1,0 +1,30 @@
+{
+  "source_video": "YMF77yffHSA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a contact has left the company, ask 'Who replaced him?' to get the new contact's name.",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct clarifying question to overcome the 'person left' obstacle."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If there was one thing [related area, e.g., sales training] could do better, what would it be?",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying question to uncover potential pain points or root causes of dissatisfaction/interest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Are they frustrating you? Just be honest, because then I know it's worth calling.",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct question to discover if there is a root cause (frustration) that makes the sales call relevant."
+    },
+    {
+      "type": "technique",
+      "content": "When a contact isn't available, ask clarifying questions about their availability: 'Is he in the office today?', 'When are you expecting him?', 'Is he back next week?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolating the reason for not connecting (availability) and getting information for follow-up."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

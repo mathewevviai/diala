@@ -1,0 +1,82 @@
+{
+  "source_video": "UF_C1m5CeB8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a discovery call by clearly stating the purpose and confirming alignment with the prospect's expectations.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the discovery call process: 'Here's what we're going to do: spend about 15-20 minutes understanding your situation, then I'll share how we help, and finally, we'll decide if it makes sense to continue.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Set expectations for the call outcome: 'If by the end you feel this isn't a fit, that's perfectly okay. No hard feelings, no pressure.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, builds trust"
+    },
+    {
+      "type": "technique",
+      "content": "Use permission-based questions before diving into details: 'Mind if I ask you a few questions about your current situation?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Polite and grants psychological control to the prospect"
+    },
+    {
+      "type": "technique",
+      "content": "Dig deeper into initial answers using 'Could you tell me more about that?' or 'What do you mean by X?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Encourages elaboration and clarifies understanding"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about past attempts to solve their problem and why they didn't work.",
+      "speaker_perspective": "sales agent",
+      "notes": "Uncovers lessons learned and perceived obstacles"
+    },
+    {
+      "type": "technique",
+      "content": "Quantify the impact of their problem: 'What's the cost of this problem for you? Financially? Time-wise?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps establish urgency and ROI"
+    },
+    {
+      "type": "technique",
+      "content": "Identify the desired future state: 'What does success look like? If we fast forward a year, what would be different?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Aligns solution with vision"
+    },
+    {
+      "type": "technique",
+      "content": "Uncover the timeline and urgency: 'How soon are you looking to make a change?' or 'Is there a deadline?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify decision-makers and process: 'Besides yourself, who else needs to be involved in this decision?' and 'What's the typical process for evaluating solutions like this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery to solution by summarizing understanding: 'So, just to recap, you're experiencing X, you've tried Y which didn't work because Z, and ideally, you'd like to achieve A by B date.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirms active listening and sets up relevance of solution"
+    },
+    {
+      "type": "technique",
+      "content": "Present your solution based on the problems discussed: 'Based on what you've shared, here's how we specifically address [problem 1], [problem 2], etc.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a simple question to gauge interest after presenting the solution: 'Based on everything we've discussed, how does this sound as a potential path forward?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Propose clear next steps if there's interest: 'The logical next step would be...', 'Would it make sense to schedule X?'",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

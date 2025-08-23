@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Sentiment Analysis Client</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #121212; color: #e0e0e0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        #container { max-width: 800px; width: 100%; }
+        #controls, #status, #log { margin-bottom: 20px; padding: 15px; border: 1px solid #333; border-radius: 8px; background-color: #1e1e1e; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 5px; margin-right: 10px; transition: background-color 0.2s; }
+        #startBtn { background-color: #1db954; color: white; } #startBtn:hover { background-color: #1ed760; }
+        #stopBtn { background-color: #e53935; color: white; } #stopBtn:hover { background-color: #f44336; }
+        #status { font-weight: bold; }
+        #log { min-height: 200px; max-height: 400px; overflow-y: auto; white-space: pre-wrap; font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace; background-color: #181818; padding: 20px; }
+        .log-entry { padding: 5px 0; border-bottom: 1px solid #333; }
+        .sentiment-POSITIVE { color: #1db954; } .sentiment-NEGATIVE { color: #e53935; } .sentiment-NEUTRAL { color: #fdd835; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Real-Time Sentiment Analysis Client</h1>
+        <div id="controls">
+            <button id="startBtn">Start Microphone</button>
+            <button id="stopBtn" disabled>Stop Microphone</button>
+        </div>
+        <div id="status">Status: Disconnected</div>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const statusDiv = document.getElementById('status');
+        const logDiv = document.getElementById('log');
+
+        const WEBSOCKET_URI = "ws://127.0.0.1/api/v1/ws/live-sentiment?job_id=web_client_realtime";
+        const TARGET_SAMPLE_RATE = 16000;
+        
+        let socket;
+        let audioContext;
+        let processorNode;
+
+        function logMessage(htmlContent, type = 'info') {
+            const entry = document.createElement('div');
+            entry.classList.add('log-entry', type);
+            entry.innerHTML = `[${new Date().toLocaleTimeString()}] ${htmlContent}`;
+            logDiv.prepend(entry);
+        }
+
+        async function startStreaming() {
+            try {
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    throw new Error("Your browser does not support microphone access.");
+                }
+
+                // 1. Set up WebSocket connection
+                socket = new WebSocket(WEBSOCKET_URI);
+                socket.binaryType = 'arraybuffer';
+
+                socket.onopen = () => {
+                    logMessage('<strong>Connection Established.</strong> Starting microphone...');
+                    statusDiv.textContent = 'Status: Connected. Initializing audio...';
+                };
+                
+                socket.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    const sentimentClass = `sentiment-${data.sentiment}`;
+                    const logHTML = `<span class="${sentimentClass}">${data.sentiment}</span> - "${data.text}"`;
+                    logMessage(logHTML);
+                };
+
+                socket.onclose = (event) => {
+                    logMessage(`Connection closed: ${event.code} ${event.reason}`);
+                    stopStreaming();
+                };
+
+                socket.onerror = (error) => {
+                    logMessage(`WebSocket error. See console for details.`, 'sentiment-NEGATIVE');
+                    console.error('WebSocket Error:', error);
+                };
+
+                // 2. Set up Web Audio API
+                audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: TARGET_SAMPLE_RATE });
+                await audioContext.audioWorklet.addModule('audio-processor.js');
+                
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: { sampleRate: TARGET_SAMPLE_RATE, channelCount: 1 } });
+                const source = audioContext.createMediaStreamSource(stream);
+                
+                processorNode = new AudioWorkletNode(audioContext, 'audio-processor');
+                source.connect(processorNode);
+                processorNode.connect(audioContext.destination); // Connect to output to avoid garbage collection
+
+                // 3. Handle messages from the AudioWorklet (raw audio data)
+                processorNode.port.onmessage = (event) => {
+                    const audioData = event.data; // This is raw Float32Array data
+                    if (socket && socket.readyState === WebSocket.OPEN) {
+                        // Convert Float32Array to Int16Array before sending
+                        const int16Data = new Int16Array(audioData.length);
+                        for (let i = 0; i < audioData.length; i++) {
+                            int16Data[i] = Math.max(-1, Math.min(1, audioData[i])) * 32767;
+                        }
+                        socket.send(int16Data.buffer);
+                    }
+                };
+
+                statusDiv.textContent = 'Status: Connected and Streaming...';
+                logMessage('Microphone is active and streaming.');
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+
+            } catch (err) {
+                logMessage(`Error: ${err.message}`, 'sentiment-NEGATIVE');
+                statusDiv.textContent = `Error: ${err.message}`;
+                console.error(err);
+            }
+        }
+
+        function stopStreaming() {
+            if (audioContext && audioContext.state !== 'closed') {
+                audioContext.close();
+            }
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.close();
+            }
+            statusDiv.textContent = 'Status: Disconnected';
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+        
+        startBtn.addEventListener('click', startStreaming);
+        stopBtn.addEventListener('click', stopStreaming);
+
+    </script>
+</body>
+</html>

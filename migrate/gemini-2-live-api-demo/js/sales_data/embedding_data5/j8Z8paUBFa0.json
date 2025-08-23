@@ -1,0 +1,52 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "You've got to get the prospect to discover they have a problem themselves.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions around a known problem to get the prospect to realize their current process is inefficient.",
+      "speaker_perspective": "sales agent",
+      "notes": "Do this without telling them directly."
+    },
+    {
+      "type": "mindset",
+      "content": "You can't tell a prospect their current process is 'stupid' or inefficient; they will get upset. You must guide them to see it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Asking only 'who, what, when, where, why, how' questions gathers facts, but facts alone don't sell. You need to uncover the impact.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Get prospects to realize how the facts and figures about their current situation or problem actually hurt them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use 'presumptive questions' where you ask assuming they know the answer or have taken a certain action, to uncover reasons or lack thereof.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Presumptive question example to uncover lack of action: 'Can I ask you a question, when you were offered the opportunity to automate this... why did you say no to it?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Presumptive question example to uncover common issues: 'When you turn to your sales guys and you ask them why aren't you hitting target what did they say?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Follow up on stated reasons or excuses (uncovered via presumptive questions) by asking, 'Do you believe those excuses are valid?' to isolate the root cause or objection.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

@@ -1,0 +1,40 @@
+{
+  "source_video": "eHpngXRnKjM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When asked about specific experience (e.g., in their sector), clarify the underlying reason for the question rather than just answering yes/no.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So when you say do we have experience is that because you're looking for someone that knows everything about your product or service or are you looking for someone that can offer a fresh perspective?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify the prospect's specific need behind a general question."
+    },
+    {
+      "type": "technique",
+      "content": "Use a conditional statement to test if a potential lack (like experience) is a dealbreaker, forcing the prospect to clarify their vital conditions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling that if I tell you I haven't [specific experience], you're going to say this isn't going to work.",
+      "speaker_perspective": "sales agent",
+      "notes": "A form of conditional clarification/closing."
+    },
+    {
+      "type": "example",
+      "content": "Responding to 'Have you ever sold luxury cars before?' with 'if I told you I haven't are you going to tell me we can't work together?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates the conditional clarification technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Force the prospect to clarify in that moment whether or not a specific factor (like experience) is vital to them or not vital.",
+      "speaker_perspective": "sales agent",
+      "notes": "The purpose behind using conditional clarification."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

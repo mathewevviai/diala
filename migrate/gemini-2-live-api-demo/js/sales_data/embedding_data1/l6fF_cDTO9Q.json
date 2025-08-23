@@ -1,0 +1,74 @@
+{
+  "source_video": "l6fF_cDTO9Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Anchor the conversation and set expectations at the beginning of a cold call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When anchoring, explicitly state it's okay for the prospect to end the call if they wish.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example anchoring phrase: 'If by the end of this conversation you don't feel comfortable, totally comfortable for you to just tell me that.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gives permission to disengage and reduces pressure."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example expectation setting phrase: 'The reason I'm calling is to see if there's a mutual fit, maybe understand how you're doing X, and if it makes sense, talk about a potential partnership.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Clearly outlines the call agenda/goal upfront."
+    },
+    {
+      "type": "technique",
+      "content": "The second key step is asking for permission for their time or permission to have the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example permission phrase: 'I know I caught you out of the blue, would you happen to have 30 seconds or would you prefer to hang up?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Disarms the prospect and gives them a sense of control by offering an easy out."
+    },
+    {
+      "type": "technique",
+      "content": "The third step is leading the conversation immediately with value for the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "This means getting straight to the purpose and potential benefit you offer."
+    },
+    {
+      "type": "example",
+      "content": "Example of leading with value: 'I'm calling because I helped companies like yours add an extra $200,000 in net new pipeline.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on a quantifiable result or specific benefit delivered."
+    },
+    {
+      "type": "technique",
+      "content": "The fourth step is transitioning into discovery questions after the opening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use discovery questions to uncover pain points and understand the prospect's current situation."
+    },
+    {
+      "type": "example",
+      "content": "Example discovery questions: 'Walk me through how you're currently doing X' or 'Tell me a little bit more about your biggest challenges today.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Uses open-ended questions to gather information."
+    },
+    {
+      "type": "technique",
+      "content": "The final step is creating urgency or curiosity to motivate the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "The goal is to make the prospect want to take a follow-up meeting."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Phrase to create curiosity/urgency: 'I've got some really interesting insights on how companies like yours are increasing their net new pipeline by $200,000.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Hints at specific, valuable information only available in a follow-up conversation or meeting."
+    }
+  ]
+}

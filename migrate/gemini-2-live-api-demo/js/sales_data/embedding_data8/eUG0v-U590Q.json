@@ -1,0 +1,48 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a conditional close: 'If I could show you X, and you genuinely believed it would work, is there any reason you wouldn't spend time exploring it further?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Links the meeting to a specific potential value (showing them X) and makes the next step conditional on belief/comfort."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Conditional closing phrase: '...and if you're not interested you can tell me to sling my hook and never hear from me again.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Explicitly states the low-risk nature of the proposed meeting/next step."
+    },
+    {
+      "type": "mindset",
+      "content": "Reinforce the low-risk meeting offer by stating 'you can sling me out and you'll never hear from me again because you can't hurt my feelings, I'm a Salesman.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates confidence and removes pressure, making it easier for the prospect to say 'yes' to the meeting."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they are the 'wrong person' or not a fit, ask clarifying questions to understand why or if they know someone who might be.",
+      "speaker_perspective": "sales agent",
+      "notes": "Handles the objection by probing for specifics or pivoting to referrals, rather than accepting the 'no' immediately."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect states a method doesn't work well ('cold calling doesn't work'), ask for specifics or alternatives: 'What would you suggest?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Uses 'What specifically?' approach to understand the basis of their objection and potentially find common ground or offer a different perspective."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge prospect statements ('why do you still pitch and quote?') to prompt them to think, reveal their process, and uncover potential pain points or areas for discussion.",
+      "speaker_perspective": "sales agent",
+      "notes": "A form of probing that handles underlying assumptions behind their current process, which might be linked to their initial hesitation or perceived lack of need."
+    },
+    {
+      "type": "example",
+      "content": "Prospect uses a similar technique: 'it's great to say yes but... we're not going to get offend if you say no... if you don't see the value in it then yeah...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Observes prospect using a technique similar to the agent's conditional closing / making 'no' easy."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

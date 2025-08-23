@@ -1,0 +1,54 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When handling objections, respond always in the form of a question.",
+      "speaker_perspective": "sales agent",
+      "notes": "A core principle for navigating objections."
+    },
+    {
+      "type": "technique",
+      "content": "Separate statements of fact from smokescreens (excuses to end the call) when handling objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use questions to clarify the true nature of the objection."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge objections by pushing the prospect to an extreme, e.g., asking if they mean 'never ever under any circumstances'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces clarification and often reveals the objection isn't absolute."
+    },
+    {
+      "type": "example",
+      "content": "Handling 'We're fine thanks': Ask, 'Didn't you mean to say everything's perfect?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the statement to open conversation."
+    },
+    {
+      "type": "example",
+      "content": "Handling 'I'm not interested': Ask, 'Did you mean to say never ever under any circumstances would you consider exploring...?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Pushes to the extreme to test the absolute nature of the objection."
+    },
+    {
+      "type": "example",
+      "content": "Handling 'We already have a supplier': Ask, 'Would it be fair to say there is nothing anyone could say or do... you would never ever consider exploring alternatives...?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Tests if the existing supplier is an absolute, insurmountable barrier."
+    },
+    {
+      "type": "example",
+      "content": "Handling 'I don't take cold calls': Ask, 'What do you mean?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A simple clarifying question to understand the underlying reason."
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to establish if a prospect's objection is a true statement of fact or just an easy way to dismiss you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Aligns with the 'Clarify' step in objection handling frameworks."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

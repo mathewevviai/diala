@@ -1,0 +1,42 @@
+{
+  "source_video": "VYhh_IgXGhQ",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "I could imagine",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to show empathy or understanding, relating to the 'Feel' part of Feel-Felt-Found."
+    },
+    {
+      "type": "technique",
+      "content": "Attempting to isolate the core objection by asking the prospect to choose the biggest issue from a list.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the 'Isolate' step in Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So is this just a really polite way of getting rid of me?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct phrase used to clarify and isolate the true underlying objection. Example of the 'Clarify' and 'Isolate' steps in Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Clarifying what the prospect means by a specific term (e.g., 'resource').",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the 'Clarify' step in Clarify-Isolate-Overcome or the 'Assess' step in LAARC."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Fair enough",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to acknowledge the prospect's statement or objection. Relates to the 'Acknowledge' step in LAARC or AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Directly addressing a potential mindset objection (e.g., 'If you don't think you can do any better, nothing I say will click').",
+      "speaker_perspective": "sales agent",
+      "notes": "An attempt to overcome a fundamental barrier, related to the 'Overcome' step in Clarify-Isolate-Overcome."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

@@ -1,0 +1,70 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect indicates disinterest, don't freak out. Stay calm and continue the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So you genuinely don't have to look for new customers?",
+      "speaker_perspective": "sales agent",
+      "notes": "A soft probe to confirm stated disinterest and understand the current state."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Any plans to [relevant topic] in the near future?",
+      "speaker_perspective": "sales agent",
+      "notes": "Probing for potential future need or timing issues."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling you're happy with the level of business you got, no plans to grow it or increase it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Probing current satisfaction and future aspirations when disinterest is shown."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I can call back when you're settled into your new premises.",
+      "speaker_perspective": "sales agent",
+      "notes": "Offering to reconnect later if timing is the reason for disinterest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you closed your mind to the possibility that it doesn't have to be this way?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct, yet soft, probe to diagnose if disinterest stems from a fixed mindset or belief."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So what you're saying basically is, even if you saw something you believed could work, you're just at a stage where you're not wanting to try it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Diagnosing if resistance is due to skepticism about the solution or unwillingness to change/try."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend you genuinely believed I could help... would you throw me out or do what at all further?",
+      "speaker_perspective": "sales agent",
+      "notes": "A hypothetical probe to test the depth of resistance or disinterest."
+    },
+    {
+      "type": "mindset",
+      "content": "Sometimes, you meet people who have problems but have closed their mind to wanting to do it differently.",
+      "speaker_perspective": "sales agent",
+      "notes": "Recognizing deep-seated resistance as a form of disinterest that's difficult to overcome."
+    },
+    {
+      "type": "mindset",
+      "content": "Just because you have a solution and someone needs it doesn't mean it's going to go through.",
+      "speaker_perspective": "sales agent",
+      "notes": "Accepting that not all prospects, even those with problems, are ready or willing to buy."
+    },
+    {
+      "type": "technique",
+      "content": "After probing and confirming deep disinterest or unwillingness to change, accept the answer and move on gracefully.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

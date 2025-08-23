@@ -1,0 +1,48 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Identify vague words in a prospect's statement (e.g., 'process') that have multiple meanings.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of clarifying and isolating the meaning of an objection or statement."
+    },
+    {
+      "type": "technique",
+      "content": "Use a clarifying question structure (e.g., ABC or something else) to pinpoint the exact meaning of a vague term used by the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'When you say 'process', do you mean A, B, or C?'"
+    },
+    {
+      "type": "example",
+      "content": "Prospect says: 'We're in the process of fixing that.' Sales agent clarifies: 'When you say you're in the process, do you mean you've already appointed a third party, you're looking at potentially getting one, or this is something you're just thinking about?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific application of the clarifying question technique to uncover the root cause/status."
+    },
+    {
+      "type": "mindset",
+      "content": "The sales agent's job is to gather information, not just give it. This requires asking the right questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Fundamental mindset for effective discovery and objection handling."
+    },
+    {
+      "type": "technique",
+      "content": "Listen for specific words and phrases used by the prospect that indicate nuance or potential areas to explore further (e.g., 'probably').",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the importance of active listening in identifying points for clarification."
+    },
+    {
+      "type": "technique",
+      "content": "Intuitively challenge what the prospect is saying to get to the truth behind their statements.",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenging in a curious, not confrontational, way to uncover root causes."
+    },
+    {
+      "type": "mindset",
+      "content": "Aim to get to the truth of the prospect's situation or statement.",
+      "speaker_perspective": "sales agent",
+      "notes": "The core objective driving clarification and isolation techniques."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

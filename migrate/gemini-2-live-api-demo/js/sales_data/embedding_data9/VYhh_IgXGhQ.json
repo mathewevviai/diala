@@ -1,0 +1,36 @@
+{
+  "source_video": "VYhh_IgXGhQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When sensing resistance or a 'closed mind', use a low-commitment hypothetical question to probe the underlying reason for not taking the next step.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Is there any reason you wouldn't invite me in for half an hour?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Is this just a really polite way of getting rid of me?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct but softly framed question to confirm disinterest and its nature (a polite brush-off)."
+    },
+    {
+      "type": "technique",
+      "content": "Give the prospect permission to say no honestly after probing disinterest, making it easier for them to articulate the real reason.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'You can tell me no, you can't hurt the feelings of a Salesman.'"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that 'not thinking about this yet' often indicates timing or priority issues, not a lack of information, and cannot be overcome by simply sending an email.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Challenge and probe further when faced with disinterest to diagnose if it's genuine lack of fit, bad timing, or a polite brush-off.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

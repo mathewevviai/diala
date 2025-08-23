@@ -1,0 +1,60 @@
+{
+  "source_video": "f7m0Oi8x4IY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When someone asks for price upfront on a cold call, respond with a question to understand their motivation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Happy to answer, but before I do, can I ask you one quick question? Usually when someone raises price this early on... does it mean their entire decision is going to be based solely on Price? Is that the case here?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to challenge early price questions."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect confirms their decision is solely based on price, position yourself as more expensive than they want to spend.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Well then in that case we're going to be more expensive than you want to spend.",
+      "speaker_perspective": "sales agent",
+      "notes": "Response when prospect admits price is the only factor."
+    },
+    {
+      "type": "mindset",
+      "content": "Challenge early price inquiries to understand the prospect's criteria and avoid getting into price fights.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Have grown-up conversations around money, don't get into fights over it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Price is usually not the primary reason people don't buy; it's typically number three on the list.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If someone asks 'How much is it going to cost?', you can respond 'More than you want to spend'.",
+      "speaker_perspective": "sales agent",
+      "notes": "A bold way to handle the question."
+    },
+    {
+      "type": "example",
+      "content": "Use the analogy of 'Aldi or Little vs. Waitrose' to explain value positioning when price is the only factor.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If they won't state their budget, say 'fine I was going to tell you to double it then 20 anyway'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to prompt budget discussion or challenge silence."
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

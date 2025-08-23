@@ -1,0 +1,42 @@
+{
+  "source_video": "QY5kWw5eqE4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Always answer a question with a question in a sales meeting (like a job interview) to understand the prospect's intent.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the 'Clarify' and 'Assess' stages of objection handling frameworks."
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Why do you want to work for our company?', ask 'Do you want me to tell you the truth or what I think you want to hear?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of using a question to clarify the desired level of honesty/type of answer."
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Where do you see yourself in 5 years?', ask 'Do you mean within this organization, generally as a human being, or something else?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of using a question to clarify the scope and context of the interviewer's question."
+    },
+    {
+      "type": "example",
+      "content": "When asked 'What is your greatest strength?', answer 'If I was to say my greatest strength was always answering a question with a question, what would you say?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates the technique itself as the answer, prompting the interviewer to think and discover."
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Describe a situation in which you lost a sale?', ask 'Do you believe you can lose a sale?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the premise of the question by seeking clarification on the definition of 'losing a sale'."
+    },
+    {
+      "type": "technique",
+      "content": "Answering a question with a question gets the prospect (interviewer) to think and discover things for themselves, demonstrating sales skill.",
+      "speaker_perspective": "sales agent",
+      "notes": "Explains the purpose behind the questioning technique, linking to understanding/assessing the prospect."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

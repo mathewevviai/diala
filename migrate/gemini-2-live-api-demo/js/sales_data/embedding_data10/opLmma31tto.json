@@ -1,0 +1,30 @@
+{
+  "source_video": "opLmma31tto",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Avoid making assumptions about a prospect's business status (e.g., 'small local business') as it may irritate them if they don't see themselves that way.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to not criticizing or making potentially negative judgments about the prospect's current state."
+    },
+    {
+      "type": "technique",
+      "content": "Do not pick out flaws or criticize the prospect's current tools or situation (e.g., their website's functionality). This can make them defensive.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly addresses avoiding attacking the prospect's existing choices."
+    },
+    {
+      "type": "technique",
+      "content": "Instead of talking about what you do or what you do for others, structure your pitch around the problems you fix that the prospect should be able to relate to.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on framing value based on solving relevant problems, not just describing services."
+    },
+    {
+      "type": "technique",
+      "content": "Prospects aren't interested in what you do for other companies in their area; they want to know what's relevant to them and what's in it for them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the importance of framing value from the prospect's perspective."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

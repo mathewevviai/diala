@@ -1,0 +1,81 @@
+{
+  "source_video": "IJGzybTP9A0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a sales call by asking for permission and acknowledging they might want to hang up.",
+      "speaker_perspective": "sales agent",
+      "notes": "Framing the ask gives the prospect control and disarms them."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Is now a bad time?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A common permission-based opening phrase."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would it kill you to let me have 30 seconds?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A bold, disarming, permission-based opening phrase."
+    },
+    {
+      "type": "technique",
+      "content": "Open a sales interaction with a phrase that is slightly disruptive or unexpected to grab attention.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use humor or self-deprecation early in a sales interaction to build rapport and disarm the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that getting a 'no' is often just part of the sales process, not a personal rejection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Be prepared for immediate objections or brush-offs and have concise responses ready.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's position or objection briefly before pivoting.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'Fair enough, I understand you're busy...'"
+    },
+    {
+      "type": "technique",
+      "content": "Pivot from an objection by re-stating the value proposition or purpose of the call concisely.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Look, 90% of people hang up on me. That's fine. I'm just trying to get 30 seconds to see if X is relevant.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Using self-deprecation and setting low expectations."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the call as a quick check for relevance rather than a hard sell.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Be confident and assertive in your sales approach, even if using disarming language.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use pattern interrupts in your opening to break the prospect's routine response.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'I'm busy' objections by agreeing and asking for just a small amount of time.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'Totally understand. Can I just get 20 seconds?'"
+    }
+  ]
+}

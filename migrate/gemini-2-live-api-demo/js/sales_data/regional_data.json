@@ -1,0 +1,20 @@
+{
+  "County Cork": {
+    "accent_target": "Southern Irish",
+    "local_phrases": ["Grand so", "Aye sure", "No bother", "Thanks a million", "What's the story?", "Cop on", "Yer man", "Fair play",  "That's deadly"],
+    "sample_vernacular_1": "How's the craic?",
+    "sample_vernacular_2": "Grand so"
+  },
+  "Manchester": {
+    "accent_target": "Northern English (Mancunian)",
+    "local_phrases": ["Sound", "Buzzin'", "Our kid", "Top one"],
+    "sample_vernacular_1": "Alright mate?",
+    "sample_vernacular_2": "Sound as a pound"
+  },
+  "Default": {
+    "accent_target": "Standard British English",
+    "local_phrases": ["Alright", "Cheers", "No worries"],
+    "sample_vernacular_1": "Hello there",
+    "sample_vernacular_2": "Okay then"
+  }
+} 

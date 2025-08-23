@@ -1,0 +1,41 @@
+{
+  "source_video": "48VZpmEebfs",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Think of sales interactions as simple conversations, not rigid 'sales calls' or 'meetings'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure for both parties."
+    },
+    {
+      "type": "technique",
+      "content": "At the start of a call or meeting, explicitly state that the prospect doesn't have to feel comfortable or agree.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, builds trust by setting non-obligatory expectation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'If by the end of this conversation you don't feel comfortable with what we discussed, that is perfectly okay. My goal is just to inform you if this is a good fit or not. And if not, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Use at the start of a call or meeting to disarm and set expectations."
+    },
+    {
+      "type": "mindset",
+      "content": "Go into calls focused on identifying and achieving the next logical step, rather than trying to close the deal immediately.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces self-pressure, makes calls easier to navigate, feels less pushy to the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "For cold outreach, use a disarming frame like 'Would you like to hang up or let me have 30 seconds?'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gives prospect perceived control, reduces resistance."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Hey, uh, sorry to bother you. I know you're not expecting my call, but would you like to hang up or let me have 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Use in cold outreach as a disarming technique; offers permission to hang up."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "source_video": "8iuUqHcEqdE",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Prospects always lie about the real reasons they bought or didn't buy; they tell you what you want to hear. You must uncover the true reason.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If you don't know why someone bought from you, you're not very good at what you do. Understanding the real motivation is key.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify time-wasters vs. real prospects by asking clarifying questions early on. Don't give away free consulting or proposals without qualification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for a specific example of the problem you believe they have. The brain will offer the most recent or most painful, revealing the core issue.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a structured question pattern to move the prospect from intellect to emotion regarding their problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'How long has [the problem] been going on?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of moving the prospect down the pain path."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'What have you done to try and fix it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifies past attempts and potential solutions they've already considered."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'Did that work?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Prospect must say 'no' if they still have the problem, reinforcing the need for a new solution."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'How much has the impact been on your business?' or 'How much do you think it's cost you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Quantifies the problem's severity."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'How does that make you feel?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Crucial question to shift from intellectual problem description to emotional impact, uncovering the root cause/motivation."
+    },
+    {
+      "type": "technique",
+      "content": "People buy emotionally and justify intellectually. Getting them to admit the problem hurts them is key to moving forward.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'Have you given up trying to fix this?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolates whether they still have the desire to solve the problem."
+    },
+    {
+      "type": "technique",
+      "content": "Don't claim you can definitely fix their problem. State you've helped others in similar circumstances.",
+      "speaker_perspective": "sales agent",
+      "notes": "Manages expectations and builds trust through honesty."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Say: 'I'll be honest, I don't know if I can fix this for you... but I have helped people like you in similar circumstances.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Disarming honesty, sets up the next step."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask: 'Let's pretend I could fix it for you, is there any reason you wouldn't invite me in?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Assumptive close that uncovers any remaining, hidden objections or reasons for hesitation."
+    },
+    {
+      "type": "technique",
+      "content": "Knowing *when* and *how* to ask questions is more important than the questions themselves. It's about controlling the conversation flow, not just asking.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect doesn't want to move from an intellectual discussion of the problem to an emotional one, they are likely not a good fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for isolation and qualification."
+    },
+    {
+      "type": "mindset",
+      "content": "A qualified 'no' is good. Seek to find the reasons they *won't* buy early on to qualify them out quickly and focus on good fits.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces wasted time on prospects with non-fixable objections or no real need/desire."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't fear 'no'. Actively trying to get a 'no' from non-fits can ironically lead to more 'yeses' from good fits.",
+      "speaker_perspective": "sales agent",
+      "notes": "Mindset shift to overcome fear of rejection and improve qualification."
+    },
+    {
+      "type": "mindset",
+      "content": "Believe that if the prospect has problems you can fix and they recognize them, your call is helpful, not an interruption.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps overcome internal resistance to calling and handling initial pushback."
+    },
+    {
+      "type": "technique",
+      "content": "Focus on what problems your solution fixes and how those problems manifest as symptoms, rather than knowing every detail of the product.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows for problem-focused qualification and uncovering the root cause."
+    },
+    {
+      "type": "example",
+      "content": "Identify symptoms: 'Do you have this, this, and this [symptoms of the problem]? Yes? Perhaps we should talk.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Simple approach to problem identification and qualification."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

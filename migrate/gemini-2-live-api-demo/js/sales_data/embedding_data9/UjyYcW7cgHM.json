@@ -1,0 +1,36 @@
+{
+  "source_video": "UjyYcW7cgHM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "In ineffective calls, the call ends when the prospect says no, without uncovering the reason.",
+      "speaker_perspective": "sales agent",
+      "notes": "Criticism of poor handling of disinterest"
+    },
+    {
+      "type": "technique",
+      "content": "A proper prospecting call must first uncover if the prospect has problems or symptoms that your solution can fix.",
+      "speaker_perspective": "sales agent",
+      "notes": "Proactive diagnosis of fit/need before asking for next step"
+    },
+    {
+      "type": "technique",
+      "content": "Uncover whether the prospect has any intention of fixing the identified problem or has tried to fix it previously.",
+      "speaker_perspective": "sales agent",
+      "notes": "Deeper diagnosis of motivation/seriousness"
+    },
+    {
+      "type": "technique",
+      "content": "Determine if fixing the problem is something the prospect is currently considering looking at doing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Diagnosis of current status or potential timing"
+    },
+    {
+      "type": "technique",
+      "content": "Only ask if they would invite you in to explore further *after* uncovering problems, intention, and consideration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Structure the call to qualify first, preventing premature 'not interested'"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

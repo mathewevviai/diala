@@ -1,0 +1,18 @@
+{
+  "source_video": "SaQTizjwqmQ",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "No, that makes perfect sense.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to acknowledge and validate the other person's statement or perspective, a core component of frameworks like Feel-Felt-Found, LAARC, and AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Asking clarifying questions to understand the context or potential reason for contact.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Do you know what it's about out of interest?'. Relates to the 'Clarify' step in frameworks like Clarify-Isolate-Overcome."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

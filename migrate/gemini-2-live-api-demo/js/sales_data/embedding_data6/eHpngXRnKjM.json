@@ -1,0 +1,30 @@
+{
+  "source_video": "eHpngXRnKjM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When asked about sector experience, clarify the prospect's need: 'Is that because you're looking for someone that knows everything... or someone that can offer a fresh perspective?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify the underlying reason for the question and position value beyond just direct experience. Aligns with Clarify step."
+    },
+    {
+      "type": "technique",
+      "content": "When asked about sector experience, clarify the consequence: 'If I told you I haven't, are you going to say this isn't going to work?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces the prospect to reveal if experience is a vital requirement or a soft preference. Aligns with Clarify and Isolate steps (Clarify-Isolate-Overcome) and AAA (Acknowledge, Ask)."
+    },
+    {
+      "type": "mindset",
+      "content": "Prospects may ask questions to trap you or uncover specific needs; don't assume the obvious answer is what they want.",
+      "speaker_perspective": "sales agent",
+      "notes": "Justification for using clarifying questions rather than simply stating experience."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I get the feeling that if I tell you I haven't you're going to say this isn't going to work.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrasing for the clarifying question technique, forcing the prospect to reveal the importance of experience."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

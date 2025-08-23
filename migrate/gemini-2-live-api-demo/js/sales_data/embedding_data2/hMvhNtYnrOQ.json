@@ -1,0 +1,64 @@
+{
+  "source_video": "hMvhNtYnrOQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Always start a cold call by asking for permission to speak, usually by offering a short time frame.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example phrase: 'Do you have 30 seconds?' or 'Is this a bad time?'"
+    },
+    {
+      "type": "technique",
+      "content": "When asking questions on a sales call, allow for silence after the question to give the prospect time to think and respond.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect gives a short, non-committal answer, use curiosity or probing questions to encourage them to elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid moving on too quickly; dig deeper into their response."
+    },
+    {
+      "type": "technique",
+      "content": "Focus discovery calls on understanding the prospect's current process, challenges, and desired outcomes, not on pitching your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the goal of the initial call as understanding their situation to see if a future conversation about potential solutions is even relevant.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure; positions you as a consultant."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If by the end of this conversation you feel like this isn't a good fit, that's perfectly okay.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use at the start to lower the prospect's guard."
+    },
+    {
+      "type": "technique",
+      "content": "Handle objections like 'I'm not interested' or 'We're good' by acknowledging their statement and then asking a brief, open-ended question to understand the underlying reason.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use mirroring (repeating the last few words the prospect said) to encourage them to share more information without asking a direct question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asking about challenges, don't just ask 'What challenges do you have?'. Ask about their current processes or workflows to uncover implicit challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure discovery questions to move from their current state ('How do you do X now?') to challenges ('What are the difficulties?') to impact ('What does that mean for Y?') to desired future state ('What would ideal look like?').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use empathetic language like 'That sounds frustrating' or 'I can understand why that would be a problem' to build rapport and show you're listening.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "source_video": "cbGD5rm3uqI",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Look, if you fancy setting aside 10 minutes for a brief chat when convenient, let me know. Otherwise, I'd understand if I never hear from you again.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used in email follow-up after a referral introduction, handles potential ghosting or disinterest softly by giving them an easy out."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they don't recognize the problems, use a soft, push-away probe to elicit a response.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids direct pressure, encourages them to reveal their underlying reason for disinterest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "But I get the feeling you're gonna tell me you wouldn't believe me anyway, are you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a soft, push-away probe used when a prospect claims not to have the problems discussed."
+    },
+    {
+      "type": "technique",
+      "content": "After a prospect responds to a soft probe (like 'you wouldn't believe me, would you?'), ask 'Can I ask why?' to understand their reasoning.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly probes the source of their disbelief or disinterest."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't get upset or angry when a prospect says 'no' or 'not interested'. Recognize it may mean the conversation won't go anywhere *now*.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps maintain composure and allows for low-pressure follow-up attempts."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid asking high-pressure questions like 'Would that interest you?' as it pulls the prospect towards you and is easily dismissed.",
+      "speaker_perspective": "sales agent",
+      "notes": "Contrasts with the soft, push-away probing technique."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "As you're reading this, you're probably thinking none of this applies to you, in which case delete this message. However, if you thought to yourself no, these resonate...",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a soft, push-away probe used in email prospecting."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

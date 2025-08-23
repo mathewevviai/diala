@@ -1,0 +1,33 @@
+{
+  "source_video": "wiqpT18ejLw",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Shift from trying to convince the prospect to buy, to determining if you *should* sell to them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Present alternative solutions the prospect could pursue (e.g., raise prices, fire/hire staff, outsource) and make them justify why they *cannot* do those alternatives.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to get the prospect to convince you they need your solution by eliminating other options."
+    },
+    {
+      "type": "conditional_closing",
+      "content": "Flip the dynamic: The prospect needs to convince you they need your solution, will spend the money, and will put in the time required.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets conditions on the sale based on the buyer's justification and commitment."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I'm here to figure out if I should sell to you.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You need to convince me I should sell to you.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

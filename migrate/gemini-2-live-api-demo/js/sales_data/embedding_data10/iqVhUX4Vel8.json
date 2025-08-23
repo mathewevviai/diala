@@ -1,0 +1,58 @@
+{
+  "source_video": "iqVhUX4Vel8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame product value by highlighting how it solves common problems associated with traditional methods, rather than directly attacking competitors.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Contrast the ease and benefits of your solution with the typical hassles or costs of existing alternatives.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "It saves you a ton of money on roaming fees.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames value by highlighting cost savings vs. a common problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Provides you an internet connection wherever you travel.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames value as a solution to a connectivity need."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "No more ducking in and out of cafes for Wi-Fi.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames value (constant access) by contrasting with a common workaround for the problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "No more waiting in line at the airport for a physical SIM card or fumbling to switch one out.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames value (convenience) by contrasting with the hassle of the traditional method."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "The eSIM just needs to be installed once, eliminating the need for users to install [multiple times for multiple countries].",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames value (simplicity for multi-country travel) by contrasting with traditional complexity."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "A [Product Name] is really a traveler's best friend. It's the best decision you can make before going to another country.",
+      "speaker_perspective": "sales agent",
+      "notes": "Strong positive framing of overall value and recommendation."
+    },
+    {
+      "type": "example",
+      "content": "Illustrate the problem your product solves with a relatable anecdote, like a colleague needing a hotspot to avoid roaming charges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Uses a specific example to highlight the pain point addressed by the unique value."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

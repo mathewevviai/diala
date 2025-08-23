@@ -1,0 +1,45 @@
+{
+  "source_video": "KPurc9XSQG8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Before answering a specific question, inquire why the prospect is asking it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Crucial for understanding underlying concerns or competitive context."
+    },
+    {
+      "type": "technique",
+      "content": "Seek to understand the true motive, cause, or intent behind a prospect's question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Understanding the reason for a question prevents being forced into justifying or defending your answer later.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"That's a brilliant/specific question... Do you mind sharing with me what that is [the reason you ask]?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase for inquiring about the motivation behind a question."
+    },
+    {
+      "type": "mindset",
+      "content": "A professional salesperson doesn't just provide answers but seeks to understand the context behind questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Prospect asks if system works on Windows. Average salesperson answers directly. Prospect reveals past systems failed. Salesperson is forced to defend.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates the pitfall of answering without inquiring."
+    },
+    {
+      "type": "example",
+      "content": "Prospect asks if system works on Windows. Salesperson asks why they ask. Prospect reveals past systems failed. Salesperson can now address the real concern.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates the benefit of inquiring first."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

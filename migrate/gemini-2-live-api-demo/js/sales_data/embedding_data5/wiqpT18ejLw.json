@@ -1,0 +1,48 @@
+{
+  "source_video": "wiqpT18ejLw",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "I'm not here to convince you to buy from me. I'm here to figure out if I should sell to you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Flips the dynamic, forcing the prospect to justify their need, which helps uncover underlying issues and objections."
+    },
+    {
+      "type": "technique",
+      "content": "Present alternative solutions the prospect could pursue instead of your offering (e.g., raise prices, fire staff, hire better, coach, outsource).",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to isolate the prospect's specific problem by eliminating other possibilities."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Why don't you just [alternative]? Why not?",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying questions used after presenting alternatives to uncover the root cause or objection preventing them from taking that path."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the alternatives they cannot or will not pursue to lead them to articulate their specific need or root problem.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps isolate the core issue after exploring other options."
+    },
+    {
+      "type": "mindset",
+      "content": "My job is to get them to convince me they need what I have.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces the flipped dynamic and the use of questioning to uncover need and overcome potential objections."
+    },
+    {
+      "type": "technique",
+      "content": "Control the conversation by asking questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Fundamental principle for effective discovery and objection handling."
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'how did you end up in this position in the first place?' to understand the root cause of a situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies root cause analysis to the prospect's problem or their current situation in the sales process."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

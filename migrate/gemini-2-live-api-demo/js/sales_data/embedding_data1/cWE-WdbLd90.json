@@ -1,0 +1,90 @@
+{
+  "source_video": "cWE-WdbLd90",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask for permission at the start of a cold call: 'Would you like to hang up or give me 30 seconds?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the difficulty of getting attention: 'I know you get calls like this all day.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a pattern interrupt to differentiate your call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After permission, deliver a concise reason for the call, like a relevant trigger event.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "State your observation and then immediately ask a question to engage the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example opener using trigger event: 'I saw you recently did X. Typically when folks do X, they are looking to achieve Y. Are you trying to accomplish Y?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Keep the initial question simple and easy for the prospect to answer 'yes' or 'no'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The goal of the first few seconds is to get a meaningful 'yes' and earn slightly more time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't pitch or present your solution too early in the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus the start of the call on discovery and asking good questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions about the prospect's current situation, challenges, and goals.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen intently to the prospect's answers to understand their needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Tailor your questions based on the information the prospect provides.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid using jargon or overly technical language the prospect may not understand.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use mirroring or paraphrasing to show you are listening and to confirm understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Transition from problem discovery to discussing potential solutions only after understanding the prospect's needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Present your solution as a way to solve the specific problems the prospect mentioned.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

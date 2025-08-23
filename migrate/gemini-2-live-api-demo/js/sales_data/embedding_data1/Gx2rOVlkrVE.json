@@ -1,0 +1,123 @@
+{
+  "source_video": "Gx2rOVlkrVE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start conversations by focusing on gathering information about the prospect, not immediately selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure your cold call opening: permission to speak, reason for the call, and a relevant question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use an opening like, 'Hey, do you have 30 seconds for me to tell you why I called, then you can tell me to get lost if you want?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based cold call opener."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "State your call's purpose referencing a specific trigger or observation: 'The reason for my call is I saw you downloaded X' or 'You're hiring for Y'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reason for call based on prospect context."
+    },
+    {
+      "type": "technique",
+      "content": "After stating the reason for the call, immediately ask an open-ended question related to their current situation or needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Follow your call reason with a question like, 'How are you currently handling X?' or 'What are your thoughts on Y?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example probing questions after stating call purpose."
+    },
+    {
+      "type": "technique",
+      "content": "Aim to keep your initial pitch or value statement concise, under 30 seconds, before asking a question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When describing your solution, focus on the specific benefits relevant to the prospect's situation you just uncovered.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't be afraid of silence after asking a question; give the prospect time to think and respond.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and identify keywords or phrases the prospect uses to understand their true pain points or goals.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Paraphrase or summarize what the prospect says to ensure understanding and show you're listening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use phrases like 'So if I understand correctly, you're saying...' or 'It sounds like X is a real challenge.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrases for paraphrasing and confirming understanding."
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the prospect based on their needs and fit for your solution, rather than just pushing your product.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery to pitching by linking their problems directly to how your solution helps.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Bridge to your solution using phrases like 'Based on what you've told me about X, our product does Y which helps with that' or 'That's exactly why many companies use Z'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Bridging from problem to solution."
+    },
+    {
+      "type": "technique",
+      "content": "Handle objections by first acknowledging them, then seeking to understand the root cause before responding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Respond to 'We're not interested' by acknowledging: 'Okay, I hear that. Typically when someone says that, it means X or Y. Which is it for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Objection handling: 'Not interested'."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Handle 'Send me information' by probing: 'I can definitely send info, but so I send the right stuff, what specifically were you hoping to see?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Objection handling: 'Send me info'."
+    },
+    {
+      "type": "technique",
+      "content": "Before ending the call, summarize what was discussed and propose a clear next step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Propose a next step: 'Based on this chat, does it make sense to schedule a quick demo next week?' or 'Would you be open to a follow-up call to discuss X in more detail?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Proposing next steps/call to action."
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain a confident yet friendly tone throughout the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use mirroring or matching techniques (subtly mirroring tone, pace) to build rapport.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

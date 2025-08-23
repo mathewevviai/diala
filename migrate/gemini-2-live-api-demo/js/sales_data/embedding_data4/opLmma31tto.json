@@ -1,0 +1,36 @@
+{
+  "source_video": "opLmma31tto",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are information requests, not rejections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Encourages viewing objections as opportunities to provide more information rather than seeing them as barriers."
+    },
+    {
+      "type": "technique",
+      "content": "Use a permission-based opener to frame objections as choices.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'This is a cold call. Would you like to hang up or give me 30 seconds?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Would you like to hang up now or let me have 30 seconds?",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly addresses potential objections by giving the prospect control."
+    },
+    {
+      "type": "example",
+      "content": "Prospect says 'Can you send me an email?' - Treat as a request for more info, not a rejection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows how to handle common objections by maintaining engagement."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't rush when prospect says they're busy - maintain value in your time.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example response: 'That's fine, I can call back.' Prevents devaluing your offering."
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

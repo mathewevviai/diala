@@ -1,0 +1,52 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame your value proposition by directly addressing the prospect's stated problems and frustrations, rather than comparing yourself to competitors.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on solving their pain points."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You probably won't believe me but I help companies fix that very problem.",
+      "speaker_perspective": "sales agent",
+      "notes": "Introduces value by linking directly to the prospect's issue."
+    },
+    {
+      "type": "technique",
+      "content": "Highlight how you help companies overcome specific, ineffective practices the prospect mentioned (e.g., quoting and hoping, chasing bad leads).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you closed your mind to the possibility that it doesn't have to be this way?",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the prospect's mindset/status quo without attacking competitors."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge the prospect's belief that their current difficulties are purely external, suggesting their own actions might play a role.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on internal factors, not external competitors."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Do you think nothing you're doing is impacting the way people treat you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly questions the prospect's perspective on their own contribution to problems."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize when a prospect is set in their ways and resistant to change, even if they have problems you could solve.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid picking a fight or arguing with a prospect who is resistant to changing their established methods.",
+      "speaker_perspective": "sales agent",
+      "notes": "Accept their position gracefully."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

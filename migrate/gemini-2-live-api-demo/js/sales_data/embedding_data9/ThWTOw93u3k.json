@@ -1,0 +1,47 @@
+{
+  "source_video": "ThWTOw93u3k",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect says they are 'good' and 'it would be a waste of time' now, but suggests calling back in six months.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates the 'not interested now' scenario often driven by timing."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect indicates disinterest or bad timing, use the 'Columbo' approach: ask 'just one last question' before ending the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Could I ask one last question then and I'll let you go?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to softly probe further when the prospect is signaling the end."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What's likely to be different do you think in six months?",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrase used to diagnose the reason for the timing issue."
+    },
+    {
+      "type": "mindset",
+      "content": "Just because someone has problems you can fix doesn't mean they are in the frame of mind at that moment to consider it. It could be a timing issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps frame 'not interested now' as potentially timing-related."
+    },
+    {
+      "type": "technique",
+      "content": "The purpose of the 'Columbo' question is to extend the conversation slightly and gather information about the future context or reason for the current timing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on diagnosing the 'why now is not good'."
+    },
+    {
+      "type": "technique",
+      "content": "Diagnosing that the prospect has issues but something prevents action *now* qualifies them as a timing-based lead for future follow-up.",
+      "speaker_perspective": "sales agent",
+      "notes": "Outcome of successful probing on timing."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

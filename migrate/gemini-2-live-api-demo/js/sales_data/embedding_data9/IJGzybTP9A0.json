@@ -1,0 +1,33 @@
+{
+  "source_video": "IJGzybTP9A0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "As soon as someone says no, ask one last question to diagnose if it's a real 'no' or a timing issue/failure in communication before moving on.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't argue with prospects who say no. Disqualify them efficiently if the 'no' is genuine.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect doesn't recognize the symptoms of problems you fix right now, suggest calling back in the future, acknowledging that timing might be off.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implies diagnosing timing vs. fundamental disinterest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If you don't recognize any of it, I'll call you back in three months, because at some point these symptoms are going to metastasize into a full-blown illness.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to diagnose timing and set future expectation."
+    },
+    {
+      "type": "technique",
+      "content": "Talk about the symptoms of problems you fix and ask the prospect if they recognize any of them to probe for current need or potential future need.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

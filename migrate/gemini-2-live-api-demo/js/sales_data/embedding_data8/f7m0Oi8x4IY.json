@@ -1,0 +1,36 @@
+{
+  "source_video": "f7m0Oi8x4IY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a low-risk conditional close: Offer a live demonstration and explicitly state the prospect can leave at any point if they feel it's not valuable or is a waste of time.",
+      "speaker_perspective": "sales agent",
+      "notes": "Framing the next step this way reduces perceived commitment and risk for the prospect."
+    },
+    {
+      "type": "example",
+      "content": "\"How about we schedule a time next week for 30 minutes we'll make cold calls Together live video and you'll see if it's valuable for your business It at any point if you think it's rubbish it's based off time you can leave the call at any time\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a low-risk conditional close."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises a specific technical objection or concern, propose a live demonstration as the method to directly address and prove the solution's effectiveness for that particular issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses the 'what specifically?' principle by showing the solution works for their stated problem."
+    },
+    {
+      "type": "example",
+      "content": "Prospect: \"how do you handle the delays if there are three customers entering the phone at the same time how do I deal with it?\" Sales Agent: \"we'll do it live together it's better to show you in action instead of explaining it over the text so if you see it you will know it exactly how it performs\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of handling a specific technical objection by proposing a live demo."
+    },
+    {
+      "type": "example",
+      "content": "A prospect may explicitly state the specific condition or information they require before agreeing to a next step or conversation.",
+      "speaker_perspective": "prospect",
+      "notes": "Highlights that prospects might clearly articulate their 'what specifically?'"
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

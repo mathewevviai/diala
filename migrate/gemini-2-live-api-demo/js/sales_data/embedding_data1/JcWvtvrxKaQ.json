@@ -1,0 +1,53 @@
+{
+  "source_video": "JcWvtvrxKaQ",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Use a permission-based opening on cold calls: 'Would you like to hang up or let me have 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Offers control to the prospect, often disarming."
+    },
+    {
+      "type": "mindset",
+      "content": "View rejection as the prospect rejecting the offer or timing, not a personal failure or judgment on you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Crucial for resilience and confidence."
+    },
+    {
+      "type": "technique",
+      "content": "Start a meeting by setting an expectation of no pressure: 'If by the end of this, you don't feel comfortable moving forward, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds trust by removing perceived obligation."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial part of a call on asking questions to understand the prospect's current situation and needs, rather than pitching.",
+      "speaker_perspective": "sales agent",
+      "notes": "Qualifies the lead and builds rapport."
+    },
+    {
+      "type": "technique",
+      "content": "When handling an objection, first acknowledge and validate the prospect's concern before providing your response.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows empathy and makes the prospect more receptive."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "A simple trial close: 'Does that make sense so far?' or 'How does that sound?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Checks for understanding and temperature."
+    },
+    {
+      "type": "technique",
+      "content": "Use silence strategically after asking a question to give the prospect space to answer fully.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids talking over them or filling the silence unnecessarily."
+    },
+    {
+      "type": "mindset",
+      "content": "Your goal is to help the prospect solve a problem, not just to sell them something.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from transaction to value, builds trust."
+    }
+  ]
+}

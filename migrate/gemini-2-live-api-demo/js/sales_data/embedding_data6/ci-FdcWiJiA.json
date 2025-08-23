@@ -1,0 +1,60 @@
+{
+  "source_video": "ci-FdcWiJiA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's initial resistance or statement before proceeding. (Relates to AAA: Acknowledge)",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect says 'I don't need anything' or states a limitation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I know you don't need anything, but may I have 30 seconds for me to tell you the reason why I called?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of acknowledging and then asking for time. (Relates to AAA: Acknowledge, Ask)"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions after a prospect presents an objection or future plan. (Relates to AAA: Ask, and Clarify-Isolate-Overcome: Clarify)",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after prospect mentions looking into vials 'within the next year'."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So that I can best serve you in the future, may I ask why your team is looking into vials?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of asking a clarifying question about the underlying reason for a future plan. (Relates to AAA: Ask, and Clarify-Isolate-Overcome: Clarify)"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's stated limitations or current situation. (Relates to AAA: Acknowledge)",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect says 'I only do chemical' or 'I'd rather not get too involved'."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Totally get it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Simple phrase to acknowledge and validate the prospect's statement. (Relates to AAA: Acknowledge)"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for a referral or alternative contact when the current contact is not the right person. (Relates to AAA: Ask, and handling objections)",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect says the item doesn't fall in their wheelhouse."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Would you know who oversees those items that category by chance?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of asking for a referral. (Relates to AAA: Ask)"
+    },
+    {
+      "type": "mindset",
+      "content": "Always get the meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reflection on a missed opportunity to push past an objection (timing/future plan) to secure a meeting. (Relates to Overcome in Clarify-Isolate-Overcome)"
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}
