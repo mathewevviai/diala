@@ -26,9 +26,9 @@ import json
 # Import our services
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from services.bulk_processing_service import get_bulk_processing_service
-from services.bulk_job_manager import BulkJobManager
-from core.rate_limiting import RateLimitException, check_rate_limit
+from src.services.bulk_processing_service import get_bulk_processing_service
+from src.services.bulk_job_manager import BulkJobManager
+from src.core.rate_limiting import RateLimitException, check_rate_limit
 
 # Setup logger
 logger = logging.getLogger(__name__)

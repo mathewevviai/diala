@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useVoiceModels } from '@/hooks/useVoiceModels'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Slider } from '@/components/ui/slider'
@@ -68,6 +69,10 @@ export default function PlaygroundSettingsPanel({
   onConfigurationChange,
   currentAgent 
 }: PlaygroundSettingsPanelProps) {
+  const { models: voiceModels } = useVoiceModels()
+  const [underlyingModels, setUnderlyingModels] = useState<any[]>([])
+  const [isLoadingUnderlying, setIsLoadingUnderlying] = useState<boolean>(false)
+  const [underlyingError, setUnderlyingError] = useState<string | null>(null)
   // Audio files from app.tsx
   const mockAudioFiles = [
     { name: 'CrowdedOfficeAudio.m4a', category: 'Crowded Office', description: 'Busy office environment with typing and conversations' },
@@ -107,6 +112,79 @@ export default function PlaygroundSettingsPanel({
   const updateConfig = (updates: any) => {
     onConfigurationChange(updates)
   }
+
+  // Load underlying LLM models from backend and set default if needed
+  useEffect(() => {
+    let aborted = false
+    const loadModels = async () => {
+      setIsLoadingUnderlying(true)
+      setUnderlyingError(null)
+      try {
+        const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+        const res = await fetch(`${base}/api/public/underlying-models/`)
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        const data = await res.json()
+        if (!aborted && Array.isArray(data)) {
+          setUnderlyingModels(data)
+          if ((!configuration.model || configuration.model.includes('OpenAI GPT-4o Realtime')) && data.length > 0) {
+            updateConfig({ model: data[0].label || data[0].id })
+          }
+        }
+      } catch (err: any) {
+        if (!aborted) {
+          console.error('Failed to load underlying models:', err)
+          setUnderlyingError(err.message || 'Failed to load models')
+        }
+      } finally {
+        if (!aborted) setIsLoadingUnderlying(false)
+      }
+    }
+    loadModels()
+    return () => { aborted = true }
+  }, [])
+
+  // Reset voice when provider changes to ensure compatibility
+  useEffect(() => {
+    const provider = configuration.voiceProvider
+    let defaultVoice: string
+    
+    switch (provider) {
+      case 'kokoro':
+        defaultVoice = 'af_heart'
+        break
+      case 'elevenlabs':
+        defaultVoice = 'Rachel'
+        break
+      case 'chatterbox':
+        defaultVoice = 'Female-1'
+        break
+      case 'google':
+        defaultVoice = 'en-US-Neural2-A'
+        break
+      case 'openai':
+        defaultVoice = 'alloy'
+        break
+      case 'dia':
+        defaultVoice = 'default'
+        break
+      case 'orpheus':
+        defaultVoice = 'tara'
+        break
+      case 'minimax':
+        defaultVoice = 'female-1'
+        break
+      case 'sesame':
+        defaultVoice = 'female'
+        break
+      case 'chattts':
+        defaultVoice = 'female'
+        break
+      default:
+        defaultVoice = 'af_heart'
+    }
+    
+    updateConfig({ voice: defaultVoice })
+  }, [configuration.voiceProvider])
 
   const RAG_WORKFLOWS = [
     {
@@ -247,6 +325,20 @@ export default function PlaygroundSettingsPanel({
               </TooltipContent>
             </Tooltip>
           </div>
+          {underlyingModels && underlyingModels.length > 0 ? (
+            <div className="relative">
+              <select
+                value={model}
+                onChange={(e) => updateConfig({ model: e.target.value })}
+                className="w-full border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] p-2 text-sm font-bold appearance-none bg-white"
+              >
+                {underlyingModels.map((m: any) => (
+                  <option key={m.id} value={m.label || m.id}>{m.label || m.id}</option>
+                ))}
+              </select>
+              <UilAngleDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-3 h-3 text-black pointer-events-none" />
+            </div>
+          ) : (
           <div className="space-y-2">
             <Card 
               onClick={() => updateConfig({ model: 'Gemini Live 002' })}
@@ -344,6 +436,7 @@ export default function PlaygroundSettingsPanel({
               </CardContent>
             </Card>
           </div>
+          )}
         </div>
 
         {/* Voice/TTS Provider */}
@@ -365,195 +458,42 @@ export default function PlaygroundSettingsPanel({
           </div>
           
           <div className="space-y-2 mb-3">
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'openai' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'openai' 
-                  ? "bg-blue-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">OpenAI TTS</span>
-                    <p className="text-xs text-gray-600">Natural voices, fast</p>
+            {(voiceModels && voiceModels.length > 0 ? voiceModels : [
+              { id: 'gemini', label: 'gemini', provider: 'gemini', description: 'Gemini Live voices' },
+              { id: 'openai', label: 'openai', provider: 'openai', description: 'OpenAI Realtime TTS' },
+              { id: 'google', label: 'google', provider: 'google', description: 'Google Cloud TTS' },
+              { id: 'elevenlabs', label: 'elevenlabs', provider: 'elevenlabs', description: 'Premium cloud-based TTS' },
+              { id: 'chatterbox', label: 'chatterbox', provider: 'chatterbox', description: 'Open-source TTS' },
+              { id: 'dia', label: 'dia', provider: 'dia', description: 'Local cloning TTS' },
+              { id: 'orpheus', label: 'orpheus', provider: 'orpheus', description: 'Expressive local TTS' },
+              { id: 'kokoro', label: 'kokoro', provider: 'kokoro', description: 'Emotional TTS (no cloning)' },
+              { id: 'minimax-speech-2-5', label: 'MiniMax Speech 2.5', provider: 'minimax', description: 'API-based TTS with cloning' },
+              { id: 'sesame-csm', label: 'Sesame CSM 1B', provider: 'sesame', description: 'Local TTS with cloning' },
+            ]).map((m: any) => (
+              <Card
+                key={m.id}
+                onClick={() => updateConfig({ voiceProvider: m.provider })}
+                className={cn(
+                  "cursor-pointer border-2 border-black transition-all bg-white",
+                  configuration.voiceProvider === m.provider
+                    ? "shadow-[4px_4px_0_rgba(0,0,0,1)] bg-yellow-50"
+                    : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
+                )}
+              >
+                <CardContent className="p-2">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-black text-xs">{m.label}</span>
+                      {m.description && <p className="text-xs text-gray-600">{m.description}</p>}
+                    </div>
+                    <div className={cn(
+                      "w-3 h-3 border-2 border-black",
+                      configuration.voiceProvider === m.provider && "bg-black"
+                    )} />
                   </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'openai' && "bg-blue-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'google' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'google' 
-                  ? "bg-red-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">Google TTS</span>
-                    <p className="text-xs text-gray-600">Multilingual, WaveNet</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'google' && "bg-red-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'elevenlabs' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'elevenlabs' 
-                  ? "bg-purple-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">ElevenLabs</span>
-                    <Badge className="bg-purple-600 text-white border-1 border-black text-xs ml-1">PREMIUM</Badge>
-                    <p className="text-xs text-gray-600">Ultra-realistic voices</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'elevenlabs' && "bg-purple-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'chatterbox' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'chatterbox' 
-                  ? "bg-green-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">Chatterbox</span>
-                    <Badge className="bg-green-600 text-white border-1 border-black text-xs ml-1">OPEN SOURCE</Badge>
-                    <p className="text-xs text-gray-600">Free, local TTS</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'chatterbox' && "bg-green-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'kokoro' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'kokoro' 
-                  ? "bg-cyan-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">Kokoro TTS</span>
-                    <Badge className="bg-cyan-600 text-white border-1 border-black text-xs ml-1">LOCAL</Badge>
-                    <p className="text-xs text-gray-600">Fast neural TTS</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'kokoro' && "bg-cyan-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'dia' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'dia' 
-                  ? "bg-teal-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">Dia TTS</span>
-                    <Badge className="bg-teal-600 text-white border-1 border-black text-xs ml-1">LOCAL</Badge>
-                    <p className="text-xs text-gray-600">Voice cloning TTS</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'dia' && "bg-teal-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'orpheus' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'orpheus' 
-                  ? "bg-indigo-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">Orpheus TTS</span>
-                    <Badge className="bg-indigo-600 text-white border-1 border-black text-xs ml-1">LOCAL</Badge>
-                    <p className="text-xs text-gray-600">Expressive speech</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'orpheus' && "bg-indigo-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card 
-              onClick={() => updateConfig({ voiceProvider: 'chattts' })}
-              className={cn(
-                "cursor-pointer border-2 border-black transition-all bg-white",
-                configuration.voiceProvider === 'chattts' 
-                  ? "bg-lime-100 shadow-[4px_4px_0_rgba(0,0,0,1)]" 
-                  : "hover:shadow-[2px_2px_0_rgba(0,0,0,1)]"
-              )}
-            >
-              <CardContent className="p-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="font-black text-xs">ChatTTS</span>
-                    <Badge className="bg-lime-600 text-white border-1 border-black text-xs ml-1">LOCAL</Badge>
-                    <p className="text-xs text-gray-600">Conversational TTS</p>
-                  </div>
-                  <div className={cn(
-                    "w-3 h-3 border-2 border-black",
-                    configuration.voiceProvider === 'chattts' && "bg-lime-600"
-                  )} />
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Voice Selection */}
@@ -565,15 +505,34 @@ export default function PlaygroundSettingsPanel({
                 value={voice} 
                 onChange={(e) => updateConfig({ voice: e.target.value })}
                 className="w-full border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] p-2 pl-8 text-xs font-bold appearance-none bg-white cursor-pointer hover:bg-gray-50"
+                disabled={!['gemini','openai','google','elevenlabs','chatterbox','kokoro','dia','orpheus','minimax','sesame','chattts'].includes(configuration.voiceProvider)}
               >
-                {configuration.voiceProvider === 'openai' && (
+                {configuration.voiceProvider === 'gemini' && (
                   <>
                     <option value="Nova">Nova</option>
-                    <option value="Alloy">Alloy</option>
-                    <option value="Echo">Echo</option>
-                    <option value="Fable">Fable</option>
-                    <option value="Onyx">Onyx</option>
-                    <option value="Shimmer">Shimmer</option>
+                    <option value="Ursa">Ursa</option>
+                    <option value="Vega">Vega</option>
+                    <option value="Pegasus">Pegasus</option>
+                    <option value="Orbit">Orbit</option>
+                    <option value="Lyra">Lyra</option>
+                    <option value="Orion">Orion</option>
+                    <option value="Dipper">Dipper</option>
+                    <option value="Eclipse">Eclipse</option>
+                    <option value="Capella">Capella</option>
+                  </>
+                )}
+                {configuration.voiceProvider === 'openai' && (
+                  <>
+                    <option value="alloy">alloy</option>
+                    <option value="ash">ash</option>
+                    <option value="ballad">ballad</option>
+                    <option value="coral">coral</option>
+                    <option value="echo">echo</option>
+                    <option value="fable">fable</option>
+                    <option value="nova">nova</option>
+                    <option value="onyx">onyx</option>
+                    <option value="sage">sage</option>
+                    <option value="shimmer">shimmer</option>
                   </>
                 )}
                 {configuration.voiceProvider === 'google' && (
@@ -634,6 +593,20 @@ export default function PlaygroundSettingsPanel({
                     <option value="sophia">sophia</option>
                   </>
                 )}
+                {configuration.voiceProvider === 'minimax' && (
+                  <>
+                    <option value="default">default</option>
+                    <option value="custom-clone-1">custom-clone-1</option>
+                    <option value="custom-clone-2">custom-clone-2</option>
+                  </>
+                )}
+                {configuration.voiceProvider === 'sesame' && (
+                  <>
+                    <option value="default">default</option>
+                    <option value="custom-clone-1">custom-clone-1</option>
+                    <option value="custom-clone-2">custom-clone-2</option>
+                  </>
+                )}
                 {configuration.voiceProvider === 'chattts' && (
                   <>
                     <option value="Speaker-1">Speaker-1</option>
@@ -644,36 +617,77 @@ export default function PlaygroundSettingsPanel({
                     <option value="Random">Random</option>
                   </>
                 )}
+                {!['gemini','openai','google','elevenlabs','chatterbox','kokoro','dia','orpheus','minimax','sesame','chattts'].includes(configuration.voiceProvider) && (
+                  <option value="" disabled>No voices available for this provider</option>
+                )}
               </select>
               <UilAngleDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-3 h-3 text-black pointer-events-none" />
             </div>
           </div>
-          
-          {/* Voice Cloning Premium Feature */}
+
+          {/* Language - moved under Voice Selection */}
           <div className="mt-3">
-            <Card className="relative overflow-hidden border-2 border-black bg-gray-100">
-              <div className="absolute inset-0 bg-gray-200 opacity-60"></div>
-              <CardContent className="p-3 relative">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-black text-xs uppercase text-black">Voice Cloning</h4>
-                      <Badge className="bg-yellow-400 text-black border-1 border-black text-xs px-1 py-0">
-                        PREMIUM
-                      </Badge>
-                    </div>
-                    <p className="text-xs text-gray-600 leading-tight">Clone custom voices</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-gray-600">$99/mo</span>
-                    <div className="w-6 h-6 bg-gray-400 border-2 border-black flex items-center justify-center">
-                      <UilLock className="h-3 w-3 text-gray-700" />
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <label className="block text-sm font-black uppercase text-black mb-2" style={{ fontFamily: 'Noyh-Bold, sans-serif' }}>
+              Language
+            </label>
+            <div className="relative">
+              <UilGlobe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+              <select 
+                value={language} 
+                onChange={(e) => updateConfig({ language: e.target.value })}
+                className="w-full border-2 border-black shadow-[2px_2px_0_rgba(0,0,0,1)] p-2 pl-10 text-sm font-bold appearance-none bg-white"
+              >
+                <option>English (United States)</option>
+                <option>Spanish</option>
+                <option>French</option>
+                <option>German</option>
+              </select>
+              <UilAngleDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
+            </div>
           </div>
+          
+          {/* Voice Cloning Feature - show availability based on provider capabilities */}
+          {(() => {
+            const selectedProvider = (voiceModels || []).find((m: any) => m.provider === configuration.voiceProvider)
+            const cloningSupported = !!selectedProvider?.capabilities?.cloning
+            if (!cloningSupported) {
+              return (
+                <div className="mt-3">
+                  <Card className="relative overflow-hidden border-2 border-black bg-gray-100">
+                    <div className="absolute inset-0 bg-gray-200 opacity-60"></div>
+                    <CardContent className="p-3 relative">
+                      <div className="flex items-center justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h4 className="font-black text-xs uppercase text-black">Voice Cloning</h4>
+                            <Badge className="bg-gray-400 text-black border-1 border-black text-xs px-1 py-0">Unsupported</Badge>
+                          </div>
+                          <p className="text-xs text-gray-600 leading-tight">Selected provider does not support cloning</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )
+            }
+            return (
+              <div className="mt-3">
+                <Card className="relative overflow-hidden border-2 border-black bg-yellow-50">
+                  <CardContent className="p-3 relative">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="font-black text-xs uppercase text-black">Voice Cloning</h4>
+                          <Badge className="bg-yellow-400 text-black border-1 border-black text-xs px-1 py-0">AVAILABLE</Badge>
+                        </div>
+                        <p className="text-xs text-gray-600 leading-tight">Clone custom voices</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )
+          })()}
         </div>
 
         {/* Background Audio Selection */}

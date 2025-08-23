@@ -20,6 +20,39 @@ async def list_voice_models():
         # Static for now; in future wire to TTSManager/DB
         models = [
             {
+                "id": "gemini",
+                "label": "gemini",
+                "provider": "gemini",
+                "description": "Gemini Live realtime voices (no cloning)",
+                "capabilities": {
+                    "cloning": False,
+                    "streaming": True,
+                    "latency_ms": 120,
+                },
+            },
+            {
+                "id": "openai",
+                "label": "openai",
+                "provider": "openai",
+                "description": "OpenAI Realtime TTS voices (Alloy, Nova, etc.)",
+                "capabilities": {
+                    "cloning": False,
+                    "streaming": True,
+                    "latency_ms": 150,
+                },
+            },
+            {
+                "id": "google",
+                "label": "google",
+                "provider": "google",
+                "description": "Google Cloud Text-to-Speech standard voices",
+                "capabilities": {
+                    "cloning": False,
+                    "streaming": True,
+                    "latency_ms": 180,
+                },
+            },
+            {
                 "id": "dia",
                 "label": "dia",
                 "provider": "dia",

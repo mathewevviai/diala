@@ -25,7 +25,7 @@ import time
 # Import our TikTok service
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from services.tiktok_service import get_tiktok_service
+from src.services.tiktok_service import get_tiktok_service
 
 # Setup logger
 logger = logging.getLogger(__name__)

@@ -13,6 +13,7 @@ import os
 import httpx
 import logging
 from pydantic import BaseModel, Field
+import dataclasses
 try:
     from groq import Groq
 except Exception:  # pragma: no cover - fallback if package missing
@@ -165,6 +166,35 @@ class ChatRequest(BaseModel):
     top_p: Optional[float] = 1.0
     reasoning_effort: Optional[str] = None
     stop: Optional[List[str]] = None
+def _to_jsonable(value: Any) -> Any:
+    """Best-effort conversion of SDK objects to JSON-serializable primitives."""
+    try:
+        if value is None:
+            return None
+        # Common pydantic v2
+        if hasattr(value, "model_dump") and callable(getattr(value, "model_dump")):
+            return value.model_dump()
+        # Common pydantic v1
+        if hasattr(value, "dict") and callable(getattr(value, "dict")):
+            return value.dict()
+        # Generic SDKs
+        if hasattr(value, "to_dict") and callable(getattr(value, "to_dict")):
+            return value.to_dict()
+        # Dataclasses
+        if dataclasses.is_dataclass(value):
+            return dataclasses.asdict(value)
+        # Already JSON-friendly
+        if isinstance(value, (str, int, float, bool)):
+            return value
+        if isinstance(value, list):
+            return [_to_jsonable(v) for v in value]
+        if isinstance(value, dict):
+            return {k: _to_jsonable(v) for k, v in value.items()}
+        # Fallback to string
+        return str(value)
+    except Exception:
+        return None
+
 
 
 @router.post("/chat")
@@ -183,15 +213,16 @@ async def chat_completion(payload: ChatRequest) -> Dict[str, Any]:
             stop=payload.stop,
         )
         choice = completion.choices[0]
-        return {
-            "id": getattr(completion, "id", None),
-            "model": getattr(completion, "model", payload.model),
-            "usage": getattr(completion, "usage", None),
+        result: Dict[str, Any] = {
+            "id": _to_jsonable(getattr(completion, "id", None)),
+            "model": _to_jsonable(getattr(completion, "model", payload.model)),
+            "usage": _to_jsonable(getattr(completion, "usage", None)),
             "message": {
-                "role": getattr(choice.message, "role", "assistant"),
-                "content": getattr(choice.message, "content", ""),
+                "role": _to_jsonable(getattr(choice.message, "role", "assistant")),
+                "content": _to_jsonable(getattr(choice.message, "content", "")),
             },
         }
+        return result
     except HTTPException:
         raise
     except Exception as e:

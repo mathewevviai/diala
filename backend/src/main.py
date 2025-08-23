@@ -52,7 +52,7 @@ from .api.public import (
     tiktok_content, youtube_content, instagram_content,
     twitch_content, voice_onboarding, chatterbox_tts,
     embedding_models, bulk, voice_models, procedural_audio, analysis, realtime_analysis_api,
-    underlying_models,
+    underlying_models, tts, tts_models,
 )
 
 # Create FastAPI app
@@ -97,6 +97,19 @@ async def load_models_background():
     except Exception as e:
         logger.error(f"❌ Failed to load models in the background: {e}", exc_info=True)
 
+    # Attempt to verify OSS TTS provider availability (Kokoro only for now)
+    try:
+        from .api.public.tts import KOKORO_API_URL
+        import httpx
+        if KOKORO_API_URL:
+            async with httpx.AsyncClient(timeout=3.0) as client:
+                r = await client.get(KOKORO_API_URL)
+            logger.info(f"Kokoro API reachable at {KOKORO_API_URL}: {r.status_code}")
+        else:
+            logger.info("KOKORO_API_URL not set; skipping Kokoro reachability check")
+    except Exception as e:
+        logger.warning(f"Kokoro API not reachable: {e}")
+
 @app.on_event("startup")
 async def startup_event():
     """
@@ -105,6 +118,12 @@ async def startup_event():
     logger.info("Diala Backend API starting up...")
     asyncio.create_task(load_models_background())
     logger.info("Server is running. Model loading continues in the background.")
+    # Log TTS providers health on startup
+    try:
+        from .api.public.tts import check_tts_providers_and_log
+        asyncio.create_task(check_tts_providers_and_log(logger))
+    except Exception as e:
+        logger.error(f"Failed to schedule TTS health check: {e}")
 
 # Include routers
 app.include_router(audio_transcripts.router, prefix="/api/public/audio", tags=["Audio"])
@@ -119,6 +138,8 @@ app.include_router(voice_models.router, prefix="/api/public", tags=["Voice Model
 app.include_router(chatterbox_tts.router, tags=["TTS"])
 app.include_router(embedding_models.router, prefix="/api/public", tags=["Embeddings"])
 app.include_router(underlying_models.router, prefix="/api/public", tags=["Underlying Models"])
+app.include_router(tts.router, prefix="/api/public", tags=["TTS Unified"])
+app.include_router(tts_models.router, prefix="/api/public", tags=["TTS Models"])
 app.include_router(bulk.router, prefix="/api/public/bulk", tags=["Bulk Processing"])
 app.include_router(procedural_audio.router)
 app.include_router(analysis.router, prefix="/api/public", tags=["Analysis"])

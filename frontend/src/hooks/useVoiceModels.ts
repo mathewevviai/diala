@@ -18,7 +18,7 @@ export function useVoiceModels() {
       setIsLoading(true);
       setError(null);
       try {
-        const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
+        const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
         const res = await fetch(`${base}/api/public/voice-models/`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();

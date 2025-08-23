@@ -21,7 +21,7 @@ import logging
 # Import our Instagram service
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from services.instagram_service import get_instagram_service
+from src.services.instagram_service import get_instagram_service
 
 # Set up logging
 logger = logging.getLogger(__name__)

@@ -43,6 +43,7 @@ export default function TranscriptsOnboarding() {
   const [activeTab, setActiveTab] = React.useState<'transcript' | 'speakers'>('transcript');
   const [jobId, setJobId] = React.useState<string>('');
   const [devMode, setDevMode] = React.useState(false);
+  const [textInsights, setTextInsights] = React.useState<any>(null);
 
   // Convex mutations
   const createTranscriptionJob = useMutation(api.mutations.audioTranscripts.createJob);
@@ -112,6 +113,34 @@ export default function TranscriptsOnboarding() {
     } catch (error) {
       console.error('Backend connection test failed:', error);
       return false;
+    }
+  };
+
+  const analyzeText = async (file: File) => {
+    try {
+      setIsLoading(true);
+      setUploadProgress(10);
+      const text = await file.text();
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
+      const res = await fetch(`${backendUrl}/api/public/analysis/text`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || 'Analysis failed');
+      }
+      const data = await res.json();
+      setTranscript(text);
+      setTextInsights(data);
+      setUploadProgress(100);
+      setIsLoading(false);
+      toast.success('Text analyzed');
+    } catch (e: any) {
+      setIsLoading(false);
+      setUploadProgress(0);
+      toast.error(e?.message || 'Failed to analyze text');
     }
   };
 
@@ -264,7 +293,11 @@ export default function TranscriptsOnboarding() {
     setVerificationComplete(true);
     setShowVerificationModal(false);
     setCurrentStep(2);
-    processTranscription();
+    if (selectedFile && selectedFile.type === 'text/plain') {
+      analyzeText(selectedFile);
+    } else {
+      processTranscription();
+    }
   };
 
   return (
@@ -302,7 +335,7 @@ export default function TranscriptsOnboarding() {
                     </div>
                     <Card className="bg-blue-50 border-4 border-black mb-6">
                       <CardContent className="p-8">
-                        <DragDropUpload onFileSelect={handleFileSelect} disabled={isLoading} />
+                        <DragDropUpload onFileSelect={handleFileSelect} disabled={isLoading} allowText={true} />
                         {selectedFile && (
                           <div className="mt-4 p-4 bg-green-50 border-2 border-black rounded">
                             <p className="font-bold">✓ {selectedFile.name} uploaded</p>

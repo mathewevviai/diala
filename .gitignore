@@ -27,6 +27,11 @@ backend/audio_generator_service/venv_audio/
 backend/digest.txt
 backend/tests/data/sentiment_datasets/
 
+# Voice model weights (do not commit large binaries)
+backend/src/models/voice/csm-1b-model/
+backend/src/models/voice/**/*.{pth,pt,ckpt,safetensors,bin}
+src/models/voice/**/*.{pth,pt,ckpt,safetensors,bin}
+
 # Local media/training assets not for source control
 migrate/SalesAgenttraining/
 

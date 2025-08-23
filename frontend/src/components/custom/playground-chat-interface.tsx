@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
@@ -45,34 +45,161 @@ export default function PlaygroundChatInterface({
   const [isConnected, setIsConnected] = useState(false)
   const [agentModalOpen, setAgentModalOpen] = useState(false)
   const [currentAgent, setCurrentAgent] = useState<Agent | null>(null)
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
-  const handleSendMessage = () => {
-    if (!inputValue.trim()) return
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
-    const newMessage: Message = {
+  const speakWithChatterbox = async (text: string) => {
+    try {
+      const fd = new FormData()
+      fd.append('text', text)
+      const voiceId = currentConfiguration?.voice || 'default'
+      fd.append('voice_id', voiceId)
+      const res = await fetch(`${baseUrl}/chatterbox/generate`, { method: 'POST', body: fd })
+      if (!res.ok) throw new Error(`TTS failed HTTP ${res.status}`)
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      if (audioRef.current) {
+        audioRef.current.src = url
+        await audioRef.current.play().catch(() => {})
+      }
+    } catch (e) {
+      // Non-fatal: keep chat usable even if audio fails
+    }
+  }
+
+  const speakUnified = async (text: string) => {
+    if (!text) return
+    const provider = currentConfiguration?.voiceProvider
+    const voice = currentConfiguration?.voice
+    try {
+      const res = await fetch(`${baseUrl}/api/public/tts/speak`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ provider, text, voice_id: voice, format: 'mp3' }),
+      })
+      if (!res.ok) throw new Error(`TTS failed HTTP ${res.status}`)
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      if (audioRef.current) {
+        audioRef.current.src = url
+        await audioRef.current.play().catch(() => {})
+      }
+    } catch (e) {
+      // fallback to chatterbox direct if selected
+      if (provider === 'chatterbox') {
+        await speakWithChatterbox(text)
+      }
+    }
+  }
+
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || !isConnected) return
+
+    const userMessage: Message = {
       id: Date.now().toString(),
       content: inputValue,
       sender: 'user',
       timestamp: new Date(),
     }
 
-    setMessages(prev => [...prev, newMessage])
+    const updatedMessages = [...messages, userMessage]
+    setMessages(updatedMessages)
     setInputValue('')
 
-    // Simulate assistant response
-    setTimeout(() => {
+    // Prepare payload for backend chat completion
+    const systemPrompt = currentConfiguration?.systemPrompt || ''
+    const temperature = Array.isArray(currentConfiguration?.temperature)
+      ? currentConfiguration.temperature[0]
+      : currentConfiguration?.temperature ?? 0.7
+    const maxTokens = Array.isArray(currentConfiguration?.maxTokens)
+      ? currentConfiguration.maxTokens[0]
+      : currentConfiguration?.maxTokens ?? 500
+
+    const payload = {
+      model: currentConfiguration?.model,
+      messages: [
+        ...(systemPrompt ? [{ role: 'system', content: systemPrompt }] : []),
+        ...updatedMessages.map(m => ({
+          role: m.sender === 'user' ? 'user' : 'assistant',
+          content: m.content,
+        })),
+      ],
+      temperature,
+      max_completion_tokens: maxTokens,
+    }
+
+    try {
+      const res = await fetch(`${baseUrl}/api/public/underlying-models/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const errorMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          content: `Error ${res.status}: Failed to fetch response.`,
+          sender: 'assistant',
+          timestamp: new Date(),
+        }
+        setMessages(prev => [...prev, errorMessage])
+        return
+      }
+
+      const data = await res.json()
+      const content = data?.message?.content ?? ''
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: 'This is a simulated response from the assistant.',
+        id: (Date.now() + 2).toString(),
+        content: content || '(empty response)'
+        ,
         sender: 'assistant',
         timestamp: new Date(),
       }
       setMessages(prev => [...prev, assistantMessage])
-    }, 1000)
+      // Speak the assistant response via unified TTS
+      await speakUnified(content)
+    } catch (e: any) {
+      const assistantMessage: Message = {
+        id: (Date.now() + 3).toString(),
+        content: `Request failed: ${e?.message || e}`,
+        sender: 'assistant',
+        timestamp: new Date(),
+      }
+      setMessages(prev => [...prev, assistantMessage])
+    }
   }
 
-  const handleConnect = () => {
-    setIsConnected(!isConnected)
+  const handleConnect = async () => {
+    if (isConnected) {
+      setIsConnected(false)
+      return
+    }
+    try {
+      const res = await fetch(`${baseUrl}/health`)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      // Optionally check models_ready; allow connect regardless to test endpoints
+      setIsConnected(true)
+      // Add a system message indicating readiness
+      const readiness = data?.models_ready ? 'Models ready' : 'Backend reachable'
+      const systemMessage: Message = {
+        id: Date.now().toString(),
+        content: `${readiness}. Using model: ${currentConfiguration?.model || 'N/A'}`,
+        sender: 'assistant',
+        timestamp: new Date(),
+      }
+      setMessages([systemMessage])
+    } catch (e) {
+      setIsConnected(false)
+      const systemMessage: Message = {
+        id: Date.now().toString(),
+        content: 'Failed to connect to backend. Check server and CORS.',
+        sender: 'assistant',
+        timestamp: new Date(),
+      }
+      setMessages([systemMessage])
+    }
   }
 
   const handleClearChat = () => {
@@ -254,6 +381,8 @@ export default function PlaygroundChatInterface({
             Run Ctrl+↵
           </Button>
         </div>
+        {/* Hidden audio element used for playback */}
+        <audio ref={audioRef} className="hidden" />
       </div>
 
       {/* Agent Selection Modal */}

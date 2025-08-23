@@ -21,7 +21,7 @@ import logging
 # Import our Twitch service
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from services.twitch_service import get_twitch_service
+from src.services.twitch_service import get_twitch_service
 
 # Set up logging
 logger = logging.getLogger(__name__)

@@ -1,0 +1,6 @@
+[submodule "backend/src/models/voice/csm-streaming-tf"]
+	path = backend/src/models/voice/csm-streaming-tf
+	url = https://github.com/davidbrowne17/csm-streaming-tf.git
+[submodule "backend/src/models/voice/Kokoro-FastAPI"]
+	path = backend/src/models/voice/Kokoro-FastAPI
+	url = https://github.com/remsky/Kokoro-FastAPI.git
