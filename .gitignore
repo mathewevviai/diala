@@ -19,6 +19,17 @@ convex/_generated/
 convex-backend/
 .git_backup/
 
+# Large, local-only data and binaries (prevent GitHub size issues)
+# Virtualenvs and site-packages (contain large .so files)
+backend/audio_generator_service/venv_audio/
+
+# Large generated artifacts and datasets
+backend/digest.txt
+backend/tests/data/sentiment_datasets/
+
+# Local media/training assets not for source control
+migrate/SalesAgenttraining/
+
 # Python cache
 __pycache__/
 *.pyc
