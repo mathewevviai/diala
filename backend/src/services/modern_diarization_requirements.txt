@@ -1,0 +1,34 @@
+# Modern Streaming Diarization Requirements
+# Based on Landini et al. (2022, 2023), Park et al. (2022), Cornell et al. (2022)
+
+# Core dependencies
+numpy>=1.19.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+
+# Graph processing
+networkx>=2.6.0
+scipy.sparse>=1.7.0
+
+# Performance optimization
+numba>=0.56.0
+psutil>=5.8.0
+
+# Audio processing (for quality assessment)
+librosa>=0.8.0
+soundfile>=0.10.0
+
+# Threading and concurrency
+threading
+concurrent.futures
+
+# Optional: Additional ML libraries for enhanced features
+# torch>=1.9.0
+# transformers>=4.0.0
+
+# Development and testing
+pytest>=6.0.0
+pytest-cov>=2.12.0
+
+# Quality assessment specific
+scipy.fft>=1.7.0

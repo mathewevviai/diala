@@ -1,0 +1,66 @@
+# Universal Dockerfile supporting both ROCm and CUDA
+ARG GPU_BACKEND=rocm
+ARG BASE_IMAGE
+
+# Set base image based on backend
+FROM rocm/pytorch:rocm6.2.3_ubuntu22.04_py3.10_pytorch_release_2.3.0 AS rocm-base
+FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime AS cuda-base
+
+# Select the appropriate base
+FROM ${GPU_BACKEND}-base
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    wget \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy the chatterbox-streaming code
+COPY . .
+
+# Upgrade pip
+RUN python -m pip install --upgrade pip
+
+# Install PyTorch based on backend
+ARG GPU_BACKEND=rocm
+RUN if [ "$GPU_BACKEND" = "rocm" ]; then \
+        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2; \
+    else \
+        echo "Using pre-installed PyTorch for CUDA"; \
+    fi
+
+# Install chatterbox-streaming package
+RUN pip install -e .
+
+# Install additional dependencies
+RUN pip install fastapi uvicorn pydantic python-multipart
+
+# Set environment variables based on backend
+ENV GPU_BACKEND=${GPU_BACKEND}
+
+# ROCm specific env vars
+ENV HSA_OVERRIDE_GFX_VERSION=11.0.0
+ENV ROCM_PATH=/opt/rocm
+ENV HIP_VISIBLE_DEVICES=0
+ENV PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:512
+
+# CUDA specific env vars
+ENV CUDA_VISIBLE_DEVICES=0
+
+# Common env vars
+ENV PYTORCH_TUNABLEOP_ENABLED=1
+ENV PYTORCH_TUNABLEOP_TUNING=1
+ENV NUMA_BALANCING=0
+
+# Create directories
+RUN mkdir -p /app/models /app/tunableop
+
+# Expose API port
+EXPOSE 8001
+
+# Run the FastAPI server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
