@@ -48,10 +48,11 @@ from .services.audio_separation_service import audio_separation_service
 
 # Import routers
 from .api.public import (
-    youtube_transcripts, hunter_leadgen, audio_transcripts, 
-    tiktok_content, youtube_content, instagram_content, 
-    twitch_content, voice_onboarding, chatterbox_tts, 
-    embedding_models, bulk, voice_models
+    youtube_transcripts, hunter_leadgen, audio_transcripts,
+    tiktok_content, youtube_content, instagram_content,
+    twitch_content, voice_onboarding, chatterbox_tts,
+    embedding_models, bulk, voice_models, procedural_audio, analysis, realtime_analysis_api,
+    underlying_models,
 )
 
 # Create FastAPI app
@@ -117,7 +118,11 @@ app.include_router(voice_onboarding.router, tags=["Voice Onboarding"])
 app.include_router(voice_models.router, prefix="/api/public", tags=["Voice Models"])
 app.include_router(chatterbox_tts.router, tags=["TTS"])
 app.include_router(embedding_models.router, prefix="/api/public", tags=["Embeddings"])
+app.include_router(underlying_models.router, prefix="/api/public", tags=["Underlying Models"])
 app.include_router(bulk.router, prefix="/api/public/bulk", tags=["Bulk Processing"])
+app.include_router(procedural_audio.router)
+app.include_router(analysis.router, prefix="/api/public", tags=["Analysis"])
+app.include_router(realtime_analysis_api.router)
 
 # Health check endpoint now also reports model readiness
 @app.get("/health", tags=["System"])
