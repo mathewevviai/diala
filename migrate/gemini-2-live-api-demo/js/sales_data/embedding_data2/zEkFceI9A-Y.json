@@ -1,0 +1,63 @@
+{
+  "source_video": "zEkFceI9A-Y",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When speaking to a gatekeeper, ask questions to gather information about the prospect you want to reach.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Treat the gatekeeper with respect and kindness, seeing them as a potential ally, not an obstacle.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask the gatekeeper for help or advice to enlist their cooperation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use phrases like 'Could you maybe help me out?' or 'Maybe you could advise me?'"
+    },
+    {
+      "type": "technique",
+      "content": "Ask the gatekeeper if they are the correct person to discuss the subject matter with.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If referred, mention the name of the person who referred you immediately when speaking to the gatekeeper.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Inquire with the gatekeeper about the best time or method to reach the intended contact.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Remember and use the gatekeeper's name during the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a genuine and human tone when speaking to the gatekeeper.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Maybe you could advise me?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Useful phrase when asking gatekeepers for help."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Am I bugging you?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Can be used early in a call to build rapport or ask permission."
+    },
+    {
+      "type": "technique",
+      "content": "Instead of demanding to speak to someone, explain to the gatekeeper the reason for your call briefly.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

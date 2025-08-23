@@ -1,0 +1,69 @@
+{
+  "source_video": "90oCUL6-zZQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a client mentions a problem or desire, immediately ask, 'Tell me more about that.' to gather depth.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a subtle tonal shift, slightly lowering pitch or softening voice, when transitioning to a significant question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Can signal importance or create a more intimate feel."
+    },
+    {
+      "type": "technique",
+      "content": "Pause strategically after asking a key question or making an important statement to allow the information to sink in.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows the other person to process and encourages them to speak."
+    },
+    {
+      "type": "technique",
+      "content": "Employ mirroring by subtly repeating the last few words or key phrase a prospect uses to encourage them to elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Often leads to them providing more detail without direct questioning."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize or label the prospect's emotions or situation ('It sounds like you're feeling frustrated...') to build empathy and clarify understanding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use cautiously and genuinely."
+    },
+    {
+      "type": "technique",
+      "content": "Ask calibrated questions starting with 'How?' or 'What?' to encourage longer, more thoughtful responses.",
+      "speaker_perspective": "sales agent",
+      "notes": "'How do you see yourself overcoming this challenge?' vs 'Can you fix this?'"
+    },
+    {
+      "type": "technique",
+      "content": "Employ late-night FM DJ voice \u2013 a calm, slow, deep tone \u2013 to de-escalate tension or establish authority.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use for sensitive moments or when control is needed."
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'accusation audit' technique by listing potential negative perceptions the prospect might have of you or your offer upfront.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'You're probably thinking this is too expensive...'"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on understanding the other person's perspective and feelings rather than just conveying your message.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen for and identify the prospect's Black Swans \u2013 critical, hidden information that can significantly impact the deal.",
+      "speaker_perspective": "sales agent",
+      "notes": "Information they don't know they should tell you, or don't want to tell you."
+    },
+    {
+      "type": "technique",
+      "content": "Re-articulate the prospect's points in your own words to confirm understanding and show you're listening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Similar to summarizing, but often sentence by sentence."
+    }
+  ]
+}

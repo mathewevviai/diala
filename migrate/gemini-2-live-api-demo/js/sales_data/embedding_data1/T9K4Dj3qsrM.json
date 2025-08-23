@@ -1,0 +1,107 @@
+{
+  "source_video": "T9K4Dj3qsrM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When asking discovery questions, tie them back to potential costs or revenue impact.",
+      "speaker_perspective": "sales agent",
+      "notes": "Quantify impact."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Just curious...' or 'Walk me through...' to make questions feel less interrogative during discovery.",
+      "speaker_perspective": "sales agent",
+      "notes": "Softer questioning."
+    },
+    {
+      "type": "technique",
+      "content": "Before asking a sensitive question, offer a brief, related piece of information or context.",
+      "speaker_perspective": "sales agent",
+      "notes": "Contextual questioning."
+    },
+    {
+      "type": "technique",
+      "content": "When asking about current performance or challenges, preface it with understanding that things aren't always perfect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Build rapport by acknowledging reality."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Help me understand what does that look like operationally?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Walk me through how you're doing that currently.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question about current process."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'And what sort of results have you seen with that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question about outcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'What's the impact when X happens?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question about consequences."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Have you tried anything else to solve this?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question about past solutions."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'And how did that work out for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Follow-up question on past attempts."
+    },
+    {
+      "type": "technique",
+      "content": "Layer discovery questions, starting broad and getting more specific based on answers.",
+      "speaker_perspective": "sales agent",
+      "notes": "Questioning structure."
+    },
+    {
+      "type": "technique",
+      "content": "After the prospect answers a question, pause and listen for more details or clarification before speaking.",
+      "speaker_perspective": "sales agent",
+      "notes": "Active listening technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Your role in discovery is primarily to listen and understand, not just to ask questions from a list.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on comprehension."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Just curious, how are you measuring that today?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gentle question about metrics."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'And if you don't mind me asking, what does that cost you when that occurs?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question about financial impact."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's points periodically during discovery to confirm understanding and show you're listening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Verification technique."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'So if I'm hearing you correctly, X is happening, which leads to Y impact. Is that right?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Summarizing for verification."
+    }
+  ]
+}

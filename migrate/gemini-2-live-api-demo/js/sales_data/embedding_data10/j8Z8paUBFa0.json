@@ -1,0 +1,44 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Get the prospect to discover they have a problem themselves, rather than telling them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid telling prospects their current process is 'stupid' or bad, as this will upset them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Standard factual questions (who, what, where, why, how) are insufficient; they gather facts but don't create emotional realization of pain.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus on making facts and figures 'hurt' emotionally for the prospect, not just presenting them intellectually.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use presumptive questions to get prospects to explain why they haven't already adopted a better solution or resolved an issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Presumes a desirable alternative exists and prompts them to explain their deviation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Can I ask you a question, when you were offered the opportunity to automate this... why did you say no to it?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a presumptive question framing automation as a missed opportunity."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"when you turn to your sales guys and you ask them why aren't you hitting target what did they say? ... do you believe those excuses are valid?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of presumptive questions prompting reflection on internal issues."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

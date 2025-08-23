@@ -1,0 +1,89 @@
+{
+  "source_video": "HmjwubEgmN8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Focus on the opening of a cold call.",
+      "speaker_perspective": "sales agent",
+      "notes": "A good opening is critical for bypassing gatekeepers and engaging prospects."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid pitching or selling in the opening of a cold call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Doing so typically leads to immediate disqualification or rejection."
+    },
+    {
+      "type": "mindset",
+      "content": "On initial outbound calls, your primary objective is to gather information, not to sell immediately.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Do not assume your pitch will instantly convert a prospect into a customer.",
+      "speaker_perspective": "sales agent",
+      "notes": "This is a common mistake; the pitch's job is different."
+    },
+    {
+      "type": "technique",
+      "content": "The pitch should aim to pique the prospect's interest.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The pitch should make the prospect understand the need for a further conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlight a potential pain point or missed opportunity."
+    },
+    {
+      "type": "example",
+      "content": "(Bad Opening Example) \"Hey, I want to talk to the person that handles your [area] because we help [type] businesses with [benefit].\"",
+      "speaker_perspective": "sales agent",
+      "notes": "This direct, pitching style opening is often shut down by gatekeepers."
+    },
+    {
+      "type": "example",
+      "content": "(Good Opening Example) \"Hey, I was just doing some research on the area/your business and saw that you guys do [specific thing you noticed].\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use a research-based opening to sound less salesy and typical."
+    },
+    {
+      "type": "mindset",
+      "content": "Frame your call as simple outreach based on research, not a direct sales pitch.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I'm not really sure (why I'm calling). I was just doing some research and this [thing you noticed] came up.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use this phrase after the research-based opening to pique curiosity without pressure, encouraging a transfer."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid putting pressure, asking for things, or selling upfront to encourage gatekeepers to transfer you to the decision maker.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The primary objective of the initial cold call is to reach the decision maker.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Once connected with the decision maker, your objective is to gather information to assess if you can provide value.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on understanding their situation."
+    },
+    {
+      "type": "technique",
+      "content": "If you identify that you can help the decision maker, schedule a follow-up meeting to discuss further.",
+      "speaker_perspective": "sales agent",
+      "notes": "Do not try to close on the first call."
+    },
+    {
+      "type": "technique",
+      "content": "Keep initial calls short and simple.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

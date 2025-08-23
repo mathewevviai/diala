@@ -1,0 +1,36 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Frame your value proposition around solving the prospect's specific, identified problems (e.g., sales bottleneck, unmotivated team, poor call quality, not qualifying hard enough).",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on the prospect's internal issues rather than external competitors."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I typically get invited in by managing directors of successful and ambitious companies... they have the honesty to recognize perhaps sales is a bottleneck to growth.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the problem as a common issue for successful companies, implying the service helps overcome this specific bottleneck."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I help fix these problems and I've helped companies in your sector eliminate some of these forever.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly links the service to eliminating the prospect's identified pain points, without mentioning alternative solutions."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend I could help your guys get through to more people at the right level and you believed I could do that...",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the value as a direct solution to one of the prospect's potential problems (reaching decision-makers)."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus the conversation entirely on the prospect's internal challenges and how your service addresses those challenges, rather than discussing or comparing with competitors.",
+      "speaker_perspective": "sales agent",
+      "notes": "Core principle of non-competitive value framing."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

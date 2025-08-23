@@ -1,0 +1,30 @@
+{
+  "source_video": "5XBljs27WNk",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "If I told you this was a sales call, would you hang up or sooner?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct question used to uncover potential upfront resistance or objection to the call itself."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with a dismissal like 'no thank you', probe for the root cause by suggesting the opposite scenario.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify the reason for the objection or lack of interest by implying their current situation is ideal."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "everything's perfect by the sounds of it",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase used to clarify the reason for a dismissal by suggesting there is no problem to solve."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "you don't want more by the sounds of it",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase used to clarify the reason for a dismissal by suggesting there is no desire for improvement."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

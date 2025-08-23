@@ -1,0 +1,65 @@
+{
+  "source_video": "48VZpmEebfs",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a cold call by giving the prospect control and explicit permission to hang up or give you a short timeframe.",
+      "speaker_perspective": "sales agent",
+      "notes": "Increases the chance of getting a few seconds; counter-intuitive disarming technique."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"You can absolutely hang up right now... Or, if you can give me just 20 or 30 seconds...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example phrase for permission-based opening in a cold call."
+    },
+    {
+      "type": "technique",
+      "content": "When facing price objections, probe deeper to understand the context rather than arguing the price directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps uncover the real objection, expectation, or alternative."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Okay, too expensive compared to what?\" or \"What were you expecting to invest?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Examples of questions used to probe price objections."
+    },
+    {
+      "type": "technique",
+      "content": "Consciously control your vocal tone to convey confidence, curiosity, and a genuine willingness to help.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid sounding pushy or overly scripted. Tone is part of delivery technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Adopt a mindset of curiosity during sales interactions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Supports effective questioning and genuine tone."
+    },
+    {
+      "type": "technique",
+      "content": "In discovery calls, use strategic silence after asking an open-ended question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Encourages the prospect to share more valuable information by filling the silence."
+    },
+    {
+      "type": "technique",
+      "content": "Clearly define and state the agreed-upon next step at the end of every sales interaction.",
+      "speaker_perspective": "sales agent",
+      "notes": "Maintains momentum and avoids ambiguity."
+    },
+    {
+      "type": "technique",
+      "content": "Get explicit agreement from the prospect on the defined next steps before concluding the interaction.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures buy-in and clarity on path forward."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Does that sound like a good plan for you?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example phrase used to confirm agreement on next steps."
+    }
+  ]
+}

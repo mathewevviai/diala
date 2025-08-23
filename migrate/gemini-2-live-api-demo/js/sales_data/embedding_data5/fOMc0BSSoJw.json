@@ -1,0 +1,24 @@
+{
+  "source_video": "fOMc0BSSoJw",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospects raise stalls, objections, or higher authority excuses at the precise moment a salesperson attempts a traditional close.",
+      "speaker_perspective": "sales agent",
+      "notes": "Describes the typical timing of objections in a traditional sales process."
+    },
+    {
+      "type": "example",
+      "content": "Common stalls/objections when attempting a traditional close include 'Can you send me more information?', 'I need to discuss this internally', or 'I need to see xyz'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Lists specific examples of objections/stalls encountered at the point of traditional closing."
+    },
+    {
+      "type": "technique",
+      "content": "Objections and stalls occur because salespeople attempt to close at the wrong time, when the prospect is expecting it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifies the speaker's perceived root cause of objections in traditional closing scenarios."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

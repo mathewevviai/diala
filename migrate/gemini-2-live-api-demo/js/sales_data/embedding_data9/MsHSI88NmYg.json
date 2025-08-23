@@ -1,0 +1,66 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge a brush-off or statement of disinterest directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'Thanks for letting me know', 'Sounds like I've got it all sorted'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I'll be honest with you it was actually a sales call, so I don't know if that makes you want to slam it back down or even worse mate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after a 'wrong number' to pivot and diagnose potential interest."
+    },
+    {
+      "type": "technique",
+      "content": "Respect clear, urgent timing issues immediately without probing.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., prospect is in the hospital"
+    },
+    {
+      "type": "technique",
+      "content": "Diagnose 'wrong person' by acknowledging the referral and probing about the recommended contact's perspective or influence.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'makes perfect sense I appreciate the point in the right direction', 'when I talk to him what do you think he'll tell me?'"
+    },
+    {
+      "type": "technique",
+      "content": "Use negative Socratic questioning to provoke a response and diagnose if the stated lack of problem is genuine.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'I suppose you'll tell me that you don't recognize any of that right?'"
+    },
+    {
+      "type": "mindset",
+      "content": "Expect more 'no's than 'yes's; view 'no' as a step towards a 'yes' or confirmation they aren't a fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to handling rejection without demotivation."
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that rejection is often of the problem you fix, not of you or your business.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps depersonalize rejection."
+    },
+    {
+      "type": "technique",
+      "content": "After a soft brush-off or request to send information, attempt one final soft probe for a short meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'would it be impossible to sit down and and run through it in 30 minutes?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I suppose you're going to tell me that none of that resonates you in your world?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of negative Socratic questioning to diagnose relevance."
+    },
+    {
+      "type": "technique",
+      "content": "If cut off due to time or stated disinterest, acknowledge the constraint and creatively pivot or accept the requested next step (like sending an email).",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'absolutely fine I'm gonna email hello...'"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

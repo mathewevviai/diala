@@ -1,0 +1,46 @@
+{
+  "source_video": "HmjwubEgmN8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect asks a question, clarify their motivation before answering. Ask 'Why did you ask that?' to understand the underlying reason.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prevents making assumptions about the prospect's intent."
+    },
+    {
+      "type": "example",
+      "content": "Prospect: 'Have you ever worked in our sector before?' Sales Agent: 'What do you mean?' (Clarifying the question to uncover the real concern).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises a potential objection or concern, ask clarifying questions to get them to articulate the root cause of their concern.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Prospect: 'My concern is if you're not familiar with our niche industry...' Sales Agent: 'Okay, that makes sense. So you're telling me then that if you genuinely believed what I did could help you sell more, we can't work together if I have no industry experience?' (Isolating the core objection).",
+      "speaker_perspective": "sales agent",
+      "notes": "Gets the prospect to address the potential deal-breaker themselves."
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'struggling' or 'bumbling' persona deliberately to make the prospect comfortable, allowing you to ask probing questions without feeling like an interrogation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps lower the prospect's guard to reveal true feelings and root causes."
+    },
+    {
+      "type": "technique",
+      "content": "After summarizing the prospect's acknowledged pain points, ask 'How does that make you feel?' to connect intellectual problems to emotional root causes.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emotional connection drives action and reveals the depth of the problem."
+    },
+    {
+      "type": "mindset",
+      "content": "If a prospect cannot 'fight for their pain' when you challenge or probe it, the problem is likely not significant enough for them to buy a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps qualify the severity of the root cause."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

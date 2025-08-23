@@ -1,0 +1,100 @@
+{
+  "source_video": "8iuUqHcEqdE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use the AAA objection handling framework: Acknowledge, Address, Advance.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge phase: Validate the prospect's perspective and show you hear their objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use phrases like 'I understand,' 'I hear you,' or 'That makes sense' to acknowledge an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address phase: Directly respond to the objection by clarifying, providing information, or reframing.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Advance phase: After addressing the objection, ask a question to guide the conversation forward towards the next step or close.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask questions like 'Does that make sense?' or 'What's the next step for you?' to advance after handling an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For 'I need to think about it,' address by asking 'What specifically needs thinking about? Price, fit, or something else?' to uncover the root.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To advance after 'I need to think about it,' ask 'Are you comfortable moving forward with [next small step]?' or 'What information would help you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For 'It's too expensive,' address by focusing on value, ROI, included benefits, or comparing to alternatives.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To advance after 'It's too expensive,' ask 'Does understanding the value make the price feel aligned?' or 'Are you comfortable with the investment given the ROI?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For 'I don't have time,' address by sharing examples of how your solution saves time for existing clients.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To advance after 'I don't have time,' ask 'Given the potential time savings, would you be open to scheduling [next short meeting]?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For 'Need to speak to boss/partner,' address by helping the prospect prepare for that conversation or offering to provide a summary.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To advance after 'Need to consult,' ask 'When can I follow up after that conversation?' or 'Could I quickly walk [person] through highlights?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections as buying signals rather than rejections. They indicate prospect engagement and interest.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The stated objection might not be the real one. Use questions to dig deeper into the underlying concerns.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'Aside from [stated objection], is there anything else giving you pause?' or 'Putting [stated objection] aside, does the solution meet your needs?' to uncover the real objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Prepare responses for common objections in advance, knowing your product's value proposition and ROI stories.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ensure every answered objection leads to a question that moves the conversation towards the close or next step.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

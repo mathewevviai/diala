@@ -1,0 +1,23 @@
+{
+  "source_video": "90oCUL6-zZQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect reacts negatively (e.g., groans) to the perceived nature of your call, ask a clarifying question like 'Why does everybody say that?' to understand the root cause of their frustration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after an opener that anticipates a common negative reaction in high-volume call industries."
+    },
+    {
+      "type": "technique",
+      "content": "Asking 'Why does everybody say that?' encourages the prospect to vent about their negative experiences with similar calls, revealing the underlying reasons for their resistance.",
+      "speaker_perspective": "sales agent",
+      "notes": "This venting process helps the agent understand the specific pain points or objections related to receiving cold calls in their industry."
+    },
+    {
+      "type": "mindset",
+      "content": "The goal of asking a clarifying question after a negative reaction is to get the prospect to open up and explain the root cause of their objection or frustration.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

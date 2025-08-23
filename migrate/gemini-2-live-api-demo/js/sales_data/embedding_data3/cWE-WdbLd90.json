@@ -1,0 +1,102 @@
+{
+  "source_video": "cWE-WdbLd90",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are requests for more information or clarity, not rejections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and validate the prospect's objection before responding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I understand exactly how you feel.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the feel-felt-found framework."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Many of my clients felt the same way initially.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the feel-felt-found framework, showing social proof."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"However, what they found was...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the feel-felt-found framework, presenting the solution or benefit."
+    },
+    {
+      "type": "technique",
+      "content": "Use the feel-felt-found framework to structure responses to common objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to understand the real reason behind an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"When you say [the objection], what specifically do you mean by that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to uncover the root of an objection."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to confirm it is the only barrier.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Besides [this objection], is there anything else preventing us from moving forward?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to isolate the main objection."
+    },
+    {
+      "type": "technique",
+      "content": "Reframe price objections by focusing on value, ROI, and the cost of inaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Turn an objection into a question you can answer or a point you can address.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Pre-empt potential objections by addressing them proactively in the presentation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use testimonials or case studies as social proof to overcome credibility objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the discussion and confirm understanding after addressing an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Does that make sense?\" or \"Have I addressed your concern about that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Questions to confirm the objection has been handled."
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'I need to think about it' by exploring what specifically needs consideration.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What information do you feel you're missing to make a decision today?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to uncover the root of 'need to think' objection."
+    }
+  ]
+}

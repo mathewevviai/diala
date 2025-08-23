@@ -1,0 +1,54 @@
+{
+  "source_video": "S4qbFWmjtq4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use upfront contracts to set clear expectations and control the sales conversation flow.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Implement negative reverse selling by suggesting the product or service might not be a good fit to reduce pressure.",
+      "speaker_perspective": "sales agent",
+      "notes": "Can create curiosity and challenge the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "Use permission-based opening lines on cold calls, such as 'Do you have 30 seconds for me to tell you why I called?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Respects their time and increases likelihood of engagement."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on getting to a clear 'yes' or 'no' quickly to avoid wasting time on indecisive prospects.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'think it over' objections by asking 'What specifically would you need to think over?' to uncover underlying concerns.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use silence after asking a question to encourage the prospect to speak and elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid jumping in to fill the silence."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If by the end of this conversation you don't feel this is a good fit, that's perfectly fine.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of an upfront contract, reduces pressure."
+    },
+    {
+      "type": "technique",
+      "content": "Qualify prospects thoroughly by asking about budget, authority, need, and timeline (BANT or similar framework).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Anchor the decision-making process by clearly outlining the next steps at the end of each meeting.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "type": "inurl_title",
+    "query": "inurl:contact OR inurl:about \"AI startup\" \"San Francisco\" intitle:CEO OR intitle:CTO",
+    "intent": "contact",
+    "tags": [
+      "inurl",
+      "contact",
+      "CEO",
+      "CTO"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "directory_site",
+    "query": "site:checkatrade.com OR site:yell.com \"AI consulting\" \"San Francisco\" contact",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "yell",
+      "AI",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "social_profile",
+    "query": "site:twitter.com OR site:linkedin.com/in \"AI startup founder\" \"San Francisco\" contact",
+    "intent": "social",
+    "tags": [
+      "Twitter",
+      "LinkedIn",
+      "founder",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "longtail",
+    "query": "San Francisco AI startup CEO contact email phone LinkedIn",
+    "intent": "contact",
+    "tags": [
+      "CEO",
+      "AI",
+      "startup",
+      "contact"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "role_offer",
+    "query": "\"CEO\" OR \"CTO\" \"AI startup\" \"San Francisco\" pitch deck funding contact",
+    "intent": "contact",
+    "tags": [
+      "CEO",
+      "CTO",
+      "pitch",
+      "funding"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "pain_point",
+    "query": "\"AI startup\" \"San Francisco\" \"struggling with\" OR \"need help with\" CTO email",
+    "intent": "contact",
+    "tags": [
+      "pain-point",
+      "CTO",
+      "help-needed"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "site_specific",
+    "query": "site:linkedin.com/company \"AI startup\" \"San Francisco\" \"1-50 employees\"",
+    "intent": "company_page",
+    "tags": [
+      "LinkedIn",
+      "AI",
+      "startup",
+      "size-filter"
+    ],
+    "_score": 25
+  },
+  {
+    "type": "exclusion",
+    "query": "\"AI startup\" \"San Francisco\" contact email -job -forum -blog -news",
+    "intent": "contact",
+    "tags": [
+      "exclusion",
+      "noise-filter",
+      "contact"
+    ],
+    "_score": 20
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Have you ever put a figure on how much that costs you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to quantify the cost of the prospect's current problem/pain points (wasted time, ineffective process)."
+    },
+    {
+      "type": "technique",
+      "content": "Quantify the cost of the prospect's current problem or inaction (e.g., wasted time, useless resources) to build value for the solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method to reframe value by highlighting the ROI of solving the problem vs. the cost of the status quo."
+    },
+    {
+      "type": "example",
+      "content": "Prospect minimizes cost of problem: 'doesn't cost me a lot'",
+      "speaker_perspective": "customer",
+      "notes": "Customer response to quantifying the cost of the problem, potentially minimizing its impact."
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

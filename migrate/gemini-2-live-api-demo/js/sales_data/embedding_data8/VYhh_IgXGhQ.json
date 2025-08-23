@@ -1,0 +1,24 @@
+{
+  "source_video": "VYhh_IgXGhQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a conditional closing question: 'Let's pretend you believed I could help you... is there any reason you wouldn't invite me in for half an hour?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Asks for commitment based on the prospect believing in the potential value."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they need to 'think about it' because it's not their sole decision, acknowledge and explain how you can still put the idea forward for consideration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses the 'think about it' objection when it's specifically tied to a multi-party decision process."
+    },
+    {
+      "type": "technique",
+      "content": "If sensing polite resistance or a stall, directly ask if it's just a polite way of ending the call to uncover the true objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct probe to bypass politeness and get to the underlying reason for the stall, related to handling resistance that prevents closing."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

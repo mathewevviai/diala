@@ -1,0 +1,41 @@
+{
+  "source_video": "PgklVvZB3DI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle prospect questions by responding with another question (Socratic questioning).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Never answer a prospect's question without first understanding the motive, cause, or intent behind it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions in response to prospect questions to understand the 'why' and isolate the real reason.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Where are you based?', respond by asking 'I'm happy to answer, but is my location important to you?' or 'Do you mind asking why you ask?' to uncover the motive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "If the prospect says location is important because they want someone 'local', ask clarifying questions like 'When you say local, do you mean within [specific area] or something else?' to isolate the requirement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Once you understand the motive or root cause behind the prospect's question, then provide the answer.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Responding to questions with questions is a skill that requires practice to avoid sounding evasive or annoying.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

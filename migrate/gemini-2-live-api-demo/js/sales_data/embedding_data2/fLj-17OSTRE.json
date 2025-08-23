@@ -1,0 +1,105 @@
+{
+  "source_video": "fLj-17OSTRE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Open a cold call by giving the prospect an immediate 'out' option.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Would you like to hang up or let me have 30 seconds?'"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I'm busy' on a cold call, respond by agreeing and stating you only need a short time.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'I know you're busy, that's why I'll keep it short, only need 30 seconds.'"
+    },
+    {
+      "type": "technique",
+      "content": "Get explicit permission from the prospect to continue the conversation past the initial opening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Do you have a minute?' or 'Is this a bad time?' - use a phrase that requires a yes/no or brief confirmation."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the conversation by stating upfront that you'll be brief and get straight to the point.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets expectation and reduces prospect anxiety."
+    },
+    {
+      "type": "technique",
+      "content": "Transition into the core message quickly after the initial greeting and permission check.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a clear and concise opening statement that hints at value without giving everything away.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle resistance by acknowledging their point and gently redirecting or asking a qualifying question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid arguing."
+    },
+    {
+      "type": "technique",
+      "content": "Ask targeted questions early in the call to quickly qualify interest or fit.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use softening phrases before asking potentially difficult or direct questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Quick question for you...'"
+    },
+    {
+      "type": "technique",
+      "content": "After a short opening pitch, immediately pivot to a question to re-engage the prospect and understand their situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid monologuing."
+    },
+    {
+      "type": "technique",
+      "content": "Use silence after asking a question to give the prospect time to think and respond.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm understanding by briefly summarizing what the prospect said.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Set clear next steps for a follow-up call or meeting if the initial call is successful.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Would you like to hang up or let me have 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of an opening line giving control to the prospect."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I know you're busy, that's why I'll keep it short...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase used to handle the 'I'm busy' objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Quick question for you...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Softening phrase before asking a question."
+    },
+    {
+      "type": "mindset",
+      "content": "The goal of the initial cold call is not to sell, but to determine if there's potential for a follow-up conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Respect the prospect's time and communicate your intent to be brief.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

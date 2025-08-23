@@ -1,0 +1,84 @@
+{
+  "source_video": "DM7LfxTYqEA",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are simply requests for more information or clarification, not rejections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Never interrupt when the prospect is raising an objection. Listen fully.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and validate the prospect's objection to show empathy before responding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use phrases like 'I understand why you'd say that' or 'That's a valid point.'"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to fully understand the root cause of the objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid assuming you know the real issue."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to ensure it's the only barrier before addressing it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirm 'Besides [this objection], is there anything else stopping you?'"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe the objection from a negative to a positive or a question of value.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or third-party examples (feel-felt-found) to address common concerns.",
+      "speaker_perspective": "sales agent",
+      "notes": "Others felt similarly but found success."
+    },
+    {
+      "type": "technique",
+      "content": "Address price objections by focusing on the value, ROI, and long-term benefits provided.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When faced with 'It's too expensive,' ask 'Too expensive compared to what?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "For 'I need to think about it,' ask 'What specifically needs more thought?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Turn an objection into a question you can answer or a problem you can solve.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain confidence and composure when objections arise; don't become defensive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'I need to talk to my boss/partner' objection by offering to help prepare their case or join the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use conditional closing to address an objection: 'If we could solve [objection], would you be ready to move forward?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Anticipate common objections and prepare your responses in advance.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

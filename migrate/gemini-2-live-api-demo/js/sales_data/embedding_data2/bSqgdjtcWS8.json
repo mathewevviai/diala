@@ -1,0 +1,31 @@
+{
+  "source_video": "bSqgdjtcWS8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start calls by asking for a small amount of time or permission, like 'Do you have 30 seconds to hear why I'm calling?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Upon gaining attention, clearly and concisely state your value proposition without waffling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions immediately after the value statement to uncover needs or challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When handling objections, first acknowledge the prospect's statement ('That's great to hear') before attempting to pivot.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident tone of voice, speak clearly, and avoid rushing to project certainty.",
+      "speaker_perspective": "sales agent",
+      "notes": "Tone and delivery are part of the technique."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "source_video": "FP90gU4iWSI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask the prospect if their previous agent gave feedback on why the property wasn't selling. This clarifies the root cause of past failure.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Was your agent giving you any feedback as to why that was happening?'"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions to understand the prospect's past decisions, like why they chose their previous agent. This can uncover underlying reasons or potential objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'How did you end up choosing this agent that you had?'"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to make the prospect think critically about their current situation or past experiences.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Sow seeds of doubt about the current situation or alternative options through questions, addressing potential underlying objections like loyalty.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not fight with the prospect or try to convince them they are wrong when they raise a point or objection. Seek to understand instead.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge and validate the prospect's perspective or objection before addressing it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'That makes perfect sense, I hear that a lot, I understand.'"
+    },
+    {
+      "type": "technique",
+      "content": "Dig into potential underlying influences or decision-makers behind an objection, such as a spouse.",
+      "speaker_perspective": "sales agent",
+      "notes": "Critique highlights the need to 'dig around' the 'wife' objection."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions about how a key influencer (like a spouse) might react to a proposed next step to uncover and prepare for their potential objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'What do you think she's going to say if you said you've been talking to me and that you think we should have a follow-up conversation?'"
+    },
+    {
+      "type": "technique",
+      "content": "The purpose of digging into objections is to understand the root cause (e.g., spouse's concerns) to better prepare for and handle them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Getting a prospect to agree under pressure doesn't resolve their underlying objections; they are likely to revert to their original opinion.",
+      "speaker_perspective": "sales agent",
+      "notes": "'A man convinced against his will is of the same opinion still.'"
+    },
+    {
+      "type": "mindset",
+      "content": "The goal is for the prospect to genuinely want the next step by resolving their own internal objections, not to be subtly forced into it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use hypothetical questions to isolate the core value proposition and get the prospect to articulate why they would want a meeting if the main objection (e.g., 'can you fix my problem?') was removed.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Let's pretend... you believed I have a solution... if we met... I could fix your problem what would you want to do?'"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

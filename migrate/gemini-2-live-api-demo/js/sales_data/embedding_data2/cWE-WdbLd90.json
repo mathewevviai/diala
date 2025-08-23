@@ -1,0 +1,114 @@
+{
+  "source_video": "cWE-WdbLd90",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Do not immediately try to overcome objections; this often leads to debate or argument.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Lower the prospect's guard and disarm them when handling objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Validate the prospect's objection first by acknowledging it is normal or understandable.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the Validate-Question-Address (VQA) method."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I hear you.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use calmly and empathetically to validate an objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Yeah, that makes sense.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use calmly and empathetically to validate an objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"That's completely understandable.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use calmly and empathetically to validate an objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"You're not the first person to tell me that.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use calmly and empathetically to validate an objection."
+    },
+    {
+      "type": "technique",
+      "content": "Deliver validation phrases calmly and in an empathetic tone.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prevents sarcasm and helps the prospect feel heard."
+    },
+    {
+      "type": "technique",
+      "content": "After validating, ask a question to drill down and understand the root cause of the objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the Validate-Question-Address (VQA) method. Determine if it's legitimate or a smokescreen."
+    },
+    {
+      "type": "example",
+      "content": "When a prospect says it's too expensive, ask: \"Too expensive compared to what?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Ask open-ended questions to understand the objection, e.g., \"Can you help me understand what makes you say that?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "If a prospect mentions budget timing issues, ask: \"Can you help me understand when would be a better time?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "When a prospect says they need to think about it, ask: \"What specifically do you need to think about?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "If a prospect asks for more information, ask: \"What specifically are you looking for?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "When a prospect mentions working with a competitor, ask: \"Help me understand what's working well with them and maybe what's not working so well?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address the objection only after you understand the root cause by questioning.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the Validate-Question-Address (VQA) method. Avoids guessing and addressing the wrong issue."
+    },
+    {
+      "type": "technique",
+      "content": "When addressing a price objection, focus on value, ROI, payment structure, or exploring other options.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When addressing an objection about being happy with a current vendor, acknowledge their satisfaction and ask about future openness or a brief exploratory meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use case studies, social proof, or testimonials when addressing objections related to value, ROI, or price.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the Validate-Question-Address (VQA) structure to effectively handle any objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "VQA fosters collaboration rather than debate."
+    }
+  ]
+}

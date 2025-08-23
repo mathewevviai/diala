@@ -1,0 +1,24 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "\"What do you mean by might be interested?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Probing question to clarify prospect's level or nature of interest/hesitation, similar to asking 'What specifically?'"
+    },
+    {
+      "type": "technique",
+      "content": "Use a conditional question based on a hypothetical positive outcome: 'And if you took a look and you saw and you loved it and you realized it would do all the things you said what are you going to do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Tests commitment based on the prospect's stated condition or a favorable scenario."
+    },
+    {
+      "type": "technique",
+      "content": "Follow up a prospect's conditional statement ('If X, then maybe Y') with a conditional question to confirm next steps.",
+      "speaker_perspective": "sales agent",
+      "notes": "Leverages the prospect's own condition to build a conditional close."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

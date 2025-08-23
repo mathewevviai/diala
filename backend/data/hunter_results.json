@@ -1,0 +1,160 @@
+{
+  "success": true,
+  "leads": [
+    {
+      "url": "http://www.russellroofingbelfast.co.uk/Roofing-Contractors-Belfast-Northern-Ireland.aspx",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry: Roofing & Construction",
+        "Required keywords: roofing, contractor, Belfast",
+        "Contact info present",
+        "Offers residential/commercial roofing services"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:30:08.890521",
+      "search_position": 8,
+      "search_query": "Roofing & Construction companies Belfast, Northern Ireland"
+    },
+    {
+      "url": "https://supremefitout.com/services/roofing-joinery-contractor-belfast/",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry match: Roofing & Construction",
+        "Contact info present (phone & email)",
+        "Required keywords: roofing, contractor, Belfast",
+        "Custom rule: offers residential & commercial roofing services"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:30:08.890568",
+      "search_position": 15,
+      "search_query": "Roofing & Construction companies Belfast, Northern Ireland"
+    },
+    {
+      "url": "https://www.mybuilder.com/roofing/roofer-tradespeople/belfast",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry match",
+        "Required keywords present",
+        "Residential/commercial roofing services offered",
+        "Contact information available"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:32:32.905727",
+      "search_position": 15,
+      "search_query": "Roofing & Construction business directory Belfast, Northern Ireland"
+    },
+    {
+      "url": "https://www.facebook.com/belfastroofrepairsandrestoration/",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry: Roofing & Construction",
+        "Required keywords: roofing, contractor, Belfast",
+        "Contact info present",
+        "Custom rule: offers residential/commercial roofing services"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:34:16.540690",
+      "search_position": 19,
+      "search_query": "Roofing & Construction Belfast, Northern Ireland"
+    },
+    {
+      "url": "https://proguardroofingcontractors.uk/roofing-services/",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry: Roofing & Construction",
+        "Required keywords: roofing, contractor",
+        "Custom rule: offers residential/commercial roofing services"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:34:16.540725",
+      "search_position": 10,
+      "search_query": "Roofing & Construction Belfast, Northern Ireland"
+    },
+    {
+      "url": "https://www.yell.com/biz/airspace-roofing-belfast-8930593/",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 85,
+      "matched_criteria": [
+        "Industry: Roofing & Construction",
+        "Required keywords: roofing, contractor, Belfast",
+        "Contact info present (phone)",
+        "Custom rule: offers residential/commercial roofing services"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:40:49.349846",
+      "search_position": 27,
+      "search_query": "Belfast"
+    },
+    {
+      "url": "https://www.bbb.org/us/me/belfast/category/roofing-contractors",
+      "title": "",
+      "company_name": "",
+      "description": "",
+      "score": 75,
+      "matched_criteria": [
+        "Industry match",
+        "Required keywords present",
+        "Custom rules met",
+        "Contact info available"
+      ],
+      "contact_info": {
+        "emails": [],
+        "phones": [],
+        "has_contact_form": false
+      },
+      "extracted_at": "2025-08-03T20:40:49.349803",
+      "search_position": 26,
+      "search_query": "Belfast"
+    }
+  ],
+  "total_found": 7,
+  "stats": {
+    "queries_generated": 20,
+    "urls_found": 361,
+    "content_extracted": 353,
+    "leads_validated": 7,
+    "validation_time": 21.921732664108276,
+    "search_time": 257.08073139190674,
+    "extraction_time": 456.7784740924835,
+    "start_time": 

@@ -1,0 +1,30 @@
+{
+  "source_video": "ci-FdcWiJiA",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are just information requests, not rejections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emphasizes reframing objections as opportunities to provide more information."
+    },
+    {
+      "type": "example",
+      "content": "Prospect says they're not looking into vials now but will in the next year. Sales agent treats this as a future opportunity rather than a rejection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates handling a timing objection by planning follow-up."
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'why' to understand the prospect's future plans when they give a timing objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to gather more information and position for future opportunities."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Would you be opposed to doing a cost comparison to see how much we might be able to save your team?",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrasing that treats potential objections as simple information requests."
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

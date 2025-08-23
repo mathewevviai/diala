@@ -1,0 +1,93 @@
+{
+  "source_video": "SaQTizjwqmQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a permission-based opening: Acknowledge their busy day and ask for 30 seconds to explain your call's purpose. End with 'Does that sound fair?'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use disarming phrases like 'or perhaps you're not the right person' and 'I promise to give you your time back'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used in the permission-based opening to lower guard."
+    },
+    {
+      "type": "technique",
+      "content": "The primary goal of the initial sales call is to gather information and diagnose the prospect's situation, not to sell.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Approach the sales process like a doctor diagnosing a patient; ask questions first before prescribing a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions to understand the prospect's current situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions about the challenges or problems the prospect is facing.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions about the prospect's desired outcome or goals.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify the 'problem solution gap': the difference between the prospect's current situation/challenges and their desired outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about the consequences of *not* solving the problem or achieving the desired outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about the benefits or ROI of solving the problem or achieving the desired outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Always ask for explicit permission to continue the conversation after delivering a brief value statement or pitch.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Transition from an initial statement or pitch into questions by asking permission to dive deeper or ask a few questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use phrases like 'Based on what I just said, would it make sense to ask you a few questions?' to ask permission to continue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Alternative phrases: '...would it make sense to dive a little deeper?', '...does it make sense to learn a little bit more?'"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect clearly says 'no' early in the call (e.g., to the opening), acknowledge their response and end the call gracefully.",
+      "speaker_perspective": "sales agent",
+      "notes": "Do not try to overcome early, clear objections."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If a prospect says 'no' early on, use phrases like 'Okay, totally understand. Have a great day.' to end the call gracefully.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not take early rejection personally; they are saying no to the proposition, not to you.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Moving on quickly from uninterested prospects is the most efficient way to find prospects who are interested ('the fastest way to the next yes').",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

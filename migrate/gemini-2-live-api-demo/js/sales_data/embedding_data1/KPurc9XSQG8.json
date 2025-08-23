@@ -1,0 +1,75 @@
+{
+  "source_video": "KPurc9XSQG8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When leaving a voicemail, state your name and company name clearly.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Start voicemail with 'This is [Your Name] with [Your Company Name]... this call is worth a quick call back.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Create curiosity in the voicemail about the reason for your call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Mention a specific problem you help solve or a result you help achieve in the voicemail.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Clearly repeat your phone number twice in the voicemail.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use different contact methods if you don't get a callback after a voicemail.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Connect with the prospect on LinkedIn after leaving a voicemail or making a call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Send a brief email referencing the voicemail or call after contacting a prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Follow up multiple times using different channels: phone, email, social media.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'send me some information', ask clarifying questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Respond to 'send info' with: 'Absolutely, I can send you some information. To make sure I send you the right thing, what specific problem are you hoping to solve?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Handle 'not interested' by asking: 'Gotcha. Just curious, what are you currently using to handle [related problem]?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask specific questions to understand the prospect's current situation and needs, even if they use an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for a specific day and time for a follow-up call or meeting.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

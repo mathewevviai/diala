@@ -1,0 +1,125 @@
+{
+  "source_video": "dENoPkaDxcE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Begin interaction by setting expectation: 'My goal is to help you decide if this is even relevant for you.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a low-pressure anchor at the start: 'If it's not, we can agree that it's not a fit and we can move on.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Set meeting structure upfront: 'What makes sense is I ask you a few questions, you ask me a few, and we'll see if there's a fit.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Grant permission to prospect to disengage: 'If at any point you feel like there's not a fit, just let me know, interrupt me, and we can call it a day.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use forward-looking statements about the next step to guide the conversation: 'The way I envision this going is...'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'send me information' objection by agreeing but immediately asking for context: 'Yeah, happy to do that... just so I don't send you a bunch of stuff that's irrelevant, what specifically about X were you hoping to see?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe 'send me info' as needing mutual understanding first: 'Before I send you anything, I need to understand where you're coming from and what you're dealing with.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask a high-level, open-ended question to understand their situation: 'What are you guys doing about X currently?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Drill down from a general area of interest to specific problem/goal: 'Okay, so X is important. Why is X important right now?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Connect their challenge back to your offering by asking about the impact: 'And what's the impact of not addressing X problem right now?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Discover the personal impact on the prospect: 'And how does that impact you specifically?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe urgency/timeline: 'Is solving X problem something you guys are looking to do in the next 3-6 months, or is it longer term?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about decision process and stakeholders: 'Let's say you decided you wanted to explore solutions for X, how does a decision like that typically get made in your organization?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify other involved parties: 'Besides yourself, who else would typically be involved in that decision?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm involvement of others: 'Would it make sense to potentially include X person in a future conversation?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Shift from problem discovery to solution discussion: 'Based on what you've shared about X challenge, would you be open to briefly hearing how we help companies like yours address that?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Position your solution based on common needs you solve: 'We typically work with companies facing X, Y, Z challenges, helping them achieve A, B, C results.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Keep solution overview concise before asking for feedback: 'That's a high-level overview. Does that align at all with what you're experiencing or looking for?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Propose a clear next step based on mutual fit: 'Based on this initial conversation, does it make sense to schedule a follow-up meeting to explore this further?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm purpose of next meeting: 'In that next meeting, we could cover specific details on how we'd implement this for you.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Suggest logistics for next step: 'Are you open to pulling up your calendar to find a time that works?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The primary goal of an initial call is discovery and qualification, not selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Be prepared to disqualify prospects quickly if there isn't a mutual fit.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on understanding the prospect's current situation, challenges, and goals first.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

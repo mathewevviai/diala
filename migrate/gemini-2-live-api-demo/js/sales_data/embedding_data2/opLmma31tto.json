@@ -1,0 +1,81 @@
+{
+  "source_video": "opLmma31tto",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Instead of saying 'Can I ask you a question?', say 'Can I ask you a quick question?'. This implies brevity.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Would it make sense to have a conversation around X?' instead of 'Can I talk to you about X?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When proposing a next step, ask 'Would it make sense to schedule X?' rather than demanding or assuming.",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the action as logical and beneficial for the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "When someone gives an excuse or objection, respond with 'Yeah, that makes total sense.' before addressing it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledges and validates their perspective before pivoting."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's point, pause briefly, and then ask a clarifying or probing question.",
+      "speaker_perspective": "sales agent",
+      "notes": "Effective sequence for handling objections or gathering more information."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says 'We're good,' respond with 'That's good to hear. Typically when I hear that, it means one of two things...' then list possibilities.",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the 'we're good' statement politely and opens up conversation."
+    },
+    {
+      "type": "technique",
+      "content": "Use curiosity and open-ended questions to understand the prospect's situation and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't be attached to the outcome of a single call. Focus on having a good conversation and gathering information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Anchor the call by saying something like 'If by the end of this quick conversation, you don't feel this is a good fit, that's totally okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure and makes the prospect more receptive."
+    },
+    {
+      "type": "technique",
+      "content": "Listen intently to understand the core of the prospect's needs or objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask specific questions about their process, challenges, or goals to uncover needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After acknowledging a statement or objection, use a slight pause before continuing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows the acknowledgment to land and creates anticipation."
+    },
+    {
+      "type": "technique",
+      "content": "Frame questions to explore their current situation without directly pitching your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asking a sensitive question, soften it by saying 'Out of curiosity...' or 'Just curious...'",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

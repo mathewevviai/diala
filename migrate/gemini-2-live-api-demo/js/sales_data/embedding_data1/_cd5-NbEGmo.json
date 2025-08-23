@@ -1,0 +1,131 @@
+{
+  "source_video": "_cd5-NbEGmo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "To start a sales call, begin by confirming you've reached the right person and briefly stating your company name.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How are you doing today?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Standard opening question."
+    },
+    {
+      "type": "technique",
+      "content": "Gain permission to continue the conversation at the very beginning of a call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would you like to hang up or let me have 30 seconds?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based opener, offers control to the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "Use a permission-based opener to increase the likelihood of the prospect listening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Is now still a good time for us to chat briefly?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Alternative permission-based opener."
+    },
+    {
+      "type": "technique",
+      "content": "After permission is granted, clearly and concisely state the reason for your call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial part of the conversation on gathering information about the prospect's current situation or pain points.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions to understand the prospect's challenges and needs.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure calls to first identify problems before presenting solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After confirming the relevance of your solution, transition to discussing how your product/service can help.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm mutual fit before proceeding too far into the sales process.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "End a discovery call by proposing next steps, such as scheduling a demonstration or follow-up meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Based on what you've shared, it sounds like [summarize problem/need]. Does that sound right?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Recap and confirmation technique."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's key points to show active listening and confirm understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Before proposing a solution, confirm that the problem you address is a priority for the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle objections by acknowledging them and then addressing the underlying concern.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I understand [objection]. Many of our clients felt the same way before they saw [benefit].\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Objection handling framework: empathize, bridge, counter."
+    },
+    {
+      "type": "technique",
+      "content": "Use case studies or examples of how other customers benefited to build credibility.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't force the conversation; if the prospect isn't interested or it's not a good fit, acknowledge it politely.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If it doesn't make sense, it doesn't make sense. That's perfectly okay.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Removes pressure, anchors non-commitment."
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a calm, clear, and confident tone throughout the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen more than you talk, especially in the initial discovery phase.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the prospect early to ensure they fit your ideal customer profile.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

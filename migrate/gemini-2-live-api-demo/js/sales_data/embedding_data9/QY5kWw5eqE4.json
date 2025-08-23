@@ -1,0 +1,41 @@
+{
+  "source_video": "QY5kWw5eqE4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Proactively ask the prospect for a clear 'no' if they are definitely not interested by the end of the meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Known as 'The Omega' in this context. Aims to get a clear outcome and avoid ambiguity."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If by the end of this meeting you genuinely feel you do not want to proceed, can you tell me no today honestly?",
+      "speaker_perspective": "sales agent",
+      "notes": "A specific phrase used to implement the 'ask for a no' technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that getting prospects to make decisions, including saying 'no', is fundamental to sales.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not be afraid to ask for or receive a clear 'no' from a prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Fearing 'no' prevents achieving clear outcomes."
+    },
+    {
+      "type": "mindset",
+      "content": "A clear outcome (decision), even a 'no', is valuable and better than ambiguity or being strung along.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows you to move on effectively."
+    },
+    {
+      "type": "mindset",
+      "content": "If a prospect or organization doesn't value you seeking clear decisions (like a 'no'), they may not be the right fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Indicates potential misalignment on sales approach or values."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

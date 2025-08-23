@@ -1,0 +1,39 @@
+{
+  "source_video": "a0Qmp1x2TM8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect initially says they don't have time, probe softly about timing rather than accepting the 'no' immediately.",
+      "speaker_perspective": "sales agent",
+      "notes": "Diagnose if it's a timing issue or a reflex to end the call."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example phrase to probe timing after 'I don't have time': 'Alright, when would be a good time to call you back?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that 'I don't have time' is often a reflex response to end a sales call, not necessarily genuine disinterest or busyness.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If, after probing timing, the prospect asks 'What's it regarding?', use a direct or slightly provocative question to quickly gauge their true interest level.",
+      "speaker_perspective": "sales agent",
+      "notes": "Designed to elicit a clear reaction."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Example provocative phrase to gauge interest after 'What's it about?': 'If I told you it was about sales training, would a little piece of you die?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to provoke a clear 'yes' or 'no' reaction."
+    },
+    {
+      "type": "mindset",
+      "content": "A quick exit from a prospect who clearly shows disinterest is a successful outcome (qualifying out) as it saves time.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

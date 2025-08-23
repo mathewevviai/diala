@@ -1,0 +1,36 @@
+{
+  "source_video": "l6fF_cDTO9Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle the 'happy with what they have' objection by first agreeing aggressively and putting the prospect at ease, mirroring their position.",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledges their current satisfaction to build rapport before attempting to shift their perspective."
+    },
+    {
+      "type": "technique",
+      "content": "After acknowledging their current state, use a 'Colombo' style transition ('Oh yeah, one other thing...') to introduce a hypothetical value proposition.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts the conversation subtly after the prospect feels heard and understood."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use a conditional closing question: 'If there was something out there that would [provide significant benefit] and [reduce significant cost], you'd want to at least know about it, right?'",
+      "speaker_perspective": "sales agent",
+      "notes": "This frames the next step (learning more) as a rational decision based on potential value, seeking a conditional 'yes'."
+    },
+    {
+      "type": "technique",
+      "content": "Seek a conditional agreement ('well yeah, I guess so' or a 'him and a hall') by posing a compelling hypothetical, moving past the initial stall.",
+      "speaker_perspective": "sales agent",
+      "notes": "The goal is to get a commitment to explore the possibility, conditioned on the significant hypothetical value being real."
+    },
+    {
+      "type": "mindset",
+      "content": "Just because a prospect is happy does not mean they wouldn't want to know about something potentially better if it exists.",
+      "speaker_perspective": "sales agent",
+      "notes": "Foundation for challenging the 'I'm happy' objection and justifying the conditional approach."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

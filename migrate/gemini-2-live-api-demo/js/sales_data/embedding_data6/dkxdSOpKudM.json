@@ -1,0 +1,60 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "You're probably gonna tell me that none of that's relevant to you though I'm guessing?",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging a likely objection upfront, shows understanding of prospect's potential perspective. Relates to Acknowledge in AAA/LAARC."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's statement about their situation (e.g., everything is perfect, not looking for new work).",
+      "speaker_perspective": "sales agent",
+      "notes": "Core principle of Feel-Felt-Found, LAARC, and AAA - start by acknowledging the prospect's position or feeling."
+    },
+    {
+      "type": "technique",
+      "content": "Probe deeper after acknowledging a positive situation: 'So you genuinely don't have to look for new customers?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Asking questions to understand the reality behind the initial statement. Relates to Assess/Ask in LAARC/AAA and Clarify in Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "That sounds that sounds frustrating.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly acknowledging the prospect's feeling about their situation. Key part of the 'Feel' step in Feel-Felt-Found and Acknowledge in LAARC/AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's objection or doubt ('I'm not sure you can help us', 'even if I could you would want to buy into it anyway').",
+      "speaker_perspective": "sales agent",
+      "notes": "Essential first step in LAARC, AAA, and Clarify-Isolate-Overcome - don't immediately counter, acknowledge their point."
+    },
+    {
+      "type": "technique",
+      "content": "Probe to clarify the root of resistance, not just the stated objection. Use hypothetical questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: Asking 'would you throw me out' even if they believed he could help. Helps Clarify and Isolate the true objection (mindset/willingness vs. capability). Relates to Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let's pretend you spent half an hour with me... and by the end of it you genuinely believed I could help you... would you throw me out?",
+      "speaker_perspective": "sales agent",
+      "notes": "A question designed to Clarify and Isolate the true barrier (willingness/mindset) when the prospect states doubt or resistance. Relates to Clarify-Isolate-Overcome."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's honest answer, even if it's negative ('I think that's an honest answer, I'm glad you've said that').",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces trust and respect, crucial after clarifying the objection. Part of Acknowledge/Confirm in LAARC/AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Recognize when a prospect has 'closed their mind' to change, even if they have problems.",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding the prospect's mindset is key to knowing if an objection can be Overcome or if it's a qualification issue. Relates to assessing the situation."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

@@ -1,0 +1,88 @@
+{
+  "source_video": "cbGD5rm3uqI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect states a broad problem area (like 'supply chain challenges'), ask about specific, everyday frustrations they would recognize.",
+      "speaker_perspective": "sales agent",
+      "notes": "Granulize the pain points; make them relatable and identifiable on the ground."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says they don't recognize the problems you mention, try one last question to probe deeper.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "But I get the feeling you're gonna tell me you don't recognize any of that, aren't you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after listing pain points, pushing them away slightly."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "One last question before we hang up: I get the feeling you don't believe [solution] can probably help your business anyway. If I was to tell you [result], you're probably not going to believe me, are you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect denies problems; challenges their belief directly to elicit a response."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'No, I wouldn't say I wouldn't believe you' in response to being challenged, ask 'Well, what do you mean?' to open a conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Probing their hesitation or nuance."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Last question before you go then, can I ask why?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when a prospect expresses disbelief or states the solution 'wouldn't apply in our world'. Gets to the root cause of their resistance."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect reveals a past negative experience ('we've tried this before'), probe the root cause of their current negativity.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So would it be fair to say that because you've been burnt once, you never want to take that chance again? Is that fair?",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolating the root cause of resistance (past failure)."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When you say 'not necessarily', what do you mean?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify and probe deeper when a prospect gives a non-committal answer to an isolating question."
+    },
+    {
+      "type": "technique",
+      "content": "When discussing the next step requiring prospect effort (e.g., providing documents), isolate potential objections upfront.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ask 'Is that going to be a problem?' or 'Can you see that as being a reason as to why we couldn't move forwards?'"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect asks 'What is it that you do?', deflect the question and link back to the problems discussed.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids 'show up and throw up'. Probes their interest based on the pain."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you I helped companies eliminate the problems we've just discussed, what would you say?",
+      "speaker_perspective": "sales agent",
+      "notes": "Response to 'What do you do?', links back to the prospect's recognized pain points."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect asks 'How do you do it?', deflect the question and probe their belief in the solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids giving away the 'secret sauce' on the spot. Focuses on their motivation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Well, if I told you that now, you wouldn't need me, would you? ... If you saw my solution and genuinely believed it could fix those problems, what would you do?",
+      "speaker_perspective": "sales agent",
+      "notes": "Response to 'How do you do it?'. Probes belief and potential next action."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

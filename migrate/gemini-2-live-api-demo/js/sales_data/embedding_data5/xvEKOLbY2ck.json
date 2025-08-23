@@ -1,0 +1,42 @@
+{
+  "source_video": "xvEKOLbY2ck",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect reacts negatively to a topic (like recruitment calls), ask clarifying questions to understand the root cause of their frustration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after a provocative opener to uncover the 'why' behind the objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you that this call was about [topic the prospect dislikes], would a little piece of you die?",
+      "speaker_perspective": "sales agent",
+      "notes": "Provocative opener designed to elicit an honest, potentially negative, reaction that can then be explored."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Well look, before you hang up, can I ask a question? Why does everybody say that?",
+      "speaker_perspective": "sales agent",
+      "notes": "Follow-up question to the provocative opener, aiming to get the prospect to vent and reveal the root cause of their objection."
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively when a prospect vents about their frustrations; this provides valuable insight into the root cause of their objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Allowing the prospect to 'vent' helps build rapport and reveals pain points/reasons for resistance."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Is there any particular reason why?",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct clarifying question used when a prospect says 'no' to understand the specific reason."
+    },
+    {
+      "type": "technique",
+      "content": "Always go in with a question; you don't know which question will prompt the prospect to speak and reveal their underlying reasons.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emphasizes the importance of questions in uncovering objections and their roots."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

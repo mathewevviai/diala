@@ -1,0 +1,42 @@
+{
+  "source_video": "90oCUL6-zZQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect indicates disinterest or fatigue with the call/topic (e.g., groaning at 'currency calls'), don't beg or push. Instead, probe softly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies when the prospect shows a negative reaction to the subject matter or type of call."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Before you hang up, can I ask one quick question?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after a prospect indicates disinterest/fatigue, to softly ask for a moment to understand their perspective."
+    },
+    {
+      "type": "technique",
+      "content": "After a prospect indicates disinterest (e.g., in a specific sector's calls), ask 'why' to diagnose the root cause of their frustration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Getting them to vent about *why* they hate these calls can build rapport and reveal if the disinterest is general or specific."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If I told you this was a sales call, would you hang up?\" followed by \"Fair enough, I won't say that then.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A cheeky way to acknowledge the prospect's likely aversion to 'sales calls' and softly pivot, often leading them to ask what it's actually about."
+    },
+    {
+      "type": "technique",
+      "content": "Proactively handle the potential 'no' by giving the prospect control upfront, making them less likely to say no due to psychology.",
+      "speaker_perspective": "sales agent",
+      "notes": "Mentioned in the context of the 'hang up now or 30 seconds' opener, particularly effective with senior decision-makers."
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that an initial negative reaction might be due to call fatigue or past bad experiences, not genuine disinterest in your potential value.",
+      "speaker_perspective": "sales agent",
+      "notes": "The basis for probing and diagnosing rather than accepting the first 'no'."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

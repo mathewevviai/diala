@@ -1,0 +1,4072 @@
+# Telephony Integration Files
+
+## frontend/convex/schema.ts
+```
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+
+export default defineSchema({
+  // Voice Agents table
+  voiceAgents: defineTable({
+    // Core identification
+    name: v.string(),
+    description: v.string(),
+    userId: v.string(), // We'll use string for now, can be changed to v.id("users") later
+    
+    // Purpose configuration
+    purpose: v.union(
+      v.literal("sales"),
+      v.literal("support"),
+      v.literal("appointment"),
+      v.literal("technical"),
+      v.literal("custom")
+    ),
+    customPurpose: v.optional(v.string()),
+    
+    // Voice configuration
+    voiceProvider: v.union(
+      v.literal("elevenlabs"),
+      v.literal("chatterbox")
+    ),
+    voiceId: v.string(),
+    voiceStyle: v.union(
+      v.literal("professional"),
+      v.literal("friendly"),
+      v.literal("energetic"),
+      v.literal("calm"),
+      v.literal("custom")
+    ),
+    speechRate: v.number(), // 0.5 to 2.0
+    pitch: v.number(), // 0.5 to 2.0
+    
+    // Language & behavior
+    language: v.string(), // ISO language code (e.g., "en-US")
+    responseDelay: v.number(), // milliseconds
+    interruptionSensitivity: v.number(), // 0 to 1
+    silenceThreshold: v.number(), // milliseconds
+    maxCallDuration: v.number(), // minutes
+    
+    // Advanced settings
+    systemPrompt: v.string(),
+    temperature: v.number(), // 0 to 2
+    maxTokens: v.number(), // 50 to 2000
+    enableTranscription: v.boolean(),
+    enableAnalytics: v.boolean(),
+    webhookUrl: v.optional(v.string()),
+    
+    // Status and metadata
+    status: v.union(
+      v.literal("active"),
+      v.literal("idle"),
+      v.literal("offline"),
+      v.literal("configuring"),
+      v.literal("error")
+    ),
+    
+    // Timestamps
+    createdAt: v.string(), // ISO date string
+    updatedAt: v.string(), // ISO date string
+    lastActiveAt: v.optional(v.string()), // ISO date string
+    
+    // Performance metrics (updated separately)
+    totalCalls: v.number(),
+    successRate: v.number(), // percentage
+    avgCallDuration: v.string(), // format: "MM:SS"
+    satisfactionRating: v.number(), // 0 to 5
+  })
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_purpose", ["purpose"])
+    .index("by_created", ["createdAt"])
+    .index("by_user_status", ["userId", "status"]),
+
+  // Call Analytics table
+  callAnalytics: defineTable({
+    // Call Information
+    callId: v.string(),
+    agentName: v.string(),
+    agentId: v.optional(v.id("voiceAgents")),
+    customerName: v.string(),
+    customerPhone: v.string(),
+    status: v.union(
+      v.literal("COMPLETED"),
+      v.literal("FAILED"),
+      v.literal("TRANSFERRED"),
+      v.literal("ABANDONED")
+    ),
+    
+    // Timing Information
+    startTime: v.string(), // ISO timestamp
+    endTime: v.string(), // ISO timestamp
+    duration: v.string(), // Format: "4m 01s"
+    queueTime: v.string(), // Format: "12s"
+    holdTime: v.string(), // Format: "0s"
+    
+    // Call Metrics
+    resolution: v.union(
+      v.literal("RESOLVED"),
+      v.literal("UNRESOLVED"),
+      v.literal("ESCALATED"),
+      v.literal("TRANSFERRED")
+    ),
+    hasTransfer: v.boolean(),
+    sentiment: v.union(
+      v.literal("POSITIVE"),
+      v.literal("NEGATIVE"),
+      v.literal("NEUTRAL"),
+      v.literal("MIXED")
+    ),
+    qualityScore: v.string(), // Format: "8.5/10"
+    
+    // Campaign Information
+    campaignId: v.optional(v.id("campaigns")),
+    campaignName: v.string(),
+    
+    // Metadata
+    createdAt: v.number(), // Unix timestamp
+    updatedAt: v.number(), // Unix timestamp
+  })
+    .index("by_callId", ["callId"])
+    .index("by_agent", ["agentName"])
+    .index("by_agentId", ["agentId"])
+    .index("by_customer", ["customerPhone"])
+    .index("by_campaign", ["campaignId"])
+    .index("by_date", ["startTime"]),
+
+  // Agent Call Logs
+  agentCallLogs: defineTable({
+    agentId: v.id("voiceAgents"),
+    callId: v.string(),
+    
+    // Call details
+    phoneNumber: v.string(),
+    direction: v.union(v.literal("inbound"), v.literal("outbound")),
+    startTime: v.string(),
+    endTime: v.optional(v.string()),
+    duration: v.optional(v.number()), // seconds
+    
+    // Call outcome
+    status: v.union(
+      v.literal("completed"),
+      v.literal("failed"),
+      v.literal("no_answer"),
+      v.literal("busy"),
+      v.literal("cancelled")
+    ),
+    disposition: v.optional(v.string()),
+    
+    // Performance metrics
+    sentimentScore: v.optional(v.number()),
+    satisfactionRating: v.optional(v.number()),
+    
+    // Transcript and recording
+    recordingUrl: v.optional(v.string()),
+    
+    // Webhook data
+    webhookSent: v.boolean(),
+    webhookResponse: v.optional(v.string()),
+  })
+    .index("by_agent", ["agentId"])
+    .index("by_call", ["callId"])
+    .index("by_agent_time", ["agentId", "startTime"]),
+
+  // Live Calls (for real-time monitoring)
+  liveCalls: defineTable({
+    callId: v.string(),
+    agentId: v.id("voiceAgents"),
+    agentName: v.string(),
+    customerName: v.string(),
+    customerPhone: v.string(),
+    startTime: v.string(),
+    duration: v.string(), // live updating
+    status: v.union(
+      v.literal("connecting"),
+      v.literal("active"),
+      v.literal("hold"),
+      v.literal("transferring")
+    ),
+    sentiment: v.union(
+      v.literal("positive"),
+      v.literal("negative"),
+      v.literal("neutral")
+    ),
+    lastTranscriptUpdate: v.string(),
+    isRecording: v.boolean(),
+  })
+    .index("by_agent", ["agentId"])
+    .index("by_status", ["status"]),
+
+  // Swarm Campaigns
+  campaigns: defineTable({
+    name: v.string(),
+    description: v.string(),
+    type: v.union(
+      v.literal("outbound"),
+      v.literal("inbound"),
+      v.literal("hybrid")
+    ),
+    status: v.union(
+      v.literal("active"),
+      v.literal("paused"),
+      v.literal("completed"),
+      v.literal("scheduled")
+    ),
+    
+    // Campaign settings
+    maxConcurrentCalls: v.number(),
+    callsPerHour: v.number(),
+    retryAttempts: v.number(),
+    timeBetweenRetries: v.number(), // minutes
+    
+    // Schedule
+    startDate: v.string(),
+    endDate: v.optional(v.string()),
+    activeHours: v.object({
+      start: v.string(), // "09:00"
+      end: v.string(), // "17:00"
+      timezone: v.string(), // "America/New_York"
+    }),
+    
+    // Metrics
+    totalCalls: v.number(),
+    completedCalls: v.number(),
+    successfulCalls: v.number(),
+    avgCallDuration: v.string(),
+    
+    createdAt: v.string(),
+    updatedAt: v.string(),
+  })
+    .index("by_status", ["status"])
+    .index("by_date", ["createdAt"]),
+
+  // Campaign Agents (many-to-many relationship)
+  campaignAgents: defineTable({
+    campaignId: v.id("campaigns"),
+    agentId: v.id("voiceAgents"),
+    assignedAt: v.string(),
+    callsHandled: v.number(),
+    successRate: v.number(),
+  })
+    .index("by_campaign", ["campaignId"])
+    .index("by_agent", ["agentId"]),
+
+  // Phone Numbers
+  phoneNumbers: defineTable({
+    number: v.string(),
+    displayName: v.string(),
+    type: v.union(v.literal("sip"), v.literal("pstn"), v.literal("virtual")),
+    status: v.union(v.literal("active"), v.literal("inactive"), v.literal("maintenance")),
+    provider: v.string(),
+    location: v.string(),
+    assignedUser: v.optional(v.string()),
+    
+    // Statistics
+    callsToday: v.number(),
+    callsThisWeek: v.number(),
+    callsThisMonth: v.number(),
+    successRate: v.number(),
+    avgCallDuration: v.string(),
+    lastUsed: v.string(),
+    
+    // SIP Configuration (optional)
+    sipConfig: v.optional(v.object({
+      endpoint: v.string(),
+      username: v.string(),
+      domain: v.string(),
+      port: v.number(),
+      protocol: v.union(v.literal("UDP"), v.literal("TCP"), v.literal("TLS")),
+      codec: v.array(v.string()),
+    })),
+    
+    features: v.array(v.string()),
+    
+    createdAt: v.string(),
+    updatedAt: v.string(),
+  })
+    .index("by_status", ["status"])
+    .index("by_type", ["type"])
+    .index("by_provider", ["provider"]),
+
+  // Transcript Entries (for live calls and analytics)
+  transcriptEntries: defineTable({
+    callId: v.string(),
+    callAnalyticsId: v.optional(v.id("callAnalytics")),
+    timestamp: v.string(), // Format: "00:43"
+    speaker: v.union(v.literal("agent"), v.literal("customer"), v.literal("system")),
+    content: v.string(),
+    sentiment: v.optional(
+      v.union(v.literal("positive"), v.literal("negative"), v.literal("neutral"))
+    ),
+    order: v.number(),
+  })
+    .index("by_call", ["callId"])
+    .index("by_analytics", ["callAnalyticsId", "order"])
+    .index("by_speaker", ["callId", "speaker"]),
+
+  // Dashboard Statistics (cached/computed)
+  dashboardStats: defineTable({
+    userId: v.string(),
+    date: v.string(), // YYYY-MM-DD
+    
+    // Overall stats
+    totalCalls: v.number(),
+    activeCalls: v.number(),
+    successRate: v.number(),
+    avgCallDuration: v.string(),
+    
+    // Agent stats
+    totalAgents: v.number(),
+    activeAgents: v.number(),
+    idleAgents: v.number(),
+    offlineAgents: v.number(),
+    
+    // Call breakdown
+    inboundCalls: v.number(),
+    outboundCalls: v.number(),
+    completedCalls: v.number(),
+    failedCalls: v.number(),
+    
+    // Performance
+    avgSentimentScore: v.number(),
+    avgQualityScore: v.number(),
+    transferRate: v.number(),
+    
+    updatedAt: v.string(),
+  })
+    .index("by_user_date", ["userId", "date"]),
+
+  // YouTube Transcripts
+  youtubeTranscripts: defineTable({
+    videoId: v.string(),
+    youtubeUrl: v.string(),
+    transcript: v.string(),
+    language: v.string(),
+    wordCount: v.number(),
+    createdAt: v.string(),
+    userId: v.optional(v.string()),
+    // Video metadata
+    videoTitle: v.optional(v.string()),
+    videoAuthor: v.optional(v.string()),
+    videoDuration: v.optional(v.number()),
+    thumbnailUrl: v.optional(v.string()),
+  })
+    .index("by_video", ["videoId"])
+    .index("by_user", ["userId"]),
+
+  // Transcript Jobs Queue
+  transcriptJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    youtubeUrl: v.string(),
+    videoId: v.string(),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    error: v.optional(v.string()),
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+    // Video metadata stored at job level too
+    videoTitle: v.optional(v.string()),
+    videoAuthor: v.optional(v.string()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"]),
+
+  // Hunter Lead Searches
+  leadSearches: defineTable({
+    searchId: v.string(),
+    userId: v.string(),
+    
+    // Search Configuration
+    searchName: v.string(),
+    searchObjective: v.string(),
+    selectedSources: v.array(v.string()), // ["web", "database", "directory"]
+    
+    // Search Criteria
+    industry: v.string(),
+    location: v.string(),
+    companySize: v.optional(v.string()),
+    jobTitles: v.array(v.string()),
+    keywords: v.optional(v.string()),
+    
+    // Contact Preferences
+    includeEmails: v.boolean(),
+    includePhones: v.boolean(),
+    includeLinkedIn: v.boolean(),
+    
+    // Validation Criteria
+    validationCriteria: v.optional(v.object({
+      mustHaveWebsite: v.boolean(),
+      mustHaveContactInfo: v.boolean(),
+      mustHaveSpecificKeywords: v.array(v.string()),
+      mustBeInIndustry: v.boolean(),
+      customValidationRules: v.string(),
+    })),
+    
+    // Search Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("initializing"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    progress: v.number(), // 0-100
+    currentStage: v.optional(v.string()),
+    error: v.optional(v.string()),
+    
+    // Results
+    totalLeads: v.optional(v.number()),
+    verifiedEmails: v.optional(v.number()),
+    verifiedPhones: v.optional(v.number()),
+    businessWebsites: v.optional(v.number()),
+    avgResponseRate: v.optional(v.string()),
+    searchTime: v.optional(v.string()),
+    
+    // Metadata
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+    updatedAt: v.string(),
+    
+    // Data retention
+    expiresAt: v.optional(v.string()), // For free tier data retention
+    userTier: v.optional(v.union(
+      v.literal("free"),
+      v.literal("premium"),
+      v.literal("enterprise")
+    )),
+  })
+    .index("by_search", ["searchId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"])
+    .index("by_expiry", ["expiresAt"]),
+
+  // Lead Search Results
+  leadSearchResults: defineTable({
+    searchId: v.string(),
+    leadId: v.string(),
+    
+    // Contact Information
+    name: v.optional(v.string()),
+    email: v.optional(v.string()),
+    phone: v.optional(v.string()),
+    linkedInUrl: v.optional(v.string()),
+    websiteUrl: v.optional(v.string()),
+    
+    // Company Information
+    companyName: v.optional(v.string()),
+    companySize: v.optional(v.string()),
+    industry: v.optional(v.string()),
+    location: v.optional(v.string()),
+    
+    // Job Information
+    jobTitle: v.optional(v.string()),
+    department: v.optional(v.string()),
+    seniority: v.optional(v.string()),
+    
+    // Data Quality
+    emailVerified: v.boolean(),
+    phoneVerified: v.boolean(),
+    confidence: v.number(), // 0-1
+    dataSource: v.string(), // "web", "database", "directory"
+    
+    // Metadata
+    extractedAt: v.string(),
+    lastUpdated: v.string(),
+  })
+    .index("by_search", ["searchId"])
+    .index("by_lead", ["leadId"])
+    .index("by_email", ["email"])
+    .index("by_company", ["companyName"])
+    .index("by_source", ["dataSource"]),
+
+  // User Subscriptions
+  userSubscriptions: defineTable({
+    userId: v.string(),
+    tier: v.union(
+      v.literal("free"),
+      v.literal("premium"),
+      v.literal("enterprise")
+    ),
+    
+    // Limits
+    searchesPerDay: v.number(),
+    leadsPerSearch: v.number(),
+    totalLeadsPerMonth: v.number(),
+    
+    // Usage tracking
+    searchesToday: v.number(),
+    leadsThisMonth: v.number(),
+    lastResetDate: v.string(),
+    
+    // Subscription details
+    subscriptionId: v.optional(v.string()),
+    status: v.union(
+      v.literal("active"),
+      v.literal("cancelled"),
+      v.literal("expired"),
+      v.literal("trial")
+    ),
+    
+    // Timestamps
+    createdAt: v.string(),
+    updatedAt: v.string(),
+    expiresAt: v.optional(v.string()),
+  })
+    .index("by_user", ["userId"])
+    .index("by_tier", ["tier"])
+    .index("by_status", ["status"]),
+
+  // Rate Limit Tracking
+  rateLimitTracking: defineTable({
+    userId: v.string(),
+    feature: v.string(), // "leadSearch", "leadExport", etc.
+    windowStart: v.string(), // ISO timestamp
+    requestCount: v.number(),
+    lastRequest: v.string(),
+  })
+    .index("by_user_feature", ["userId", "feature"])
+    .index("by_window", ["windowStart"]),
+
+  // Lead Export Jobs
+  leadExportJobs: defineTable({
+    exportId: v.string(),
+    userId: v.string(),
+    searchId: v.string(),
+    
+    // Export Configuration
+    format: v.union(v.literal("csv"), v.literal("json"), v.literal("xlsx")),
+    fields: v.array(v.string()),
+    filters: v.optional(v.object({
+      emailVerified: v.optional(v.boolean()),
+      phoneVerified: v.optional(v.boolean()),
+      minConfidence: v.optional(v.number()),
+      dataSources: v.optional(v.array(v.string())),
+    })),
+    
+    // Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    progress: v.number(),
+    
+    // Results
+    recordCount: v.optional(v.number()),
+    fileUrl: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    // Metadata
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+    expiresAt: v.string(), // Download link expiry
+    error: v.optional(v.string()),
+  })
+    .index("by_export", ["exportId"])
+    .index("by_user", ["userId"])
+    .index("by_search", ["searchId"])
+    .index("by_status", ["status"]),
+
+  // RAG Workflows
+  ragWorkflows: defineTable({
+    workflowId: v.string(),
+    userId: v.string(),
+    name: v.string(),
+    description: v.optional(v.string()),
+    
+    // Workflow Configuration
+    sourceType: v.union(
+      v.literal("youtube"),
+      v.literal("documents"),
+      v.literal("urls"),
+      v.literal("mixed")
+    ),
+    embeddingModel: v.string(), // "jina-clip-v2"
+    chunkSize: v.number(),
+    overlap: v.number(),
+    
+    // Processing Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("embedding"),
+      v.literal("completed"),
+      v.literal("failed"),
+      v.literal("expired")
+    ),
+    progress: v.number(), // 0-100
+    currentStage: v.optional(v.string()),
+    
+    // Statistics
+    totalSources: v.number(),
+    processedSources: v.number(),
+    totalChunks: v.number(),
+    totalEmbeddings: v.number(),
+    totalTokens: v.number(),
+    indexSize: v.string(), // e.g., "124 MB"
+    
+    // User Tier & Limits
+    userTier: v.union(
+      v.literal("free"),
+      v.literal("premium"),
+      v.literal("enterprise")
+    ),
+    totalFileSize: v.number(), // in bytes
+    
+    // Timestamps
+    createdAt: v.string(),
+    startedAt: v.optional(v.string()),
+    completedAt: v.optional(v.string()),
+    expiresAt: v.optional(v.string()), // For free tier
+    
+    // Cost tracking
+    estimatedCost: v.number(),
+    actualCost: v.optional(v.number()),
+  })
+    .index("by_workflow", ["workflowId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_created", ["createdAt"])
+    .index("by_expiry", ["expiresAt"]),
+
+  // RAG Sources
+  ragSources: defineTable({
+    sourceId: v.string(),
+    workflowId: v.string(),
+    userId: v.string(),
+    
+    // Source Information
+    sourceType: v.union(
+      v.literal("youtube_video"),
+      v.literal("youtube_channel"),
+      v.literal("document"),
+      v.literal("url")
+    ),
+    sourceUrl: v.optional(v.string()),
+    fileName: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    // Processing Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("downloading"),
+      v.literal("extracting"),
+      v.literal("chunking"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    error: v.optional(v.string()),
+    
+    // Extracted Content
+    content: v.optional(v.string()), // Raw text content
+    metadata: v.optional(v.object({
+      title: v.optional(v.string()),
+      author: v.optional(v.string()),
+      duration: v.optional(v.number()),
+      language: v.optional(v.string()),
+      wordCount: v.optional(v.number()),
+    })),
+    
+    // Statistics
+    chunkCount: v.number(),
+    tokenCount: v.number(),
+    
+    // Timestamps
+    createdAt: v.string(),
+    processedAt: v.optional(v.string()),
+  })
+    .index("by_source", ["sourceId"])
+    .index("by_workflow", ["workflowId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"]),
+
+  // RAG Embeddings
+  ragEmbeddings: defineTable({
+    embeddingId: v.string(),
+    workflowId: v.string(),
+    sourceId: v.string(),
+    userId: v.string(),
+    
+    // Chunk Information
+    chunkIndex: v.number(),
+    chunkText: v.string(),
+    chunkTokens: v.number(),
+    
+    // Embedding Data
+    embedding: v.array(v.float64()), // 1024-dimensional vector
+    embeddingModel: v.string(), // "jina-clip-v2"
+    dimensions: v.number(), // 1024
+    
+    // Metadata
+    metadata: v.optional(v.object({
+      sourceType: v.string(),
+      position: v.object({
+        start: v.number(),
+        end: v.number(),
+      }),
+      context: v.optional(v.string()),
+    })),
+    
+    // Quality metrics
+    confidence: v.optional(v.number()),
+    
+    // Timestamps
+    createdAt: v.string(),
+    expiresAt: v.optional(v.string()), // For free tier
+  })
+    .index("by_embedding", ["embeddingId"])
+    .index("by_workflow", ["workflowId"])
+    .index("by_source", ["sourceId"])
+    .index("by_user", ["userId"])
+    .index("by_expiry", ["expiresAt"]),
+
+  // RAG Export Jobs
+  ragExportJobs: defineTable({
+    exportId: v.string(),
+    workflowId: v.string(),
+    userId: v.string(),
+    
+    // Export Configuration
+    format: v.union(
+      v.literal("json"),
+      v.literal("jsonl"),
+      v.literal("csv"),
+      v.literal("parquet"),
+      v.literal("pinecone"),
+      v.literal("weaviate")
+    ),
+    includeMetadata: v.boolean(),
+    includeChunks: v.boolean(),
+    
+    // Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    progress: v.number(),
+    
+    // Results
+    fileUrl: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    recordCount: v.optional(v.number()),
+    
+    // Metadata
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+    expiresAt: v.string(), // Download link expiry
+    error: v.optional(v.string()),
+  })
+    .index("by_export", ["exportId"])
+    .index("by_workflow", ["workflowId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"]),
+
+  // Audio Transcripts
+  audioTranscripts: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    
+    // File Information
+    fileName: v.string(),
+    fileSize: v.number(), // in bytes
+    fileFormat: v.string(), // mp3, wav, etc.
+    
+    // Transcription Configuration
+    language: v.optional(v.string()), // ISO-639-1 code
+    prompt: v.optional(v.string()), // Optional transcription prompt
+    
+    // Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    
+    // Results
+    transcript: v.optional(v.string()),
+    duration: v.optional(v.number()), // audio duration in seconds
+    
+    // Metadata
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+    error: v.optional(v.string()),
+    
+    // Data retention
+    expiresAt: v.optional(v.string()), // For free tier data retention
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"])
+    .index("by_expiry", ["expiresAt"]),
+  
+  // TikTok Users
+  tiktokUsers: defineTable({
+    username: v.string(),
+    userId: v.string(),
+    secUid: v.string(),
+    avatar: v.optional(v.string()),
+    nickname: v.optional(v.string()),
+    signature: v.optional(v.string()),
+    verified: v.optional(v.boolean()),
+    followerCount: v.optional(v.number()),
+    followingCount: v.optional(v.number()),
+    videoCount: v.optional(v.number()),
+    heartCount: v.optional(v.number()),
+    privateAccount: v.optional(v.boolean()),
+    cachedAt: v.number(),
+  })
+    .index("by_username", ["username"])
+    .index("by_userId", ["userId"])
+    .index("by_cached", ["cachedAt"]),
+  
+  // TikTok Videos
+  tiktokVideos: defineTable({
+    videoId: v.string(),
+    username: v.string(),
+    title: v.string(),
+    thumbnail: v.optional(v.string()),
+    dynamicCover: v.optional(v.string()),
+    duration: v.number(),
+    createTime: v.number(),
+    
+    // Stats
+    views: v.number(),
+    likes: v.number(),
+    comments: v.number(),
+    shares: v.number(),
+    saves: v.number(),
+    
+    // Download info
+    playAddr: v.optional(v.string()),
+    downloadAddr: v.optional(v.string()),
+    downloadStatus: v.optional(v.union(
+      v.literal("pending"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    )),
+    localPath: v.optional(v.string()),
+    
+    // Music info
+    musicId: v.optional(v.string()),
+    musicTitle: v.optional(v.string()),
+    musicAuthor: v.optional(v.string()),
+    musicOriginal: v.optional(v.boolean()),
+    
+    // Metadata
+    hashtags: v.optional(v.array(v.object({
+      id: v.string(),
+      name: v.string(),
+      title: v.optional(v.string()),
+    }))),
+    
+    cachedAt: v.number(),
+  })
+    .index("by_video", ["videoId"])
+    .index("by_username", ["username"])
+    .index("by_cached", ["cachedAt"])
+    .index("by_download_status", ["downloadStatus"]),
+  
+  // TikTok Jobs
+  tiktokJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    username: v.string(),
+    action: v.union(
+      v.literal("fetch_user"),
+      v.literal("fetch_videos"),
+      v.literal("download_videos")
+    ),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    videoIds: v.optional(v.array(v.string())),
+    progress: v.optional(v.number()),
+    totalVideos: v.optional(v.number()),
+    completedVideos: v.optional(v.number()),
+    error: v.optional(v.string()),
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_username", ["username"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"]),
+  
+  // YouTube Channels
+  youtubeChannels: defineTable({
+    channelId: v.string(),
+    channelName: v.string(),
+    channelHandle: v.optional(v.string()), // @handle
+    channelUrl: v.string(),
+    avatar: v.optional(v.string()),
+    banner: v.optional(v.string()),
+    description: v.optional(v.string()),
+    subscriberCount: v.optional(v.number()),
+    videoCount: v.optional(v.number()),
+    viewCount: v.optional(v.number()),
+    joinedDate: v.optional(v.string()),
+    country: v.optional(v.string()),
+    cachedAt: v.number(),
+  })
+    .index("by_channel", ["channelId"])
+    .index("by_handle", ["channelHandle"])
+    .index("by_name", ["channelName"])
+    .index("by_cached", ["cachedAt"]),
+  
+  // YouTube Videos
+  youtubeVideos: defineTable({
+    videoId: v.string(),
+    channelId: v.string(),
+    channelName: v.string(),
+    title: v.string(),
+    description: v.optional(v.string()),
+    thumbnail: v.optional(v.string()), // Default quality thumbnail
+    thumbnails: v.optional(v.array(v.object({
+      quality: v.string(),
+      url: v.string(),
+      width: v.number(),
+      height: v.number(),
+    }))),
+    duration: v.number(), // in seconds
+    uploadDate: v.optional(v.string()), // ISO date
+    
+    // Stats
+    viewCount: v.optional(v.number()),
+    likeCount: v.optional(v.number()),
+    commentCount: v.optional(v.number()),
+    
+    // Content info
+    tags: v.optional(v.array(v.string())),
+    category: v.optional(v.string()),
+    language: v.optional(v.string()),
+    
+    // Download info
+    downloadStatus: v.optional(v.union(
+      v.literal("pending"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    )),
+    localPath: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    // Transcript info (if fetched)
+    hasTranscript: v.optional(v.boolean()),
+    transcriptLanguages: v.optional(v.array(v.string())),
+    
+    cachedAt: v.number(),
+  })
+    .index("by_video", ["videoId"])
+    .index("by_channel", ["channelId"])
+    .index("by_channel_name", ["channelName"])
+    .index("by_upload", ["uploadDate"])
+    .index("by_cached", ["cachedAt"])
+    .index("by_download_status", ["downloadStatus"]),
+  
+  // YouTube Jobs
+  youtubeJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    channelUrl: v.optional(v.string()),
+    channelId: v.optional(v.string()),
+    action: v.union(
+      v.literal("fetch_channel"),
+      v.literal("fetch_videos"),
+      v.literal("download_videos")
+    ),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    
+    // For video operations
+    videoIds: v.optional(v.array(v.string())),
+    sortBy: v.optional(v.string()), // newest, popular, oldest
+    count: v.optional(v.number()),
+    
+    // Progress tracking
+    progress: v.optional(v.number()),
+    totalVideos: v.optional(v.number()),
+    completedVideos: v.optional(v.number()),
+    
+    // Error handling
+    error: v.optional(v.string()),
+    
+    // Timestamps
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_channel", ["channelId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"]),
+  
+  // Twitch Channels
+  twitchChannels: defineTable({
+    username: v.string(),
+    displayName: v.string(),
+    profileImage: v.optional(v.string()),
+    bio: v.optional(v.string()),
+    isVerified: v.boolean(),
+    isPartner: v.boolean(),
+    followerCount: v.number(),
+    videoCount: v.number(),
+    isLive: v.boolean(),
+    channelUrl: v.string(),
+    cachedAt: v.number(),
+  })
+    .index("by_username", ["username"])
+    .index("by_cached", ["cachedAt"]),
+  
+  // Twitch Videos
+  twitchVideos: defineTable({
+    videoId: v.string(),
+    channelUsername: v.string(),
+    title: v.string(),
+    thumbnail: v.optional(v.string()),
+    duration: v.number(), // in seconds
+    viewCount: v.number(),
+    createdAt: v.number(), // timestamp
+    url: v.string(),
+    type: v.union(
+      v.literal("vod"),
+      v.literal("clip"),
+      v.literal("highlight")
+    ),
+    game: v.optional(v.string()),
+    language: v.optional(v.string()),
+    description: v.optional(v.string()),
+    
+    // Download info
+    downloadStatus: v.optional(v.union(
+      v.literal("pending"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    )),
+    localPath: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    cachedAt: v.number(),
+  })
+    .index("by_video", ["videoId"])
+    .index("by_channel", ["channelUsername"])
+    .index("by_type", ["type"])
+    .index("by_cached", ["cachedAt"])
+    .index("by_download_status", ["downloadStatus"]),
+  
+  // Twitch Jobs
+  twitchJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    channelUrl: v.optional(v.string()),
+    channelName: v.optional(v.string()),
+    action: v.union(
+      v.literal("fetch_channel"),
+      v.literal("fetch_videos"),
+      v.literal("download_videos")
+    ),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    
+    // For video operations
+    videoIds: v.optional(v.array(v.string())),
+    videoType: v.optional(v.string()), // archive, highlight, upload, clips
+    count: v.optional(v.number()),
+    
+    // Progress tracking
+    progress: v.optional(v.number()),
+    totalVideos: v.optional(v.number()),
+    completedVideos: v.optional(v.number()),
+    
+    // Error handling
+    error: v.optional(v.string()),
+    
+    // Result storage
+    result: v.optional(v.any()),
+    
+    // Timestamps
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_channel", ["channelName"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"]),
+  
+  // Instagram Users
+  instagramUsers: defineTable({
+    username: v.string(),
+    userId: v.string(),
+    fullName: v.optional(v.string()),
+    biography: v.optional(v.string()),
+    profilePicUrl: v.optional(v.string()),
+    isVerified: v.optional(v.boolean()),
+    isPrivate: v.optional(v.boolean()),
+    followerCount: v.optional(v.number()),
+    followingCount: v.optional(v.number()),
+    postCount: v.optional(v.number()),
+    externalUrl: v.optional(v.string()),
+    cachedAt: v.number(),
+  })
+    .index("by_username", ["username"])
+    .index("by_userId", ["userId"])
+    .index("by_cached", ["cachedAt"]),
+  
+  // Instagram Posts
+  instagramPosts: defineTable({
+    postId: v.string(),
+    username: v.string(),
+    caption: v.optional(v.string()),
+    mediaType: v.union(
+      v.literal("image"),
+      v.literal("video"),
+      v.literal("carousel")
+    ),
+    thumbnail: v.optional(v.string()),
+    mediaUrl: v.optional(v.string()),
+    likeCount: v.number(),
+    commentCount: v.number(),
+    timestamp: v.number(),
+    location: v.optional(v.string()),
+    isVideo: v.boolean(),
+    videoDuration: v.optional(v.number()),
+    carouselMediaCount: v.optional(v.number()),
+    
+    // Download info
+    downloadStatus: v.optional(v.union(
+      v.literal("pending"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    )),
+    localPath: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    cachedAt: v.number(),
+  })
+    .index("by_post", ["postId"])
+    .index("by_username", ["username"])
+    .index("by_cached", ["cachedAt"])
+    .index("by_download_status", ["downloadStatus"]),
+  
+  // Instagram Jobs
+  instagramJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    username: v.string(),
+    action: v.union(
+      v.literal("fetch_user"),
+      v.literal("fetch_posts"),
+      v.literal("download_posts")
+    ),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("downloading"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    postIds: v.optional(v.array(v.string())),
+    count: v.optional(v.number()),
+    progress: v.optional(v.number()),
+    totalPosts: v.optional(v.number()),
+    completedPosts: v.optional(v.number()),
+    result: v.optional(v.any()),
+    error: v.optional(v.string()),
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_username", ["username"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"]),
+  
+  // Voice Clone Jobs
+  voiceCloneJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    voiceName: v.string(),
+    
+    // File information
+    audioFileUrl: v.optional(v.string()), // URL to uploaded audio
+    audioFileName: v.optional(v.string()),
+    audioFileSize: v.optional(v.number()),
+    
+    // Processing details
+    apiJobId: v.optional(v.string()), // Backend API job ID
+    sampleText: v.optional(v.string()), // Text used for voice sample
+    voiceId: v.optional(v.string()), // Generated voice ID
+    resultUrl: v.optional(v.string()), // URL to cloned voice sample
+    
+    // Worker information
+    workerInfo: v.optional(v.object({
+      environment: v.string(), // "development" or "production"
+      gpuType: v.string(), // "cuda" or "rocm"
+      dropletId: v.optional(v.string()),
+      ip: v.optional(v.string()),
+    })),
+    
+    // Error tracking
+    error: v.optional(v.string()),
+    errorDetails: v.optional(v.object({
+      code: v.string(),
+      message: v.string(),
+      stack: v.optional(v.string()),
+    })),
+    
+    // Timestamps
+    createdAt: v.number(),
+    startedAt: v.optional(v.number()),
+    completedAt: v.optional(v.number()),
+    processingTime: v.optional(v.number()), // in seconds
+    
+    // Additional settings
+    settings: v.optional(v.object({
+      exaggeration: v.optional(v.number()),
+      chunkSize: v.optional(v.number()),
+      cfgWeight: v.optional(v.number()),
+    })),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"]),
+
+  // Bulk Processing Jobs
+  bulkJobs: defineTable({
+    jobId: v.string(),
+    jobType: v.string(), // "bulk_processing", "bulk_tiktok_download", etc.
+    userId: v.string(),
+    
+    // Job status and progress
+    status: v.union(
+      v.literal("pending"),
+      v.literal("initializing"),
+      v.literal("processing"),
+      v.literal("exporting"),
+      v.literal("completed"),
+      v.literal("failed"),
+      v.literal("cancelled")
+    ),
+    priority: v.union(
+      v.literal("low"),
+      v.literal("normal"),
+      v.literal("high")
+    ),
+    
+    // Progress tracking
+    currentStage: v.optional(v.string()),
+    progress: v.object({
+      overall: v.number(), // 0.0 to 1.0
+      currentStage: v.number(), // 0.0 to 1.0
+      itemsTotal: v.number(),
+      itemsCompleted: v.number(),
+      itemsFailed: v.number()
+    }),
+    
+    // Stage information
+    stages: v.any(), // Dynamic stages based on job type - allows any stage structure
+    
+    // Job configuration and data
+    jobData: v.object({
+      job_id: v.string(),
+      total_items: v.number(),
+      config: v.object({
+        platform: v.optional(v.string()),
+        input_method: v.optional(v.string()),
+        channel_url: v.optional(v.string()),
+        pasted_urls: v.optional(v.array(v.string())),
+        selected_content: v.optional(v.array(v.string())),
+        uploaded_documents: v.optional(v.array(v.any())),
+        embedding_model: v.optional(v.object({
+          id: v.string(),
+          label: v.string(),
+          dimensions: v.number(),
+          max_tokens: v.number(),
+          // JINA V4 specific fields
+          jina_v4_task: v.optional(v.string()),
+          jina_v4_dimensions: v.optional(v.number()),
+          jina_v4_late_chunking: v.optional(v.boolean()),
+          jina_v4_multi_vector: v.optional(v.boolean()),
+          jina_v4_optimize_for_rag: v.optional(v.boolean()),
+          jina_v4_truncate_at_max: v.optional(v.boolean())
+        })),
+        vector_db: v.optional(v.object({
+          id: v.string(),
+          label: v.string()
+        })),
+        settings: v.optional(v.object({
+          chunkSize: v.number(),
+          chunkOverlap: v.number(),
+          maxTokens: v.number()
+        })),
+        user_id: v.optional(v.string())
+      })
+    }),
+    
+    // Results and exports
+    result: v.optional(v.any()), // Dynamic result data
+    exports: v.any(), // Export information
+    errorMessage: v.optional(v.string()),
+    
+    // Timestamps
+    createdAt: v.number(),
+    updatedAt: v.optional(v.number()),
+    startedAt: v.optional(v.number()),
+    completedAt: v.optional(v.number()),
+    estimatedDurationMinutes: v.optional(v.number()),
+    
+    // Environment and metadata
+    metadata: v.optional(v.object({
+      environment: v.optional(v.string()),
+      totalStages: v.optional(v.number()),
+      stageNames: v.optional(v.array(v.string())),
+      // Progress tracking fields
+      content_processed: v.optional(v.number()),
+      embeddings: v.optional(v.number()),
+      progress: v.optional(v.number()),
+      stage: v.optional(v.string()),
+      status: v.optional(v.string()),
+      error: v.optional(v.string())
+    })),
+    
+    // Progress percentage field for backend compatibility
+    progressPercentage: v.optional(v.number())
+  })
+    .index("by_jobId", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"])
+    .index("by_user_created", ["userId", "createdAt"]),
+
+  // Bulk Job Exports
+  bulkJobExports: defineTable({
+    exportId: v.string(),
+    jobId: v.string(),
+    userId: v.string(),
+    
+    // Export details
+    format: v.union(
+      v.literal("json"),
+      v.literal("csv"),
+      v.literal("parquet"),
+      v.literal("vector"),
+      v.literal("zip")
+    ),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed"),
+      v.literal("expired")
+    ),
+    
+    // File information
+    filename: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    filePath: v.optional(v.string()),
+    downloadUrl: v.optional(v.string()),
+    
+    // Timestamps
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+    expiresAt: v.optional(v.number()),
+    
+    // Error information
+    errorMessage: v.optional(v.string())
+  })
+    .index("by_exportId", ["exportId"])
+    .index("by_jobId", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_created", ["createdAt"])
+    .index("by_expires", ["expiresAt"]),
+
+  // Procedural Audio Generation Jobs
+  proceduralAudioJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    
+    // Audio Configuration - Simplified for coffee shop ambiance
+    config: v.object({
+      prompt: v.string(),
+      duration: v.number(),
+      intensity: v.number(), // 0-1 for coffee shop ambiance
+      name: v.string()
+    }),
+    
+    // Job Status
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    
+    // Results
+    audioUrl: v.optional(v.string()),
+    audioId: v.optional(v.string()),
+    fileName: v.optional(v.string()),
+    fileSize: v.optional(v.number()),
+    
+    // Metadata
+    metadata: v.optional(v.object({
+      size: v.string(),
+      duration: v.string(),
+      quality: v.string(),
+      format: v.string()
+    })),
+    
+    // Error handling
+    error: v.optional(v.string()),
+    
+    // Timestamps
+    createdAt: v.number(),
+    startedAt: v.optional(v.number()),
+    completedAt: v.optional(v.number()),
+    processingTime: v.optional(v.number()), // in seconds
+    
+    // Backend tracking
+    backendJobId: v.optional(v.string())
+  })
+    .index("by_job", ["jobId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"])
+    .index("by_created", ["createdAt"])
+    .index("by_completed", ["completedAt"]),
+
+  // Telephony Calls
+  telephonyCalls: defineTable({
+    callId: v.string(),
+    userId: v.string(),
+    
+    // Call Configuration
+    direction: v.union(v.literal("inbound"), v.literal("outbound")),
+    phoneNumber: v.string(),
+    sipEndpoint: v.optional(v.string()),
+    
+    // Call State
+    status: v.union(
+      v.literal("connecting"),
+      v.literal("connected"),
+      v.literal("recording"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed"),
+      v.literal("cancelled")
+    ),
+    
+    // Audio Processing
+    audioStreamUrl: v.optional(v.string()),
+    recordingUrl: v.optional(v.string()),
+    gstreamerPipeline: v.optional(v.string()),
+    
+    // Real-time Analysis
+    currentTranscript: v.optional(v.string()),
+    currentSentiment: v.optional(v.string()),
+    speakerLabels: v.optional(v.array(v.string())),
+    
+    // Results
+    fullTranscript: v.optional(v.string()),
+    sentimentAnalysis: v.optional(v.any()),
+    speakerDiarization: v.optional(v.any()),
+    
+    // Timing
+    startTime: v.string(),
+    endTime: v.optional(v.string()),
+    duration: v.optional(v.number()),
+    
+    // Metadata
+    createdAt: v.string(),
+    updatedAt: v.string(),
+  })
+    .index("by_call", ["callId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"]),
+
+  // Real-time Audio Chunks
+  audioChunks: defineTable({
+    callId: v.string(),
+    chunkId: v.string(),
+    sequence: v.number(),
+    
+    // Audio Data
+    audioData: v.string(), // Base64 encoded
+    format: v.string(), // "webm", "wav", etc.
+    sampleRate: v.number(),
+    duration: v.number(),
+    
+    // Processing State
+    processed: v.boolean(),
+    transcript: v.optional(v.string()),
+    sentiment: v.optional(v.string()),
+    speaker: v.optional(v.string()),
+    
+    // Timing
+    timestamp: v.string(),
+  })
+    .index("by_call", ["callId"])
+    .index("by_sequence", ["callId", "sequence"])
+    .index("by_processed", ["callId", "processed"]),
+
+  // GStreamer Pipeline Jobs
+  gstreamerJobs: defineTable({
+    jobId: v.string(),
+    callId: v.string(),
+    userId: v.string(),
+    
+    // Pipeline Configuration
+    pipeline: v.string(),
+    port: v.number(),
+    codec: v.string(),
+    
+    // Job State
+    status: v.union(
+      v.literal("starting"),
+      v.literal("running"),
+      v.literal("stopping"),
+      v.literal("completed"),
+      v.literal("error")
+    ),
+    
+    // Metrics
+    bytesProcessed: v.number(),
+    packetsReceived: v.number(),
+    errors: v.array(v.string()),
+    
+    // Timing
+    createdAt: v.string(),
+    startedAt: v.optional(v.string()),
+    completedAt: v.optional(v.string()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_call", ["callId"])
+    .index("by_status", ["status"]),
+
+  // Telephony Jobs
+  telephonyJobs: defineTable({
+    jobId: v.string(),
+    userId: v.string(),
+    callId: v.string(),
+    
+    // Job Configuration
+    jobType: v.union(
+      v.literal("call_start"),
+      v.literal("call_process"),
+      v.literal("call_end"),
+      v.literal("asr_analysis"),
+      v.literal("sentiment_analysis")
+    ),
+    
+    // Job State
+    status: v.union(
+      v.literal("pending"),
+      v.literal("processing"),
+      v.literal("completed"),
+      v.literal("failed")
+    ),
+    
+    // Progress
+    progress: v.object({
+      overall: v.number(),
+      currentStage: v.number(),
+      itemsTotal: v.number(),
+      itemsCompleted: v.number(),
+      itemsFailed: v.number()
+    }),
+    
+    // Results
+    result: v.optional(v.any()),
+    error: v.optional(v.string()),
+    
+    // Timestamps
+    createdAt: v.string(),
+    startedAt: v.optional(v.string()),
+    completedAt: v.optional(v.string()),
+  })
+    .index("by_job", ["jobId"])
+    .index("by_call", ["callId"])
+    .index("by_user", ["userId"])
+    .index("by_status", ["status"])
+    .index("by_user_status", ["userId", "status"]),
+});
+```
+
+## frontend/convex/telephonyActions.ts
+```
+import { action } from "./_generated/server";
+import { v } from "convex/values";
+import { api } from "./_generated/api";
+
+// Start a new telephony call
+export const startCall = action({
+  args: {
+    callId: v.string(),
+    userId: v.string(),
+    phoneNumber: v.string(),
+    direction: v.union(v.literal("inbound"), v.literal("outbound")),
+  },
+  handler: async (ctx, args) => {
+    try {
+      // Create call record
+      await ctx.runMutation(api.mutations.telephony.createCall, {
+        callId: args.callId,
+        userId: args.userId,
+        phoneNumber: args.phoneNumber,
+        direction: args.direction,
+      });
+
+      // Create telephony job
+      const jobId = `tel_${args.callId}`;
+      await ctx.runMutation(api.mutations.telephony.createJob, {
+        jobId,
+        userId: args.userId,
+        callId: args.callId,
+        jobType: "call_start",
+        status: "pending",
+        progress: {
+          overall: 0,
+          currentStage: 0,
+          itemsTotal: 1,
+          itemsCompleted: 0,
+          itemsFailed: 0
+        },
+      });
+
+      // Start GStreamer pipeline
+      const gstreamerJob = await ctx.runAction(api.actions.telephony.startGStreamer, {
+        callId: args.callId,
+        userId: args.userId,
+        port: 5000 + Math.floor(Math.random() * 1000),
+      });
+
+      return {
+        callId: args.callId,
+        jobId,
+        gstreamerPort: gstreamerJob.port,
+        websocketUrl: `ws://localhost:${gstreamerJob.port}/audio`,
+      };
+    } catch (error) {
+      console.error("Error starting call:", error);
+      throw error;
+    }
+  },
+});
+
+// Process audio chunk with ASR/sentiment
+export const processAudioChunk = action({
+  args: {
+    callId: v.string(),
+    chunkId: v.string(),
+    audioData: v.string(), // Base64
+    sequence: v.number(),
+  },
+  handler: async (ctx, args) => {
+    try {
+      // Store audio chunk
+      await ctx.runMutation(api.mutations.telephony.ingestAudioChunk, {
+        callId: args.callId,
+        chunkId: args.chunkId,
+        sequence: args.sequence,
+        audioData: args.audioData,
+        format: "webm",
+        sampleRate: 16000,
+        duration: 1.0,
+        processed: false,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Send to backend ASR service
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      
+      const response = await fetch(`${backendUrl}/api/telephony/process-chunk`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          call_id: args.callId,
+          chunk_id: args.chunkId,
+          audio_data: args.audioData,
+          sequence: args.sequence,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Backend API error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      
+      // Update chunk with results
+      await ctx.runMutation(api.mutations.telephony.updateChunk, {
+        callId: args.callId,
+        chunkId: args.chunkId,
+        transcript: result.transcript,
+        sentiment: result.sentiment,
+        speaker: result.speaker,
+        processed: true,
+      });
+
+      // Update call with real-time transcript
+      await ctx.runMutation(api.mutations.telephony.updateCallTranscript, {
+        callId: args.callId,
+        transcript: result.transcript,
+        sentiment: result.sentiment,
+      });
+
+      return result;
+    } catch (error) {
+      console.error("Error processing audio chunk:", error);
+      
+      // Mark chunk as failed
+      await ctx.runMutation(api.mutations.telephony.updateChunk, {
+        callId: args.callId,
+        chunkId: args.chunkId,
+        processed: true,
+      });
+      
+      throw error;
+    }
+  },
+});
+
+// End call and process final results
+export const endCall = action({
+  args: {
+    callId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    try {
+      // Stop GStreamer pipeline
+      await ctx.runAction(api.actions.telephony.stopGStreamer, {
+        callId: args.callId,
+      });
+
+      // Create final processing job
+      const jobId = `tel_end_${args.callId}`;
+      await ctx.runMutation(api.mutations.telephony.createJob, {
+        jobId,
+        userId: "anonymous", // Or get from auth
+        callId: args.callId,
+        jobType: "call_end",
+        status: "pending",
+        progress: {
+          overall: 0,
+          currentStage: 0,
+          itemsTotal: 1,
+          itemsCompleted: 0,
+          itemsFailed: 0
+        },
+      });
+
+      // Process final transcription
+      const finalResult = await ctx.runAction(api.actions.telephony.processFinal, {
+        callId: args.callId,
+      });
+
+      // Update call status
+      await ctx.runMutation(api.mutations.telephony.completeCall, {
+        callId: args.callId,
+        finalTranscript: finalResult.transcript,
+        sentimentAnalysis: finalResult.sentiment,
+        speakerDiarization: finalResult.speakers,
+      });
+
+      return finalResult;
+    } catch (error) {
+      console.error("Error ending call:", error);
+      throw error;
+    }
+  },
+});
+
+// Start GStreamer pipeline
+export const startGStreamer = action({
+  args: {
+    callId: v.string(),
+    userId: v.string(),
+    port: v.number(),
+  },
+  handler: async (ctx, args) => {
+    try {
+      const jobId = `gst_${args.callId}`;
+      
+      await ctx.db.insert("gstreamerJobs", {
+        jobId,
+        callId: args.callId,
+        userId: args.userId,
+        pipeline: "webrtc-to-backend",
+        port: args.port,
+        codec: "opus",
+        status: "starting",
+        bytesProcessed: 0,
+        packetsReceived: 0,
+        errors: [],
+        createdAt: new Date().toISOString(),
+        startedAt: new Date().toISOString(),
+      });
+
+      return { jobId, port: args.port };
+    } catch (error) {
+      console.error("Error starting GStreamer:", error);
+      throw error;
+    }
+  },
+});
+
+// Stop GStreamer pipeline
+export const stopGStreamer = action({
+  args: {
+    callId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    try {
+      const jobs = await ctx.db
+        .query("gstreamerJobs")
+        .withIndex("by_call", (q) => q.eq("callId", args.callId))
+        .collect();
+
+      for (const job of jobs) {
+        await ctx.db.patch(job._id, {
+          status: "completed",
+          completedAt: new Date().toISOString(),
+        });
+      }
+
+      return { success: true };
+    } catch (error) {
+      console.error("Error stopping GStreamer:", error);
+      throw error;
+    }
+  },
+});
+
+// Process final transcription
+export const processFinal = action({
+  args: {
+    callId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    try {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      
+      const response = await fetch(`${backendUrl}/api/telephony/process-final`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          call_id: args.callId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Backend API error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("Error processing final transcription:", error);
+      throw error;
+    }
+  },
+});
+
+// Get call status
+export const getCallStatus = action({
+  args: {
+    callId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      throw new Error(`Call ${args.callId} not found`);
+    }
+
+    return call;
+  },
+});
+
+// Get real-time transcript
+export const getRealtimeTranscript = action({
+  args: {
+    callId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      throw new Error(`Call ${args.callId} not found`);
+    }
+
+    const chunks = await ctx.db
+      .query("audioChunks")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .order("desc")
+      .take(10);
+
+    return {
+      currentTranscript: call.currentTranscript,
+      currentSentiment: call.currentSentiment,
+      speakerLabels: call.speakerLabels,
+      recentChunks: chunks,
+    };
+  },
+});
+```
+
+## frontend/convex/mutations/telephony.ts
+```
+import { mutation } from "../_generated/server";
+import { v } from "../_generated/values";
+
+// Create a new telephony call
+export const createCall = mutation({
+  args: {
+    callId: v.string(),
+    userId: v.string(),
+    phoneNumber: v.string(),
+    direction: v.union(v.literal("inbound"), v.literal("outbound")),
+  },
+  handler: async (ctx, args) => {
+    const callId = await ctx.db.insert("telephonyCalls", {
+      callId: args.callId,
+      userId: args.userId,
+      phoneNumber: args.phoneNumber,
+      direction: args.direction,
+      status: "connecting",
+      startTime: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
+
+    return callId;
+  },
+});
+
+// Update call status
+export const updateCallStatus = mutation({
+  args: {
+    callId: v.string(),
+    status: v.string(),
+    updates: v.optional(v.any()),
+  },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      throw new Error(`Call ${args.callId} not found`);
+    }
+
+    const updateData: any = {
+      status: args.status,
+      updatedAt: new Date().toISOString(),
+    };
+
+    if (args.updates) {
+      Object.assign(updateData, args.updates);
+    }
+
+    await ctx.db.patch(call._id, updateData);
+    return { success: true };
+  },
+});
+
+// Update call with real-time transcript
+export const updateCallTranscript = mutation({
+  args: {
+    callId: v.string(),
+    transcript: v.string(),
+    sentiment: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      throw new Error(`Call ${args.callId} not found`);
+    }
+
+    await ctx.db.patch(call._id, {
+      currentTranscript: args.transcript,
+      currentSentiment: args.sentiment,
+      updatedAt: new Date().toISOString(),
+    });
+
+    return { success: true };
+  },
+});
+
+// Complete call with final results
+export const completeCall = mutation({
+  args: {
+    callId: v.string(),
+    finalTranscript: v.string(),
+    sentimentAnalysis: v.any(),
+    speakerDiarization: v.any(),
+  },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      throw new Error(`Call ${args.callId} not found`);
+    }
+
+    const startTime = new Date(call.startTime);
+    const endTime = new Date();
+    const duration = Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
+
+    await ctx.db.patch(call._id, {
+      status: "completed",
+      fullTranscript: args.finalTranscript,
+      sentimentAnalysis: args.sentimentAnalysis,
+      speakerDiarization: args.speakerDiarization,
+      endTime: endTime.toISOString(),
+      duration,
+      updatedAt: new Date().toISOString(),
+    });
+
+    return { success: true };
+  },
+});
+
+// Create telephony job
+export const createJob = mutation({
+  args: {
+    jobId: v.string(),
+    userId: v.string(),
+    callId: v.string(),
+    jobType: v.union(
+      v.literal("call_start"),
+      v.literal("call_process"),
+      v.literal("call_end"),
+      v.literal("asr_analysis"),
+      v.literal("sentiment_analysis")
+    ),
+    status: v.union(v.literal("pending"), v.literal("processing"), v.literal("completed"), v.literal("failed")),
+    progress: v.object({
+      overall: v.number(),
+      currentStage: v.number(),
+      itemsTotal: v.number(),
+      itemsCompleted: v.number(),
+      itemsFailed: v.number()
+    }),
+  },
+  handler: async (ctx, args) => {
+    const jobId = await ctx.db.insert("telephonyJobs", {
+      jobId: args.jobId,
+      userId: args.userId,
+      callId: args.callId,
+      jobType: args.jobType,
+      status: args.status,
+      progress: args.progress,
+      createdAt: new Date().toISOString(),
+    });
+
+    return jobId;
+  },
+});
+
+// Update telephony job
+export const updateJob = mutation({
+  args: {
+    jobId: v.string(),
+    status: v.string(),
+    result: v.optional(v.any()),
+    error: v.optional(v.string()),
+    progress: v.optional(v.object({
+      overall: v.number(),
+      currentStage: v.number(),
+      itemsTotal: v.number(),
+      itemsCompleted: v.number(),
+      itemsFailed: v.number()
+    })),
+  },
+  handler: async (ctx, args) => {
+    const job = await ctx.db
+      .query("telephonyJobs")
+      .withIndex("by_job", (q) => q.eq("jobId", args.jobId))
+      .first();
+
+    if (!job) {
+      throw new Error(`Job ${args.jobId} not found`);
+    }
+
+    const updateData: any = {
+      status: args.status,
+    };
+
+    if (args.result !== undefined) {
+      updateData.result = args.result;
+    }
+
+    if (args.error !== undefined) {
+      updateData.error = args.error;
+    }
+
+    if (args.progress !== undefined) {
+      updateData.progress = args.progress;
+    }
+
+    if (args.status === "completed" || args.status === "failed") {
+      updateData.completedAt = new Date().toISOString();
+    }
+
+    await ctx.db.patch(job._id, updateData);
+    return { success: true };
+  },
+});
+
+// Ingest audio chunk
+export const ingestAudioChunk = mutation({
+  args: {
+    callId: v.string(),
+    chunkId: v.string(),
+    sequence: v.number(),
+    audioData: v.string(),
+    format: v.string(),
+    sampleRate: v.number(),
+    duration: v.number(),
+    processed: v.boolean(),
+  },
+  handler: async (ctx, args) => {
+    const chunkId = await ctx.db.insert("audioChunks", {
+      callId: args.callId,
+      chunkId: args.chunkId,
+      sequence: args.sequence,
+      audioData: args.audioData,
+      format: args.format,
+      sampleRate: args.sampleRate,
+      duration: args.duration,
+      processed: args.processed,
+      timestamp: new Date().toISOString(),
+    });
+
+    return chunkId;
+  },
+});
+
+// Update audio chunk
+export const updateChunk = mutation({
+  args: {
+    callId: v.string(),
+    chunkId: v.string(),
+    transcript: v.optional(v.string()),
+    sentiment: v.optional(v.string()),
+    speaker: v.optional(v.string()),
+    processed: v.boolean(),
+  },
+  handler: async (ctx, args) => {
+    const chunk = await ctx.db
+      .query("audioChunks")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .filter((q) => q.eq(q.field("chunkId"), args.chunkId))
+      .first();
+
+    if (!chunk) {
+      throw new Error(`Chunk ${args.chunkId} not found`);
+    }
+
+    const updateData: any = {
+      processed: args.processed,
+    };
+
+    if (args.transcript !== undefined) {
+      updateData.transcript = args.transcript;
+    }
+
+    if (args.sentiment !== undefined) {
+      updateData.sentiment = args.sentiment;
+    }
+
+    if (args.speaker !== undefined) {
+      updateData.speaker = args.speaker;
+    }
+
+    await ctx.db.patch(chunk._id, updateData);
+    return { success: true };
+  },
+});
+
+// Create GStreamer job
+export const createGStreamerJob = mutation({
+  args: {
+    jobId: v.string(),
+    callId: v.string(),
+    userId: v.string(),
+    pipeline: v.string(),
+    port: v.number(),
+    codec: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const jobId = await ctx.db.insert("gstreamerJobs", {
+      jobId: args.jobId,
+      callId: args.callId,
+      userId: args.userId,
+      pipeline: args.pipeline,
+      port: args.port,
+      codec: args.codec,
+      status: "starting",
+      bytesProcessed: 0,
+      packetsReceived: 0,
+      errors: [],
+      createdAt: new Date().toISOString(),
+      startedAt: new Date().toISOString(),
+    });
+
+    return jobId;
+  },
+});
+
+// Update GStreamer job
+export const updateGStreamerJob = mutation({
+  args: {
+    jobId: v.string(),
+    status: v.string(),
+    bytesProcessed: v.optional(v.number()),
+    packetsReceived: v.optional(v.number()),
+    errors: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, args) => {
+    const job = await ctx.db
+      .query("gstreamerJobs")
+      .withIndex("by_job", (q) => q.eq("jobId", args.jobId))
+      .first();
+
+    if (!job) {
+      throw new Error(`GStreamer job ${args.jobId} not found`);
+    }
+
+    const updateData: any = {
+      status: args.status,
+    };
+
+    if (args.bytesProcessed !== undefined) {
+      updateData.bytesProcessed = args.bytesProcessed;
+    }
+
+    if (args.packetsReceived !== undefined) {
+      updateData.packetsReceived = args.packetsReceived;
+    }
+
+    if (args.errors !== undefined) {
+      updateData.errors = args.errors;
+    }
+
+    if (args.status === "completed" || args.status === "error") {
+      updateData.completedAt = new Date().toISOString();
+    }
+
+    await ctx.db.patch(job._id, updateData);
+    return { success: true };
+  },
+});
+```
+
+## frontend/convex/queries/telephony.ts
+```
+import { query } from "../_generated/server";
+import { v } from "../_generated/values";
+
+// Get call by ID
+export const getCall = query({
+  args: { callId: v.string() },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    return call;
+  },
+});
+
+// Get calls for user
+export const getUserCalls = query({
+  args: { 
+    userId: v.string(),
+    limit: v.optional(v.number()),
+    status: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    let query = ctx.db.query("telephonyCalls");
+    
+    if (args.status) {
+      query = query.withIndex("by_user_status", (q) => 
+        q.eq("userId", args.userId).eq("status", args.status)
+      );
+    } else {
+      query = query.withIndex("by_user", (q) => q.eq("userId", args.userId));
+    }
+
+    if (args.limit) {
+      return await query.take(args.limit);
+    }
+
+    return await query.order("desc").collect();
+  },
+});
+
+// Get active calls
+export const getActiveCalls = query({
+  args: { limit: v.optional(v.number()) },
+  handler: async (ctx, args) => {
+    let query = ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_status", (q) => q.eq("status", "connected"));
+
+    if (args.limit) {
+      return await query.take(args.limit);
+    }
+
+    return await query.collect();
+  },
+});
+
+// Get audio chunks for call
+export const getAudioChunks = query({
+  args: { 
+    callId: v.string(),
+    limit: v.optional(v.number()),
+    processed: v.optional(v.boolean()),
+  },
+  handler: async (ctx, args) => {
+    let query = ctx.db.query("audioChunks");
+    
+    if (args.processed !== undefined) {
+      query = query.withIndex("by_processed", (q) => 
+        q.eq("callId", args.callId).eq("processed", args.processed)
+      );
+    } else {
+      query = query.withIndex("by_call", (q) => q.eq("callId", args.callId));
+    }
+
+    if (args.limit) {
+      return await query.order("desc").take(args.limit);
+    }
+
+    return await query.order("desc").collect();
+  },
+});
+
+// Get real-time transcript
+export const getRealtimeTranscript = query({
+  args: { callId: v.string() },
+  handler: async (ctx, args) => {
+    const call = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    if (!call) {
+      return null;
+    }
+
+    const chunks = await ctx.db
+      .query("audioChunks")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .order("desc")
+      .take(10);
+
+    return {
+      call,
+      currentTranscript: call.currentTranscript,
+      currentSentiment: call.currentSentiment,
+      speakerLabels: call.speakerLabels,
+      recentChunks: chunks,
+    };
+  },
+});
+
+// Get telephony job
+export const getJob = query({
+  args: { jobId: v.string() },
+  handler: async (ctx, args) => {
+    const job = await ctx.db
+      .query("telephonyJobs")
+      .withIndex("by_job", (q) => q.eq("jobId", args.jobId))
+      .first();
+
+    return job;
+  },
+});
+
+// Get jobs for call
+export const getCallJobs = query({
+  args: { 
+    callId: v.string(),
+    status: v.optional(v.string()),
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, args) => {
+    let query = ctx.db.query("telephonyJobs");
+    
+    if (args.status) {
+      query = query.withIndex("by_call", (q) => 
+        q.eq("callId", args.callId)
+      );
+      // Filter by status in memory since we can't use compound indexes
+      const jobs = await query.collect();
+      return jobs.filter(job => job.status === args.status);
+    } else {
+      query = query.withIndex("by_call", (q) => q.eq("callId", args.callId));
+    }
+
+    if (args.limit) {
+      return await query.order("desc").take(args.limit);
+    }
+
+    return await query.order("desc").collect();
+  },
+});
+
+// Get GStreamer job
+export const getGStreamerJob = query({
+  args: { callId: v.string() },
+  handler: async (ctx, args) => {
+    const job = await ctx.db
+      .query("gstreamerJobs")
+      .withIndex("by_call", (q) => q.eq("callId", args.callId))
+      .first();
+
+    return job;
+  },
+});
+
+// Get call statistics
+export const getCallStats = query({
+  args: { userId: v.string() },
+  handler: async (ctx, args) => {
+    const calls = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_user", (q) => q.eq("userId", args.userId))
+      .collect();
+
+    const totalCalls = calls.length;
+    const completedCalls = calls.filter(c => c.status === "completed").length;
+    const failedCalls = calls.filter(c => c.status === "failed").length;
+    const totalDuration = calls.reduce((sum, c) => sum + (c.duration || 0), 0);
+
+    return {
+      totalCalls,
+      completedCalls,
+      failedCalls,
+      totalDuration,
+      averageDuration: totalCalls > 0 ? totalDuration / totalCalls : 0,
+    };
+  },
+});
+
+// Get recent calls with transcripts
+export const getRecentCallsWithTranscripts = query({
+  args: { 
+    userId: v.string(),
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, args) => {
+    const limit = args.limit || 10;
+    
+    const calls = await ctx.db
+      .query("telephonyCalls")
+      .withIndex("by_user", (q) => q.eq("userId", args.userId))
+      .order("desc")
+      .take(limit);
+
+    const callsWithTranscripts = [];
+    
+    for (const call of calls) {
+      const chunks = await ctx.db
+        .query("audioChunks")
+        .withIndex("by_call", (q) => q.eq("callId", call.callId))
+        .order("desc")
+        .take(5);
+
+      callsWithTranscripts.push({
+        ...call,
+        recentChunks: chunks,
+      });
+    }
+
+    return callsWithTranscripts;
+  },
+});
+```
+
+## backend/src/services/telephony_service.py
+```
+#!/usr/bin/env python3
+"""
+Telephony Service with ASR/Sentiment Integration
+Integrates real-time audio processing from stream_simulation.py
+"""
+
+import os
+import sys
+import asyncio
+import json
+import base64
+import logging
+import numpy as np
+from typing import Dict, Any, Optional, List
+from datetime import datetime
+from pathlib import Path
+import websockets
+import aiohttp
+from dataclasses import dataclass
+
+# Add project root to path
+project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(project_root))
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Import existing services
+from src.services.realtime_analysis_service import get_realtime_analysis_service
+from src.services.modern_stateful_speaker_identifier import ModernStatefulSpeakerIdentifier
+from src.services.audio_processor import AudioProcessor
+
+@dataclass
+class CallSession:
+    call_id: str
+    user_id: str
+    phone_number: str
+    direction: str
+    start_time: datetime
+    audio_chunks: List[Dict[str, Any]]
+    current_transcript: str
+    current_sentiment: str
+    speakers: Dict[str, Any]
+
+class TelephonyService:
+    """
+    Main telephony service that integrates:
+    - Real-time ASR from stream_simulation.py
+    - Sentiment analysis
+    - Speaker diarization
+    - Audio processing pipeline
+    """
+    
+    def __init__(self):
+        self.analysis_service = get_realtime_analysis_service()
+        self.speaker_identifier = ModernStatefulSpeakerIdentifier()
+        self.audio_processor = AudioProcessor()
+        self.active_calls: Dict[str, CallSession] = {}
+        self.websocket_servers: Dict[str, Any] = {}
+        
+    async def start_call(self, call_id: str, user_id: str, phone_number: str, direction: str) -> Dict[str, Any]:
+        """Start a new telephony call"""
+        logger.info(f"Starting call {call_id} for user {user_id}")
+        
+        # Initialize call session
+        session = CallSession(
+            call_id=call_id,
+            user_id=user_id,
+            phone_number=phone_number,
+            direction=direction,
+            start_time=datetime.now(),
+            audio_chunks=[],
+            current_transcript="",
+            current_sentiment="neutral",
+            speakers={}
+        )
+        
+        self.active_calls[call_id] = session
+        
+        # Initialize speaker identifier
+        await self.speaker_identifier.initialize()
+        
+        return {
+            "call_id": call_id,
+            "status": "connected",
+            "websocket_port": 8765 + hash(call_id) % 1000,
+            "session": session.__dict__
+        }
+    
+    async def process_audio_chunk(self, call_id: str, chunk_id: str, audio_data: str, sequence: int) -> Dict[str, Any]:
+        """Process audio chunk with ASR and sentiment analysis"""
+        
+        if call_id not in self.active_calls:
+            raise ValueError(f"Call {call_id} not found")
+            
+        session = self.active_calls[call_id]
+        
+        try:
+            # Decode base64 audio
+            audio_bytes = base64.b64decode(audio_data)
+            audio_array = np.frombuffer(audio_bytes, dtype=np.int16)
+            
+            # Ensure correct format for processing
+            if len(audio_array) == 0:
+                return {"error": "Empty audio data"}
+            
+            # Process with ASR and sentiment
+            result = await self.analysis_service.process_sentiment_chunk(
+                audio_array.astype(np.float32).tobytes()
+            )
+            
+            # Speaker identification
+            speaker_id, confidence = self.speaker_identifier.identify_speaker(audio_array)
+            
+            # Store chunk
+            chunk_data = {
+                "chunk_id": chunk_id,
+                "sequence": sequence,
+                "transcript": result.get("text", ""),
+                "sentiment": result.get("sentiment", "neutral"),
+                "speaker": speaker_id,
+                "confidence": confidence,
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            session.audio_chunks.append(chunk_data)
+            session.current_transcript = result.get("text", "")
+            session.current_sentiment = result.get("sentiment", "neutral")
+            
+            if speaker_id not in session.speakers:
+                session.speakers[speaker_id] = {
+                    "first_seen": datetime.now().isoformat(),
+                    "confidence": confidence
+                }
+            
+            return {
+                "transcript": result.get("text", ""),
+                "sentiment": result.get("sentiment", "neutral"),
+                "speaker": speaker_id,
+                "confidence": confidence,
+                "chunk_id": chunk_id
+            }
+            
+        except Exception as e:
+            logger.error(f"Error processing chunk {chunk_id}: {e}")
+            return {
+                "error": str(e),
+                "transcript": "",
+                "sentiment": "neutral",
+                "speaker": "unknown"
+            }
+    
+    async def process_final_transcription(self, call_id: str) -> Dict[str, Any]:
+        """Process final transcription for completed call"""
+        
+        if call_id not in self.active_calls:
+            raise ValueError(f"Call {call_id} not found")
+            
+        session = self.active_calls[call_id]
+        
+        try:
+            # Combine all chunks for final processing
+            all_audio = []
+            for chunk in session.audio_chunks:
+                # Reconstruct audio from chunks if needed
+                pass
+            
+            # Generate final transcript
+            full_transcript = " ".join([chunk["transcript"] for chunk in session.audio_chunks])
+            
+            # Analyze overall sentiment
+            sentiment_counts = {}
+            for chunk in session.audio_chunks:
+                sentiment = chunk["sentiment"]
+                sentiment_counts[sentiment] = sentiment_counts.get(sentiment, 0) + 1
+            
+            dominant_sentiment = max(sentiment_counts.items(), key=lambda x: x[1])[0]
+            
+            # Speaker diarization summary
+            speaker_summary = {
+                speaker_id: speaker_id,
+                "first_seen": info["first_seen"],
+                "total_segments": len([c for c in session.audio_chunks if c["speaker"] == speaker_id])
+            } for speaker_id, info in session.speakers.items()
+            
+            return {
+                "call_id": call_id,
+                "full_transcript": full_transcript,
+                "sentiment_analysis": {
+                    "dominant_sentiment": dominant_sentiment,
+                    "sentiment_distribution": sentiment_counts,
+                    "total_segments": len(session.audio_chunks)
+                },
+                "speaker_diarization": {
+                    "speakers": list(session.speakers.keys()),
+                    "speaker_summary": speaker_summary
+                },
+                "duration": (datetime.now() - session.start_time).total_seconds(),
+                "total_chunks": len(session.audio_chunks)
+            }
+            
+        except Exception as e:
+            logger.error(f"Error processing final transcription: {e}")
+            return {
+                "error": str(e),
+                "full_transcript": "",
+                "sentiment_analysis": {},
+                "speaker_diarization": {}
+            }
+    
+    async def end_call(self, call_id: str) -> Dict[str, Any]:
+        """End telephony call and cleanup"""
+        
+        if call_id not in self.active_calls:
+            raise ValueError(f"Call {call_id} not found")
+            
+        session = self.active_calls[call_id]
+        
+        # Process final transcription
+        final_result = await self.process_final_transcription(call_id)
+        
+        # Cleanup
+        del self.active_calls[call_id]
+        
+        # Close websocket if exists
+        if call_id in self.websocket_servers:
+            await self.websocket_servers[call_id].close()
+            del self.websocket_servers[call_id]
+        
+        return final_result
+    
+    async def get_call_status(self, call_id: str) -> Dict[str, Any]:
+        """Get current call status"""
+        
+        if call_id not in self.active_calls:
+            return {"error": "Call not found"}
+            
+        session = self.active_calls[call_id]
+        
+        return {
+            "call_id": call_id,
+            "status": "active",
+            "duration": (datetime.now() - session.start_time).total_seconds(),
+            "current_transcript": session.current_transcript,
+            "current_sentiment": session.current_sentiment,
+            "speakers": list(session.speakers.keys()),
+            "total_chunks": len(session.audio_chunks)
+        }
+    
+    async def handle_websocket_connection(self, websocket, path):
+        """Handle WebSocket connections for real-time audio streaming"""
+        
+        call_id = path.strip("/")
+        
+        if call_id not in self.active_calls:
+            await websocket.close(code=1008, reason="Call not found")
+            return
+            
+        logger.info(f"WebSocket connected for call {call_id}")
+        
+        try:
+            async for message in websocket:
+                try:
+                    data = json.loads(message)
+                    
+                    if data.get("type") == "audio_chunk":
+                        result = await self.process_audio_chunk(
+                            call_id,
+                            data.get("chunk_id"),
+                            data.get("audio_data"),
+                            data.get("sequence", 0)
+                        )
+                        
+                        # Send back real-time results
+                        await websocket.send(json.dumps({
+                            "type": "transcript_update",
+                            "data": result
+                        }))
+                        
+                    elif data.get("type") == "end_call":
+                        final_result = await self.end_call(call_id)
+                        await websocket.send(json.dumps({
+                            "type": "call_ended",
+                            "data": final_result
+                        }))
+                        break
+                        
+                except Exception as e:
+                    logger.error(f"WebSocket error: {e}")
+                    await websocket.send(json.dumps({
+                        "type": "error",
+                        "message": str(e)
+                    }))
+                    
+        except websockets.exceptions.ConnectionClosed:
+            logger.info(f"WebSocket disconnected for call {call_id}")
+        except Exception as e:
+            logger.error(f"WebSocket handler error: {e}")
+
+class TelephonyAPI:
+    """FastAPI endpoints for telephony service"""
+    
+    def __init__(self):
+        self.service = TelephonyService()
+    
+    async def start_call_endpoint(self, call_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Endpoint to start a new call"""
+        return await self.service.start_call(
+            call_data["call_id"],
+            call_data["user_id"],
+            call_data["phone_number"],
+            call_data["direction"]
+        )
+    
+    async def process_chunk_endpoint(self, chunk_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Endpoint to process audio chunk"""
+        return await self.service.process_audio_chunk(
+            chunk_data["call_id"],
+            chunk_data["chunk_id"],
+            chunk_data["audio_data"],
+            chunk_data["sequence"]
+        )
+    
+    async def process_final_endpoint(self, call_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Endpoint to process final transcription"""
+        return await self.service.process_final_transcription(
+            call_data["call_id"]
+        )
+    
+    async def end_call_endpoint(self, call_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Endpoint to end call"""
+        return await self.service.end_call(call_data["call_id"])
+    
+    async def get_status_endpoint(self, call_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Endpoint to get call status"""
+        return await self.service.get_call_status(call_data["call_id"])
+
+# Global service instance
+telephony_service = TelephonyService()
+telephony_api = TelephonyAPI()
+
+# WebSocket server
+async def start_websocket_server(port: int):
+    """Start WebSocket server for real-time audio streaming"""
+    logger.info(f"Starting WebSocket server on port {port}")
+    
+    async def handler(websocket, path):
+        await telephony_service.handle_websocket_connection(websocket, path)
+    
+    server = await websockets.serve(handler, "localhost", port)
+    return server
+
+# FastAPI routes
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from pydantic import BaseModel
+
+app = FastAPI(title="Telephony Service")
+
+class StartCallRequest(BaseModel):
+    call_id: str
+    user_id: str
+    phone_number: str
+    direction: str
+
+class ProcessChunkRequest(BaseModel):
+    call_id: str
+    chunk_id: str
+    audio_data: str
+    sequence: int
+
+@app.post("/api/telephony/start-call")
+async def start_call_endpoint(request: StartCallRequest):
+    """Start a new telephony call"""
+    try:
+        result = await telephony_api.start_call_endpoint(request.dict())
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/process-chunk")
+async def process_chunk_endpoint(request: ProcessChunkRequest):
+    """Process audio chunk with ASR and sentiment"""
+    try:
+        result = await telephony_api.process_chunk_endpoint(request.dict())
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/process-final")
+async def process_final_endpoint(request: dict):
+    """Process final transcription"""
+    try:
+        result = await telephony_api.process_final_endpoint(request)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/end-call")
+async def end_call_endpoint(request: dict):
+    """End telephony call"""
+    try:
+        result = await telephony_api.end_call_endpoint(request)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/telephony/status/{call_id}")
+async def get_status_endpoint(call_id: str):
+    """Get call status"""
+    try:
+        result = await telephony_api.get_status_endpoint({"call_id": call_id})
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+@app.websocket("/ws/{call_id}")
+async def websocket_endpoint(websocket: WebSocket, call_id: str):
+    """WebSocket endpoint for real-time audio streaming"""
+    await websocket.accept()
+    
+    try:
+        await telephony_service.handle_websocket_connection(websocket, f"/{call_id}")
+    except WebSocketDisconnect:
+        logger.info(f"WebSocket disconnected for call {call_id}")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+## backend/src/services/gstreamer_service.py
+```
+#!/usr/bin/env python3
+"""
+GStreamer Service for Real-time Audio Processing
+Handles WebRTC audio streams and converts to backend processing format
+"""
+
+import os
+import sys
+import asyncio
+import json
+import logging
+import subprocess
+import signal
+import threading
+from typing import Dict, Any, Optional, List
+from pathlib import Path
+import websockets
+import websockets.server
+import numpy as np
+import base64
+from dataclasses import dataclass
+from datetime import datetime
+
+# Add project root to path
+project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(project_root))
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@dataclass
+class GStreamerConfig:
+    """Configuration for GStreamer pipeline"""
+    port: int
+    codec: str = "opus"
+    sample_rate: int = 16000
+    channels: int = 1
+    format: str = "S16LE"
+    pipeline_type: str = "webrtc"
+
+class GStreamerPipeline:
+    """Manages GStreamer pipeline for audio processing"""
+    
+    def __init__(self, config: GStreamerConfig):
+        self.config = config
+        self.process: Optional[subprocess.Popen] = None
+        self.is_running = False
+        self.pipeline_cmd = None
+        
+    def build_pipeline(self, call_id: str) -> str:
+        """Build GStreamer pipeline command"""
+        
+        # WebRTC to backend pipeline
+        pipeline = [
+            "gst-launch-1.0",
+            "-v",
+            # WebRTC source
+            "webrtcbin", f"name=webrtcbin-{call_id}",
+            "!", "rtpopusdepay",
+            "!", "opusdec",
+            "!", "audioconvert",
+            "!", "audioresample",
+            "!", f"audio/x-raw,format={self.config.format},rate={self.config.sample_rate},channels={self.config.channels}",
+            "!", "appsink", f"name=appsink-{call_id}",
+            # Backend processing
+            "appsrc", f"name=appsrc-{call_id}",
+            "!", "audioconvert",
+            "!", "audioresample",
+            "!", "opusenc",
+            "!", "rtpopuspay",
+            "!", "webrtcbin", f"name=webrtcbin-out-{call_id}",
+        ]
+        
+        return " ".join(pipeline)
+    
+    def build_tcp_pipeline(self, port: int) -> str:
+        """Build TCP-based pipeline for testing"""
+        
+        pipeline = [
+            "gst-launch-1.0",
+            "-v",
+            # TCP source
+            "tcpserversrc", f"port={port}",
+            "!", "decodebin",
+            "!", "audioconvert",
+            "!", "audioresample",
+            "!", f"audio/x-raw,format={self.config.format},rate={self.config.sample_rate},channels={self.config.channels}",
+            "!", "appsink", "name=appsink",
+            # Output to backend
+            "appsrc", "name=appsrc",
+            "!", "audioconvert",
+            "!", "audioresample",
+            "!", "wavenc",
+            "!", "filesink", f"location=/tmp/audio_{port}.wav"
+        ]
+        
+        return " ".join(pipeline)
+    
+    def start(self, call_id: str, port: int) -> bool:
+        """Start GStreamer pipeline"""
+        try:
+            # Use TCP pipeline for now (easier to test)
+            cmd = self.build_tcp_pipeline(port)
+            logger.info(f"Starting GStreamer pipeline: {cmd}")
+            
+            self.process = subprocess.Popen(
+                cmd,
+                shell=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                preexec_fn=os.setsid
+            )
+            
+            self.is_running = True
+            logger.info(f"GStreamer pipeline started for call {call_id} on port {port}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to start GStreamer pipeline: {e}")
+            return False
+    
+    def stop(self) -> bool:
+        """Stop GStreamer pipeline"""
+        try:
+            if self.process:
+                os.killpg(os.getpgid(self.process.pid), signal.SIGTERM)
+                self.process.wait(timeout=5)
+                self.process = None
+                
+            self.is_running = False
+            logger.info("GStreamer pipeline stopped")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to stop GStreamer pipeline: {e}")
+            return False
+    
+    def is_alive(self) -> bool:
+        """Check if pipeline is running"""
+        return self.process is not None and self.process.poll() is None
+
+class WebSocketHandler:
+    """Handles WebSocket connections for real-time audio streaming"""
+    
+    def __init__(self, telephony_service):
+        self.telephony_service = telephony_service
+        self.connections: Dict[str, Any] = {}
+        
+    async def handle_connection(self, websocket, path):
+        """Handle WebSocket connection"""
+        call_id = path.strip("/")
+        
+        logger.info(f"WebSocket connection established for call {call_id}")
+        
+        if call_id not in self.telephony_service.active_calls:
+            await websocket.close(code=1008, reason="Call not found")
+            return
+            
+        self.connections[call_id] = websocket
+        
+        try:
+            async for message in websocket:
+                try:
+                    data = json.loads(message)
+                    
+                    if data.get("type") == "audio_chunk":
+                        # Process audio chunk
+                        result = await self.telephony_service.process_audio_chunk(
+                            call_id,
+                            data.get("chunk_id"),
+                            data.get("audio_data"),
+                            data.get("sequence", 0)
+                        )
+                        
+                        # Send back real-time results
+                        await websocket.send(json.dumps({
+                            "type": "transcript_update",
+                            "data": result
+                        }))
+                        
+                    elif data.get("type") == "get_status":
+                        status = await self.telephony_service.get_call_status(call_id)
+                        await websocket.send(json.dumps({
+                            "type": "status",
+                            "data": status
+                        }))
+                        
+                    elif data.get("type") == "end_call":
+                        final_result = await self.telephony_service.end_call(call_id)
+                        await websocket.send(json.dumps({
+                            "type": "call_ended",
+                            "data": final_result
+                        }))
+                        break
+                        
+                except Exception as e:
+                    logger.error(f"WebSocket message error: {e}")
+                    await websocket.send(json.dumps({
+                        "type": "error",
+                        "message": str(e)
+                    }))
+                    
+        except websockets.exceptions.ConnectionClosed:
+            logger.info(f"WebSocket disconnected for call {call_id}")
+        except Exception as e:
+            logger.error(f"WebSocket handler error: {e}")
+        finally:
+            if call_id in self.connections:
+                del self.connections[call_id]
+
+class GStreamerService:
+    """Main GStreamer service for audio processing"""
+    
+    def __init__(self):
+        self.pipelines: Dict[str, GStreamerPipeline] = {}
+        self.websocket_server = None
+        self.telephony_service = None
+        
+    def set_telephony_service(self, telephony_service):
+        """Set telephony service reference"""
+        self.telephony_service = telephony_service
+        
+    async def start_pipeline(self, call_id: str, port: int) -> Dict[str, Any]:
+        """Start GStreamer pipeline for call"""
+        
+        config = GStreamerConfig(port=port)
+        pipeline = GStreamerPipeline(config)
+        
+        success = pipeline.start(call_id, port)
+        
+        if success:
+            self.pipelines[call_id] = pipeline
+            logger.info(f"GStreamer pipeline started for call {call_id}")
+            
+            return {
+                "status": "started",
+                "call_id": call_id,
+                "port": port,
+                "websocket_url": f"ws://localhost:8765/{call_id}"
+            }
+        else:
+            return {
+                "status": "failed",
+                "error": "Failed to start GStreamer pipeline"
+            }
+    
+    async def stop_pipeline(self, call_id: str) -> Dict[str, Any]:
+        """Stop GStreamer pipeline for call"""
+        
+        if call_id in self.pipelines:
+            pipeline = self.pipelines[call_id]
+            success = pipeline.stop()
+            
+            if success:
+                del self.pipelines[call_id]
+                logger.info(f"GStreamer pipeline stopped for call {call_id}")
+                return {"status": "stopped", "call_id": call_id}
+            else:
+                return {"status": "failed", "error": "Failed to stop pipeline"}
+        else:
+            return {"status": "not_found", "error": "Pipeline not found"}
+    
+    async def get_pipeline_status(self, call_id: str) -> Dict[str, Any]:
+        """Get pipeline status"""
+        
+        if call_id in self.pipelines:
+            pipeline = self.pipelines[call_id]
+            return {
+                "call_id": call_id,
+                "status": "running" if pipeline.is_alive() else "stopped",
+                "is_alive": pipeline.is_alive()
+            }
+        else:
+            return {"call_id": call_id, "status": "not_found"}
+    
+    async def start_websocket_server(self, port: int = 8765):
+        """Start WebSocket server for real-time communication"""
+        
+        handler = WebSocketHandler(self.telephony_service)
+        
+        logger.info(f"Starting WebSocket server on port {port}")
+        self.websocket_server = await websockets.serve(
+            handler.handle_connection,
+            "localhost",
+            port
+        )
+        
+        return self.websocket_server
+    
+    async def stop_websocket_server(self):
+        """Stop WebSocket server"""
+        
+        if self.websocket_server:
+            self.websocket_server.close()
+            await self.websocket_server.wait_closed()
+            logger.info("WebSocket server stopped")
+    
+    def cleanup(self):
+        """Cleanup all pipelines"""
+        for call_id, pipeline in list(self.pipelines.items()):
+            pipeline.stop()
+        self.pipelines.clear()
+
+# Global service instance
+gstreamer_service = GStreamerService()
+
+# FastAPI endpoints for GStreamer management
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+class StartPipelineRequest(BaseModel):
+    call_id: str
+    port: int
+
+class StopPipelineRequest(BaseModel):
+    call_id: str
+
+app = FastAPI(title="GStreamer Service")
+
+@app.post("/api/gstreamer/start")
+async def start_pipeline(request: StartPipelineRequest):
+    """Start GStreamer pipeline"""
+    try:
+        result = await gstreamer_service.start_pipeline(request.call_id, request.port)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/gstreamer/stop")
+async def stop_pipeline(request: StopPipelineRequest):
+    """Stop GStreamer pipeline"""
+    try:
+        result = await gstreamer_service.stop_pipeline(request.call_id)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/gstreamer/status/{call_id}")
+async def get_pipeline_status(call_id: str):
+    """Get pipeline status"""
+    try:
+        result = await gstreamer_service.get_pipeline_status(call_id)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/gstreamer/start-server")
+async def start_websocket_server(port: int = 8765):
+    """Start WebSocket server"""
+    try:
+        server = await gstreamer_service.start_websocket_server(port)
+        return {"status": "started", "port": port}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8001)
+```
+
+## backend/src/api/telephony_api.py
+```
+#!/usr/bin/env python3
+"""
+Telephony API Endpoints
+Provides REST API for telephony operations with Convex integration
+"""
+
+import os
+import sys
+import asyncio
+import json
+import logging
+from typing import Dict, Any, Optional
+from pathlib import Path
+from datetime import datetime
+
+# Add project root to path
+project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(project_root))
+
+from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+import uvicorn
+
+# Import services
+from src.services.telephony_service import telephony_service
+from src.services.gstreamer_service import gstreamer_service
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# FastAPI app
+app = FastAPI(
+    title="Diala Telephony API",
+    description="Real-time telephony with ASR and sentiment analysis",
+    version="1.0.0"
+)
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Configure appropriately for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Pydantic models
+class StartCallRequest(BaseModel):
+    call_id: str = Field(..., description="Unique call identifier")
+    user_id: str = Field(..., description="User ID")
+    phone_number: str = Field(..., description="Phone number")
+    direction: str = Field(..., description="Call direction: inbound/outbound")
+
+class ProcessChunkRequest(BaseModel):
+    call_id: str = Field(..., description="Call identifier")
+    chunk_id: str = Field(..., description="Audio chunk identifier")
+    audio_data: str = Field(..., description="Base64 encoded audio data")
+    sequence: int = Field(..., description="Sequence number")
+
+class ProcessFinalRequest(BaseModel):
+    call_id: str = Field(..., description="Call identifier")
+
+class EndCallRequest(BaseModel):
+    call_id: str = Field(..., description="Call identifier")
+
+class GStreamerStartRequest(BaseModel):
+    call_id: str = Field(..., description="Call identifier")
+    port: int = Field(..., description="Port number for GStreamer")
+
+class GStreamerStopRequest(BaseModel):
+    call_id: str = Field(..., description="Call identifier")
+
+# Health check
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat(),
+        "service": "telephony-api"
+    }
+
+# Telephony endpoints
+@app.post("/api/telephony/start-call")
+async def start_call(request: StartCallRequest):
+    """Start a new telephony call"""
+    try:
+        result = await telephony_service.start_call(
+            request.call_id,
+            request.user_id,
+            request.phone_number,
+            request.direction
+        )
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to start call: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/process-chunk")
+async def process_chunk(request: ProcessChunkRequest):
+    """Process audio chunk with ASR and sentiment"""
+    try:
+        result = await telephony_service.process_audio_chunk(
+            request.call_id,
+            request.chunk_id,
+            request.audio_data,
+            request.sequence
+        )
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to process chunk: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/process-final")
+async def process_final(request: ProcessFinalRequest):
+    """Process final transcription"""
+    try:
+        result = await telephony_service.process_final_transcription(request.call_id)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to process final: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/telephony/end-call")
+async def end_call(request: EndCallRequest):
+    """End telephony call"""
+    try:
+        result = await telephony_service.end_call(request.call_id)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to end call: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/telephony/status/{call_id}")
+async def get_status(call_id: str):
+    """Get call status"""
+    try:
+        result = await telephony_service.get_call_status(call_id)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to get status: {e}")
+        raise HTTPException(status_code=404, detail=str(e))
+
+# GStreamer endpoints
+@app.post("/api/gstreamer/start")
+async def start_gstreamer(request: GStreamerStartRequest):
+    """Start GStreamer pipeline"""
+    try:
+        result = await gstreamer_service.start_pipeline(request.call_id, request.port)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to start GStreamer: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/gstreamer/stop")
+async def stop_gstreamer(request: GStreamerStopRequest):
+    """Stop GStreamer pipeline"""
+    try:
+        result = await gstreamer_service.stop_pipeline(request.call_id)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to stop GStreamer: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/gstreamer/status/{call_id}")
+async def get_gstreamer_status(call_id: str):
+    """Get GStreamer pipeline status"""
+    try:
+        result = await gstreamer_service.get_pipeline_status(call_id)
+        return {
+            "success": True,
+            "data": result,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Failed to get GStreamer status: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+# WebSocket endpoint for real-time communication
+@app.websocket("/ws/{call_id}")
+async def websocket_endpoint(websocket: WebSocket, call_id: str):
+    """WebSocket endpoint for real-time audio streaming"""
+    await websocket.accept()
+    logger.info(f"WebSocket connected for call {call_id}")
+    
+    try:
+        await telephony_service.handle_websocket_connection(websocket, f"/{call_id}")
+    except WebSocketDisconnect:
+        logger.info(f"WebSocket disconnected for call {call_id}")
+    except Exception as e:
+        logger.error(f"WebSocket error: {e}")
+
+# Audio upload endpoint
+@app.post("/api/audio/upload")
+async def upload_audio(file: UploadFile = File(...), call_id: str = None):
+    """Upload audio file for processing"""
+    try:
+        # Read audio file
+        audio_data = await file.read()
+        
+        # Convert to base64
+        audio_b64 = base64.b64encode(audio_data).decode('utf-8')
+        
+        return {
+            "success": True,
+            "filename": file.filename,
+            "size": len(audio_data),
+            "audio_data": audio_b64
+        }
+    except Exception as e:
+        logger.error(f"Failed to upload audio: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+# Background task for cleanup
+@app.on_event("startup")
+async def startup_event():
+    """Startup tasks"""
+    logger.info("Starting Telephony API")
+    
+    # Start GStreamer WebSocket server
+    try:
+        await gstreamer_service.start_websocket_server(8765)
+        logger.info("GStreamer WebSocket server started on port 8765")
+    except Exception as e:
+        logger.warning(f"Failed to start GStreamer server: {e}")
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Cleanup on shutdown"""
+    logger.info("Shutting down Telephony API")
+    
+    # Cleanup services
+    gstreamer_service.cleanup()
+    await gstreamer_service.stop_websocket_server()
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "telephony_api:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        log_level="info"
+    )
+```
+
+## frontend/src/app/onboarding/rtc/page.tsx
+```
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { useConvex, useAction, useMutation, useQuery } from 'convex/react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { UilPhone, UilPhoneVolume, UilWifi, UilMicrophone, UilCheckCircle, UilRocket, UilInfoCircle, UilChartGrowth } from '@tooni/iconscout-unicons-react';
+import { OnboardingFooter } from '@/components/custom/onboarding-footer';
+import InfoSection from '@/components/custom/info-section';
+import { api } from '@/convex/_generated/api';
+
+// --- Main RTC App with Convex Integration ---
+export default function RTCOnboardingPage() {
+  const convex = useConvex();
+  const [currentStep, setCurrentStep] = useState(1);
+  const [callId, setCallId] = useState<string>('');
+  const [isConnected, setIsConnected] = useState(false);
+  const [transcript, setTranscript] = useState<string>('');
+  const [sentiment, setSentiment] = useState<string>('neutral');
+  const [speakers, setSpeakers] = useState<string[]>([]);
+  const [callDuration, setCallDuration] = useState(0);
+  const [isRecording, setIsRecording] = useState(false);
+  
+  // Convex actions
+  const startCall = useAction(api.actions.telephony.startCall);
+  const processAudioChunk = useAction(api.actions.telephony.processAudioChunk);
+  const endCall = useAction(api.actions.telephony.endCall);
+  const getRealtimeTranscript = useQuery(api.queries.telephony.getRealtimeTranscript);
+  
+  // WebRTC refs
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const websocketRef = useRef<WebSocket | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Generate unique call ID
+  const generateCallId = () => `call_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+  // Start telephony call
+  const handleStartCall = async () => {
+    const newCallId = generateCallId();
+    setCallId(newCallId);
+    
+    try {
+      const result = await startCall({
+        callId: newCallId,
+        userId: 'anonymous',
+        phoneNumber: 'demo',
+        direction: 'outbound'
+      });
+      
+      setIsConnected(true);
+      setCurrentStep(2);
+      
+      // Start WebRTC
+      await startWebRTC(newCallId, result.websocketUrl);
+      
+    } catch (error) {
+      console.error('Failed to start call:', error);
+    }
+  };
+
+  // Start WebRTC connection
+  const startWebRTC = async (callId: string, websocketUrl: string) => {
+    try {
+      // Get user media
+      const stream = await navigator.mediaDevices.getUserMedia({ 
+        audio: { 
+          echoCancellation: true,
+          noiseSuppression: true,
+          sampleRate: 16000
+        } 
+      });
+      
+      // Connect to WebSocket
+      websocketRef.current = new WebSocket(websocketUrl);
+      
+      websocketRef.current.onopen = () => {
+        console.log('WebSocket connected');
+        startRecording(stream, callId);
+      };
+      
+      websocketRef.current.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        handleWebSocketMessage(data);
+      };
+      
+      websocketRef.current.onclose = () => {
+        console.log('WebSocket disconnected');
+        stopRecording();
+      };
+      
+    } catch (error) {
+      console.error('WebRTC setup failed:', error);
+    }
+  };
+
+  // Start recording
+  const startRecording = (stream: MediaStream, callId: string) => {
+    setIsRecording(true);
+    
+    mediaRecorderRef.current = new MediaRecorder(stream, {
+      mimeType: 'audio/webm;codecs=opus',
+      audioBitsPerSecond: 16000
+    });
+    
+    mediaRecorderRef.current.ondataavailable = async (event) => {
+      if (event.data.size > 0) {
+        const arrayBuffer = await event.data.arrayBuffer();
+        const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+        
+        // Send to backend via Convex
+        const chunkId = `chunk_${Date.now()}`;
+        const result = await processAudioChunk({
+          callId,
+          chunkId,
+          audioData: base64,
+          sequence: Date.now()
+        });
+        
+        if (result.transcript) {
+          setTranscript(prev => prev + ' ' + result.transcript);
+          setSentiment(result.sentiment);
+          setSpeakers(prev => [...new Set([...prev, result.speaker])]);
+        }
+      }
+    };
+    
+    mediaRecorderRef.current.start(1000); // 1 second chunks
+    
+    // Start duration timer
+    intervalRef.current = setInterval(() => {
+      setCallDuration(prev => prev + 1);
+    }, 1000);
+  };
+
+  // Stop recording
+  const stopRecording = () => {
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+      mediaRecorderRef.current = null;
+    }
+    
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    
+    setIsRecording(false);
+  };
+
+  // Handle WebSocket messages
+  const handleWebSocketMessage = (data: any) => {
+    switch (data.type) {
+      case 'transcript_update':
+        setTranscript(prev => prev + ' ' + data.data.transcript);
+        setSentiment(data.data.sentiment);
+        break;
+      case 'call_ended':
+        handleCallComplete(data.data);
+        break;
+      case 'error':
+        console.error('WebSocket error:', data.message);
+        break;
+    }
+  };
+
+  // End call
+  const handleEndCall = async () => {
+    if (websocketRef.current) {
+      websocketRef.current.send(JSON.stringify({ type: 'end_call' }));
+      websocketRef.current.close();
+      websocketRef.current = null;
+    }
+    
+    stopRecording();
+    
+    try {
+      const result = await endCall({ callId });
+      handleCallComplete(result);
+    } catch (error) {
+      console.error('Failed to end call:', error);
+    }
+  };
+
+  // Handle call completion
+  const handleCallComplete = (result: any) => {
+    setCurrentStep(3);
+    setIsConnected(false);
+    
+    // Cleanup
+    if (websocketRef.current) {
+      websocketRef.current.close();
+      websocketRef.current = null;
+    }
+  };
+
+  // Real-time transcript updates
+  useEffect(() => {
+    if (callId && currentStep === 2) {
+      const interval = setInterval(async () => {
+        try {
+          const result = await getRealtimeTranscript({ callId });
+          if (result) {
+            setTranscript(result.currentTranscript || '');
+            setSentiment(result.currentSentiment || 'neutral');
+            setSpeakers(result.speakerLabels || []);
+          }
+        } catch (error) {
+          console.error('Failed to get transcript:', error);
+        }
+      }, 2000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [callId, currentStep, getRealtimeTranscript]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (websocketRef.current) {
+        websocketRef.current.close();
+      }
+      stopRecording();
+    };
+  }, []);
+
+  // Format duration
+  const formatDuration = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <>
+      <div 
+        className="min-h-screen bg-orange-500 relative pb-8"
+        style={{ 
+          fontFamily: 'Noyh-Bold, sans-serif',
+          backgroundImage: `linear-gradient(rgba(15, 23, 41, 0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 41, 0.8) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      >
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-8 pb-8">
+          <div className="w-full max-w-6xl space-y-8">
+            {/* Header Title Card */}
+            <Card className="transform rotate-1 relative overflow-hidden">
+              <CardHeader className="relative">
+                {/* Decorative elements */}
+                <div className="absolute top-2 left-4 w-8 h-8 bg-orange-600 border-2 border-black flex items-center justify-center">
+                  <UilWifi className="h-4 w-4 text-white" />
+                </div>
+                <div className="absolute top-2 right-4 w-8 h-8 bg-orange-500 border-2 border-black flex items-center justify-center">
+                  <UilPhoneVolume className="h-4 w-4 text-white" />
+                </div>
+                <div className="absolute bottom-3 left-6 w-6 h-6 bg-yellow-400 border-2 border-black rotate-12">
+                  <div className="w-2 h-2 bg-black absolute top-1 left-1"></div>
+                </div>
+                <div className="absolute bottom-2 right-8 w-4 h-4 bg-red-500 border-2 border-black -rotate-12"></div>
+                
+                {/* Central icon button */}
+                <div className="flex justify-center mb-4">
+                  <Button variant="header" className="w-20 h-20 bg-orange-600 hover:bg-orange-700 p-0">
+                    {currentStep === 1 && <UilWifi className="h-12 w-12 text-white" />}
+                    {currentStep === 2 && <UilPhone className="h-12 w-12 text-white" />}
+                    {currentStep === 3 && <UilCheckCircle className="h-12 w-12 text-white" />}
+                  </Button>
+                </div>
+                
+                {/* Dynamic title */}
+                <CardTitle className="text-5xl md:text-6xl font-black uppercase text-center text-black relative z-10">
+                  {currentStep === 1 && 'CONVEX TELEPHONY DEMO'}
+                  {currentStep === 2 && `LIVE CALL ${isConnected ? '•' : ''}`}
+                  {currentStep === 3 && 'CALL COMPLETE'}
+                </CardTitle>
+                
+                {/* Subtitle */}
+                <p className="text-lg md:text-xl text-gray-700 mt-4 text-center">
+                  {currentStep === 1 && 'Experience real-time ASR with Convex'}
+                  {currentStep === 2 && `Duration: ${formatDuration(callDuration)}`}
+                  {currentStep === 3 && 'Your telephony journey begins here'}
+                </p>
+                
+                {/* Animated decorative bars */}
+                <div className="flex justify-center items-center mt-3 gap-2">
+                  <div className="w-3 h-3 bg-orange-600 animate-pulse"></div>
+                  <div className="w-2 h-6 bg-black"></div>
+                  <div className="w-4 h-4 bg-orange-500 animate-pulse delay-150"></div>
+                  <div className="w-2 h-8 bg-black"></div>
+                  <div className="w-3 h-3 bg-orange-600 animate-pulse delay-300"></div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            {/* Step-based Content */}
+            {currentStep === 1 && (
+              <div className="text-center space-y-6">
+                <h2 className="text-3xl font-bold text-black">Real-Time Telephony with Convex</h2>
+                <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                  Experience live audio processing with automatic speech recognition, sentiment analysis, and speaker diarization using Convex actions and real-timers.
+                </p>
+                <Button 
+                  onClick={handleStartCall}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-bold"
+                >
+                  Start Demo Call
+                </Button>
+              </div>
+            )}
+
+            {currentStep === 2 && (
+              <div className="space-y-6">
+                {/* Live Call Interface */}
+                <Card className="bg-white border-2 border-black">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-black">Live Call - {formatDuration(callDuration)}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {/* Real-time Transcript */}
+                    <div className="bg-gray-100 p-4 rounded-lg">
+                      <h3 className="font-bold text-black mb-2">Live Transcript:</h3>
+                      <div className="text-sm text-gray-700 h-20 overflow-y-auto">
+                        {transcript || 'Listening...'}
+                      </div>
+                    </div>
+
+                    {/* Sentiment Analysis */}
+                    <div className="flex items-center space-x-4">
+                      <span className="font-bold text-black">Sentiment:</span>
+                      <span className={`px-2 py-1 rounded text-sm font-medium ${
+                        sentiment === 'positive' ? 'bg-green-200 text-green-800' :
+                        sentiment === 'negative' ? 'bg-red-200 text-red-800' :
+                        'bg-yellow-200 text-yellow-800'
+                      }`}>
+                        {sentiment}
+                      </span>
+                    </div>
+
+                    {/* Speaker Detection */}
+                    <div>
+                      <span className="font-bold text-black">Speakers:</span>
+                      <div className="flex flex-wrap gap-2 mt-1">
+                        {speakers.map((speaker, index) => (
+                          <span key={index} className="px-2 py-1 bg-blue-200 text-blue-800 rounded text-sm">
+                            {speaker}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Call Controls */}
+                    <div className="flex justify-center space-x-4">
+                      <Button 
+                        onClick={handleEndCall}
+                        className="bg-red-600 hover:bg-red-700 text-white px-6 py-2"
+                        disabled={!isConnected}
+                      >
+                        End Call
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Audio Visualization */}
+                <Card className="bg-white border-2 border-black">
+                  <CardContent className="text-center py-8">
+                    <div className="text-6xl mb-4">
+                      {isRecording ? '🎤' : '📞'}
+                    </div>
+                    <p className="text-lg text-gray-700">
+                      {isRecording ? 'Recording audio...' : 'Click Start to begin'}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {currentStep === 3 && (
+              <div className="text-center space-y-6">
+                <h2 className="text-3xl font-bold text-black">Call Complete!</h2>
+                <div className="bg-white p-6 rounded-lg border-2 border-black">
+                  <h3 className="text-xl font-bold mb-4">Call Summary</h3>
+                  <div className="space-y-2 text-left">
+                    <p><strong>Duration:</strong> {formatDuration(callDuration)}</p>
+                    <p><strong>Final Sentiment:</strong> {sentiment}</p>
+                    <p><strong>Speakers Detected:</strong> {speakers.length}</p>
+                    <p><strong>Transcript Length:</strong> {transcript.length} characters</p>
+                  </div>
+                </div>
+                <Button 
+                  onClick={() => {
+                    setCurrentStep(1);
+                    setCallId('');
+                    setTranscript('');
+                    setSentiment('neutral');
+                    setSpeakers([]);
+                    setCallDuration(0);
+                  }}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-bold"
+                >
+                  Start New Call
+                </Button>
+              </div>
+            )}
+
+            {/* Real-time Features */}
+            {currentStep === 2 && (
+              <Card className="bg-white border-2 border-black">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-bold text-black mb-4">Real-time Features</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <UilWifi className="h-4 w-4 text-orange-600" />
+                      <span>WebRTC Connection</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <UilMicrophone className="h-4 w-4 text-orange-600" />
+                      <span>Live Audio Processing</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <UilPhone className="h-4 w-4 text-orange-600" />
+                      <span>ASR Transcription</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <UilChartGrowth className="h-4 w-4 text-orange-600" />
+                      <span>Sentiment Analysis</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Footer */}
+            <div className="mt-8">
+              <OnboardingFooter />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+```
+

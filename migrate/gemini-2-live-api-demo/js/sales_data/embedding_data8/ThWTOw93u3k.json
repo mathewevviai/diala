@@ -1,0 +1,42 @@
+{
+  "source_video": "ThWTOw93u3k",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect defers by saying 'we're good', 'waste of time', suggests 'send email' or 'call in six months time'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Common deferral tactics used by prospects."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Could I ask one last question then and I'll let you go, what's likely to be different do you think in six months?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after a prospect suggests calling back later; probes for conditions of future engagement."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect defers to a future time (e.g., 'call back in six months'), ask what specific conditions or circumstances are likely to change by then.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps understand the rationale for the delay and qualifies the future follow-up."
+    },
+    {
+      "type": "technique",
+      "content": "Using a final clarifying question after a prospect attempts to end the call or defer, often referred to as the 'Columbo' approach.",
+      "speaker_perspective": "sales agent",
+      "notes": "Extends the conversation slightly to gain more information or set conditions for follow-up."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't just accept a 'call me later' or 'send me an email'. Seek to understand the specific reasons for the delay and what needs to change.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on qualifying the future opportunity rather than just agreeing to defer."
+    },
+    {
+      "type": "technique",
+      "content": "Agreeing to a future call ('I will certainly do that') but immediately following with a question about what will be different, sets a condition for the future engagement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Turns a simple deferral into a conditional agreement based on potential future changes."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

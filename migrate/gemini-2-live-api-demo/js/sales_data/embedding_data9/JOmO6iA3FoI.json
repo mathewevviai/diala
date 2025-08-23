@@ -1,0 +1,32 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I have no interest' or 'I'm not interested,' respond in the form of a question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When you say you're not interested, did you mean to say never ever under any circumstances would you consider exploring what we do?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example phrase to push disinterest to the extreme."
+    },
+    {
+      "type": "technique",
+      "content": "Push the prospect's statement of disinterest to the extreme (e.g., 'never ever under any circumstances') to diagnose if it's absolute or conditional.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "By asking a clarifying question about their disinterest, you can potentially open the door to further conversation if their 'no' isn't absolute.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Do not argue with the prospect's objection; instead, seek to understand or clarify it using questions.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

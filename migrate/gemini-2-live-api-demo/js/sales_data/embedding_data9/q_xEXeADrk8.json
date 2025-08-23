@@ -1,0 +1,51 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Accept genuine 'not interested' responses without pushing; focus on prospects who show some relation to the problems you fix.",
+      "speaker_perspective": "sales agent",
+      "notes": "Applies when prospect says they don't recognize the problems mentioned."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge vague objections like 'we're in the process of fixing that' to uncover the true status.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen for vague words like 'process' that have multiple meanings and require clarification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When prospect says 'in the process', ask: 'Do you mean you've already appointed a third party, are looking at potentially getting one, or is this something you're just thinking about?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific question structure (ABC or something else) to diagnose the stage of 'process'."
+    },
+    {
+      "type": "technique",
+      "content": "Listen for subtle words like 'probably' in phrases like 'probably consider in the future' to identify uncertainty.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If prospect says 'probably', ask: 'Well, when you say probably, what do you mean?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Probing question to challenge and clarify uncertainty."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on getting to the truth and gathering information during the call, rather than just giving information.",
+      "speaker_perspective": "sales agent",
+      "notes": "Underpins the need for effective probing questions."
+    },
+    {
+      "type": "technique",
+      "content": "Move the prospect from intellectual recognition of a problem to feeling a slight irritation or emotion about it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Diagnoses if the pain is significant enough to warrant further conversation/meeting."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

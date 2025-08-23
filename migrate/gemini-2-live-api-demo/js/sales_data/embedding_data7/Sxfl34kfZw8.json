@@ -1,0 +1,83 @@
+{
+  "source_video": "Sxfl34kfZw8",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Salespeople are often uncomfortable talking about money due to childhood conditioning, which impacts handling price objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'You're very expensive,' recognize it's a statement, not necessarily a question or an objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "In response to 'You're very expensive,' ask: 'Did I ask a question? What did I say?' to highlight it was a statement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "In response to 'You're very expensive,' ask: 'Can you think of any reason why we are able to charge what we do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes to value/justification from their perspective."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "In response to 'You're very expensive,' ask: 'Why do you think our customers know they could go down the road and get a similar service cheaper, but they choose to buy from us?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes to value/ROI by highlighting why others pay more."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect asks for the price very early, challenge the premise that the decision is based solely on price.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When asked for price early: 'I don't typically get asked that right at the beginning... that leads me to believe this decision is going to be based solely on price, isn't it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the premise and forces clarification."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect confirms the decision is solely based on price, pre-qualify them out by stating you'll likely be too expensive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If they say the decision is solely price: 'Right, well in that case we'll probably be too expensive for you.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Asserts value and tests commitment beyond price."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect reveals a low budget expectation, probe the basis for that figure.",
+      "speaker_perspective": "sales agent",
+      "notes": "Leads to understanding their 'Compared to what?' baseline."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect reveals a low budget: 'How did you come up with that figure?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Probes the 'Compared to what?' basis for their price expectation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If they mention a cheaper competitor as the basis for their budget: 'Why haven't you bought from them?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly addresses the alternative, probing value vs. cost ('Compared to what?')."
+    },
+    {
+      "type": "mindset",
+      "content": "If a prospect's budget is significantly lower than your price, qualify them out rather than trying to force a fit or discount heavily.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid discounting when the prospect's budget doesn't match the value/cost; maintain your price if it aligns with the value provided.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

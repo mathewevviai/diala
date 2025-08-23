@@ -1,0 +1,62 @@
+{
+  "source_video": "1LDRu3zYfdI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use questions to understand the prospect's underlying reason for hesitation or stating they are 'not interested'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "If asked 'Is this about recruitment?', respond with 'Well, if I told you it was, would you still hang up?' to diagnose their attitude.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's emotional state (e.g., frustration, upset) when they show resistance or push back.",
+      "speaker_perspective": "sales agent",
+      "notes": "Referred to as 'labeling'"
+    },
+    {
+      "type": "technique",
+      "content": "Offer the prospect an easy way out when facing resistance to test their true level of disinterest or frustration.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When facing resistance or upset: 'I get the feeling I've upset you or you're angry with me. What have I done?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft probing, acknowledging their state."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When facing resistance: 'If you want, I don't mind leaving. It's up to you, what do you want to do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Offers an easy exit, tests commitment."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't be pushy; trying to force a prospect makes them recoil.",
+      "speaker_perspective": "sales agent",
+      "notes": "Analogy to law of physics."
+    },
+    {
+      "type": "technique",
+      "content": "Position the proposed next step (meeting) as a diagnostic exploration to see if there's a fit, not a sales pitch.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure when prospect is hesitant."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Suggest meeting to 'explore whether or not you have a problem I can fix.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions meeting as diagnostic, low-commitment."
+    },
+    {
+      "type": "mindset",
+      "content": "Be okay with a prospect saying no; not everyone is a good fit or needs what you offer right now.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

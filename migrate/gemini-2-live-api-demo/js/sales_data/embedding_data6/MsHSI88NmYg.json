@@ -1,0 +1,42 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use negative Socratic questioning to make prospects defend their problems. Pushing them away slightly can make them swing back.",
+      "speaker_perspective": "sales agent",
+      "notes": "Referenced as a core technique from Chris Voss's 'Never Split the Difference'."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I suppose you'll tell me that you don't recognize any of that right?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of negative Socratic questioning to elicit a reaction and confirm/deny problems."
+    },
+    {
+      "type": "technique",
+      "content": "Answer the 'What do you do?' question with a Socratic question that frames the potential impact or outcome.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'If I told you we do X, what would you say?' Avoids feature dumping."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection like 'you've gone over time', respond by asking more clarifying questions about the problem or interest shown.",
+      "speaker_perspective": "sales agent",
+      "notes": "A way to continue qualifying and isolate the real reason for the pushback, rather than just accepting the time objection."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with a referral objection ('talk to someone else'), attempt to isolate the decision-making process and propose involving the referral in a joint meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Trying to overcome the gatekeeper by understanding the influence and proposing a collaborative next step."
+    },
+    {
+      "type": "technique",
+      "content": "Focus on identifying and isolating the single biggest problem that resonates most with the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prioritizing the problem helps determine motivation and relevance, core to Clarify-Isolate-Overcome principles."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

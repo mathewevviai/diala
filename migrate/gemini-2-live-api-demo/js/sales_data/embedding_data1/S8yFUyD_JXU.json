@@ -1,0 +1,124 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Focus the initial part of a call on gathering information rather than selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How are you doing this morning?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Standard friendly opening phrase."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for permission to continue the conversation early in the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would you like to hang up or let me have 30 seconds?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Bold permission-based opener."
+    },
+    {
+      "type": "technique",
+      "content": "Use an inquisitive opening to immediately establish a buyer-seller dynamic where you are asking questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"How are you guys currently dealing with X problem?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Problem-focused inquisitive opener."
+    },
+    {
+      "type": "technique",
+      "content": "Reference a trigger event or recent news about the prospect's company to show you've done research.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I saw that you guys just raised another round of funding...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Opener referencing a trigger event."
+    },
+    {
+      "type": "technique",
+      "content": "Use mutual connections or relevant past experiences as a way to build credibility and rapport quickly.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I noticed you previously worked at [Company Name]...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Opener referencing past experience."
+    },
+    {
+      "type": "technique",
+      "content": "State the core value proposition or intent of the call very concisely and early.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"The reason for my call is we help companies like yours do X...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct statement of call purpose."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the call around potential benefits for the prospect, such as saving time or money.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would you be opposed to a quick chat about how we might be able to save you X?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Benefit-oriented permission request."
+    },
+    {
+      "type": "technique",
+      "content": "Use pattern interrupt techniques to break through a prospect's assumptions about a cold call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I know this is a cold call...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging the nature of the call as a pattern interrupt."
+    },
+    {
+      "type": "technique",
+      "content": "Focus on delivering value or insight immediately, rather than just pitching.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure the call opening to transition quickly from pleasantries to the reason for the call and a permission request.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Be prepared with a concise value statement (elevator pitch) that is relevant to the specific prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Deliver your opening quickly to respect the prospect's time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident and clear tone throughout the opening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use 'we' language when talking about your company's capabilities or value proposition.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implies collective expertise and resources."
+    }
+  ]
+}

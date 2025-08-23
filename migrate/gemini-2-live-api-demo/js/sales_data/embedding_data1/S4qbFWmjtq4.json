@@ -1,0 +1,70 @@
+{
+  "source_video": "S4qbFWmjtq4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start conversations by asking for permission to speak or take a moment.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Do you have 30 seconds for me to explain why I called?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission phrase for call opening"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't take 'no' or rejection personally; it's often about timing or fit, not you.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When facing an objection, seek to understand the deeper reason behind it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Compared to what?\" - used when addressing a price objection to understand context.",
+      "speaker_perspective": "sales agent",
+      "notes": "Technique for price objection handling"
+    },
+    {
+      "type": "technique",
+      "content": "Focus communication on the value and benefits for the customer, not just product features.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident yet approachable and friendly tone of voice.",
+      "speaker_perspective": "sales agent",
+      "notes": "Tone strategy"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions to encourage detailed responses and gather information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Based on our discussion, how does this sound as a potential next step?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Example closing question"
+    },
+    {
+      "type": "technique",
+      "content": "Actively listen to understand the prospect's needs and challenges before presenting solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Approach calls or meetings with genuine curiosity to learn about the other person.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame potential outcomes early: 'If this isn't a good fit, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Anchoring the conversation outcome"
+    }
+  ]
+}

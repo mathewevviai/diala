@@ -1,0 +1,63 @@
+{
+  "source_video": "YiE2p3ZsEj8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start cold calls by asking permission for a short amount of time, e.g., 'Do you want to hang up or give me 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gives prospect control, increases engagement chance."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the potential outcome of a meeting upfront, including the option to decide it's not a fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, builds trust."
+    },
+    {
+      "type": "technique",
+      "content": "When receiving a rejection, internalize it as the prospect rejecting the proposition, not you personally.",
+      "speaker_perspective": "sales agent",
+      "notes": "Mindset reframing for resilience."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial part of a sales call or meeting on gathering information about the prospect's situation and needs.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid pitching too early."
+    },
+    {
+      "type": "technique",
+      "content": "Use silence after asking a question to prompt the prospect to elaborate.",
+      "speaker_perspective": "sales agent",
+      "notes": "Effective listening tool."
+    },
+    {
+      "type": "mindset",
+      "content": "Sales is about helping people solve problems, not just selling a product.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge objections directly and then ask clarifying questions to understand the root cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Help me understand...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Phrase for seeking clarification on objections or statements."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's needs and challenges to confirm understanding before proposing a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures alignment and shows active listening."
+    },
+    {
+      "type": "technique",
+      "content": "Use trial closes throughout the conversation to gauge the prospect's interest level.",
+      "speaker_perspective": "sales agent",
+      "notes": "e.g., 'How does that sound so far?'"
+    }
+  ]
+}

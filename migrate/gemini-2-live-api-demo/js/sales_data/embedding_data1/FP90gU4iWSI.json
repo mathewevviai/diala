@@ -1,0 +1,115 @@
+{
+  "source_video": "FP90gU4iWSI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a cold call by asking permission to continue, giving the prospect an easy out.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Do you want to hang up or can I have 30 seconds?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'Do you want to hang up or can I have 30 seconds?' ",
+      "speaker_perspective": "sales agent",
+      "notes": "Used at the very beginning of a cold call to disarm and gain micro-commitment."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't be afraid of rejection on a cold call; frame it as giving the prospect control.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a casual, confident, and slightly detached tone on cold calls.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid sounding overly eager or scripted."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial part of a cold call on discovery, not pitching.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gather information about their situation or needs."
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'The reason for the call is [briefly state context or trigger].' ",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after permission and initial pleasantries to state purpose concisely."
+    },
+    {
+      "type": "technique",
+      "content": "Use an open-ended question immediately after stating the call's reason.",
+      "speaker_perspective": "sales agent",
+      "notes": "Promotes engagement and gathers information. Example: 'How are you currently handling [problem area]?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'How are you currently handling [specific challenge/area related to your offering]?' ",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery question used early in the call."
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and allow for silence after asking a question.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery to pitching by asking permission to share relevant information.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Based on that, would it be helpful if I briefly shared how others in your situation are addressing this?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'Based on what you just shared, would it be helpful if I briefly explained how others facing similar challenges are addressing this?' ",
+      "speaker_perspective": "sales agent",
+      "notes": "Transition phrase from discovery to solution-pitching."
+    },
+    {
+      "type": "technique",
+      "content": "Keep the initial pitch concise and focused on benefits or outcomes related to their pain points.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid detailed feature dumps."
+    },
+    {
+      "type": "technique",
+      "content": "Use curiosity and value-based statements to qualify interest for a follow-up meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'If this could potentially save you X or increase Y, would exploring that further be worth 15 minutes?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'If this could potentially [state key benefit], would it be worth 15 minutes next week to explore it further?' ",
+      "speaker_perspective": "sales agent",
+      "notes": "Closing phrase used to book the next step (a follow-up meeting)."
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'send me information' objection by asking a qualifying question about their goal.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Absolutely, I can send info. To make sure it's relevant, what specifically are you hoping to learn from it?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": " 'Absolutely, I can send some information. To make sure it's relevant, what specifically are you hoping to learn or achieve by reviewing it?' ",
+      "speaker_perspective": "sales agent",
+      "notes": "'Send me info' objection handling phrase."
+    },
+    {
+      "type": "technique",
+      "content": "If pushed for information on the spot, offer to provide just 2-3 key points relevant to their needs.",
+      "speaker_perspective": "sales agent",
+      "notes": "Still aims to get them to talk or agree to a meeting."
+    },
+    {
+      "type": "mindset",
+      "content": "View the initial cold call as a success if you qualify them for the next step (e.g., a meeting), not necessarily sell them immediately.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify prospects quickly by focusing questions on their current state, challenges, and goals.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

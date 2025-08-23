@@ -1,0 +1,43 @@
+{
+  "source_video": "vXfm0vX73Bo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection, acknowledge their point of view first before responding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows empathy and validates their concern."
+    },
+    {
+      "type": "technique",
+      "content": "To handle 'I need to think about it', ask 'What specifically do you need to think about?' to identify the underlying concern.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address price objections by asking questions like 'Compared to what?' or 'What part of the price concerns you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps uncover if it's value, budget, or comparison issue."
+    },
+    {
+      "type": "technique",
+      "content": "Use the feel-felt-found framework: 'I understand why you'd *feel* that way. Other clients *felt* similarly, but what they *found* was...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the prospect and provides social proof/solution."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions like 'Besides [stated objection], is there anything else holding you back?' to uncover hidden objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe an objection as a question or challenge you can solve, focusing on the benefit or outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Instead of directly refuting an objection, bridge to how your solution specifically addresses that concern.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source_video": "eHpngXRnKjM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Answer a prospect's question with a question to understand their underlying motivation or concern before responding directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to avoid making assumptions and gain control of the conversation."
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to discover the root cause of an objection like 'Do you have experience in our sector?'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When you say do we have experience, is that because you're looking for someone that knows everything about your product or service or are you looking for someone that can offer a fresh perspective?",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying question to understand if the prospect values deep sector knowledge or a new approach."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection by asking if the lack of experience is a dealbreaker.",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces the prospect to reveal the true importance of the objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling that if I tell you I haven't [experience], you're going to say this isn't going to work.",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct way to isolate the objection and test its significance."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you I haven't [experience], are you going to tell me we can't work together?",
+      "speaker_perspective": "sales agent",
+      "notes": "Another phrasing to isolate the objection and determine if it's a hard requirement."
+    },
+    {
+      "type": "mindset",
+      "content": "Do not assume the prospect's desired answer when they ask a question like 'Do you have experience in our sector?'. They might be looking for something unexpected.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the importance of clarifying intent rather than assuming."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

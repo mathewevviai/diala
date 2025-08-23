@@ -1,0 +1,48 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Identify common frustrations of the target audience (e.g., useless recruiters, wasted time) to see if they resonate with the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used early in the call to probe for potential pain points."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you tried to fix this problem? Is there anything you've done to try and [solve the issue]?",
+      "speaker_perspective": "sales agent",
+      "notes": "Asks about past attempts to resolve the issue, exploring the history and root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's emotional state regarding the problem.",
+      "speaker_perspective": "sales agent",
+      "notes": "Validating their feelings can open up discussion about the depth of the issue."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling this is frustrating for you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly addresses the perceived emotion related to the problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you given up trying to fix it? Do you think this is just the way it's gotta be or do you think if there was a better way...?",
+      "speaker_perspective": "sales agent",
+      "notes": "Probes the prospect's mindset about the problem's solvability and their willingness to seek a solution."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge limitations in understanding the prospect's specific situation before proposing a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows humility and sets the stage for asking more clarifying questions."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I don't know enough about your structure and how you go about recruiting if we can fix this completely for you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the need for more information to assess the root cause and potential fit."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

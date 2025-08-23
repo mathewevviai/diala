@@ -1,0 +1,60 @@
+{
+  "source_video": "f7m0Oi8x4IY",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Right now is it a better time to call back?",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft probe to handle a time objection ('can't talk right now')."
+    },
+    {
+      "type": "technique",
+      "content": "Probe the reason behind not doing something relevant to your offering, which indicates disinterest in the solution category.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Is there any reason you don't make calls like you don't believe in it or you spend too much time getting hold of people?'"
+    },
+    {
+      "type": "technique",
+      "content": "Probe about past attempts or experiences related to the area of disinterest to understand the historical context.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Have you tried calling at all in the past?'"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's explanation for disinterest or lack of fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'I see', 'totally understand'."
+    },
+    {
+      "type": "technique",
+      "content": "Diagnose and state the apparent lack of fit based on the prospect's explanation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'I see it looks like you're not a good fit to work together'."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says everything is fine or they are performing well, probe softly to find potential underlying needs or areas for improvement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'No sales team is perfect, if there was one thing you could do to fix or make it better what would it be?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Would you like to keep talking then or would you like to hang up?",
+      "speaker_perspective": "sales agent",
+      "notes": "Offering an upfront out to handle potential disinterest or resistance."
+    },
+    {
+      "type": "mindset",
+      "content": "Accept the final 'no' gracefully after probing and diagnosing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'That's no problem at all, you can't say yes to everyone right.'"
+    },
+    {
+      "type": "technique",
+      "content": "After diagnosing no current fit, pivot to asking for referrals.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Do you have any friends or your buddies who might be interested in service that I've described?'"
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

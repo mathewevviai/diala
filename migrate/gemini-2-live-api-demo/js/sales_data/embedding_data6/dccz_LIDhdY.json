@@ -1,0 +1,36 @@
+{
+  "source_video": "dccz_LIDhdY",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "We're fine thanks, we're not interested, leave me alone.",
+      "speaker_perspective": "sales agent",
+      "notes": "Common brush-off objection received during prospecting calls."
+    },
+    {
+      "type": "technique",
+      "content": "Receiving brush-off objections like 'We're fine thanks' is often the salesperson's fault.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implies a failure in the salesperson's approach or preparation."
+    },
+    {
+      "type": "technique",
+      "content": "The reason for receiving brush-off objections is often not knowing the purpose of the prospecting call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Lack of a clear objective prevents structuring the conversation effectively to avoid or handle objections."
+    },
+    {
+      "type": "mindset",
+      "content": "The purpose of a prospecting call is not getting an appointment or making a sale; those are outcomes.",
+      "speaker_perspective": "sales agent",
+      "notes": "The focus should be on an earlier stage, likely discovery or qualifying, which sets the stage for handling resistance."
+    },
+    {
+      "type": "mindset",
+      "content": "A good salesman enables the prospect to discover they need what they have, rather than convincing them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Core philosophy for effective sales, particularly relevant when handling objections by guiding the prospect to their own conclusion."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

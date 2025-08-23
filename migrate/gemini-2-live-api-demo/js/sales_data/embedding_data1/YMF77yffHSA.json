@@ -1,0 +1,106 @@
+{
+  "source_video": "YMF77yffHSA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start sales conversations by asking for permission, e.g., \"Do you mind if I share something quickly?\".",
+      "speaker_perspective": "sales agent",
+      "notes": "Establishes respect and gains buy-in upfront."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on being interested in the prospect rather than trying to be interesting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use bridging phrases to transition from the opening to the reason for the call, e.g., \"The reason for the call is...\" or \"Specifically, I called because...\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When facing hesitation, use a soft close like \"What are your initial thoughts?\" or \"Does this seem like it might align with what you're trying to do?\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask open-ended questions that cannot be answered with a simple yes or no to encourage detailed responses.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Adopt a mindset of curiosity and genuine interest in the prospect's situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After sharing information, pause and listen actively to the prospect's reaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask clarifying questions like \"Can you tell me more about that?\" or \"What does that look like for you?\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm understanding by summarizing the prospect's points: \"So, if I understand correctly, you're looking to...\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Frame the sales conversation as a two-way dialogue, not a monologue or interrogation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect expresses a need, quantify the impact or cost of the problem if possible.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Explore consequences by asking \"What happens if you don't address this?\" or \"How is this currently impacting X?\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Before proposing a solution, ensure there is clear alignment on the problem and its significance.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Think of the sales process as guiding the prospect to discover their need for your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Transition to solutions by linking back to discovered needs: \"Based on what you've shared about X, our solution Y helps by...\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After presenting a solution's benefit, check for understanding and agreement: \"Does that make sense?\" or \"How does that resonate?\".",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm key decision criteria early in the conversation to understand what matters most to the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use trial closes throughout the conversation to gauge interest and identify potential objections early.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection, acknowledge it first before attempting to address it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Acknowledge objections using phrases like \"That's a fair point\" or \"I understand your concern about X\".",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

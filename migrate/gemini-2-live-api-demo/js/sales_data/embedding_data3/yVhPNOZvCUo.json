@@ -1,0 +1,62 @@
+{
+  "source_video": "yVhPNOZvCUo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Validate the prospect's concern when they raise an objection. Acknowledge their point of view before responding.",
+      "speaker_perspective": "sales agent",
+      "notes": "For example: 'I understand that [objection] is important to you.'"
+    },
+    {
+      "type": "technique",
+      "content": "When faced with 'It's too expensive', ask a probing question to understand the context: 'Compared to what?' or 'What were you expecting to invest?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For price objections, pivot the conversation to value, ROI, or the cost of the problem they are trying to solve.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it', probe to find the specific reason: 'What specifically do you need to think about?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "To uncover hidden objections with 'I need to think about it', ask 'Is there anything that gives you pause?' or 'Have I failed to cover anything?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or the feel-felt-found method: 'Many clients felt similarly initially, but found X results after using our solution.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect requests more information, qualify the request: 'I can send that, but what specific information would be most helpful right now to answer your questions?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect mentions a competitor or existing vendor, ask about their current experience: 'How is that currently working for you in terms of [specific benefit area]?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejection, but as requests for more information or clarification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Handling objections is about understanding the root cause and providing solutions or different perspectives, not about winning an argument.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After addressing an objection, confirm with the prospect that their concern has been adequately addressed before moving forward.",
+      "speaker_perspective": "sales agent",
+      "notes": "For example: 'Does that make sense?' or 'Does that address your concern about [objection]?'"
+    }
+  ]
+}

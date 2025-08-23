@@ -1,0 +1,29 @@
+{
+  "source_video": "oEu8gR2TOsQ",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Just because someone reaches out as an inbound lead doesn't mean they are qualified or intend to buy.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Many inbound inquiries are from people seeking free information, not genuinely interested in purchasing a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifies a common root cause for seemingly interested leads not converting."
+    },
+    {
+      "type": "technique",
+      "content": "Charging a small fee for an initial consultation acts as a filter to isolate serious prospects from information seekers.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method for clarifying intent and discovering the root cause of the inquiry (serious interest vs. free info seeking)."
+    },
+    {
+      "type": "technique",
+      "content": "Using a fee helps discover if the prospect is willing to invest even a small amount, revealing their true intent and qualification level.",
+      "speaker_perspective": "sales agent",
+      "notes": "This action serves as a form of clarifying question and root cause analysis."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

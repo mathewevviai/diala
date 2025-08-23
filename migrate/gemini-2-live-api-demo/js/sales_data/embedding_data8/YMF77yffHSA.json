@@ -1,0 +1,30 @@
+{
+  "source_video": "YMF77yffHSA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect gives a non-committal response like 'call me back' (similar to 'think about it'), acknowledge their request but immediately pivot to qualifying questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used when prospect says 'has something resonated with you though to say call me back'"
+    },
+    {
+      "type": "technique",
+      "content": "Use qualifying questions after a 'call me back' to understand the underlying situation or potential need, rather than just accepting the brush-off.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps determine if a follow-up is genuinely worthwhile."
+    },
+    {
+      "type": "example",
+      "content": "Example questions used after 'call me back': 'Is this your business?', 'You have salespeople?', 'Are they frustrating you, just be honest?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Attempting to uncover a pain point or reason for potential interest."
+    },
+    {
+      "type": "mindset",
+      "content": "Use the information gained from qualifying questions after a non-committal response to decide if pursuing the prospect further is a good use of time.",
+      "speaker_perspective": "sales agent",
+      "notes": "If no clear issue or fit is identified, don't waste time on a follow-up."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

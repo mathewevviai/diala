@@ -1,0 +1,34 @@
+{
+  "source_video": "a0Qmp1x2TM8",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Recognize that 'I don't have time' is often a reflex response, not the true objection or root cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they don't have time, ask 'When is a good time to call you back?' to test if time is the actual barrier or just a brush-off.",
+      "speaker_perspective": "sales agent",
+      "notes": "This question attempts to isolate the time objection."
+    },
+    {
+      "type": "technique",
+      "content": "Notice when a prospect pivots from a time objection to asking 'What's it regarding?' This indicates the topic itself might be the underlying issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "This shift reveals a potentially different root cause."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'If I told you it was about [topic] would a little piece of you die?' Use a provocative question to quickly gauge the prospect's true feeling about the topic and uncover the root cause.",
+      "speaker_perspective": "sales agent",
+      "notes": "Designed to elicit a strong reaction to reveal underlying disinterest."
+    },
+    {
+      "type": "technique",
+      "content": "Use targeted questions to quickly see the prospect's reaction and determine the root cause of resistance, allowing for efficient qualification.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

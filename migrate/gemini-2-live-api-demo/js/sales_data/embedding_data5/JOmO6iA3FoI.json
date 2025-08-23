@@ -1,0 +1,61 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Separate statements of fact from smoke screens or things said just to get rid of you. Not every objection is a dismissive brush-off.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Respond to statements and objections always in the form of a question to uncover the real meaning.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge objections by asking clarifying questions that push the prospect to an extreme to see if it's truly insurmountable.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'We're fine thanks', challenge with: 'Didn't you mean to say everything's perfect?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to probe if 'fine' truly means 'perfect' or if there's room for improvement."
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to get the prospect to elaborate on their initial statement, revealing the nuance or root cause.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example follow-up to 'everything's perfect': 'Oh, what do you mean?'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'I'm not interested', challenge with: 'When you say you're not interested, did you mean to say never ever under any circumstances would you consider exploring what we do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Pushes to an extreme to test the finality of the objection."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'We already have a supplier', challenge with: 'Would it be fair to say then that there is nothing anyone could say or do, no matter how cheaper or better, that you would ever consider exploring it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolates whether the existing supplier is a hard barrier or if they are open to exploring alternatives under specific conditions."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'I don't take cold calls', ask simply: 'What do you mean?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A simple clarifying question to understand the specific reason behind the statement."
+    },
+    {
+      "type": "technique",
+      "content": "Asking clarifying questions helps establish if the prospect's statement is a genuine fact or an easy way to end the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Don't take prospecting objections too seriously. View them as opportunities to practice asking probing questions.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

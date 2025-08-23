@@ -1,0 +1,99 @@
+{
+  "source_video": "WBs5CRA1YAw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Begin a sales call by asking 'Is now a bad time?' to check for availability and show respect for the prospect's time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Is now a bad time?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Opening phrase for a cold or initial sales call."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect says it is a bad time, ask for a specific better time to call back or schedule a brief meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Approach the call with curiosity and a focus on discovery rather than immediately pitching or selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use transition phrases after confirming availability to briefly state the purpose of the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'The reason for the call is...'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'The reason for the call is...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Connects the availability check to the call's purpose."
+    },
+    {
+      "type": "technique",
+      "content": "State your name, company, and why you are calling concisely within the first 10-15 seconds.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After stating the purpose, immediately ask a question to engage the prospect and start a dialogue.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that the initial goal is not to sell, but to determine if a potential fit exists by asking relevant questions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Tailor your opening statement to the specific prospect or their company, mentioning a relevant trigger event or observation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask open-ended questions that prompt the prospect to share information about their current situation, challenges, or goals.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively to the prospect's responses, focusing on understanding their needs and pain points.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Pause after asking a question to give the prospect time to think and respond without interruption.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use mirroring or summarizing techniques to show you are listening and to clarify understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the conversation reveals a potential alignment, propose a next step, such as a follow-up meeting to explore solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Based on what you've shared, it sounds like X. Does that align with what you're seeing?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to summarize and validate understanding with the prospect."
+    },
+    {
+      "type": "technique",
+      "content": "When suggesting a next step, clearly state what the prospect can expect and the value it will provide.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the proposed next step works for the prospect and schedule it during the current call if possible.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "source_video": "VYhh_IgXGhQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Isolate the single biggest issue by asking the prospect to pick one problem from a list if they could fix only one.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps prioritize and identify the most impactful objection or challenge."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Okay well of those three things if you could pick one... which would you pick if you could wave a wand and fix?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of isolating the primary issue."
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the root cause of inaction or lack of priority by asking about past internal discussions and whether action was taken.",
+      "speaker_perspective": "sales agent",
+      "notes": "Uncovers if the problem is recognized internally and if there's a history of attempting to solve it."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Have you internally sat down together and said to yourselves I think we need to be better at sales? ...did you take action or did you just let it disappear?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example probing for root cause related to internal priority and past behavior."
+    },
+    {
+      "type": "technique",
+      "content": "Test the prospect's fundamental belief or mindset as the potential root cause of resistance.",
+      "speaker_perspective": "sales agent",
+      "notes": "If they don't believe improvement is possible or necessary, external solutions won't matter."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If you don't think you can do any better nothing I seen you is going to make that click in your head is it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example testing the belief/mindset as the root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Directly ask if the stated objection or resistance is simply a polite way of ending the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "A bold technique to uncover the true, often unstated, root cause (e.g., lack of interest, timing)."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So is this just a really polite way of getting rid of me?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of directly asking about the true root cause of resistance."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that the root cause of an objection might be a fundamental lack of internal priority or belief in the possibility of improvement, making superficial follow-up ineffective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding the depth of the root cause informs subsequent strategy."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

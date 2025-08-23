@@ -1,0 +1,63 @@
+{
+  "source_video": "HmjwubEgmN8",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "The purpose of a prospecting call is to get the prospect emotional. If you can't get them emotional, the odds of continuing the conversation are virtually zero.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to move the prospect from intellectual understanding to emotional feeling about their problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'how long's this been going on?' to probe the duration of the problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'how much do you reckon it's cost you?' to probe the financial impact of the problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'how does that make you feel?' after summarizing the problem to diagnose the emotional impact and depth of pain.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Deny the prospect's pain softly ('sounds more like a lifestyle than a problem') to make them fight for it and reveal how much it truly bothers them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'Have you given up trying to fix this?' as a diagnostic question to gauge their current motivation and timing.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The purpose of the sales meeting is to diagnose if the problem is big enough for the prospect to justify giving you money to fix it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Get the prospect to fight for their pain; if they can't, it's not a real problem for them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'struggling' technique (appearing slightly bumbling) to ask probing questions without making the prospect feel cross-examined.",
+      "speaker_perspective": "sales agent",
+      "notes": "Makes probing softer and encourages prospect to open up."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask clarifying questions like 'What do you mean?' when the prospect asks a question to uncover their true motivation or underlying concern.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps diagnose the real reason behind their question, which could relate to their interest or perceived obstacles."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

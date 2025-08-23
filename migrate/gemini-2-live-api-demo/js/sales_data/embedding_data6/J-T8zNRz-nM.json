@@ -1,0 +1,36 @@
+{
+  "source_video": "J-T8zNRz-nM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When finding out a contact is gone, ask 'who replaced them out of interest?' to gather information for finding the new relevant contact.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to assessing the situation before responding, a component of LAARC."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use a permission-based opening: 'I can either have 30 seconds I can hang up now, it's up to you.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps preempt the 'I don't have time' objection, which frameworks like LAARC/AAA could otherwise handle."
+    },
+    {
+      "type": "technique",
+      "content": "Proactively address potential lack of fit or common objections by assuming them upfront: 'you're probably going to tell me you don't recognize any of that I'm guessing'.",
+      "speaker_perspective": "sales agent",
+      "notes": "A way to anticipate and frame potential resistance before it's fully voiced, related to the spirit of objection handling."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to gatekeepers or others to understand the company/situation: 'what do you guys do out of interest?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gathering information is crucial context before applying frameworks to address needs or objections."
+    },
+    {
+      "type": "mindset",
+      "content": "Not sounding like a typical salesman leads to people being more upfront with information.",
+      "speaker_perspective": "sales agent",
+      "notes": "This approach can reduce the frequency or intensity of objections, influencing the need for/effectiveness of frameworks like Feel-Felt-Found or Clarify-Isolate-Overcome."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

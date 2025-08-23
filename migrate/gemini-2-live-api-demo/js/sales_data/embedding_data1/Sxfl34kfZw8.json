@@ -1,0 +1,46 @@
+{
+  "source_video": "Sxfl34kfZw8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'send me an email', the core goal is to understand *why* they are asking for an email.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Acknowledge the email request: \"Totally fair, I can certainly do that.\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Probe what specific information is needed for the email: \"Just so I can make sure I don't send you a novel, what specifically would you want to see?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Offer a short conversation instead of guessing email content: \"Instead of me trying to guess what to send, how about I take 30 seconds right now?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the 'send me an email' request as potentially indicating the prospect is unsure of relevance.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Directly ask if the email request is about relevance or more information: \"Are you not sure this is relevant, or you just want to learn more?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use an alternative probing structure for the email request: \"When people ask for an email, usually one of two things is happening...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Implies explaining the 'two things', typically relevance or needing detail for later."
+    },
+    {
+      "type": "technique",
+      "content": "Use probing questions after an email request to determine the true objection or level of interest.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

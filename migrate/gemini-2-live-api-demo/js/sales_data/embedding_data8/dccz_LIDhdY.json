@@ -1,0 +1,35 @@
+{
+  "source_video": "dccz_LIDhdY",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "A good salesman enables the prospect to discover they need what you have, rather than trying to convince them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "In the 'Sell me this pen' scenario, refuse to 'sell' the pen directly if the prospect already owns it and states they don't care for it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets up a situation to demonstrate value differently."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to understand the prospect's current relationship with the item (e.g., 'Anything you're attracted to?', 'Care if you didn't have it?').",
+      "speaker_perspective": "sales agent",
+      "notes": "Assesses the existing need/attachment."
+    },
+    {
+      "type": "technique",
+      "content": "Demonstrate the item's value by creating a situation where the prospect experiences the lack of it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces realization of need."
+    },
+    {
+      "type": "example",
+      "content": "Taking the pen creates a situation where the prospect's request 'Give me back my pen' is their discovery of need and a form of conditional close.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prospect initiates the 'close' based on realized need."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

@@ -1,0 +1,66 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to understand the specific nature of the prospect's problem, e.g., 'Do we know the reasons why they weren't read? Was it content, spam filters, etc.?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the most significant problem by asking the prospect to choose which one stands out the most or which they would fix first if they could only pick one.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for examples to understand what the stated problem 'looks like in their world' to get concrete details.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the root cause of a long-standing problem by asking 'Why do you think that exists? Why has it been like that for so long?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use provocative questions like 'Why don't you just sack them all?' to uncover the real, underlying reasons (root cause) why a problem hasn't been solved.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to elicit deeper reasons for inaction."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with a referral, ask 'When I talk to him/her, what do you think he/she will tell me?' to anticipate objections and understand the referral's likely perspective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps diagnose the path forward with the referral."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm your understanding of the prospect's situation or problem by summarizing and asking 'Does that sound right?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about the day-to-day process related to the problem area to uncover inefficiencies or root causes of issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "E.g., 'What does prospecting look like on a day-to-day basis?'"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on establishing whether the prospect has 'symptoms of what you fix' on a cold call, rather than doing full qualification (like BANT). The deeper diagnosis happens later.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use negative Socratic questioning (e.g., 'You're probably going to tell me that you don't recognize any of that, right?') to push prospects to defend their problems and confirm they exist.",
+      "speaker_perspective": "sales agent",
+      "notes": "Leverages negative bias; forces prospect to fight for their problem."
+    },
+    {
+      "type": "technique",
+      "content": "Judge readiness to close based on whether the prospect is emotional about the problem, has identified an impact, and explored the root cause and future state.",
+      "speaker_perspective": "sales agent",
+      "notes": "Problem discovery informs when to push for next steps."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

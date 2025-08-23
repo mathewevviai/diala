@@ -1,0 +1,74 @@
+{
+  "source_video": "aUw65eryNx4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to confirm understanding of a specific point made by the prospect. 'So, just to clarify...'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the 'why' behind a statement or behavior to uncover the root cause. 'Why? That's that's the why.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'What do you mean by that?' to get specific details and unpack general statements.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the impact or consequence of a situation or behavior to understand the full scope of the issue. 'How did that affect you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Isolate a key statement and ask for more detail to delve into the underlying reasons. 'Would you say...? Tell me a bit more.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask targeted questions to test potential root causes. 'Do you mean like because... or?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't accept the first explanation; probe deeper for the real reason. 'What are the other things? Tell me about it.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that stated reasons might be symptoms, not the root cause. Question the obvious to find the deeper issue. 'Why am I always...?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe for a specific trigger moment, but be open to the root cause being a gradual 'buildup' rather than a single event.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "content",
+      "content": "Root causes for behavior or decisions can stem from trauma or difficulty coping with underlying issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding personal struggles can reveal the root cause of seemingly irrational behavior or resistance."
+    },
+    {
+      "type": "content",
+      "content": "The reason for a decision or stance might be based on a personal belief or principle. 'Why not? I'm a strong willed person.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding deeply held beliefs helps uncover the root cause of resistance to alternatives."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate a statement and ask for clarification or details to understand the specifics of the issue or preference. 'Oh, let's unpack that. What kind...?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "content",
+      "content": "The reason behind an action or decision can be based on interpreting the perceived motivation of others.",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding the prospect's interpretation of others' motives can reveal the root cause of their reaction or decision."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

@@ -1,0 +1,59 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a sales conversation by anchoring it with a potential exit, like 'If by the end of this, you don't feel comfortable, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, builds trust upfront."
+    },
+    {
+      "type": "mindset",
+      "content": "Frame the sales interaction as purely informational, not transactional, initially.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on helping the prospect, not just closing the deal."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases that give the prospect control, such as 'You have full autonomy and authority to make whatever decision feels right for you.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Empowers the prospect, removes perceived pressure."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Does this make sense so far?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Check for understanding during explanation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Does that resonate with you at all?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Check if the points connect with the prospect's situation."
+    },
+    {
+      "type": "technique",
+      "content": "Listen for micro-commitments and moments of agreement throughout the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Indicates engagement and alignment."
+    },
+    {
+      "type": "technique",
+      "content": "Continuously seek confirmation that the prospect is following and agreeing with the presented information.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures understanding and builds consensus progressively."
+    },
+    {
+      "type": "mindset",
+      "content": "Be genuinely curious about the prospect's needs and perspective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from selling to understanding and helping."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm that the prospect understands the information shared and agrees with the steps outlined.",
+      "speaker_perspective": "sales agent",
+      "notes": "Secures buy-in on the process and information."
+    }
+  ]
+}

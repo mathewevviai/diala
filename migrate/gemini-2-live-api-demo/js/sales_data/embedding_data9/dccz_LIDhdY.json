@@ -1,0 +1,27 @@
+{
+  "source_video": "dccz_LIDhdY",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospects frequently respond with 'Not interested' or 'We are fine thanks' early in prospecting calls.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Receiving the 'Not interested' response is often the salesperson's fault.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The reason for getting 'Not interested' is usually the salesperson not knowing the true purpose of the prospecting call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The purpose of a prospecting call is not getting an appointment or making a sale; these are merely outcomes.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implies the call should achieve something else before encountering 'not interested'."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

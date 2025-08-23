@@ -1,0 +1,46 @@
+{
+  "source_video": "KNVNWaWroQg",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Do not automatically agree to send information when a prospect asks; always qualify first.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect asks for information, ask clarifying questions to understand their specific interest or need.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What information specifically would you be hoping to see?",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Could I ask what it is specifically that's piqued your interest?",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Rather than blast you with absolutely everything...",
+      "speaker_perspective": "sales agent",
+      "notes": "Use as a transition to explain why sending general info isn't ideal."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "It doesn't make sense for me to just send you information without knowing what's most relevant to you.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Suggest a brief follow-up call as an alternative to sending a large, untargeted amount of information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Would you be open to a super quick call later today or tomorrow where I can make sure what I send is specific to your needs?",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

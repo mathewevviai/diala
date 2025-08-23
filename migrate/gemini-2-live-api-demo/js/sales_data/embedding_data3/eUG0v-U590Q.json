@@ -1,0 +1,77 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge and isolate objections: 'Okay, aside from [objection], is there any other reason why you wouldn't be able to move forward?' This helps identify the real barrier.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use a calm, understanding tone."
+    },
+    {
+      "type": "technique",
+      "content": "When someone says 'I need to think about it', ask clarifying questions like 'What specifically do you need to think about?' to uncover the underlying issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid pushing; seek understanding."
+    },
+    {
+      "type": "technique",
+      "content": "For 'I need to talk to my...', acknowledge their position, then gently probe their partner's likely concerns or criteria for making a decision.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Address price objections by asking 'How did you come up with that number?' to understand their reference point and reframe around value.",
+      "speaker_perspective": "sales agent",
+      "notes": "Don't immediately justify price; first understand their perspective."
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'Feel-Felt-Found' structure for common objections: 'I understand how you feel. Others have felt similarly. But what they found was...' (followed by the positive outcome).",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds empathy and offers a tested solution."
+    },
+    {
+      "type": "technique",
+      "content": "Ask trial closing questions after handling an objection to test readiness: 'Based on what we've discussed, does that sound like something you'd be open to?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Checks if the objection is truly resolved."
+    },
+    {
+      "type": "technique",
+      "content": "If the objection is 'We're already using someone else', ask about their current satisfaction level and what an ideal solution would look like.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions your solution as potentially better without being overtly critical."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejections, but as requests for more information or clarification. Stay positive and curious.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Reframe a 'cost' into an 'investment' by focusing on the potential return or savings the client will gain.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from expense to benefit."
+    },
+    {
+      "type": "technique",
+      "content": "When a potential client raises a timing objection ('Not right now'), ask 'What needs to happen for the timing to be right?' to identify roadblocks.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Help me understand a little bit about [the objection]\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Opens the door for the client to elaborate on their concern."
+    },
+    {
+      "type": "technique",
+      "content": "If the objection is vague, encourage specificity: 'Could you tell me more about that concern?' or 'What specifically worries you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Drill down to the root cause."
+    }
+  ]
+}

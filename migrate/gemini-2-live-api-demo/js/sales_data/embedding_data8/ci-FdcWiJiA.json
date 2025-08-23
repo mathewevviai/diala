@@ -1,0 +1,47 @@
+{
+  "source_video": "ci-FdcWiJiA",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect uses 'planning to look into BIOS in the next year just not now' as a reason not to engage immediately.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a common 'think about it' or 'later' stall."
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'next year' stall by asking 'May I ask why your team is looking into vials?' to uncover the specific trigger or need.",
+      "speaker_perspective": "sales agent",
+      "notes": "Attempting to understand the underlying motivation for the future plan."
+    },
+    {
+      "type": "mindset",
+      "content": "Reflection: 'Should have pushed for the meeting' when a prospect uses a stall like 'next year' or 'send me an email'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Core principle: 'Always get the meeting' when faced with stalls; don't easily accept 'send me an email' or 'next year'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Strong emphasis on pushing for a defined next step."
+    },
+    {
+      "type": "example",
+      "content": "Prospect suggests 'What you can do is just send me an email' as a way to end the call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Common stall/brush-off often following a soft 'think about it' or 'later'."
+    },
+    {
+      "type": "technique",
+      "content": "Attempt a conditional close when asking for a referral: 'Would it be easier if I sent you just a very basic email... and perhaps could forward it along?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Framing sending information as a way to make it easier for the prospect to take the suggested next step (forwarding)."
+    },
+    {
+      "type": "technique",
+      "content": "Offer mobile number for direct contact after a referral is agreed upon, facilitating easier follow-up than just an email.",
+      "speaker_perspective": "sales agent",
+      "notes": "Providing multiple contact options to increase the chance of the referral leading to a conversation."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

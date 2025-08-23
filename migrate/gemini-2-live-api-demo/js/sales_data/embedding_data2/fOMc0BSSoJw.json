@@ -1,0 +1,35 @@
+{
+  "source_video": "fOMc0BSSoJw",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a permission-based opening for cold calls offering immediate control: 'Would you like to hang up or allow me 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Puts the prospect in charge from the start."
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'Not interested' objection by acknowledging their position and then pivoting to a quick, relevant question.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Keep the initial phase of a cold call extremely brief to earn permission for further conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Respect prospect's limited time."
+    },
+    {
+      "type": "technique",
+      "content": "Focus the cold call opening on validating potential fit or relevance rather than immediately pitching your solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Less pressure, more exploratory."
+    },
+    {
+      "type": "technique",
+      "content": "Open a cold call by asking a question derived from a common challenge or observation relevant to the prospect's role or industry.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    }
+  ]
+}

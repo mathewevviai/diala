@@ -1,0 +1,112 @@
+{
+  "source_video": "zEkFceI9A-Y",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "The goal of a sales call is to determine if there's a mutual fit, not just to sell.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Start calls with a clear, concise opening that explains the call's purpose.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"The reason for my call is...\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use this phrase to clearly state your purpose early on."
+    },
+    {
+      "type": "technique",
+      "content": "Ask open-ended questions to encourage the prospect to share more information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Tell me more about that.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use this to probe deeper into a prospect's statement."
+    },
+    {
+      "type": "technique",
+      "content": "Actively listen and reflect the prospect's points back to confirm understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Treat objections as requests for more information, not roadblocks.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When facing an objection, first acknowledge and validate the prospect's concern.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"I understand where you're coming from.\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use to acknowledge an objection before responding."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions about an objection to understand the root cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"When you say [objection], what specifically do you mean by that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use to get specifics on a vague objection."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the conversation and the prospect's needs before proposing a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"So, just to make sure I've got this right, you're looking for [summary of need].\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Use to confirm understanding before presenting a solution."
+    },
+    {
+      "type": "technique",
+      "content": "Handle pricing objections by relating value back to the prospect's stated needs and goals.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Compared to the cost of [problem prospect faces] or the potential gain from [solution benefit], how does that price sound?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Frame price in relation to the value or problem solved."
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or examples of similar clients who achieved results.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Guide the conversation towards a logical next step if there is a fit.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Based on what you've shared, it sounds like [solution] could be a good fit. What would be a logical next step from here?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Suggest next steps and seek agreement."
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain a confident but non-pushy tone throughout the sales interaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for the business or schedule the next meeting clearly at the end of the call if appropriate.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

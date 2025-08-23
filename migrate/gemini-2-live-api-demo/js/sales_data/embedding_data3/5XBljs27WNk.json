@@ -1,0 +1,56 @@
+{
+  "source_video": "5XBljs27WNk",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect raises an objection, first acknowledge their concern to show empathy and understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel, Felt, Found' framework: 'I understand how you feel. Other clients have felt the same way. What they *found* is...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Effective for addressing emotional or common objections."
+    },
+    {
+      "type": "technique",
+      "content": "For price objections, bridge from cost to value by highlighting the benefits, ROI, or savings over time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "To handle 'It's too expensive', ask 'Compared to what?' or 'What specific part of the investment concerns you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Break down a large price into smaller, more manageable increments (e.g., cost per month, per day).",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it', probe deeper: 'What specifically will you be thinking about?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Respond to 'I need to think about it' by asking 'What information are you missing that would help you decide today?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or testimonials from clients who had similar objections but achieved success.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe an objection by highlighting the potential negative consequences of *not* addressing the problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Turn an objection into a question to uncover the root cause: 'If [objection] wasn't an issue, would you move forward?'",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

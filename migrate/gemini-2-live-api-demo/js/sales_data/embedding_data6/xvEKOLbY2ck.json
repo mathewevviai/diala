@@ -1,0 +1,47 @@
+{
+  "source_video": "xvEKOLbY2ck",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Utilize a prospect's known negative perception of your industry/role to your advantage in the opening.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you that this call was about [negative industry/role], would a little piece of you die?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to elicit an honest reaction or vent from the prospect based on common negative experiences."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect reacts negatively or vents about a common pain point, listen actively and acknowledge their frustration.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to LAARC/AAA: Listen, Acknowledge."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Well look, before you hang up, can I ask a question? Why does everybody say that?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to encourage the prospect to vent and clarify the specific reasons for their negative perception. Related to AAA/Clarify."
+    },
+    {
+      "type": "technique",
+      "content": "Allow the prospect to vent fully about their frustrations. Listening is crucial to understanding and isolating the objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to LAARC/Clarify-Isolate."
+    },
+    {
+      "type": "technique",
+      "content": "After the prospect vents, differentiate your approach to attempt to overcome the negative perception or objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to Overcome."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I was to guarantee that the next 30 seconds would be completely different from every other call you got, would you hear me out?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used after a prospect vents to differentiate and gain permission to continue. Related to Overcome."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

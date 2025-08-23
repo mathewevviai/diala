@@ -1,0 +1,36 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use presumptive questions to probe why a prospect hasn't already adopted a solution or achieved a known benefit, assuming they were offered the chance. This diagnoses the reason for their current state.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps uncover underlying reasons for inaction or perceived disinterest."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Can I ask you a question, when you were offered the opportunity to automate this... why did you say no to it?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a presumptive question to probe the reason for not having solved a known problem."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect expresses hesitant interest (e.g., 'might be interested'), probe the specific conditions under which they *would* be interested using hypothetical scenarios.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps diagnose the nature of their interest or disinterest by clarifying requirements or conditions for moving forward."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If you had a system that could save us an hour every day then yeah we take a look.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a prospect stating a condition for interest, prompted by hypothetical probing."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If you took a look and you saw and you loved it and you realized it would do all the things you said what are you going to do?",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of a hypothetical follow-up question to probe commitment based on meeting conditions."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

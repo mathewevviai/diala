@@ -1,0 +1,88 @@
+{
+  "source_video": "1LDRu3zYfdI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Always answer every question with a question to control the conversation flow and avoid giving direct answers prematurely.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Practice answering questions with questions in low-pressure situations (like supermarkets) to build the habit for high-pressure sales calls.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Dig deeper into the prospect's stated problem through questioning to uncover the emotional impact and cost, moving from intellect to emotion.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to the 'Felt' part of Feel-Felt-Found."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the prospect's points about their problem before asking how it makes them feel to solidify the emotional connection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to getting to the 'Felt' part of Feel-Felt-Found."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect snaps or gets angry, call out the emotion directly (e.g., 'I get the feeling I've upset you or you're angry with me. What have I done?').",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to acknowledging/labeling emotions, a component of handling objections/difficult conversations."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect states a policy objection (e.g., payment terms), state your own policy in response to frame it as a policy conflict, not a negotiation.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method for overcoming objections."
+    },
+    {
+      "type": "mindset",
+      "content": "An objection is the prospect's problem to deal with, not the salesperson's. Get the prospect to explain or justify their objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to overcoming objections."
+    },
+    {
+      "type": "technique",
+      "content": "Treat 'I need to think it over' as a decision not to make a decision, which is effectively a 'no'. State that you can't help if they can't decide.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method for clarifying and overcoming procrastination/objections."
+    },
+    {
+      "type": "technique",
+      "content": "When asked for a discount, ask 'Is this a test?' to challenge the prospect and reinforce your value.",
+      "speaker_perspective": "sales agent",
+      "notes": "A method for overcoming price/discount objections."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't let the prospect dictate the solution based on their research; you are the expert who diagnoses the problem and prescribes the fix.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to clarifying the real problem vs. the prospect's perceived problem/solution."
+    },
+    {
+      "type": "mindset",
+      "content": "If a prospect snaps, it indicates something went wrong earlier in the conversation process that led to their frustration or feeling evasive.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on diagnosing the root cause of a difficult interaction, related to Clarify."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's frustration (labeling) to show understanding before addressing their point.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to handling emotions, similar to the 'Feel' aspect."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect challenges the process or demands control, offer to leave to put the decision back on them and test their commitment.",
+      "speaker_perspective": "sales agent",
+      "notes": "A high-pressure technique to regain control or disqualify, related to overcoming challenges."
+    },
+    {
+      "type": "example",
+      "content": "Example of handling a tough gatekeeper: Gatekeeper asks 'You mean Mr. Wilson?', Salesperson responds 'Good grief old Wilky, I haven't called him that since college! Yes, Mr. Wilson, tell him it's Ben'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of thinking on your feet and using familiarity to bypass a gatekeeper, related to overcoming."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

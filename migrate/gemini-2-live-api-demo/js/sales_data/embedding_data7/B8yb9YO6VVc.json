@@ -1,0 +1,42 @@
+{
+  "source_video": "B8yb9YO6VVc",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "To get emotion into a boring product like insurance, tell people what they don't know is true. Reveal potential unknown risks or lack of coverage.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to justify value/price by highlighting potential future cost/loss."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What's the number one reason why you think insurance companies don't pay out?",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets up the reframing of value away from price to risk/coverage."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Because you're not covered for what you thought you were covered for.",
+      "speaker_perspective": "sales agent",
+      "notes": "The answer to the previous question, directly addressing the potential hidden cost of inadequate coverage."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "You want to roll the dice or do you want to figure that out?",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the decision as accepting risk (rolling the dice) vs. investing in certainty/coverage (figuring it out), reframing price as cost of certainty vs. cost of risk."
+    },
+    {
+      "type": "technique",
+      "content": "Highlight potential problems with competitors (like lack of service) to differentiate and justify your value/price beyond a simple comparison.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes the comparison from just price to overall value including service."
+    },
+    {
+      "type": "mindset",
+      "content": "People are not logical; they are emotional. Make the value proposition emotional, even for logical products, to overcome price focus.",
+      "speaker_perspective": "sales agent",
+      "notes": "Underpins the strategy of highlighting emotional consequences of not buying or buying cheap/inadequate solutions."
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

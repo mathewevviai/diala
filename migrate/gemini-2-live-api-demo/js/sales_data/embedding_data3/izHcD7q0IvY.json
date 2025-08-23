@@ -1,0 +1,122 @@
+{
+  "source_video": "izHcD7q0IvY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'it's too expensive,' first acknowledge their concern without immediately dropping the price.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "To handle price objections, pivot the conversation to focus on the value and return on investment (ROI) the solution provides.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I totally understand that price is a factor... let's look at what this investment *does* for you.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for acknowledging price concern and pivoting to value."
+    },
+    {
+      "type": "example",
+      "content": "Compare your solution's cost to alternatives by highlighting savings or gains: 'Compared to X, our solution actually saves you Y over Z years.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example response to a price objection."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with 'I need to think about it,' ask clarifying questions to uncover the specific reason for hesitation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'That's fair. What specifically about this proposal requires more thought?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to challenge the 'I need to think about it' objection."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection by asking if the concern is about the solution itself, the timing, or the investment.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Is it the solution itself, the timing, or the investment?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to help identify the root cause of a stall objection."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect isn't the sole decision-maker, identify who else needs to be involved.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Who else needs to be involved in this decision?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to identify missing stakeholders."
+    },
+    {
+      "type": "technique",
+      "content": "When asked to 'send more information' (often a brush-off), qualify the request by asking what specific questions remain.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'I'd be happy to, but to make sure I send the *right* info, what specific questions do you still have?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Response to qualify a request for more information."
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel, Felt, Found' framework to address common concerns: acknowledge how they 'feel', share others who 'felt' similarly, and explain what they 'found' with your solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Structured objection handling technique."
+    },
+    {
+      "type": "mindset",
+      "content": "Handling objections starts with active listening; let the prospect fully express their concern without interrupting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Foundation for effective objection handling."
+    },
+    {
+      "type": "technique",
+      "content": "Clarify the objection to ensure you fully understand the prospect's concern before responding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'So, just to make sure I understand, your main concern is X?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question for clarifying an objection."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect is happy with their current provider, ask what they like most to understand their priorities.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'That's great to hear. What do you like most about working with them?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Question to explore the status quo when the prospect is happy."
+    },
+    {
+      "type": "technique",
+      "content": "Follow up exploring satisfaction by asking if anything could be better or if there are areas for improvement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'What, if anything, could be even better?' or 'Are there any areas where you feel you could improve?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Questions to gently uncover potential dissatisfaction despite stated happiness."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejections, but as questions or requests for more information about how your solution can meet their needs or mitigate risks.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positive framing for handling objections."
+    }
+  ]
+}

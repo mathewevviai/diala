@@ -1,0 +1,95 @@
+{
+  "source_video": "f7m0Oi8x4IY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start your cold call by anchoring the meeting: 'If by the end of this, you don't feel comfortable moving forward, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, sets realistic expectation."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use phrases like 'It's not for everybody' early on.",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates scarcity, manages expectations."
+    },
+    {
+      "type": "technique",
+      "content": "Lead the conversation by stating the purpose upfront and setting the agenda briefly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Maintains control, provides structure."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'The only goal for this call is to...' to define the scope and expectation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifies purpose for both parties."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask a question like 'Do you understand why I said that?' or 'Does that make sense?' after explaining a concept.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures comprehension, invites agreement/disagreement."
+    },
+    {
+      "type": "technique",
+      "content": "When asking questions, follow up with 'Help me understand...' to encourage detailed responses.",
+      "speaker_perspective": "sales agent",
+      "notes": "Promotes open-ended answers, deeper understanding."
+    },
+    {
+      "type": "technique",
+      "content": "After a prospect shares information, summarize it using phrases like 'So just so I'm understanding correctly...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirms understanding, shows active listening."
+    },
+    {
+      "type": "technique",
+      "content": "Use reflective listening: Repeat or rephrase what the prospect said to show you're listening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport, validates prospect's points."
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery questions to solution discussion by linking their problem to your offering.",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates relevance for the pitch."
+    },
+    {
+      "type": "technique",
+      "content": "When presenting, frame benefits in terms of the specific pain points the prospect mentioned.",
+      "speaker_perspective": "sales agent",
+      "notes": "Makes the solution highly relevant and impactful."
+    },
+    {
+      "type": "technique",
+      "content": "Use conditional statements when discussing next steps or commitments, e.g., 'If this sounds good, then the next step is...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates a smooth flow towards action based on agreement."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm readiness to proceed before transitioning to closing or next steps.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids pushing if the prospect isn't ready."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask 'How does that sound as a potential next step?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft closing phrase, asks for agreement on the process."
+    },
+    {
+      "type": "mindset",
+      "content": "Your role is to guide the prospect through a process, not just push a sale.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on structure and mutual agreement."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect agrees to a next step, immediately confirm the logistics (time, date, attendees).",
+      "speaker_perspective": "sales agent",
+      "notes": "Solidifies commitment, prevents ambiguity."
+    }
+  ]
+}

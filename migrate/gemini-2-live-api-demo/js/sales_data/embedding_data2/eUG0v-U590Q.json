@@ -1,0 +1,65 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start a sales interaction by setting expectations and gaining agreement on the process: 'Here's how this call usually goes...' or 'My goal is X, does that sound good?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a client asks 'What do you guys do?', respond by understanding their context first: 'Tell me a bit about what you're looking for or what brings you here.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect asks for pricing early, deflect by explaining you need to understand their needs first to provide relevant options: 'Pricing depends on X, Y, and Z, but I can give you a range if we discuss A and B.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use anchoring to set a meeting duration expectation: 'Typically, these conversations take about 15-20 minutes. Does that work for you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After explaining the process, ask for explicit permission to proceed: 'If that sounds good, would you be open to sharing a bit about [topic]?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame your questions around understanding their goals and current situation before pitching any solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asked 'What do you do?', give a high-level problem/solution statement followed by a question to engage them: 'We help [customer type] achieve [benefit]. Are you currently experiencing [problem]?'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to dig deeper into a prospect's initial statements: 'When you say [phrase], what exactly does that mean for you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Employ permission-based selling by asking if they are 'open' or 'willing' to discuss certain topics.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure calls to move from broad understanding to specific needs before introducing solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the 'send me information' request by offering a brief summary or relevant example instead of just promising an email: 'I can send you something, but briefly, did you want information on X or Y?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When deflecting a pricing question, explain that the price is variable based on customization or scope.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

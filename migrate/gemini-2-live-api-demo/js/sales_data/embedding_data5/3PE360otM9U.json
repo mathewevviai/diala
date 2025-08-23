@@ -1,0 +1,30 @@
+{
+  "source_video": "3PE360otM9U",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Our job if we are selling is we should be asking the questions, not responding.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emphasizes the proactive role of the salesperson in discovery, crucial for uncovering potential objections."
+    },
+    {
+      "type": "technique",
+      "content": "A salesperson should be asking the prospect questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Fundamental principle for understanding the prospect's situation, which precedes objection discovery."
+    },
+    {
+      "type": "example",
+      "content": "Prospect asking: 'What do you actually fix?' or 'What is it you're gonna take away for me?'",
+      "speaker_perspective": "sales agent",
+      "notes": "These prospect questions require the salesperson to probe deeper to understand the underlying need or potential concern."
+    },
+    {
+      "type": "example",
+      "content": "Prospect asking: 'Why would I want to buy this?' or 'What makes you better than all the other systems?'",
+      "speaker_perspective": "sales agent",
+      "notes": "These questions signal potential objections or lack of perceived value, requiring clarifying questions from the salesperson."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

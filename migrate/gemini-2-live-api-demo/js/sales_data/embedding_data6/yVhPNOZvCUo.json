@@ -1,0 +1,36 @@
+{
+  "source_video": "yVhPNOZvCUo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When faced with criticism, acknowledge the point or the feeling behind it before providing your perspective or counter-argument.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to Acknowledge step in frameworks like AAA or LAARC, or the Feel step in Feel-Felt-Found."
+    },
+    {
+      "type": "example",
+      "content": "Responding to the idea that her post was 'narcissistic' or 'victimhood' by first agreeing that victimhood can be narcissistic ('yeah I do actually believe that victimhood is quite narcissistic').",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of the 'Agree' step in the AAA framework (Acknowledge, Agree, Answer)."
+    },
+    {
+      "type": "technique",
+      "content": "After acknowledging a criticism, differentiate your specific situation from the general point being made.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of structuring a response to an objection or criticism, following acknowledgement/agreement."
+    },
+    {
+      "type": "example",
+      "content": "Stating that her post 'wasn't a pulse of being a victim it was a post that I'm kicking ass' after agreeing that victimhood can be narcissistic.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of differentiating her situation as part of the 'Answer' step in AAA."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to criticism by focusing on your authentic values and achievements, rather than trying to fit others' expectations.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the 'Answer' step in AAA - providing the rationale/alternative perspective."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

@@ -1,0 +1,36 @@
+{
+  "source_video": "8iuUqHcEqdE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a 'mini-contract' at the start of a cold call: 'By the end of these 30 seconds, we can either keep speaking or hang up. Does that sound fair?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates a clear agreement and manages expectations, a form of conditional closing."
+    },
+    {
+      "type": "technique",
+      "content": "Set conditions for engagement to test commitment. Example: Require the prospect's team to contribute financially to training.",
+      "speaker_perspective": "sales agent",
+      "notes": "Filters out those who lack commitment, handling potential future stalls or lack of follow-through."
+    },
+    {
+      "type": "technique",
+      "content": "After identifying pain and emotion, test for hidden objections with a conditional close: 'Let's pretend I could fix this for you. Is there any reason you wouldn't invite me in?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Moves towards commitment by addressing potential barriers upfront."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Let's pretend I could fix this for you, is there any reason you wouldn't invite me in?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional closing phrase used after establishing pain/emotion."
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'closed file' email tactic when a prospect goes silent to provoke a response and break the stall.",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses ghosting, which is a form of 'thinking about it' without communication."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

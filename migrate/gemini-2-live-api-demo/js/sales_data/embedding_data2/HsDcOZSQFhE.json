@@ -1,0 +1,77 @@
+{
+  "source_video": "HsDcOZSQFhE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start cold calls by asking for permission to continue or hang up, giving control to the prospect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Would you like to hang up or let me have 30 seconds?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used at the beginning of a cold call."
+    },
+    {
+      "type": "technique",
+      "content": "Immediately pivot from the opening to focus on the prospect's potential challenges or goals related to your offering.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions to uncover deeper motivations and problems, not just surface-level issues.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and reflect back what you hear to ensure understanding and build trust.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the conversation around solving a specific, identified problem the prospect is facing.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections as requests for more information, not rejections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle the price objection by tying value directly to the cost, showing return on investment or solving a costly problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use silence after asking a question to encourage the prospect to elaborate.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm understanding of their needs before presenting a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Propose next steps clearly at the end of the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Does that sound like something that would be helpful?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Checking for interest or alignment."
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a confident, yet non-aggressive, tone throughout the interaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the prospect early by asking about budget, authority, need, and timeline (BANT or similar).",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "source_video": "dkxdSOpKudM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use the phrase 'quick question' to transition into asking for contact information or details during a call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asking for information like email, frame it as needed 'for compliance purposes' or 'to make sure everything is confirmed'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use placeholder information if the prospect is hesitant to provide real details immediately, agreeing to update later.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: Use a fake email like 'test@test.com' and note to get the real one later."
+    },
+    {
+      "type": "technique",
+      "content": "Ask a confirming question like 'Can I get that spelling of your last name just to be sure?' to verify information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After collecting required information, immediately transition by summarizing next steps or confirming details collected.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid awkward silence after getting details; move the conversation forward."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the primary address verbally to ensure accuracy for any physical mail or records.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask a clarifying question like 'And this is the address you receive most of your mail at?' to confirm residency or mailing preference.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asking for phone number, state the reason clearly, like 'in case I need to call you back' or 'to confirm details'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the best number to reach them on, especially if they provided multiple contact methods.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "State back the information you've gathered clearly to the prospect to allow for corrections and build trust.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Okay, so I have your name as [Name], DOB as [DOB]... Is that all correct?'"
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Perfect' or 'Awesome' as positive reinforcement after receiving requested information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Introduce the requirement for verification steps early in the process so it doesn't surprise the prospect later.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Explain the 'why' behind needing sensitive information or verification steps, e.g., 'for security' or 'to protect your information'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Guide the prospect through each step of the verification process clearly and patiently.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When verifying identity, state the purpose explicitly: 'This is just to verify your identity'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm details like date of birth or last four of SSN by asking the prospect to state them, rather than reading them yourself.",
+      "speaker_perspective": "sales agent",
+      "notes": "Safer for privacy and compliance."
+    },
+    {
+      "type": "technique",
+      "content": "After confirming details, use a transition like 'Alright, thank you so much' before moving to the next part of the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Clearly explain any upcoming checks or screens, such as a background check or eligibility screen.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame checks positively or neutrally, like 'We just need to run a quick check to see what you qualify for'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask for explicit consent before running any checks that access external databases.",
+      "speaker_perspective": "sales agent",
+      "notes": "Use phrases like 'Do I have permission to proceed?'"
+    },
+    {
+      "type": "technique",
+      "content": "Provide a realistic timeframe for checks to complete so the prospect knows what to expect.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases indicating partnership or shared goal, like 'We'll do this together' or 'Let's see what options are available for you'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Maintain a positive and encouraging tone throughout the process, especially during data collection and verification.",
+      "speaker_perspective": "sales agent",
+      "notes": "Tone can significantly impact prospect comfort."
+    },
+    {
+      "type": "technique",
+      "content": "If there's a delay or issue during a check, explain it calmly and what the next steps will be.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After verification and checks are complete, summarize the outcome before presenting options or moving forward.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

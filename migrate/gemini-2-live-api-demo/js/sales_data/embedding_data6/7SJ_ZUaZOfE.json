@@ -1,0 +1,24 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Acknowledge the prospect's feeling about their current situation to build rapport and show empathy.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to the 'Feel' component of the Feel-Felt-Found framework."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "I get the feeling this is this is frustrating for you",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrase used to acknowledge the prospect's feeling, aligning with the 'Feel' stage."
+    },
+    {
+      "type": "technique",
+      "content": "Introduce common frustrations experienced by others in the prospect's position early in the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets the stage for relating to the prospect's potential feelings and using frameworks like Feel-Felt-Found."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

@@ -1,0 +1,36 @@
+{
+  "source_video": "bSqgdjtcWS8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Get a commitment from the prospect at the beginning of the meeting that they will make a decision (yes or no) by the end of the meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Closing is getting a commitment from the prospect on whether or not you will move forward, based on a prior agreement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "At the end of the meeting, ask: 'Based on the answers I've given and the questions I've asked, do you believe I can help you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If the prospect says 'yes' you can help, ask: 'What do you want to do? What's the next step?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When asking for the next step, refer back to the initial agreement made at the beginning of the meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Closing is about getting the right outcome, which is a clear decision (yes or no), not necessarily getting the deal.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

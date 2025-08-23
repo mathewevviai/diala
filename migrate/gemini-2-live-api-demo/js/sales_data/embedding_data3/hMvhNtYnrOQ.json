@@ -1,0 +1,53 @@
+{
+  "source_video": "hMvhNtYnrOQ",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Handle 'I need to think about it' by saying 'That's fair. What specifically do you need to think through?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover the real objection."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to 'I need to think about it' with 'Usually, when someone needs to think, it's about X or Y. Which one is it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Provides options for common underlying concerns."
+    },
+    {
+      "type": "technique",
+      "content": "For a price objection 'it's too expensive', ask 'Compared to what?' or 'What were you expecting to invest?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenges the comparison or uncovers budget."
+    },
+    {
+      "type": "technique",
+      "content": "Address 'it's too expensive' by refocusing on the value and return on investment the solution provides.",
+      "speaker_perspective": "sales agent",
+      "notes": " Shifts focus from cost to benefit."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I don't have time', validate and then offer to schedule a very brief follow-up or cover the essentials quickly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Respects their time constraint while finding a path forward."
+    },
+    {
+      "type": "technique",
+      "content": "Use the Feel-Felt-Found framework: 'I understand how you feel. Others have felt similarly, but what they've found is...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledge, empathize, and then pivot with social proof/experience."
+    },
+    {
+      "type": "technique",
+      "content": "Don't immediately counter an objection. First, acknowledge and seek clarification: 'Okay, I hear you saying [objection]. Can you tell me more about that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensures understanding before responding and shows empathy."
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection: 'Besides [this objection], is there anything else preventing you from moving forward?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Confirms if the stated objection is the only barrier."
+    }
+  ]
+}

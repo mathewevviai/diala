@@ -1,0 +1,24 @@
+{
+  "source_video": "S4qbFWmjtq4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Getting objections like 'we're fine thanks' or 'not interested' is often the salesperson's fault.",
+      "speaker_perspective": "sales agent",
+      "notes": "Identifies the salesperson's actions/preparation as the root cause of receiving premature objections."
+    },
+    {
+      "type": "technique",
+      "content": "The root cause of receiving premature objections is often the salesperson not understanding the true purpose of a prospecting call.",
+      "speaker_perspective": "sales agent",
+      "notes": "Links the salesperson's lack of clarity on call purpose to the prospect's negative reaction."
+    },
+    {
+      "type": "technique",
+      "content": "The purpose of a prospecting call is not to get an appointment or make a sale; these are merely outcomes.",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifies what the call purpose is NOT, implying the actual purpose must be understood to avoid objections."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

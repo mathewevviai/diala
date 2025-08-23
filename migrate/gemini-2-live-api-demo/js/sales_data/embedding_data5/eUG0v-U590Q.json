@@ -1,0 +1,52 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Listen carefully to the prospect's words and use questions based on what they say to delve deeper and uncover underlying issues or root causes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to understand the prospect's current situation, process, or the specifics of their statement.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Do you still have sales people?'"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge assumptions with questions to provoke thought and reveal the actual situation or potential root cause of a problem.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Why do you still pitch and quote? I'm assuming you charge for these?'"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about key metrics (like close rate on quotes) to quantify potential inefficiencies and identify root causes of sales bottlenecks.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe the root cause behind a stated preference or objection by asking 'why'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Is it because you don't like receiving them that you don't like doing them or is it you just don't think they work?'"
+    },
+    {
+      "type": "technique",
+      "content": "Use hypothetical or isolating questions to test if addressing a specific potential solution removes the prospect's core resistance.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'If I could show you how to sell quotes and you believed it would work, is there any reason you wouldn't spend 45 mins exploring that?'"
+    },
+    {
+      "type": "mindset",
+      "content": "Be curious about the prospect's motivations and actions, even if they seem like a 'no'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: Intrigued why someone called back after a hangup."
+    },
+    {
+      "type": "mindset",
+      "content": "Don't be afraid to challenge the prospect's statements or assumptions through questioning.",
+      "speaker_perspective": "sales agent",
+      "notes": "This helps uncover deeper issues."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

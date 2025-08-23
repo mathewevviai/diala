@@ -1,0 +1,90 @@
+{
+  "source_video": "T9K4Dj3qsrM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When faced with a prospect's objection, acknowledge their point of view first to build rapport before responding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "To handle objections effectively, understand the underlying reason behind the prospect's statement, don't just react.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it', probe deeper by asking 'What specific information do you need or what are your concerns?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Handling the 'think about it' objection"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What specifically do you need to think about?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover root of 'think about it' objection"
+    },
+    {
+      "type": "technique",
+      "content": "Address price objections by relating the cost to the value or ROI the prospect will receive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Feel, Felt, Found' framework: 'I understand how you feel, other clients felt similarly, but what they found was...'",
+      "speaker_perspective": "sales agent",
+      "notes": "Empathy-based objection handling framework"
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection: Ask the prospect if addressing their stated concern would make them ready to move forward.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Okay, so if we could address X (the objection), would that make you comfortable moving forward?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolating the objection to confirm its significance"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect brings up a competing offer, compare your solution based on specific benefits and unique value, not just price.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "For timing objections ('Now isn't a good time'), explore what specifically makes the timing challenging and if delaying could cost them more.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't fear objections; view them as questions or requests for more information that indicate engagement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain a positive and confident attitude when handling objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use social proof or testimonials to handle objections related to skepticism or trust.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to fully understand an objection before formulating a response.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Could you tell me a little more about that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Asking for clarification on an objection"
+    },
+    {
+      "type": "technique",
+      "content": "After handling an objection, transition smoothly back to the next step in the sales process, like confirming understanding or moving to close.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

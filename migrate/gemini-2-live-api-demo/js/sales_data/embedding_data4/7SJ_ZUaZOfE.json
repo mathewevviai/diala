@@ -1,0 +1,30 @@
+{
+  "source_video": "7SJ_ZUaZOfE",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are information requests, not rejections.",
+      "speaker_perspective": "sales agent",
+      "notes": "The speaker treats objections as opportunities to gather more information rather than as barriers."
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledge the objection and reframe it as a chance to provide more value.",
+      "speaker_perspective": "sales agent",
+      "notes": "The agent acknowledges potential objections and positions them as a reason to explore further."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Let\u2019s pretend I could fix this for you\u2014is there any reason you wouldn\u2019t invite me in to discuss further?",
+      "speaker_perspective": "sales agent",
+      "notes": "Hypothetical reframing to shift the objection into a conversation starter."
+    },
+    {
+      "type": "example",
+      "content": "If you don\u2019t feel we\u2019re a fit after the meeting, you can tell me no\u2014no hard feelings.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure by normalizing the possibility of a 'no' after more information is shared."
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

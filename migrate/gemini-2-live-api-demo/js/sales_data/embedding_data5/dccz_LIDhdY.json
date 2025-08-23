@@ -1,0 +1,37 @@
+{
+  "source_video": "dccz_LIDhdY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions to understand the prospect's current relationship with the item and their motivation for the interaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Example clarifying questions in a sales scenario: \"Which pen?\", \"Why would you want me to sell it to you?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to isolate whether the prospect has any specific attachment or perceived need for the item being discussed.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Example questions to isolate lack of need: \"Nothing about this pen you're particularly attracted to?\", \"You wouldn't care if you didn't have it?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Create a scenario that forces the prospect to reveal the root cause of their interest or lack thereof, enabling them to discover their own need.",
+      "speaker_perspective": "sales agent",
+      "notes": "Refers to the pen-taking example to reveal the true value (ownership) to the prospect."
+    },
+    {
+      "type": "mindset",
+      "content": "A good salesman enables the prospect to discover they need what you have, rather than trying to convince them against their will.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

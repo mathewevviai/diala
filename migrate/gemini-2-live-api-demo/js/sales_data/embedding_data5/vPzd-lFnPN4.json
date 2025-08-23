@@ -1,0 +1,28 @@
+{
+  "source_video": "vPzd-lFnPN4",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Failing salespeople spend more time answering questions than asking them. Asking questions is key to discovery, not just providing information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "A good salesperson challenges the prospect's questions rather than just answering them directly.",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenging questions helps uncover underlying needs or objections."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge prospect questions to make them think about their problem in a new way, potentially revealing the root cause or a deeper issue.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Clarify the difference between strategic discounting (e.g., for volume) and tactical discounting (giving in to a prospect's demand) when faced with a perceived inconsistency.",
+      "speaker_perspective": "sales agent",
+      "notes": "An example of clarifying context to address a specific challenge or 'objection'."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

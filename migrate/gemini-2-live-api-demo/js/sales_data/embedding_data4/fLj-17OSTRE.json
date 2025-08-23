@@ -1,0 +1,23 @@
+{
+  "source_video": "fLj-17OSTRE",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are indicators of lack of information, not rejection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Implied through critique of salespeople misinterpreting questions as interest rather than info gaps"
+    },
+    {
+      "type": "example",
+      "content": "\"I think it's around...\" signals the salesperson lacks concrete information about budget/decision process.",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates how vague responses reveal unmet information needs (objections in disguise)"
+    },
+    {
+      "type": "mindset",
+      "content": "Salespeople often mistake 'asking questions' for buyer interest rather than identifying knowledge gaps.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

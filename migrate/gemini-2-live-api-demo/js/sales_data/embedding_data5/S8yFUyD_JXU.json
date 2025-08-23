@@ -1,0 +1,41 @@
+{
+  "source_video": "S8yFUyD_JXU",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Present a list of potential challenges or pain points and ask the prospect to identify which one is most significant for them. This helps isolate the core issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover the primary problem or root cause from a set of possibilities."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "of those three things... if you could wave a wand and fix one... which would it be?",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific phrasing to isolate the single biggest problem from a list presented."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions about a stated problem to understand its specific nature, manifestation, or root cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "so when you say X, what what do you mean exactly? Can you give me an example?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to probe deeper into a prospect's statement about a problem."
+    },
+    {
+      "type": "technique",
+      "content": "Proactively ask about potential future objections or reasons for not moving forward (e.g., cancellation) to surface concerns early.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps discover potential root causes of future issues before they occur."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Can you think of any reason you might want to cancel?",
+      "speaker_perspective": "sales agent",
+      "notes": "A proactive question to uncover potential future objections or cold feet."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

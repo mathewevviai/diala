@@ -1,0 +1,45 @@
+{
+  "source_video": "cLAvfSaaaYE",
+  "entries": [
+    {
+      "type": "observation",
+      "content": "Prospects can say anything to a salesperson: 'I'll think it over', 'I'll call you back', sound like a decision maker when they're not, etc., and salespeople often just take it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't let prospects use you as a source of free information. You are not a 'biological Google' or a 'public library'. Qualify them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When faced with price as the main objection or factor, ask the prospect: 'other than price, what's going to be the key determining factor?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to uncover other criteria or expose price as the sole factor."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect insists price is the only factor, be willing to state: 'if price is going to be the only factor... then we're out'.",
+      "speaker_perspective": "sales agent",
+      "notes": "A form of conditional closing or walking away based on criteria."
+    },
+    {
+      "type": "technique",
+      "content": "If you are asked to move on price or offer a discount, ask: 'what are we going to get in exchange?' Don't give concessions away freely.",
+      "speaker_perspective": "sales agent",
+      "notes": "Conditional negotiation."
+    },
+    {
+      "type": "mindset",
+      "content": "You have never lost a sale you never had. You don't have it until money is in the bank. Don't be scared of losing something you don't possess.",
+      "speaker_perspective": "sales agent",
+      "notes": "Supports the ability to walk away or push back on stalls/objections."
+    },
+    {
+      "type": "technique",
+      "content": "Ensure you are speaking to the actual decision maker or someone with authority from them to avoid wasting time and getting stalled by those who cannot buy.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

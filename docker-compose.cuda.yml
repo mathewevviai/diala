@@ -1,0 +1,43 @@
+# Docker Compose override for CUDA development
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.cuda.yml up
+
+version: '3.8'
+
+services:
+  chatterbox-streaming:
+    # Use CUDA-specific Dockerfile
+    build: 
+      context: ./backend/src/chatterbox/streaming
+      dockerfile: Dockerfile.cuda
+    
+    # CUDA runtime instead of nvidia runtime
+    runtime: nvidia
+    
+    # Remove ROCm-specific devices
+    devices: []
+    
+    # Remove ROCm-specific group
+    group_add: []
+    
+    environment:
+      # Remove ROCm-specific env vars
+      - HSA_OVERRIDE_GFX_VERSION=
+      - ROCM_PATH=
+      - HIP_VISIBLE_DEVICES=
+      - PYTORCH_HIP_ALLOC_CONF=
+      
+      # CUDA-specific env vars
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTORCH_TUNABLEOP_ENABLED=1
+      - PYTORCH_TUNABLEOP_TUNING=1
+      - PYTORCH_TUNABLEOP_FILENAME=/app/tunableop_results.csv
+      - LOG_LEVEL=INFO
+      
+    # CUDA-specific deploy configuration
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

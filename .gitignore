@@ -1,0 +1,45 @@
+# Local environments
+backend/venv/
+backend/test_venv/
+frontend/venv/
+
+# Node/Next build artifacts
+node_modules/
+frontend/node_modules/
+frontend/.next/
+
+# Generated/outputs and caches
+backend/results/
+backend/thumbnails/
+backend/HorseThumbnails/
+.crush/
+convex/_generated/
+
+# Backups and large local folders not for source control
+convex-backend/
+.git_backup/
+
+# Large, local-only data and binaries (prevent GitHub size issues)
+# Virtualenvs and site-packages (contain large .so files)
+backend/audio_generator_service/venv_audio/
+
+# Large generated artifacts and datasets
+backend/digest.txt
+backend/tests/data/sentiment_datasets/
+
+# Local media/training assets not for source control
+migrate/SalesAgenttraining/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Env files
+*.env
+*.env.*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

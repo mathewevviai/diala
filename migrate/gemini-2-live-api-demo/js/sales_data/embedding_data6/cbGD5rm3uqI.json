@@ -1,0 +1,42 @@
+{
+  "source_video": "cbGD5rm3uqI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Sympathize with the prospect's situation or challenges. Acknowledge their perspective.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to 'Feel' in Feel-Felt-Found or 'Acknowledge' in LAARC/AAA."
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says they don't recognize the problems you mention, use a push-away question to uncover the real objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: '...you're probably not going to believe me are you?' Related to Clarify/Isolate/Overcome and AAA (Acknowledge, Ask)."
+    },
+    {
+      "type": "example",
+      "content": "Handling 'We've tried this before': 'Would it be fair to say that because you've been burnt once you never want to take that chance again, is that fair?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of Acknowledge and Ask (AAA) and Clarifying the objection."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect responds 'not necessarily' to a clarifying question about their objection, ask 'when you say not necessarily what do you mean?' to further clarify and isolate the objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Part of the Clarify/Isolate/Overcome process."
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on getting the prospect to 'discover' you can help through questioning, rather than trying to convince them.",
+      "speaker_perspective": "sales agent",
+      "notes": "Underpins the approach to uncovering and handling objections effectively."
+    },
+    {
+      "type": "technique",
+      "content": "At the end of a meeting, ask 'Based on the questions I've asked and the answers I'm given, do you believe I can help you?' to confirm belief or identify remaining objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to LAARC's 'Confirm' or ensuring objections are overcome."
+    }
+  ],
+  "focus_area": "Frameworks: Feel-Felt-Found, LAARC, AAA, Clarify-Isolate-Overcome"
+}

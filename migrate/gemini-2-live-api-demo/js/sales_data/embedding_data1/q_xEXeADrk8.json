@@ -1,0 +1,133 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When starting a cold call, state clearly who you are, the company you're with, and why you're calling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Start a cold call by saying, 'The reason for the quick call is [state the reason briefly].'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After stating the reason for the call, transition by asking, 'Did I catch you in the middle of anything important?' or 'Is this a bad time?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Use a soft, non-demanding tone."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect says 'no' to 'Is this a bad time?', ask for a small amount of time: 'Great. Do you have 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Keep the time commitment very low initially."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect says 'yes' to 'Is this a bad time?', suggest rescheduling: 'Totally understand. When would be a better time to connect?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If rescheduling, offer specific options or ask for their preference: 'Are you free sometime tomorrow morning, or is later this week better?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Aim to sound like an expert resource or a trusted advisor, not just a salesperson pitching.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure the call introduction to be quick and get to the point, respecting the prospect's time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After getting permission for a short chat, clearly state the potential value or problem you address: 'We help companies like yours with [problem/opportunity].'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a disarming question to gauge interest and transition: 'Does that sound like something that could potentially be relevant or helpful for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Allows the prospect an easy 'no' if not interested."
+    },
+    {
+      "type": "technique",
+      "content": "If they express interest, transition to exploring their situation: 'Okay, got it. To see if this makes sense, could I ask you a couple of quick questions?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Be prepared to gracefully exit the conversation if there is no fit, rather than pushing a sale.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus the initial conversation on understanding their current situation and challenges, not on describing your solution in detail.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions that uncover pain points, goals, or existing processes related to what you offer.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Ask exploratory questions like: 'What are you currently doing for [specific area]? How is that working for you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively and reflect or summarize what the prospect says to show understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect mentions specific challenges, connect them directly to how your offering could potentially help.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When connecting challenges to solution: 'Okay, that makes sense. The reason I ask is because [how your solution addresses that specific challenge].'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After establishing potential relevance, propose the next step, usually a deeper conversation or demo.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Propose the next step: 'Based on what you shared, it sounds like it might be worth exploring further. Would it make sense to schedule a brief demo?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When scheduling, offer specific times: 'Are you available Thursday at 2 PM or would Friday morning work better?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Maintain a conversational and non-pushy tone throughout the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If facing an objection like 'just send me an email', respond by clarifying the value of a brief conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Handling 'send me an email': 'I can definitely send you an email, but I've found it's usually more helpful to have a quick chat first to make sure the information I send is relevant.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When following up after a call or meeting, reference the specific points discussed to show you listened.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

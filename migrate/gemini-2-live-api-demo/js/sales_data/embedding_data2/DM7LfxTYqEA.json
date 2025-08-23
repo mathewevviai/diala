@@ -1,0 +1,112 @@
+{
+  "source_video": "DM7LfxTYqEA",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "In sales conversations, explicitly state the purpose and timeframe upfront (e.g., 'The reason for my call is...', 'This will only take X minutes').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When cold calling, use permission-based opening lines to give the prospect control (e.g., 'Do you have a quick minute?', 'Is this a bad time?').",
+      "speaker_perspective": "sales agent",
+      "notes": "Can reduce immediate hang-ups by acknowledging they might be busy."
+    },
+    {
+      "type": "technique",
+      "content": "Use a soft, inquisitive tone in cold calls, like asking for directions, rather than a hard, salesy tone.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps disarm the prospect and encourages them to listen."
+    },
+    {
+      "type": "technique",
+      "content": "Reference a relatable trigger event or problem that the prospect likely faces in your opening.",
+      "speaker_perspective": "sales agent",
+      "notes": "Makes the call immediately relevant to their world."
+    },
+    {
+      "type": "technique",
+      "content": "Ask a brief, relevant question early in the call to engage the prospect and check for fit.",
+      "speaker_perspective": "sales agent",
+      "notes": "Moves from monologue to dialogue quickly."
+    },
+    {
+      "type": "technique",
+      "content": "Structure your initial pitch around identifying if a specific challenge or opportunity is relevant to the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus from selling a solution to exploring a potential problem."
+    },
+    {
+      "type": "technique",
+      "content": "Use pattern interrupts early in a call to break negative expectations the prospect might have about sales calls.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After a brief opening statement, pause and wait for the prospect's reaction or response.",
+      "speaker_perspective": "sales agent",
+      "notes": "Forces the prospect to engage or indicate interest/lack thereof."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Just curious...' before asking questions to make them sound less confrontational.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle dismissal objections ('Not interested', 'We're good') by acknowledging their statement and then pivoting to a specific problem you solve.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When pivoting from an objection, use transition phrases like 'Typically when people say that...' or 'I understand, often times...'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the prospect's situation immediately after they raise an objection or show minimal interest.",
+      "speaker_perspective": "sales agent",
+      "notes": "Don't try to push past objections without understanding the underlying reason."
+    },
+    {
+      "type": "technique",
+      "content": "Ask open-ended questions to uncover the prospect's process, challenges, or current situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Encourages them to share more information."
+    },
+    {
+      "type": "technique",
+      "content": "Frame your solution in terms of solving the specific problems the prospect has just described.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly connects your offering to their needs."
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases that imply commonality or understanding, such as 'A lot of people we talk to...' or 'That's typical for X industry...'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Propose a clear, low-commitment next step, such as a brief follow-up meeting or a resource link.",
+      "speaker_perspective": "sales agent",
+      "notes": "Makes it easy for the prospect to agree to move forward."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the agreed-upon next step and timeframe clearly before ending the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect says they are busy, validate their busy-ness and offer to schedule a specific, short time.",
+      "speaker_perspective": "sales agent",
+      "notes": "Respects their time while still seeking a commitment."
+    },
+    {
+      "type": "technique",
+      "content": "Use validation phrases like 'That makes sense' or 'I hear you' when the prospect expresses a concern or objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Shows empathy and encourages them to share more."
+    }
+  ]
+}

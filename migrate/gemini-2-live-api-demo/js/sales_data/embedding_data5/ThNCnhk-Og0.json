@@ -1,0 +1,18 @@
+{
+  "source_video": "ThNCnhk-Og0",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect states, 'I'd love to work with you, I've just got to see if my boss will pay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Presented as a common statement indicating a potential obstacle or objection."
+    },
+    {
+      "type": "mindset",
+      "content": "Interpret 'I've just got to see if my boss will pay' as a lack of personal commitment from the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": "Speaker's view on the root cause of this statement, leading to disqualification rather than typical objection handling."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

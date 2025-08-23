@@ -1,0 +1,48 @@
+{
+  "source_video": "opLmma31tto",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Dumping features and benefits early in a cold call often leads to the 'can you send me an email' objection, indicating the prospect wasn't engaged.",
+      "speaker_perspective": "sales agent",
+      "notes": "Seller's action (feature dumping) is identified as the root cause of this common objection."
+    },
+    {
+      "type": "technique",
+      "content": "To avoid the 'can you send me an email' objection, don't immediately start talking about what you do or listing features/benefits.",
+      "speaker_perspective": "sales agent",
+      "notes": "Prevention strategy by addressing the likely root cause (seller's pitch style)."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says they are short on time or busy, do not rush your pitch; offer to call back instead.",
+      "speaker_perspective": "sales agent",
+      "notes": "Handling a time objection without devaluing your offering or rushing through key information."
+    },
+    {
+      "type": "mindset",
+      "content": "Rushing your pitch when a prospect is busy devalues yourself and your offering, setting a poor precedent for the sales process.",
+      "speaker_perspective": "sales agent",
+      "notes": "Mindset behind handling time objections properly."
+    },
+    {
+      "type": "technique",
+      "content": "Avoid making assumptions about the prospect's business (e.g., calling it 'small') as it can create unnecessary friction or objections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Preventing objections by respecting the prospect's self-perception and avoiding assumptions."
+    },
+    {
+      "type": "technique",
+      "content": "Do not start your pitch by pointing out flaws in the prospect's current setup (e.g., their website); this is likely to cause resistance.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid creating objections by criticizing their status quo; focus on potential problems you solve."
+    },
+    {
+      "type": "technique",
+      "content": "Structure your pitch to talk about the problems you fix that the prospect can relate to, rather than focusing on what you or your company does.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focusing on the prospect's potential issues (root cause of need) helps prevent objections about irrelevance."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

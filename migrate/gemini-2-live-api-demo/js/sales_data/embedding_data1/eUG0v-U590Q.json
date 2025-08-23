@@ -1,0 +1,75 @@
+{
+  "source_video": "eUG0v-U590Q",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "The primary objective of a first sales meeting should be to determine the next logical step, not necessarily to close the deal.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Secure a specific, scheduled next step on the calendar before ending the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Immediately send a calendar invite for the agreed-upon next step to ensure it happens.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Confirm the next step by saying something like, 'Okay, so on [Date] at [Time], we'll [Action]? Great, I'll send that calendar invite over.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Assume if you don't lock in the next step immediately, it's unlikely to occur.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Get verbal confirmation from the prospect for the next scheduled step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Avoid vague next steps like 'we'll circle back' or 'I'll follow up' without a specific date and time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect says 'I need to think about it,' treat it as an opportunity to uncover the real objection or next step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says they need to think about it, ask: 'What specifically do you need to think about?' or 'What information would help you decide?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify and confirm all necessary decision-makers or stakeholders needed for the next meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Confirm attendees for the next meeting: 'Will [Stakeholder Name] be able to join that call as well?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Recap the key points of the current conversation before proposing or confirming the next step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Propose concrete dates and times for the next meeting rather than asking for general availability.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "The end of a call should always focus on confirming understanding and solidifying the next actionable step.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

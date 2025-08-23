@@ -1,0 +1,42 @@
+{
+  "source_video": "UjyYcW7cgHM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Avoid setting unqualified meetings (e.g., demos) as the primary goal of the first call; this leads to cancellations as prospects reconsider.",
+      "speaker_perspective": "sales agent",
+      "notes": "Addresses the 'think about it' problem that happens *after* the call due to lack of qualification."
+    },
+    {
+      "type": "mindset",
+      "content": "A proper first call should uncover problems and qualify the prospect *before* setting the next step.",
+      "speaker_perspective": "sales agent",
+      "notes": "Foundation for preventing post-call reconsideration."
+    },
+    {
+      "type": "technique",
+      "content": "Qualify by uncovering if the prospect has problems you can fix, intention to fix, cost of the problem, belief in improvement, and consideration of solutions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific points to uncover during qualification."
+    },
+    {
+      "type": "technique",
+      "content": "Use conditional closing: Set the next step (e.g., 'explore that further') *only if* the prospect meets qualification criteria uncovered in the first call.",
+      "speaker_perspective": "sales agent",
+      "notes": "The next step is conditioned on qualification."
+    },
+    {
+      "type": "example",
+      "content": "Prospects cancel scheduled meetings because after hanging up, they think 'why am I doing this?' or 'I don't remember what's this call about'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates the consequence of unqualified meetings and the 'think about it' scenario."
+    },
+    {
+      "type": "technique",
+      "content": "Make the first call count by qualifying thoroughly with a decision-maker to get a qualified appointment, not just a chance to demo.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reinforces the importance of qualification for effective follow-up."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

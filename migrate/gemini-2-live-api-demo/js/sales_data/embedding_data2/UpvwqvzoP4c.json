@@ -1,0 +1,107 @@
+{
+  "source_video": "UpvwqvzoP4c",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Ask for permission at the start with a time limit: 'Can I have 30 seconds tell me what you're up to see if there's a fit?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Set expectation early to reduce pressure: 'If by the end of this short chat here you don't think I can help you, you promise to hang up, right?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Address likely objections directly with a question: 'Sounds like you're not interested, is that right?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Rephrase 'not interested' objection to focus on lack of change needed: 'Sounds like you're not looking to make any changes right now.'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Reframe 'not interested' as 'Is it just not a fit for what you're doing?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Grant permission for the prospect to disengage at any time: 'You can tell me no at any time...'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Check for agreement or permission before proceeding: 'Is that fair?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask about the current process to understand the status quo: 'So tell me a little bit about like what happens today?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Uncover pain by asking about consequences of inaction: 'What happens if you don't do this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Uncover gain by asking about desired positive outcomes: 'What would it mean to you if you could actually achieve this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Identify pain points by asking about challenges: 'What's been the biggest challenge around this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'not interested' by offering polite alternative reasons and asking which one: '...typically when I hear someone say that it's one of two things: either I caught you at a bad time... or potentially maybe what I said just doesn't resonate... which one is it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Offer two polite reasons for objection and ask prospect to pick."
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'send me information' by asking what specific info is needed based on the conversation: 'I'm happy to send you information... what kind of information would be most helpful for you right now based on our conversation?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'send me information' by qualifying the request to avoid useless documents: '...just so I make sure I don't send you like a 40 page document... what specifically were you hoping to learn or see from the information?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'send me information' by offering two direct reasons for the request (genuine vs. brush-off) and asking which one: '...typically when someone asks for information it's usually one of two things: either they're legitimately interested... or it's just a polite way of getting me off the phone... which one is it?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Offer two direct reasons for info request (genuine vs. brush-off) and ask prospect to pick."
+    },
+    {
+      "type": "technique",
+      "content": "Handle 'send me information' by asking about the next step after review: '...what would be the next step after you review that information?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the decision process when info is requested: 'Like what's going to be the decision process?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify who is involved in the decision when info is requested: 'who else is involved in this decision?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the timeline for decision when info is requested: 'When do you typically make a decision on something like this?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Qualify the budget when info is requested: 'What's the budget for this?'",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

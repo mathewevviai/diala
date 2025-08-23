@@ -1,0 +1,36 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Objections are information requests, not rejections.",
+      "speaker_perspective": "sales agent",
+      "notes": "Encourages viewing objections as opportunities to provide more information rather than as barriers."
+    },
+    {
+      "type": "technique",
+      "content": "Use negative questioning to prompt the prospect to defend their position, revealing their true concerns.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'I suppose you're going to tell me you don't recognize any of these problems.'"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If I told you we do X, what would you say?",
+      "speaker_perspective": "sales agent",
+      "notes": "Technique to engage the prospect without directly pitching, making them part of the conversation."
+    },
+    {
+      "type": "example",
+      "content": "When a prospect says 'I'm not the right person,' pivot to gather information about who might be.",
+      "speaker_perspective": "sales agent",
+      "notes": "Demonstrates handling objections by seeking useful information rather than seeing it as a dead end."
+    },
+    {
+      "type": "mindset",
+      "content": "Expect more 'no's than 'yes's; focus on the process, not the immediate outcome.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps maintain motivation by normalizing rejection as part of the sales process."
+    }
+  ],
+  "focus_area": "Objection Mindset: Objections = info requests, not rejections"
+}

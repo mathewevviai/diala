@@ -1,0 +1,102 @@
+{
+  "source_video": "q6F5xz1t5DY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use a specific closing question: 'Based on everything we've talked about, do you feel confident that this is the right solution for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Checks for confidence and readiness to move forward after discussion."
+    },
+    {
+      "type": "technique",
+      "content": "Follow up the confidence question with: 'And if yes, what would you like to do next?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly asks for the next step if the buyer is confident."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that a 'no' today doesn't mean 'no' forever; it just means 'no' for right now.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps manage rejection and keep doors open for the future."
+    },
+    {
+      "type": "technique",
+      "content": "If the answer to the confidence question is 'no' or 'I don't know', immediately transition to 'Okay, no problem. What's holding you back?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Pivots to identifying objections or concerns without pressure."
+    },
+    {
+      "type": "technique",
+      "content": "Frame objections as problems to solve together rather than resistance to overcome.",
+      "speaker_perspective": "sales agent",
+      "notes": "Creates a collaborative problem-solving dynamic."
+    },
+    {
+      "type": "technique",
+      "content": "Break down large objections into smaller, manageable pieces to address individually.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the 'Isolation Question' technique: 'Assuming we could resolve [specific objection], would you feel confident this is the right solution?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Tests if the stated objection is the only obstacle."
+    },
+    {
+      "type": "technique",
+      "content": "If the Isolation Question yields a 'yes', focus intensely on resolving that single issue.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the Isolation Question yields a 'no', ask 'Okay, what else is holding you back?' to uncover further objections.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'What's holding you back?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Simple, direct question to uncover objections."
+    },
+    {
+      "type": "technique",
+      "content": "Don't be afraid to hear 'no'; it's a natural part of the sales process.",
+      "speaker_perspective": "sales agent",
+      "notes": "Mindset shift towards accepting rejection as feedback."
+    },
+    {
+      "type": "technique",
+      "content": "Use silence after asking a question to allow the prospect time to think and respond.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids interrupting or leading the prospect's answer."
+    },
+    {
+      "type": "mindset",
+      "content": "View your role as a problem-solver and guide, not just a product pusher.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Always aim to understand the underlying reason for an objection, not just the surface statement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Based on everything we've talked about, do you feel confident...?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Closing confidence check."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'And if yes, what would you like to do next?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Asks for the next step after confidence is confirmed."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Assuming we could resolve [this issue], would you feel confident...?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolation Question."
+    }
+  ]
+}

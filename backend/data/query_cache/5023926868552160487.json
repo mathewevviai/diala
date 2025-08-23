@@ -1,0 +1,662 @@
+[
+  {
+    "type": "directory_site",
+    "query": "site:checkatrade.com roofing Belfast contact",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "directory",
+      "contact"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "site_specific",
+    "query": "site:linkedin.com/company roofing Belfast \"1-10 employees\" contact",
+    "intent": "company_page",
+    "tags": [
+      "linkedin",
+      "small",
+      "contact"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "site_specific",
+    "query": "site:trustpilot.com roofing Belfast Northern Ireland contact",
+    "intent": "review",
+    "tags": [
+      "trustpilot",
+      "review",
+      "contact"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "site_specific",
+    "query": "site:linkedin.com/in \"roofing\" \"Belfast\" \"owner\" contact",
+    "intent": "social",
+    "tags": [
+      "linkedin",
+      "owner",
+      "profile"
+    ],
+    "_score": 50
+  },
+  {
+    "type": "directory_site",
+    "query": "site:yell.com roofing contractors Belfast reviews phone",
+    "intent": "directory_listing",
+    "tags": [
+      "yell",
+      "reviews",
+      "phone"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:contact \"roofing\" \"Belfast\" intitle:contact",
+    "intent": "contact",
+    "tags": [
+      "inurl",
+      "contact",
+      "title"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:checkatrade.com slate roof repair Belfast reviews contact",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "slate",
+      "reviews"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:yell.com guttering Belfast phone number small business",
+    "intent": "directory_listing",
+    "tags": [
+      "yell",
+      "guttering",
+      "small"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:contact-us \"roofing contractor\" \"Belfast\"",
+    "intent": "contact",
+    "tags": [
+      "contact-us",
+      "contractor",
+      "url"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:checkatrade.com Belfast roofers contact numbers",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "numbers",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:freeindex.co.uk roofing Belfast reviews contact",
+    "intent": "directory_listing",
+    "tags": [
+      "freeindex",
+      "reviews",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:twitter.com roofing Belfast DM contact",
+    "intent": "social",
+    "tags": [
+      "twitter",
+      "DM",
+      "social"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:instagram.com Belfast roofing company contact",
+    "intent": "social",
+    "tags": [
+      "instagram",
+      "company",
+      "social"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:quote \"roofing\" \"Belfast\" intitle:request",
+    "intent": "contact",
+    "tags": [
+      "quote",
+      "request",
+      "url"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "directory_site",
+    "query": "site:trustatrader.com Belfast roofing contact details",
+    "intent": "directory_listing",
+    "tags": [
+      "trustatrader",
+      "details",
+      "contact"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:checkatrade.com/p/ Belfast roofing phone email",
+    "intent": "directory_listing",
+    "tags": [
+      "checkatrade",
+      "profile",
+      "email"
+    ],
+    "_score": 40
+  },
+  {
+    "type": "site_specific",
+    "query": "site:facebook.com roofing Belfast Northern Ireland message",
+    "intent": "social",
+    "tags": [
+      "facebook",
+      "message",
+      "social"
+    ],
+    "_score": 35
+  },
+  {
+    "type": "longtail",
+    "query": "slate roof repair Belfast Northern Ireland business owner contact",
+    "intent": "contact",
+    "tags": [
+      "slate",
+      "repair",
+      "owner"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "longtail",
+    "query": "flat roof specialists Belfast operations manager email",
+    "intent": "contact",
+    "tags": [
+      "flat",
+      "specialist",
+      "manager"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "role_offer",
+    "query": "\"Business Owner\" roofing Belfast \"roof repair\" contact email",
+    "intent": "contact",
+    "tags": [
+      "owner",
+      "role",
+      "email"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "role_offer",
+    "query": "\"Operations Manager\" roofing company Belfast phone number",
+    "intent": "contact",
+    "tags": [
+      "manager",
+      "operations",
+      "phone"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "social_profile",
+    "query": "Facebook roofing Belfast contact messenger",
+    "intent": "social",
+    "tags": [
+      "facebook",
+      "social",
+      "messenger"
+    ],
+    "_score": 30
+  },
+  {
+    "type": "inurl_title",
+    "query": "inurl:about \"roofing contractor\" \"Belfast\" intitle:team",
+    "intent": "company_page",
+    "tags": [
+      "inurl",
+      "about",
+      "team"
+    ],
+    "_score": 25
+  },
+  {
+    "type": "longtail",
+    "query": "roofing contractors Belfast contact email phone",
+    "intent": "contact",
+    "tags": [
+      "roofing",
+      "Belfast",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "tile roofing companies Belfast get quote phone number",
+    "intent": "contact",
+    "tags": [
+      "tiles",
+      "quote",
+      "phone"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "guttering services Belfast small business contact form",
+    "intent": "contact",
+    "tags": [
+      "guttering",
+      "small",
+      "form"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roofing contractor\" AND \"Belfast\" AND \"contact us\" -job -forum",
+    "intent": "contact",
+    "tags": [
+      "boolean",
+      "contact",
+      "exclude"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roof repair\" OR \"roof replacement\" AND \"Belfast\" AND \"phone number\" -blog",
+    "intent": "contact",
+    "tags": [
+      "repair",
+      "replacement",
+      "exclude"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "roof leak emergency Belfast contractor 24/7 contact",
+    "intent": "contact",
+    "tags": [
+      "leak",
+      "emergency",
+      "24/7"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "storm damage roof Belfast free quote contact form",
+    "intent": "contact",
+    "tags": [
+      "storm",
+      "damage",
+      "quote"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "roofing contractors Belfast contact -jobs -careers -forum",
+    "intent": "contact",
+    "tags": [
+      "exclude",
+      "jobs",
+      "forum"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "\"roofing services\" Belfast \"contact us\" -blog -news",
+    "intent": "contact",
+    "tags": [
+      "services",
+      "exclude",
+      "blog"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "commercial roofing contractors Belfast Northern Ireland contact details",
+    "intent": "contact",
+    "tags": [
+      "commercial",
+      "NI",
+      "details"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "residential roofers Belfast small team phone email",
+    "intent": "contact",
+    "tags": [
+      "residential",
+      "small",
+      "team"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roofing maintenance Belfast yearly contracts contact",
+    "intent": "service_page",
+    "tags": [
+      "maintenance",
+      "contracts",
+      "service"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "chimney repair Belfast roofing company WhatsApp contact",
+    "intent": "contact",
+    "tags": [
+      "chimney",
+      "whatsapp",
+      "repair"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roofing\" AND \"Belfast\" AND \"contact form\" AND \"free quote\"",
+    "intent": "contact",
+    "tags": [
+      "form",
+      "quote",
+      "free"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "roofing company director Belfast contact email phone",
+    "intent": "contact",
+    "tags": [
+      "director",
+      "company",
+      "contact"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "roof replacement cost Belfast free estimate contact",
+    "intent": "contact",
+    "tags": [
+      "replacement",
+      "cost",
+      "estimate"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "emergency roofer Belfast 24 hour call out contact",
+    "intent": "contact",
+    "tags": [
+      "emergency",
+      "24-hour",
+      "call-out"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "social_profile",
+    "query": "Instagram roofing Belfast DM contact",
+    "intent": "social",
+    "tags": [
+      "instagram",
+      "DM",
+      "social"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "roofing services Belfast contact -recruitment -training",
+    "intent": "contact",
+    "tags": [
+      "services",
+      "exclude",
+      "recruitment"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "\"Belfast roofers\" contact email -classifieds -marketplace",
+    "intent": "contact",
+    "tags": [
+      "roofers",
+      "exclude",
+      "classifieds"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "heritage slate roofing Belfast specialist contact phone",
+    "intent": "contact",
+    "tags": [
+      "heritage",
+      "specialist",
+      "phone"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "new roof installation Belfast small contractor contact",
+    "intent": "contact",
+    "tags": [
+      "installation",
+      "new",
+      "contractor"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roofing guarantees Belfast local company contact form",
+    "intent": "contact",
+    "tags": [
+      "guarantees",
+      "local",
+      "form"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roofing\" AND \"Belfast\" AND \"family run\" AND \"contact details\"",
+    "intent": "contact",
+    "tags": [
+      "family",
+      "run",
+      "details"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "managing director roofing Belfast small firm contact",
+    "intent": "contact",
+    "tags": [
+      "managing",
+      "director",
+      "firm"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "roofing company secretary Belfast contact email address",
+    "intent": "contact",
+    "tags": [
+      "secretary",
+      "address",
+      "email"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "roof inspection Belfast buying house contact surveyor",
+    "intent": "contact",
+    "tags": [
+      "inspection",
+      "survey",
+      "house"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "pain_point",
+    "query": "moss removal roof Belfast cleaning service contact",
+    "intent": "contact",
+    "tags": [
+      "moss",
+      "removal",
+      "cleaning"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "social_profile",
+    "query": "YouTube roofing Belfast business channel contact",
+    "intent": "social",
+    "tags": [
+      "youtube",
+      "channel",
+      "business"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "\"roofing contractors\" Belfast \"contact us\" -DIY -tutorial",
+    "intent": "contact",
+    "tags": [
+      "contractors",
+      "exclude",
+      "DIY"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "exclusion",
+    "query": "Belfast roofing services contact -comparison -review-site",
+    "intent": "contact",
+    "tags": [
+      "services",
+      "exclude",
+      "comparison"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "industrial roofing Belfast maintenance contracts contact",
+    "intent": "contact",
+    "tags": [
+      "industrial",
+      "maintenance",
+      "contracts"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "roofing warranties Belfast local tradesman phone",
+    "intent": "contact",
+    "tags": [
+      "warranties",
+      "tradesman",
+      "phone"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "longtail",
+    "query": "Velux window installation Belfast roofer contact",
+    "intent": "contact",
+    "tags": [
+      "velux",
+      "window",
+      "installation"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "boolean",
+    "query": "\"roofing\" AND \"Belfast\" AND \"fully insured\" AND \"contact number\"",
+    "intent": "contact",
+    "tags": [
+      "insured",
+      "fully",
+      "number"
+    ],
+    "_score": 20
+  },
+  {
+    "type": "role_offer",
+    "query": "small roofing business owner Belfast personal mobile",
+    "intent": "contact",
+    "tags": [
+      "owner",
+      "personal",
+      "mobile"
+    ],
+    "_score": 15
+  },
+  {
+    "type": "boolean",
+    "query": "\"slate roofing\" OR \"tile roofing\" AND \"Belfast\" AND \"mobile number\"",
+    "intent": "contact",
+    "tags": [
+      "slate",
+      "tile",
+      "mobile"
+    ],
+    "_score": 5
+  }
+]

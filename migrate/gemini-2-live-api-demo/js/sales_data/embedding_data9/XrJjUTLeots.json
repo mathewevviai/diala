@@ -1,0 +1,24 @@
+{
+  "source_video": "XrJjUTLeots",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Acknowledge prospect might hang up; offer a short time limit (e.g., 30 seconds) and permission to end the call if not interested.",
+      "speaker_perspective": "sales agent",
+      "notes": "Used upfront to disarm and reduce pressure, making a soft start."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "After initial resistance or implied 'no', ask one last question about potential changes in the future (e.g., six months) and if a relevant problem might worsen.",
+      "speaker_perspective": "sales agent",
+      "notes": "Soft probe to diagnose if disinterest is permanent or related to current timing/situation."
+    },
+    {
+      "type": "technique",
+      "content": "Accept the prospect's current inability or disinterest ('that makes perfect sense') and agree to follow up in the future (e.g., call you in six months).",
+      "speaker_perspective": "sales agent",
+      "notes": "Respectful exit that keeps the door open for a future conversation based on potential timing changes."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

@@ -1,0 +1,41 @@
+{
+  "source_video": "izHcD7q0IvY",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Be good at listening and asking a ton of questions to understand the customer's perspective and situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Challenge the customer confidently to unearth their real pain points and the root causes of their business challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Challenging makes them think differently and reveals underlying issues."
+    },
+    {
+      "type": "technique",
+      "content": "Focus on the discovery phase: getting to the bottom of the challenge and really unearthing the issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "This is crucial for understanding the customer's needs and potential objections."
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'why' questions to understand the reasons behind current processes or challenges, rather than just accepting 'it works'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Understanding the 'why' helps identify root causes and areas for improvement."
+    },
+    {
+      "type": "mindset",
+      "content": "Earn the right to be in front of senior decision-makers by demonstrating value and the ability to challenge their thinking.",
+      "speaker_perspective": "sales agent",
+      "notes": "This allows for deeper, more revealing discovery conversations."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Selling not telling.",
+      "speaker_perspective": "sales agent",
+      "notes": "Emphasizes asking questions and listening over presenting features."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

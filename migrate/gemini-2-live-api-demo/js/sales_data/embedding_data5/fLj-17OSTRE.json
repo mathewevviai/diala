@@ -1,0 +1,33 @@
+{
+  "source_video": "fLj-17OSTRE",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Do not pursue deals unless the key decision-maker (e.g., MD) is actively engaged. Lack of engagement from the top indicates low priority or care.",
+      "speaker_perspective": "sales agent",
+      "notes": "Relates to isolating the point of influence and identifying root cause of lack of progress."
+    },
+    {
+      "type": "technique",
+      "content": "A 'shitty meeting' is one where you get positive feedback but no commitment. This indicates failure to uncover the root cause of hesitation or lack of progress.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask specific, simple questions (e.g., about budget, decision process) to clarify the situation and uncover potential root causes of issues.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the importance of clarifying questions."
+    },
+    {
+      "type": "mindset",
+      "content": "A salesperson saying 'I think' when asked a question indicates they lack clarity and haven't asked the necessary questions to understand the situation or root cause.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Salespeople focused on being liked rather than selling often fail to ask the clarifying questions needed to uncover the root cause of deal issues.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

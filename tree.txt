@@ -1,0 +1,1280 @@
+Directory structure:
+└── diala/
+    ├── backend/
+    │   ├── 08_chatterbox_integration_processed.json
+    │   ├── =1.10.0
+    │   ├── =1.3.0
+    │   ├── =3.0
+    │   ├── agents.md
+    │   ├── audio-processor.js
+    │   ├── AUDIO_TRANSCRIPTION_API_processed.json
+    │   ├── AUTOMATION_INTEGRATION_processed.json
+    │   ├── backendtree.txt
+    │   ├── debug_api.py
+    │   ├── demo_rag_workflow.py
+    │   ├── fix_rag_processing.py
+    │   ├── live_test_client.html
+    │   ├── monitor_hunter.py
+    │   ├── package.json
+    │   ├── requirements.txt
+    │   ├── requirements_lightweight.txt
+    │   ├── run_server.py
+    │   ├── start-backend.sh
+    │   ├── test_actual_processing.py
+    │   ├── test_granite.py
+    │   ├── test_jina_openai_sdk.py
+    │   ├── test_real_rag.py
+    │   ├── test_tasks_6_6_2.py
+    │   ├── tree.txt
+    │   ├── tunableop_results0.csv
+    │   ├── validate_task5.py
+    │   ├── working_rag_demo.py
+    │   ├── .env.example
+    │   ├── audio_generator_service/
+    │   │   ├── main.py
+    │   │   ├── requirements.txt
+    │   │   └── venv_audio/
+    │   │       ├── pyvenv.cfg
+    │   │       ├── lib64 -> lib
+    │   │       └── share/
+    │   │           └── man/
+    │   │               └── man1/
+    │   │                   ├── isympy.1
+    │   │                   └── ttx.1
+    │   ├── backenddocs/
+    │   │   ├── HUNTER_SEARCH_PRODUCTION_READY.md
+    │   │   ├── install_redis.sh
+    │   │   ├── jina_response_sample.json
+    │   │   ├── QUERY_FORMATTING_UPDATE.md
+    │   │   ├── README_SETUP.md
+    │   │   ├── SETUP.md
+    │   │   ├── TIKTOK_PREVIEW_API.md
+    │   │   ├── VOICE_CLONING_INTEGRATION.md
+    │   │   ├── VOICE_CLONING_JOB_QUEUE.md
+    │   │   ├── whisper_doc_extracted.json
+    │   │   ├── whisper_model_details.json
+    │   │   └── whisper_related_urls.json
+    │   ├── data/
+    │   │   ├── hunter_results.json
+    │   │   ├── query_cache.json
+    │   │   └── checkpoints/
+    │   │       ├── search_1750403985057_s0ifn5280k/
+    │   │       │   └── phase_1_checkpoint.json
+    │   │       └── search_1750436115930_vrbtj2c2dfn/
+    │   │           └── phase_1_checkpoint.json
+    │   ├── docker/
+    │   │   └── docker-compose.yml
+    │   ├── examples/
+    │   │   ├── convex_example.py
+    │   │   ├── EXTERNAL_SEARCH_README.md
+    │   │   ├── hunter_cancel_example.js
+    │   │   └── rag_external_search_example.py
+    │   ├── migrations/
+    │   │   └── create_voice_profiles_table.sql
+    │   ├── models/
+    │   │   ├── sentiment_classifier/
+    │   │   │   ├── label_encoder.pkl
+    │   │   │   ├── scaler.pkl
+    │   │   │   └── sentiment_model.pkl
+    │   │   └── speaker_embeddings/
+    │   │       ├── classifier.ckpt -> classifier.ckpt
+    │   │       ├── embedding_model.ckpt -> embedding_model.ckpt
+    │   │       ├── hyperparams.yaml -> hyperparams.yaml
+    │   │       ├── label_encoder.ckpt -> label_encoder.txt
+    │   │       └── mean_var_norm_emb.ckpt -> mean_var_norm_emb.ckpt
+    │   ├── results/
+    │   │   ├── prosody_analysis_emotion2vec.json
+    │   │   ├── prosody_analysis_results.json
+    │   │   └── realtime_sentiment_analysis.json
+    │   ├── separated_audio_cache/
+    │   │   ├── metricgan-plus-voicebank/
+    │   │   │   ├── enhance_model.ckpt -> enhance_model.ckpt
+    │   │   │   └── hyperparams.yaml -> hyperparams.yaml
+    │   │   └── sepformer-whamr-enhancement/
+    │   │       ├── decoder.ckpt -> decoder.ckpt
+    │   │       ├── encoder.ckpt -> encoder.ckpt
+    │   │       ├── hyperparams.yaml -> hyperparams.yaml
+    │   │       └── masknet.ckpt -> masknet.ckpt
+    │   ├── separation_cache/
+    │   │   ├── metricgan-plus-voicebank/
+    │   │   │   ├── enhance_model.ckpt -> enhance_model.ckpt
+    │   │   │   └── hyperparams.yaml -> hyperparams.yaml
+    │   │   ├── sepformer/
+    │   │   │   ├── decoder.ckpt -> decoder.ckpt
+    │   │   │   ├── encoder.ckpt -> encoder.ckpt
+    │   │   │   ├── hyperparams.yaml -> hyperparams.yaml
+    │   │   │   └── masknet.ckpt -> masknet.ckpt
+    │   │   ├── sepformer-libri2mix/
+    │   │   │   ├── decoder.ckpt -> decoder.ckpt
+    │   │   │   ├── encoder.ckpt -> encoder.ckpt
+    │   │   │   ├── hyperparams.yaml -> hyperparams.yaml
+    │   │   │   └── masknet.ckpt -> masknet.ckpt
+    │   │   └── sepformer-whamr-enhancement/
+    │   │       ├── decoder.ckpt -> decoder.ckpt
+    │   │       ├── encoder.ckpt -> encoder.ckpt
+    │   │       ├── hyperparams.yaml -> hyperparams.yaml
+    │   │       └── masknet.ckpt -> masknet.ckpt
+    │   ├── speaker_id_cache/
+    │   │   └── spkrec-ecapa-voxceleb/
+    │   │       ├── classifier.ckpt -> classifier.ckpt
+    │   │       ├── embedding_model.ckpt -> embedding_model.ckpt
+    │   │       ├── hyperparams.yaml -> hyperparams.yaml
+    │   │       ├── label_encoder.ckpt -> label_encoder.txt
+    │   │       └── mean_var_norm_emb.ckpt -> mean_var_norm_emb.ckpt
+    │   ├── src/
+    │   │   ├── __init__.py
+    │   │   ├── __main__.py
+    │   │   ├── download_models.py
+    │   │   ├── main.py
+    │   │   ├── api/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── sentiment_api.py
+    │   │   │   ├── telephony_api.py
+    │   │   │   ├── protected/
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── example.py
+    │   │   │   └── public/
+    │   │   │       ├── __init__.py
+    │   │   │       ├── audio_transcripts.py
+    │   │   │       ├── bulk.py
+    │   │   │       ├── chatterbox_tts.py
+    │   │   │       ├── embedding_models.py
+    │   │   │       ├── hunter_leadgen.py
+    │   │   │       ├── instagram_content.py
+    │   │   │       ├── live_sentiment_api.py
+    │   │   │       ├── procedural_audio.py
+    │   │   │       ├── realtime_analysis_api.py
+    │   │   │       ├── storage.py
+    │   │   │       ├── stream_simulation_api.py
+    │   │   │       ├── telephony_api.py
+    │   │   │       ├── telephony_api_enhanced.py
+    │   │   │       ├── telephony_monitoring.py
+    │   │   │       ├── tiktok_content.py
+    │   │   │       ├── twitch_content.py
+    │   │   │       ├── voice_onboarding.py
+    │   │   │       ├── youtube_content.py
+    │   │   │       └── youtube_transcripts.py
+    │   │   ├── api_gateway/
+    │   │   │   ├── __init__.py
+    │   │   │   └── main.py
+    │   │   ├── audio/
+    │   │   │   └── procedural_soundscape_generator.py
+    │   │   ├── automation/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── api.py
+    │   │   │   ├── models.py
+    │   │   │   ├── services.py
+    │   │   │   └── setup.py
+    │   │   ├── chatterbox/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── tts.py
+    │   │   │   └── streaming/
+    │   │   │       ├── README.md
+    │   │   │       ├── build.sh
+    │   │   │       ├── Dockerfile
+    │   │   │       ├── Dockerfile.cuda
+    │   │   │       ├── Dockerfile.universal
+    │   │   │       ├── example_for_mac.py
+    │   │   │       ├── example_tts_stream.py
+    │   │   │       ├── example_vc_stream.py
+    │   │   │       ├── gradio_tts_app.py
+    │   │   │       ├── gradio_vc_app.py
+    │   │   │       ├── grpo.py
+    │   │   │       ├── LICENSE
+    │   │   │       ├── loadandmergecheckpoint.py
+    │   │   │       ├── lora.py
+    │   │   │       ├── main.py
+    │   │   │       ├── MIGRATION_README.md
+    │   │   │       ├── pyproject.toml
+    │   │   │       ├── README_DUAL_BACKEND.md
+    │   │   │       ├── requirements.txt
+    │   │   │       ├── test_api.py
+    │   │   │       ├── voice_conversion.py
+    │   │   │       ├── .dockerignore
+    │   │   │       ├── src/
+    │   │   │       │   └── chatterbox/
+    │   │   │       │       ├── __init__.py
+    │   │   │       │       ├── tts.py
+    │   │   │       │       ├── vc.py
+    │   │   │       │       └── models/
+    │   │   │       │           ├── s3gen/
+    │   │   │       │           │   ├── __init__.py
+    │   │   │       │           │   ├── const.py
+    │   │   │       │           │   ├── decoder.py
+    │   │   │       │           │   ├── f0_predictor.py
+    │   │   │       │           │   ├── flow.py
+    │   │   │       │           │   ├── flow_matching.py
+    │   │   │       │           │   ├── hifigan.py
+    │   │   │       │           │   ├── s3gen.py
+    │   │   │       │           │   ├── xvector.py
+    │   │   │       │           │   ├── matcha/
+    │   │   │       │           │   │   ├── decoder.py
+    │   │   │       │           │   │   ├── flow_matching.py
+    │   │   │       │           │   │   ├── text_encoder.py
+    │   │   │       │           │   │   └── transformer.py
+    │   │   │       │           │   ├── transformer/
+    │   │   │       │           │   │   ├── __init__.py
+    │   │   │       │           │   │   ├── activation.py
+    │   │   │       │           │   │   ├── attention.py
+    │   │   │       │           │   │   ├── convolution.py
+    │   │   │       │           │   │   ├── embedding.py
+    │   │   │       │           │   │   ├── encoder_layer.py
+    │   │   │       │           │   │   ├── positionwise_feed_forward.py
+    │   │   │       │           │   │   ├── subsampling.py
+    │   │   │       │           │   │   └── upsample_encoder.py
+    │   │   │       │           │   └── utils/
+    │   │   │       │           │       ├── class_utils.py
+    │   │   │       │           │       ├── mask.py
+    │   │   │       │           │       └── mel.py
+    │   │   │       │           ├── s3tokenizer/
+    │   │   │       │           │   ├── __init__.py
+    │   │   │       │           │   └── s3tokenizer.py
+    │   │   │       │           ├── t3/
+    │   │   │       │           │   ├── __init__.py
+    │   │   │       │           │   ├── llama_configs.py
+    │   │   │       │           │   ├── t3.py
+    │   │   │       │           │   ├── inference/
+    │   │   │       │           │   │   ├── alignment_stream_analyzer.py
+    │   │   │       │           │   │   └── t3_hf_backend.py
+    │   │   │       │           │   └── modules/
+    │   │   │       │           │       ├── cond_enc.py
+    │   │   │       │           │       ├── learned_pos_emb.py
+    │   │   │       │           │       ├── perceiver.py
+    │   │   │       │           │       └── t3_config.py
+    │   │   │       │           ├── tokenizers/
+    │   │   │       │           │   ├── __init__.py
+    │   │   │       │           │   └── tokenizer.py
+    │   │   │       │           └── voice_encoder/
+    │   │   │       │               ├── __init__.py
+    │   │   │       │               ├── config.py
+    │   │   │       │               ├── melspec.py
+    │   │   │       │               └── voice_encoder.py
+    │   │   │       └── .github/
+    │   │   │           └── FUNDING.yml
+    │   │   ├── config/
+    │   │   │   └── memory_config.py
+    │   │   ├── core/
+    │   │   │   ├── celery_app.py
+    │   │   │   ├── database.py
+    │   │   │   ├── dependencies.py
+    │   │   │   ├── logging.py
+    │   │   │   ├── orchestrator.py
+    │   │   │   ├── query_builder.py
+    │   │   │   ├── rate_limiting.py
+    │   │   │   ├── leadgen/
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── API.md
+    │   │   │   │   ├── ASYNC_IMPROVEMENTS.md
+    │   │   │   │   ├── hunter_search_service.py
+    │   │   │   │   ├── jina_client.py
+    │   │   │   │   ├── phase1_search.py
+    │   │   │   │   ├── phase1_search_async.py
+    │   │   │   │   ├── phase2_extract_links.py
+    │   │   │   │   ├── phase3_extract_content.py
+    │   │   │   │   ├── phase4_save_content.py
+    │   │   │   │   ├── phase5_validate.py
+    │   │   │   │   ├── phase6_create_final_report.py
+    │   │   │   │   ├── PRODUCTION_IMPROVEMENTS.md
+    │   │   │   │   └── utils/
+    │   │   │   │       ├── __init__.py
+    │   │   │   │       ├── api_clients.py
+    │   │   │   │       ├── async_api_client.py
+    │   │   │   │       ├── data_processing.py
+    │   │   │   │       ├── generic_validation.py
+    │   │   │   │       ├── query_builder.py
+    │   │   │   │       └── validation.py
+    │   │   │   └── models/
+    │   │   │       └── voice_profile.py
+    │   │   ├── middleware/
+    │   │   │   └── auth.py
+    │   │   ├── models/
+    │   │   │   ├── prosody/
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── prosody_encoder.py
+    │   │   │   └── tts/
+    │   │   │       ├── __init__.py
+    │   │   │       ├── chatterbox_model.py
+    │   │   │       └── fishspeech_model.py
+    │   │   ├── rag/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── api.py
+    │   │   │   ├── external_search_service.py
+    │   │   │   ├── jina_service.py
+    │   │   │   ├── models.py
+    │   │   │   ├── schemas.py
+    │   │   │   └── services.py
+    │   │   ├── services/
+    │   │   │   ├── adaptive_thresholding_manager.py
+    │   │   │   ├── audio_preparation_service.py
+    │   │   │   ├── audio_processor.py
+    │   │   │   ├── audio_separation_service.py
+    │   │   │   ├── batch_embedding_service.py
+    │   │   │   ├── bulk_audio_processor.py
+    │   │   │   ├── bulk_job_manager.py
+    │   │   │   ├── BULK_JOB_MANAGER_USAGE.md
+    │   │   │   ├── bulk_processing_service.py
+    │   │   │   ├── bulk_workflow_orchestrator.py
+    │   │   │   ├── chatterbox_client.py
+    │   │   │   ├── chatterbox_service.py
+    │   │   │   ├── content_chunking_service.py
+    │   │   │   ├── droplet_manager.py
+    │   │   │   ├── eleven_labs_client.py
+    │   │   │   ├── embedding_quality_assessor.py
+    │   │   │   ├── enhanced_stream_simulation.py
+    │   │   │   ├── fast_graph_optimizer.py
+    │   │   │   ├── graph_based_clustering_engine.py
+    │   │   │   ├── gstreamer_service.py
+    │   │   │   ├── instagram_service.py
+    │   │   │   ├── integrated_speaker_identifier.py
+    │   │   │   ├── memory_efficient_speaker_manager.py
+    │   │   │   ├── memory_monitor.py
+    │   │   │   ├── modern_diarization_requirements.txt
+    │   │   │   ├── modern_stateful_speaker_identifier.py
+    │   │   │   ├── procedural_audio_service.py
+    │   │   │   ├── prosody_analysis_service.py
+    │   │   │   ├── quality_weighted_centroid.py
+    │   │   │   ├── quality_weighted_centroid_manager.py
+    │   │   │   ├── realtime_analysis_service.py
+    │   │   │   ├── redis_client.py
+    │   │   │   ├── speaker_embedding_service.py
+    │   │   │   ├── speaker_merging.py
+    │   │   │   ├── speaker_profile.py
+    │   │   │   ├── speaker_pruning.py
+    │   │   │   ├── stream_simulation_service.py
+    │   │   │   ├── telephony_service.py
+    │   │   │   ├── telephony_service_monitoring.py
+    │   │   │   ├── telnyx_client.py
+    │   │   │   ├── temporal_context_tracker.py
+    │   │   │   ├── tiktok_service.py
+    │   │   │   ├── tts_manager.py
+    │   │   │   ├── tts_service.py
+    │   │   │   ├── twitch_service.py
+    │   │   │   ├── vector_database_examples.py
+    │   │   │   ├── vector_database_service.py
+    │   │   │   ├── vector_db_connectors.py
+    │   │   │   ├── voice_clone_jobs.py
+    │   │   │   ├── gemini/
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── config.py
+    │   │   │   │   ├── embeddings_client.py
+    │   │   │   │   ├── embeddings_service.py
+    │   │   │   │   └── models.py
+    │   │   │   └── jina/
+    │   │   │       ├── __init__.py
+    │   │   │       ├── config.py
+    │   │   │       ├── embeddings_client.py
+    │   │   │       ├── embeddings_service.py
+    │   │   │       └── models.py
+    │   │   ├── tasks/
+    │   │   │   ├── __init__.py
+    │   │   │   ├── agent.py
+    │   │   │   ├── hunter.py
+    │   │   │   ├── rag.py
+    │   │   │   ├── swarm.py
+    │   │   │   ├── transcribe.py
+    │   │   │   └── voice.py
+    │   │   ├── trelis/
+    │   │   │   ├── Trelis_TTS_Fine_tuning_Worlds_Fair.ipynb
+    │   │   │   └── Trelis_TTS_Fine_tuning_Worlds_Fair.ipynb:Zone.Identifier
+    │   │   └── workers/
+    │   │       ├── __init__.py
+    │   │       ├── worker_default.py
+    │   │       └── worker_gpu.py
+    │   └── tests/
+    │       ├── asr_diagnostic.py
+    │       ├── benchmark_fast_graph_optimizer.py
+    │       ├── debug_stream_simulation.py
+    │       ├── debug_stream_simulation_fixed.py
+    │       ├── modern_stream_simulation.py
+    │       ├── modern_stream_simulation_fixed.py
+    │       ├── prosody_test.py
+    │       ├── stream_simulation.py
+    │       ├── test_adaptive_thresholding_manager.py
+    │       ├── test_audio_preparation.py
+    │       ├── test_audio_transcription.py
+    │       ├── test_background_task.py
+    │       ├── test_bulk_integration.py
+    │       ├── test_client.py
+    │       ├── test_concurrent_search.py
+    │       ├── test_content_chunking.py
+    │       ├── test_convex_webhook.py
+    │       ├── test_e2e_jina_integration.py
+    │       ├── test_e2e_rag.py
+    │       ├── test_e2e_rag.sh
+    │       ├── test_embedding_quality_assessor.py
+    │       ├── test_enhanced_transcription.py
+    │       ├── test_external_search.py
+    │       ├── test_fast_graph_optimizer.py
+    │       ├── test_fast_graph_optimizer_complete.py
+    │       ├── test_final_status.py
+    │       ├── test_improved_search.py
+    │       ├── test_integration_check.py
+    │       ├── test_jina_query_formatting.py
+    │       ├── test_jina_response.py
+    │       ├── test_live_sentiment.py
+    │       ├── test_memory_efficient_e2e.md
+    │       ├── test_memory_efficient_e2e.py
+    │       ├── test_memory_efficient_speaker_manager.py
+    │       ├── test_modern_components.py
+    │       ├── test_modern_dependencies.py
+    │       ├── test_modern_diarization_e2e.py
+    │       ├── test_original_audio.py
+    │       ├── test_phase1_async.py
+    │       ├── test_quality_weighted_centroid.py
+    │       ├── test_query_formatting.py
+    │       ├── test_rate_limits.py
+    │       ├── test_realtime_sentiment.py
+    │       ├── test_runner.py
+    │       ├── test_search.py
+    │       ├── test_temporal_context_integration.py
+    │       ├── test_temporal_context_integration_fixed.py
+    │       ├── test_tiktok_preview.py
+    │       ├── test_tiktok_specific_urls.py
+    │       ├── test_tiktok_ytdlp.py
+    │       ├── test_vector_database_service.py
+    │       ├── test_voice_cloning.py
+    │       ├── test_voice_cloning_queue.py
+    │       ├── train_sentiment_model.py
+    │       ├── train_sentiment_model_from_audio.py
+    │       └── data/
+    │           └── sentiment_datasets/
+    │               ├── Readme.md
+    │               ├── call_recordings.csv
+    │               ├── calls.csv
+    │               ├── customers.csv
+    │               ├── data_description.csv
+    │               ├── reason.csv
+    │               ├── sentiment_statistics.csv
+    │               └── test.csv
+    └── frontend/
+        ├── README.md
+        ├── backendtree.txt
+        ├── clear_cached_transcripts.ts
+        ├── components.json
+        ├── frontendtree.txt
+        ├── issues.txt
+        ├── next.config.mjs
+        ├── package.json
+        ├── postcss.config.js
+        ├── tailwind.config.ts
+        ├── test-convex-connection.js
+        ├── test-hunter-integration.js
+        ├── test.txt
+        ├── tsconfig.json
+        ├── .env.local.example
+        ├── .eslintrc.json
+        ├── convex/
+        │   ├── audioTranscriptActions.ts
+        │   ├── bulkJobs.ts
+        │   ├── cleanupWebDocuments.ts
+        │   ├── convex.config.ts
+        │   ├── files.ts
+        │   ├── http.ts
+        │   ├── hunterActions.ts
+        │   ├── hunterHttpEndpoints.ts
+        │   ├── hunterMutations.ts
+        │   ├── hunterQueries.ts
+        │   ├── initializeHunter.ts
+        │   ├── jinaIntegration.ts
+        │   ├── proceduralAudio.ts
+        │   ├── ragActions.ts
+        │   ├── ragMutations.ts
+        │   ├── ragQueries.ts
+        │   ├── ragSocialActions.ts
+        │   ├── rateLimitHelpers.ts
+        │   ├── scheduledFunctions.ts
+        │   ├── schema.ts
+        │   ├── telephonyActions.ts
+        │   ├── testActions.ts
+        │   ├── testSetup.ts
+        │   ├── voiceCloneJobs.ts
+        │   ├── youtubeContentActions.ts
+        │   ├── youtubeTranscriptActions.ts
+        │   ├── youtubeTranscripts.ts
+        │   ├── _generated/
+        │   │   ├── api.d.ts
+        │   │   ├── api.js
+        │   │   ├── dataModel.d.ts
+        │   │   ├── server.d.ts
+        │   │   └── server.js
+        │   ├── actions/
+        │   │   ├── instagramContent.ts
+        │   │   ├── tiktokContent.ts
+        │   │   └── twitchContent.ts
+        │   ├── mutations/
+        │   │   ├── audioTranscripts.ts
+        │   │   ├── callsPage.ts
+        │   │   ├── clearCachedTranscripts.ts
+        │   │   ├── instagramContent.ts
+        │   │   ├── telephony.ts
+        │   │   ├── tiktokContent.ts
+        │   │   ├── twitchContent.ts
+        │   │   ├── youtubeContent.ts
+        │   │   └── youtubeTranscripts.ts
+        │   └── queries/
+        │       ├── audioTranscripts.ts
+        │       ├── callsPage.ts
+        │       ├── debugYouTube.ts
+        │       ├── instagramContent.ts
+        │       ├── telephony.ts
+        │       ├── tiktokContent.ts
+        │       ├── twitchContent.ts
+        │       └── youtubeContent.ts
+        ├── data/
+        │   ├── query_cache.json
+        │   ├── search_results.json
+        │   └── debug/
+        │       ├── jina_request_20250620_081341_Roofing and Construc.json
+        │       ├── jina_request_20250620_081343_Roofing and Construc.json
+        │       ├── jina_request_20250620_081345_Roofing and Construc.json
+        │       ├── jina_request_20250620_081348_Roofing and Construc.json
+        │       ├── jina_request_20250620_081350_Roofing and Construc.json
+        │       ├── jina_request_20250620_081407_Roofing and Construc.json
+        │       ├── jina_request_20250620_081412_Roofing and Construc.json
+        │       ├── jina_request_20250620_081414_Roofing and Construc.json
+        │       └── jina_request_20250620_081416_Roofing and Construc.json
+        ├── docs/
+        │   ├── README.md
+        │   ├── 08_chatterbox_integration.md
+        │   ├── AUDIO_TRANSCRIPTION_API.md
+        │   ├── AUTOMATION_INTEGRATION.md
+        │   ├── davidteather-tiktok-api.git.txt
+        │   ├── davidteather-tiktok-api.git.txt:Zone.Identifier
+        │   ├── loo-kuhs-tiktok-video-downloader.txt
+        │   ├── loo-kuhs-tiktok-video-downloader.txt:Zone.Identifier
+        │   ├── lyst0 - Twitch.html
+        │   ├── OUTBOUND_CALLING_SERVICE.md
+        │   ├── transcribingplan.md
+        │   ├── tyrrrz-youtubeexplode.git (1).txt
+        │   ├── tyrrrz-youtubeexplode.git (1).txt:Zone.Identifier
+        │   ├── YOUTUBE_TRANSCRIPT_INTEGRATION.md
+        │   ├── AutoRAG/
+        │   │   ├── 00_overview.md
+        │   │   ├── 01_youtube_processing.md
+        │   │   ├── 03_convex_cloudflare_architecture.md
+        │   │   ├── 04_embedding_data_structure.md
+        │   │   └── 05_implementation_roadmap.md
+        │   ├── Business-Hunter/
+        │   │   ├── README.md
+        │   │   ├── configuration-examples.md
+        │   │   ├── architecture/
+        │   │   │   ├── data-flow.md
+        │   │   │   └── system-overview.md
+        │   │   └── phases/
+        │   │       ├── phase-1-search-GENERAL.md
+        │   │       ├── phase-1-search.md
+        │   │       ├── phase-2-extract.md
+        │   │       ├── phase-3-content.md
+        │   │       ├── phase-4-save.md
+        │   │       ├── phase-5-validate.md
+        │   │       └── phase-6-report.md
+        │   ├── convex/
+        │   │   ├── agents/
+        │   │   │   └── modals/
+        │   │   │       └── CreateAgentModal/
+        │   │   │           ├── mutations.md
+        │   │   │           ├── queries.md
+        │   │   │           └── schema.md
+        │   │   ├── autorag/
+        │   │   │   └── modals/
+        │   │   │       ├── README.md
+        │   │   │       ├── CreateRAGWorkflowModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       ├── DeleteConfirmationModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       ├── SettingsRAGWorkflowModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       └── ViewRAGWorkflowModal/
+        │   │   │           ├── mutations.md
+        │   │   │           ├── queries.md
+        │   │   │           └── schema.md
+        │   │   ├── business-hunter/
+        │   │   │   └── modals/
+        │   │   │       ├── DeleteConfirmationModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       ├── HuntConfigurationModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       ├── SettingsWorkflowModal/
+        │   │   │       │   ├── mutations.md
+        │   │   │       │   ├── queries.md
+        │   │   │       │   └── schema.md
+        │   │   │       └── ViewWorkflowModal/
+        │   │   │           ├── mutations.md
+        │   │   │           ├── queries.md
+        │   │   │           └── schema.md
+        │   │   └── calls/
+        │   │       └── modals/
+        │   │           ├── CallAnalyticsModal/
+        │   │           │   ├── mutations.md
+        │   │           │   ├── queries.md
+        │   │           │   └── schema.md
+        │   │           ├── LiveCallMonitorModal/
+        │   │           │   ├── mutations.md
+        │   │           │   ├── queries.md
+        │   │           │   └── schema.md
+        │   │           └── SwarmOverviewModal/
+        │   │               ├── mutations.md
+        │   │               ├── queries.md
+        │   │               └── schema.md
+        │   ├── embeddings/
+        │   │   └── jina/
+        │   │       ├── README.md
+        │   │       ├── api-documentation.md
+        │   │       ├── examples-and-use-cases.md
+        │   │       ├── huggingface-models.md
+        │   │       ├── jina-clip-v2-paper.md
+        │   │       ├── jina-embeddings-v3-paper.md
+        │   │       ├── late-chunking-paper.md
+        │   │       ├── model-comparison.md
+        │   │       ├── overview.md
+        │   │       └── related_urls.json
+        │   ├── jina-extracts/
+        │   │   ├── 20250622_022136/
+        │   │   │   ├── content.md
+        │   │   │   ├── summary.txt
+        │   │   │   └── urls.json
+        │   │   ├── 20250622_022239/
+        │   │   │   ├── content.md
+        │   │   │   ├── summary.txt
+        │   │   │   └── urls.json
+        │   │   └── 20250622_022302/
+        │   │       ├── content.md
+        │   │       ├── summary.txt
+        │   │       └── urls.json
+        │   ├── lyst0 - Twitch_files/
+        │   │   ├── 01446d6a-1841-465f-9664-d92b8704b870-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── 1.0
+        │   │   ├── 1.0:Zone.Identifier
+        │   │   ├── 18243-94b41e349093da21b07e.js.download
+        │   │   ├── 18243-94b41e349093da21b07e.js.download:Zone.Identifier
+        │   │   ├── 20312-17ca21e784f6fef3ca2d.js.download
+        │   │   ├── 20312-17ca21e784f6fef3ca2d.js.download:Zone.Identifier
+        │   │   ├── 21002-8beffca02b82848493c6.css
+        │   │   ├── 21002-8beffca02b82848493c6.css:Zone.Identifier
+        │   │   ├── 2232-b53f06e563cf819eb9b9.js.download
+        │   │   ├── 2232-b53f06e563cf819eb9b9.js.download:Zone.Identifier
+        │   │   ├── 23321-e73cddf5831137ee3c10.js.download
+        │   │   ├── 23321-e73cddf5831137ee3c10.js.download:Zone.Identifier
+        │   │   ├── 2441-00723ac43125c30df83c.js.download
+        │   │   ├── 2441-00723ac43125c30df83c.js.download:Zone.Identifier
+        │   │   ├── 25470-c093f0f6a1d609e320f3.js.download
+        │   │   ├── 25470-c093f0f6a1d609e320f3.js.download:Zone.Identifier
+        │   │   ├── 26905-7cd162837386c6ec237f.css
+        │   │   ├── 26905-7cd162837386c6ec237f.css:Zone.Identifier
+        │   │   ├── 27561-6c232c4dc02717265cb9.js.download
+        │   │   ├── 27561-6c232c4dc02717265cb9.js.download:Zone.Identifier
+        │   │   ├── 28121-e82fd7b05d4f430e233b.js.download
+        │   │   ├── 28121-e82fd7b05d4f430e233b.js.download:Zone.Identifier
+        │   │   ├── 29751-32508e5e77ab130ade8f.js.download
+        │   │   ├── 29751-32508e5e77ab130ade8f.js.download:Zone.Identifier
+        │   │   ├── 301d06a0-5387-4b71-9471-38d7ea1ac80e-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── 35461-ae77356e54fff102ce0a.js.download
+        │   │   ├── 35461-ae77356e54fff102ce0a.js.download:Zone.Identifier
+        │   │   ├── 37073-e3bb2526b7148980ffa5.js.download
+        │   │   ├── 37073-e3bb2526b7148980ffa5.js.download:Zone.Identifier
+        │   │   ├── 38430-3107e301e2afa256b2f2.js.download
+        │   │   ├── 38430-3107e301e2afa256b2f2.js.download:Zone.Identifier
+        │   │   ├── 43318-f9f6e632be714d8fb7ae.js.download
+        │   │   ├── 43318-f9f6e632be714d8fb7ae.js.download:Zone.Identifier
+        │   │   ├── 46031-0d312136bfdb2871c40b.js.download
+        │   │   ├── 46031-0d312136bfdb2871c40b.js.download:Zone.Identifier
+        │   │   ├── 46126-875743d2938434c14cf6.js.download
+        │   │   ├── 46126-875743d2938434c14cf6.js.download:Zone.Identifier
+        │   │   ├── 465cd136-b191-4b65-942a-4131bd31fe4d-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── 46663-7d459249bfbf09363777.js.download
+        │   │   ├── 46663-7d459249bfbf09363777.js.download:Zone.Identifier
+        │   │   ├── 49168-dd8114dcd3f05eb95436.js.download
+        │   │   ├── 49168-dd8114dcd3f05eb95436.js.download:Zone.Identifier
+        │   │   ├── 4d2f4f20-4dba-4866-8a41-542378cb7089-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── 51a4255c-176f-4d60-bf73-d1231ab1d553-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── 54538-ea48530668b31c47ed75.js.download
+        │   │   ├── 54538-ea48530668b31c47ed75.js.download:Zone.Identifier
+        │   │   ├── 55293-e974a9dc1aa0e7360635.js.download
+        │   │   ├── 55293-e974a9dc1aa0e7360635.js.download:Zone.Identifier
+        │   │   ├── 60761-e1e8f4edc59b03253c83.js.download
+        │   │   ├── 60761-e1e8f4edc59b03253c83.js.download:Zone.Identifier
+        │   │   ├── 63062-9994cc2aff9d6e060c0c.js.download
+        │   │   ├── 63062-9994cc2aff9d6e060c0c.js.download:Zone.Identifier
+        │   │   ├── 6411-9f5e77558af00b1acec0.js.download
+        │   │   ├── 6411-9f5e77558af00b1acec0.js.download:Zone.Identifier
+        │   │   ├── 65239-5ae21c46142801629a2c.js.download
+        │   │   ├── 65239-5ae21c46142801629a2c.js.download:Zone.Identifier
+        │   │   ├── 67813-76a88ec384280a5e925c.js.download
+        │   │   ├── 67813-76a88ec384280a5e925c.js.download:Zone.Identifier
+        │   │   ├── 67954-27b24cc22471c20373d8.js.download
+        │   │   ├── 67954-27b24cc22471c20373d8.js.download:Zone.Identifier
+        │   │   ├── 69028-1e755e3238e8ec382752.js.download
+        │   │   ├── 69028-1e755e3238e8ec382752.js.download:Zone.Identifier
+        │   │   ├── 72149-f8da6020354ebb7bf505.css
+        │   │   ├── 72149-f8da6020354ebb7bf505.css:Zone.Identifier
+        │   │   ├── 72401-307964bd24efb0a3dc62.js.download
+        │   │   ├── 72401-307964bd24efb0a3dc62.js.download:Zone.Identifier
+        │   │   ├── 75115-20eb0447915526bf5090.js.download
+        │   │   ├── 75115-20eb0447915526bf5090.js.download:Zone.Identifier
+        │   │   ├── 75331-e2dd1c1a66cba4e40511.js.download
+        │   │   ├── 75331-e2dd1c1a66cba4e40511.js.download:Zone.Identifier
+        │   │   ├── 75451-eb34b4e976d4577f47ea.js.download
+        │   │   ├── 75451-eb34b4e976d4577f47ea.js.download:Zone.Identifier
+        │   │   ├── 75539-bcce5c92ccf3f56334c9.js.download
+        │   │   ├── 75539-bcce5c92ccf3f56334c9.js.download:Zone.Identifier
+        │   │   ├── 75569-fee9d27affcc66f3a555.js.download
+        │   │   ├── 75569-fee9d27affcc66f3a555.js.download:Zone.Identifier
+        │   │   ├── 77293-4a6a1eea0e05f036a9d8.js.download
+        │   │   ├── 77293-4a6a1eea0e05f036a9d8.js.download:Zone.Identifier
+        │   │   ├── 79025-2601433df308b0458702.js.download
+        │   │   ├── 79025-2601433df308b0458702.js.download:Zone.Identifier
+        │   │   ├── 79831-92f53ca7fce9c173540c.js.download
+        │   │   ├── 79831-92f53ca7fce9c173540c.js.download:Zone.Identifier
+        │   │   ├── 81653-a5b01f5b295197403fec.js.download
+        │   │   ├── 81653-a5b01f5b295197403fec.js.download:Zone.Identifier
+        │   │   ├── 82110-d6ce1ac29df4f013f512.js.download
+        │   │   ├── 82110-d6ce1ac29df4f013f512.js.download:Zone.Identifier
+        │   │   ├── 85958-c22ae214e65725521820.js.download
+        │   │   ├── 85958-c22ae214e65725521820.js.download:Zone.Identifier
+        │   │   ├── 87004-9ee91092428f5fc47571.js.download
+        │   │   ├── 87004-9ee91092428f5fc47571.js.download:Zone.Identifier
+        │   │   ├── 87656-65555f4e423f20d552f2.js.download
+        │   │   ├── 87656-65555f4e423f20d552f2.js.download:Zone.Identifier
+        │   │   ├── 87791-bd14971f8b0c0e071963.js.download
+        │   │   ├── 87791-bd14971f8b0c0e071963.js.download:Zone.Identifier
+        │   │   ├── 88480-501885f732245748fcee.js.download
+        │   │   ├── 88480-501885f732245748fcee.js.download:Zone.Identifier
+        │   │   ├── 88862-d5e143d99ec540a9ec38.js.download
+        │   │   ├── 88862-d5e143d99ec540a9ec38.js.download:Zone.Identifier
+        │   │   ├── 89319-30aa2f21c4dcaf821408.js.download
+        │   │   ├── 89319-30aa2f21c4dcaf821408.js.download:Zone.Identifier
+        │   │   ├── 97320-1629c4a6923502534ec3.js.download
+        │   │   ├── 97320-1629c4a6923502534ec3.js.download:Zone.Identifier
+        │   │   ├── 9829-66e8dfb7102582c488f0.js.download
+        │   │   ├── 9829-66e8dfb7102582c488f0.js.download:Zone.Identifier
+        │   │   ├── 98724-de02293ec0a1319810ad.js.download
+        │   │   ├── 98724-de02293ec0a1319810ad.js.download:Zone.Identifier
+        │   │   ├── beacon.js.download
+        │   │   ├── beacon.js.download:Zone.Identifier
+        │   │   ├── cast_framework.js.download
+        │   │   ├── cast_framework.js.download:Zone.Identifier
+        │   │   ├── cast_sender(1).js.download
+        │   │   ├── cast_sender(1).js.download:Zone.Identifier
+        │   │   ├── cast_sender.js.download
+        │   │   ├── cast_sender.js.download:Zone.Identifier
+        │   │   ├── ce57700a-def9-11e9-842d-784f43822e80-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── cfeb00fa-fcfe-4df4-9fd3-413e5dcacbf7-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── config
+        │   │   ├── config:Zone.Identifier
+        │   │   ├── core-1b1b2fb887a54c92c8ad.js.download
+        │   │   ├── core-1b1b2fb887a54c92c8ad.js.download:Zone.Identifier
+        │   │   ├── core-adc7f9f615baea941f45.css
+        │   │   ├── core-adc7f9f615baea941f45.css:Zone.Identifier
+        │   │   ├── dark-649b4a4625649be7bf30.svg:Zone.Identifier
+        │   │   ├── df6f775d-8794-4cbe-aa85-dbdc72975696-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── e166f259-6e78-4389-b8a3-6aa1b3279f28-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── e7707a9f-af06-4db1-82dc-2f058024b145-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── e9f84ea0-72b8-486f-9afd-4a5e8c62305f-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── ebb84563-db81-4b9c-8940-64ed33ccfc7b-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── f68f6640-0b38-4853-9c64-0eb52837f31c-profile_image-70x70.png:Zone.Identifier
+        │   │   ├── features.auth.components.account-checkup-manager-98fd8fb2c3ebfc60dc50.css
+        │   │   ├── features.auth.components.account-checkup-manager-98fd8fb2c3ebfc60dc50.css:Zone.Identifier
+        │   │   ├── features.badges.components.chat-badge-carousel-ee9adf320fb69b7f69c0.css
+        │   │   ├── features.badges.components.chat-badge-carousel-ee9adf320fb69b7f69c0.css:Zone.Identifier
+        │   │   ├── features.bits-6be75749bacabbd7a1a0.css
+        │   │   ├── features.bits-6be75749bacabbd7a1a0.css:Zone.Identifier
+        │   │   ├── features.channel-celebrations.components.celebration-display-1a8de823d298a3eb6dd1.css
+        │   │   ├── features.channel-celebrations.components.celebration-display-1a8de823d298a3eb6dd1.css:Zone.Identifier
+        │   │   ├── features.channel-goals.components.partner-plus-widget-panel-093618fd86af5e509622.css
+        │   │   ├── features.channel-goals.components.partner-plus-widget-panel-093618fd86af5e509622.css:Zone.Identifier
+        │   │   ├── features.channel-goals.components.persistent-goals-panel-ac33e97cfd66b46715a8.css
+        │   │   ├── features.channel-goals.components.persistent-goals-panel-ac33e97cfd66b46715a8.css:Zone.Identifier
+        │   │   ├── features.channel-leaderboard-d608d3c05977593ad095.css
+        │   │   ├── features.channel-leaderboard-d608d3c05977593ad095.css:Zone.Identifier
+        │   │   ├── features.channel-skins.banner-91eb1b62341e474ee2b4.css
+        │   │   ├── features.channel-skins.banner-91eb1b62341e474ee2b4.css:Zone.Identifier
+        │   │   ├── features.channel-skins.ribbon-8875d7f4016c71825b8d.css
+        │   │   ├── features.channel-skins.ribbon-8875d7f4016c71825b8d.css:Zone.Identifier
+        │   │   ├── features.channel-skins.video-overlay-287e9c7eac94d7606c41.css
+        │   │   ├── features.channel-skins.video-overlay-287e9c7eac94d7606c41.css:Zone.Identifier
+        │   │   ├── features.chat-community-highlights.components.community-highlight-stack-manager-c431f3fe118a973a7906.css
+        │   │   ├── features.chat-community-highlights.components.community-highlight-stack-manager-c431f3fe118a973a7906.css:Zone.Identifier
+        │   │   ├── features.chat-private-callouts.components.chat-private-callout-queue-51ec159811a2a7f4bb7e.css
+        │   │   ├── features.chat-private-callouts.components.chat-private-callout-queue-51ec159811a2a7f4bb7e.css:Zone.Identifier
+        │   │   ├── features.chat-settings.components.chat-settings.component-afa0b66c4916d2bd8274.css
+        │   │   ├── features.chat-settings.components.chat-settings.component-afa0b66c4916d2bd8274.css:Zone.Identifier
+        │   │   ├── features.chat.components.chat-command-handlers.component-fe27809cf748fa554c1b.css
+        │   │   ├── features.chat.components.chat-command-handlers.component-fe27809cf748fa554c1b.css:Zone.Identifier
+        │   │   ├── features.chat.components.chat-input.components.wysiwyg-chat-input.component-a7e61bcee9c4e8b04de0.css
+        │   │   ├── features.chat.components.chat-input.components.wysiwyg-chat-input.component-a7e61bcee9c4e8b04de0.css:Zone.Identifier
+        │   │   ├── features.chat.components.chat-room.components.acknowledge-unban-request-prompt-1ea40e349ff5cd1dee26.css
+        │   │   ├── features.chat.components.chat-room.components.acknowledge-unban-request-prompt-1ea40e349ff5cd1dee26.css:Zone.Identifier
+        │   │   ├── features.chat.components.orbis-9f8bf4e7574df9506d51.css
+        │   │   ├── features.chat.components.orbis-9f8bf4e7574df9506d51.css:Zone.Identifier
+        │   │   ├── features.community-points.components.flame-animation-314a12d02d4204b12196.css
+        │   │   ├── features.community-points.components.flame-animation-314a12d02d4204b12196.css:Zone.Identifier
+        │   │   ├── features.community-points.components.reward-center-c16464b2df5f8b663d8b.css
+        │   │   ├── features.community-points.components.reward-center-c16464b2df5f8b663d8b.css:Zone.Identifier
+        │   │   ├── features.community-points.contexts.watch-streak-context.provider-db3dc539fba0ac4531dd.css
+        │   │   ├── features.community-points.contexts.watch-streak-context.provider-db3dc539fba0ac4531dd.css:Zone.Identifier
+        │   │   ├── features.consent.components.cmp-api-e5c4430847218b51331d.css
+        │   │   ├── features.consent.components.cmp-api-e5c4430847218b51331d.css:Zone.Identifier
+        │   │   ├── features.dmca-strike-banner-86f518fca63df0689a07.css
+        │   │   ├── features.dmca-strike-banner-86f518fca63df0689a07.css:Zone.Identifier
+        │   │   ├── features.emote-picker-3e9483f63070680efcb1.css
+        │   │   ├── features.emote-picker-3e9483f63070680efcb1.css:Zone.Identifier
+        │   │   ├── features.last-x-events-5fe3c9e51e0767c04a69.css
+        │   │   ├── features.last-x-events-5fe3c9e51e0767c04a69.css:Zone.Identifier
+        │   │   ├── features.one-tap.components.overlays-e773b452992ea716b0ea.css
+        │   │   ├── features.one-tap.components.overlays-e773b452992ea716b0ea.css:Zone.Identifier
+        │   │   ├── features.onsite-notifications.components.onsite-notifications.container-4079ea4c73a24118efe8.css
+        │   │   ├── features.onsite-notifications.components.onsite-notifications.container-4079ea4c73a24118efe8.css:Zone.Identifier
+        │   │   ├── features.paid-pinned-chat.components.message-list.component-8051179b682788c59fbd.css
+        │   │   ├── features.paid-pinned-chat.components.message-list.component-8051179b682788c59fbd.css:Zone.Identifier
+        │   │   ├── features.side-nav.guest-star.components.side-nav-online-channel-guest-star-tooltip-dd3b2a7900776536f16f.css
+        │   │   ├── features.side-nav.guest-star.components.side-nav-online-channel-guest-star-tooltip-dd3b2a7900776536f16f.css:Zone.Identifier
+        │   │   ├── features.sub-modal.components.sub-modal-8a550618f2daccdc2b54.css
+        │   │   ├── features.sub-modal.components.sub-modal-8a550618f2daccdc2b54.css:Zone.Identifier
+        │   │   ├── features.subscribe-button.components.subscribe-button-ac33e97cfd66b46715a8.css
+        │   │   ├── features.subscribe-button.components.subscribe-button-ac33e97cfd66b46715a8.css:Zone.Identifier
+        │   │   ├── features.support-panel.components.support-panel-container-46a3bc5a388859311d35.css
+        │   │   ├── features.support-panel.components.support-panel-container-46a3bc5a388859311d35.css:Zone.Identifier
+        │   │   ├── features.verify-email-2505975f2755019b06a9.css
+        │   │   ├── features.verify-email-2505975f2755019b06a9.css:Zone.Identifier
+        │   │   ├── features.video-player-core.components.video-ads.audio-ad-overlay.component-d74158bfd9ea923ff5c4.css
+        │   │   ├── features.video-player-core.components.video-ads.audio-ad-overlay.component-d74158bfd9ea923ff5c4.css:Zone.Identifier
+        │   │   ├── features.whispers-b3e8a0b3b7a98f545099.css
+        │   │   ├── features.whispers-b3e8a0b3b7a98f545099.css:Zone.Identifier
+        │   │   ├── flags-3d45758f7bdfd1658d5f.js.download
+        │   │   ├── flags-3d45758f7bdfd1658d5f.js.download:Zone.Identifier
+        │   │   ├── iu3.html
+        │   │   ├── nomodulePolyfills-59cabede3604edd623fd.js.download
+        │   │   ├── nomodulePolyfills-59cabede3604edd623fd.js.download:Zone.Identifier
+        │   │   ├── p.js.download
+        │   │   ├── p.js.download:Zone.Identifier
+        │   │   ├── pages.channel.components.channel-panels-0ba2e2a4d0c64b87011d.css
+        │   │   ├── pages.channel.components.channel-panels-0ba2e2a4d0c64b87011d.css:Zone.Identifier
+        │   │   ├── pages.channel.components.channel-root.components.about-panel-b005e0a7170b9e8dad35.css
+        │   │   ├── pages.channel.components.channel-root.components.about-panel-b005e0a7170b9e8dad35.css:Zone.Identifier
+        │   │   ├── pages.channel.components.channel-shell.components.chat-shell.components.chat-live-4a03f30a862e422100e2.css
+        │   │   ├── pages.channel.components.channel-shell.components.chat-shell.components.chat-live-4a03f30a862e422100e2.css:Zone.Identifier
+        │   │   ├── pages.channel.components.channel-shell.components.content-metadata.stream-metadata-278009ae5a3aecc77316.css
+        │   │   ├── pages.channel.components.channel-shell.components.content-metadata.stream-metadata-278009ae5a3aecc77316.css:Zone.Identifier
+        │   │   ├── pages.directory-game-044293a143c9cc1204c3.css
+        │   │   ├── pages.directory-game-044293a143c9cc1204c3.css:Zone.Identifier
+        │   │   ├── polyfills-b746ce78392fc20d68fa.js.download
+        │   │   ├── polyfills-b746ce78392fc20d68fa.js.download:Zone.Identifier
+        │   │   ├── settings.f0a2d5b109f58e5df4f0d2dd43fed1f8.js.download
+        │   │   ├── settings.f0a2d5b109f58e5df4f0d2dd43fed1f8.js.download:Zone.Identifier
+        │   │   ├── v6s.js.download
+        │   │   └── v6s.js.download:Zone.Identifier
+        │   ├── onboarding/
+        │   │   └── HUNTER_LEADGEN_API.md
+        │   ├── rocm/
+        │   │   ├── content.txt
+        │   │   ├── github.com_amd_rocm-examples.md
+        │   │   ├── rocm.docs.amd.com_en_latest_#amd-rocm-documentation.md
+        │   │   ├── rocm.docs.amd.com_en_latest_about_license.md
+        │   │   ├── rocm.docs.amd.com_en_latest_about_release-notes.md
+        │   │   ├── rocm.docs.amd.com_en_latest_compatibility_compatibility-matrix.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_ai-pytorch-inception.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_cmake-packages.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_compiler-topics.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_file-reorg.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-arch.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-arch_mi100.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-arch_mi250.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-arch_mi300-mi200-performance-counters.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-arch_mi300.md
+        │   │   ├── rocm.docs.amd.com_en_latest_conceptual_gpu-isolation.md
+        │   │   ├── rocm.docs.amd.com_en_latest_contribute_building.md
+        │   │   ├── rocm.docs.amd.com_en_latest_contribute_contributing.md
+        │   │   ├── rocm.docs.amd.com_en_latest_contribute_feedback.md
+        │   │   ├── rocm.docs.amd.com_en_latest_contribute_toolchain.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_Bar-Memory.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_build-rocm.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_deep-learning-rocm.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_gpu-performance_mi300x.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_programming_guide.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_fine-tuning_fine-tuning-and-inference.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_fine-tuning_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_fine-tuning_multi-gpu-fine-tuning-and-inference.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_fine-tuning_overview.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_fine-tuning_single-gpu-fine-tuning-and-inference.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_model-acceleration-libraries.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_model-quantization.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_optimizing-triton-kernel.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_optimizing-with-composable-kernel.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_profiling-and-debugging.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference-optimization_workload.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_benchmark-docker_pytorch-inference.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_benchmark-docker_vllm.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_deploy-your-model.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_hugging-face-models.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_inference_llm-inference-frameworks.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_install.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_system-health-check.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_benchmark-docker_jax-maxtext.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_benchmark-docker_megatron-lm.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_benchmark-docker_mpt-llm-foundry.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_benchmark-docker_pytorch-training.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-ai_training_scale-model-training.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_rocm-for-hpc_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_setting-cus.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_system-debugging.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_system-optimization_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_how-to_tuning-guides_mi300x_index.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_api-libraries.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_gpu-arch-specs.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_gpu-atomics-operation.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_graph-safe-support.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_precision-support.md
+        │   │   ├── rocm.docs.amd.com_en_latest_reference_rocm-tools.md
+        │   │   ├── rocm.docs.amd.com_en_latest_release_versions.md
+        │   │   ├── rocm.docs.amd.com_en_latest_what-is-rocm.md
+        │   │   ├── rocm.docs.amd.com_projects_ai-developer-hub_en_latest_.md
+        │   │   ├── rocm.docs.amd.com_projects_HIP_en_latest_index.md
+        │   │   ├── rocm.docs.amd.com_projects_install-on-linux_en_latest_.md
+        │   │   ├── rocm.docs.amd.com_projects_install-on-linux_en_latest_reference_system-requirements.md
+        │   │   ├── rocm.docs.amd.com_projects_install-on-windows_en_latest_.md
+        │   │   ├── rocm.docs.amd.com_projects_install-on-windows_en_latest_reference_system-requirements.md
+        │   │   ├── rocm.docs.amd.com_projects_llvm-project_en_latest_conceptual_openmp.md
+        │   │   ├── rocm.docs.amd.com_projects_llvm-project_en_latest_conceptual_using-gpu-sanitizer.md
+        │   │   ├── rocm.docs.amd.com_projects_llvm-project_en_latest_index.md
+        │   │   ├── rocm.docs.amd.com_projects_radeon_en_latest_index.md
+        │   │   ├── www.amd.com_content_dam_amd_en_documents_instinct-business-docs_white-papers_amd-cdna2-white-paper.pdf.md
+        │   │   ├── www.amd.com_content_dam_amd_en_documents_instinct-tech-docs_instruction-set-architectures_amd-instinct-mi300-cdna3-instruction-set-architecture.pdf.md
+        │   │   ├── www.amd.com_content_dam_amd_en_documents_instinct-tech-docs_white-papers_amd-cdna-3-white-paper.pdf.md
+        │   │   └── www.amd.com_system_files_TechDocs_instinct-mi200-cdna2-instruction-set-architecture.pdf.md
+        │   ├── Tendrils/
+        │   │   ├── OnboardingTendrils.md
+        │   │   ├── TRANSCRIPTS_ONBOARDING_TENDRIL.md
+        │   │   └── VOICE_ONBOARDING_TENDRIL.md
+        │   ├── WeGetVoiceVisuals/
+        │   │   ├── UIWeGetVoice.webp
+        │   │   └── UIWeGetVoice1.webp
+        │   └── .claude/
+        │       └── settings.local.json
+        ├── public/
+        │   ├── 424f35f4c6837cba6f15.webp
+        │   ├── AUDIO_TRANSCRIPTION_API.md
+        │   ├── BULK_PROCESSING_SETUP.md
+        │   ├── gr.png:Zone.Identifier
+        │   ├── gr2.png:Zone.Identifier
+        │   ├── gr3.png:Zone.Identifier
+        │   ├── instagram.svg:Zone.Identifier
+        │   ├── tiktok.svg:Zone.Identifier
+        │   ├── twitch.svg:Zone.Identifier
+        │   └── audio/
+        │       ├── CafeAudio.m4a
+        │       ├── CoworkingAudio.m4a
+        │       ├── CrowdedOfficeAudio.m4a
+        │       ├── LibraryAudio.m4a
+        │       └── TrainstationAudio.m4a
+        ├── src/
+        │   ├── app/
+        │   │   ├── layout.tsx
+        │   │   ├── page.tsx
+        │   │   ├── dashboard/
+        │   │   │   ├── layout.tsx
+        │   │   │   ├── page.tsx
+        │   │   │   ├── agents/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── analytics/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── auto-rag/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── automation/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── business-hunter/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── calls/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── customers/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── playground/
+        │   │   │   │   └── page.tsx
+        │   │   │   ├── settings/
+        │   │   │   │   └── page.tsx
+        │   │   │   └── swarms/
+        │   │   │       ├── page.tsx
+        │   │   │       └── [id]/
+        │   │   │           └── page.tsx
+        │   │   └── onboarding/
+        │   │       ├── README.md
+        │   │       ├── ONBOARDING_RULES.md
+        │   │       ├── blog/
+        │   │       │   ├── page.tsx
+        │   │       │   └── [blogId]/
+        │   │       │       └── page.tsx
+        │   │       ├── calls/
+        │   │       │   ├── page.tsx
+        │   │       │   └── page.tsx.broken
+        │   │       ├── cloning/
+        │   │       │   ├── page-refactored.tsx
+        │   │       │   ├── page.tsx
+        │   │       │   └── page.tsx.backup
+        │   │       ├── courses/
+        │   │       │   └── page.tsx
+        │   │       ├── guides/
+        │   │       │   └── page.tsx
+        │   │       ├── hunter/
+        │   │       │   ├── page-original.tsx
+        │   │       │   ├── page-refactored.tsx
+        │   │       │   └── page.tsx
+        │   │       ├── procedural/
+        │   │       │   └── page.tsx
+        │   │       ├── rag/
+        │   │       │   ├── page.tsx
+        │   │       │   ├── types.ts
+        │   │       │   ├── utils.ts
+        │   │       │   └── components/
+        │   │       │       ├── InfoSectionStep1.tsx
+        │   │       │       ├── InfoSectionStep3.tsx
+        │   │       │       ├── SocialMediaVideoDisplay.tsx
+        │   │       │       ├── Step1ChooseSource.tsx
+        │   │       │       ├── Step2SourceDetails.tsx
+        │   │       │       ├── Step3ConfigureProcessing.tsx
+        │   │       │       ├── Step3VideoSelection.tsx
+        │   │       │       ├── Step4ProcessingProgress.tsx
+        │   │       │       ├── Step5Completion.tsx
+        │   │       │       └── VideoSelectionGrid.tsx
+        │   │       ├── rtc/
+        │   │       │   └── page.tsx
+        │   │       ├── transcribe/
+        │   │       │   ├── DragDropUpload.tsx
+        │   │       │   └── page.tsx
+        │   │       ├── transcripts/
+        │   │       │   └── page.tsx
+        │   │       └── voice/
+        │   │           └── page.tsx
+        │   ├── components/
+        │   │   ├── providers.tsx
+        │   │   ├── automation/
+        │   │   │   ├── CustomNode.tsx
+        │   │   │   ├── ExecutionHistory.tsx
+        │   │   │   ├── ExpressionEditor.tsx
+        │   │   │   ├── NodePanel.tsx
+        │   │   │   ├── NodePropertiesPanel.tsx
+        │   │   │   ├── WorkflowEditor.tsx
+        │   │   │   ├── WorkflowSettings.tsx
+        │   │   │   └── WorkflowTemplates.tsx
+        │   │   ├── custom/
+        │   │   │   ├── app.tsx
+        │   │   │   ├── audio-card.tsx
+        │   │   │   ├── call-analytics-card.tsx
+        │   │   │   ├── call-control-panel.tsx
+        │   │   │   ├── call-reasoning-card.tsx
+        │   │   │   ├── call-status-indicator.tsx
+        │   │   │   ├── calling-screen.tsx
+        │   │   │   ├── document-list-card.tsx
+        │   │   │   ├── file-upload-card.tsx
+        │   │   │   ├── info-section.tsx
+        │   │   │   ├── language-card.tsx
+        │   │   │   ├── live-waveform-panel.tsx
+        │   │   │   ├── loading-screen.tsx
+        │   │   │   ├── onboarding-footer.tsx
+        │   │   │   ├── onboarding-nav.tsx
+        │   │   │   ├── pitch-card.tsx
+        │   │   │   ├── playground-agent-modal.tsx
+        │   │   │   ├── playground-chat-interface.tsx
+        │   │   │   ├── playground-settings-panel.tsx
+        │   │   │   ├── premium-feature-card.tsx
+        │   │   │   ├── recent-calls-card.tsx
+        │   │   │   ├── simple-onboarding-nav.tsx
+        │   │   │   ├── stat-card.tsx
+        │   │   │   ├── swarm-overview-card.tsx
+        │   │   │   ├── transcript-skeleton.tsx
+        │   │   │   ├── voice-agent-card.tsx
+        │   │   │   ├── waveform-visualizer.tsx
+        │   │   │   ├── web-voice-interface.tsx
+        │   │   │   ├── welcome-card.tsx
+        │   │   │   ├── analytics/
+        │   │   │   │   ├── agent-card.tsx
+        │   │   │   │   ├── agent-performance-analytics.tsx
+        │   │   │   │   ├── analytics-dashboard-header.tsx
+        │   │   │   │   ├── analytics-mock-data.mdx
+        │   │   │   │   ├── analytics-summary.tsx
+        │   │   │   │   ├── call-objectives-monitor.tsx
+        │   │   │   │   ├── call-outcome-analytics.tsx
+        │   │   │   │   ├── call-volume-analysis.tsx
+        │   │   │   │   ├── conversation-quality-analysis.tsx
+        │   │   │   │   ├── daily-performance-leaderboard.tsx
+        │   │   │   │   ├── live-agent-activity.tsx
+        │   │   │   │   ├── live-call-monitor.tsx
+        │   │   │   │   ├── live-transcript-monitor.tsx
+        │   │   │   │   ├── platform-insights.tsx
+        │   │   │   │   ├── real-time-analytics-monitor.tsx
+        │   │   │   │   ├── recent-calls-table.tsx
+        │   │   │   │   ├── supervisor-controls-monitor.tsx
+        │   │   │   │   └── system-settings-monitor.tsx
+        │   │   │   ├── modals/
+        │   │   │   │   ├── agent-detail-modal.tsx
+        │   │   │   │   ├── AudioGenerationModal.tsx
+        │   │   │   │   ├── call-analytics-modal.tsx
+        │   │   │   │   ├── create-agent-modal.tsx
+        │   │   │   │   ├── create-rag-workflow-modal.tsx
+        │   │   │   │   ├── custom-pitch-modal.tsx
+        │   │   │   │   ├── delete-confirmation-modal.tsx
+        │   │   │   │   ├── hunt-configuration-modal.tsx
+        │   │   │   │   ├── live-call-monitor-modal-fixed.tsx
+        │   │   │   │   ├── live-call-monitor-modal.tsx
+        │   │   │   │   ├── settings-rag-workflow-modal.tsx
+        │   │   │   │   ├── settings-workflow-modal.tsx
+        │   │   │   │   ├── swarm-overview-modal.tsx
+        │   │   │   │   ├── verification-modal.tsx
+        │   │   │   │   ├── view-rag-workflow-modal.tsx
+        │   │   │   │   └── view-workflow-modal.tsx
+        │   │   │   └── rtc/
+        │   │   │       ├── rtc-completion.tsx
+        │   │   │       ├── rtc-introduction.tsx
+        │   │   │       ├── rtc-phone-dialer-fixed.tsx
+        │   │   │       ├── rtc-phone-dialer-realistic.tsx
+        │   │   │       └── rtc-phone-dialer.tsx
+        │   │   ├── onboarding/
+        │   │   │   ├── blog/
+        │   │   │   │   └── BlogCard.tsx
+        │   │   │   ├── bulk/
+        │   │   │   │   ├── ContentSelectionStep.tsx
+        │   │   │   │   ├── ContentSelectionStep.tsx.backup
+        │   │   │   │   ├── DocumentUploadStep.tsx
+        │   │   │   │   ├── ExportStep.tsx
+        │   │   │   │   ├── InputMethodStep.tsx
+        │   │   │   │   ├── ModelSelectionStep.tsx
+        │   │   │   │   ├── PlatformSelectionStep.tsx
+        │   │   │   │   ├── ProcessingStep.tsx
+        │   │   │   │   ├── ProcessingStepConvex.tsx
+        │   │   │   │   ├── types.ts
+        │   │   │   │   ├── VectorDbSelectionStep.tsx
+        │   │   │   │   └── WebContentPreview.tsx
+        │   │   │   ├── cloning/
+        │   │   │   │   ├── ChannelSetupStep.tsx
+        │   │   │   │   ├── ContentSelectionStep.tsx
+        │   │   │   │   ├── IdentityVerificationStep.tsx
+        │   │   │   │   ├── ModelSelectionStep.tsx
+        │   │   │   │   ├── PlatformSelectionStep.tsx
+        │   │   │   │   ├── ReviewCompleteStep.tsx
+        │   │   │   │   ├── TextInputStep.tsx
+        │   │   │   │   ├── types.ts
+        │   │   │   │   └── VoiceSettingsStep.tsx
+        │   │   │   ├── courses/
+        │   │   │   │   └── CourseCard.tsx
+        │   │   │   ├── guides/
+        │   │   │   │   └── GuideCard.tsx
+        │   │   │   ├── hunter/
+        │   │   │   │   ├── CompanyDetailsStep.tsx
+        │   │   │   │   ├── ContactPreferencesStep.tsx
+        │   │   │   │   ├── IndustryLocationStep.tsx
+        │   │   │   │   ├── SearchDefinitionStep.tsx
+        │   │   │   │   ├── SearchKeywordsStep.tsx
+        │   │   │   │   ├── SearchPreviewStep.tsx
+        │   │   │   │   ├── SearchProgressStep.tsx
+        │   │   │   │   ├── SearchResultsStep.tsx
+        │   │   │   │   ├── types.ts
+        │   │   │   │   └── ValidationCriteriaStep.tsx
+        │   │   │   ├── modals/
+        │   │   │   │   ├── BulkDownloadModal.tsx
+        │   │   │   │   ├── ChatWithDialaModal.tsx
+        │   │   │   │   ├── CopyTranscriptModal.tsx
+        │   │   │   │   └── VoiceCloneModal.tsx
+        │   │   │   └── procedural/
+        │   │   │       └── AudioGenerationProgress.tsx
+        │   │   ├── providers/
+        │   │   │   └── convex-client-provider.tsx
+        │   │   ├── transcripts/
+        │   │   │   └── SpeakerTimeline.tsx
+        │   │   └── ui/
+        │   │       ├── accordion.tsx
+        │   │       ├── badge.tsx
+        │   │       ├── breadcrumb.tsx
+        │   │       ├── button.tsx
+        │   │       ├── card.tsx
+        │   │       ├── carousel.tsx
+        │   │       ├── chart.tsx
+        │   │       ├── checkbox.tsx
+        │   │       ├── drawer.tsx
+        │   │       ├── dropdown-menu.tsx
+        │   │       ├── image-card.tsx
+        │   │       ├── input-otp.tsx
+        │   │       ├── input.tsx
+        │   │       ├── progress.tsx
+        │   │       ├── resizable.tsx
+        │   │       ├── select.tsx
+        │   │       ├── separator.tsx
+        │   │       ├── slider.tsx
+        │   │       ├── sonner.tsx
+        │   │       ├── sonner.tsx.backup
+        │   │       ├── star.tsx
+        │   │       ├── switch.tsx
+        │   │       ├── tabs.tsx
+        │   │       ├── textarea.tsx
+        │   │       └── tooltip.tsx
+        │   ├── contexts/
+        │   │   └── VideoPreviewContext.tsx
+        │   ├── hooks/
+        │   │   ├── use-api-client.ts
+        │   │   ├── useApiErrorHandler.ts
+        │   │   ├── useBulkProcessing.ts
+        │   │   ├── useConvexErrorHandler.ts
+        │   │   ├── useEmbeddingModels.ts
+        │   │   ├── useHunterSearch.ts
+        │   │   ├── useInstagramContent.ts
+        │   │   ├── useRAGWorkflow.ts
+        │   │   ├── useTikTokContent.ts
+        │   │   ├── useTikTokSpecificUrls.ts
+        │   │   ├── useTikTokUrlProcessor.ts
+        │   │   ├── useTwitchContent.ts
+        │   │   ├── useVideoPreview.ts
+        │   │   ├── useVoiceCloning.ts
+        │   │   ├── useWaveformData.ts
+        │   │   ├── useWorkflowExecution.ts
+        │   │   └── useYouTubeContent.ts
+        │   ├── lib/
+        │   │   ├── api.ts
+        │   │   ├── convex-mock.ts
+        │   │   ├── rag-validator.ts
+        │   │   ├── utils.ts
+        │   │   ├── youtube-transcript-fetcher.ts
+        │   │   ├── youtube-transcript.ts
+        │   │   ├── api/
+        │   │   │   └── procedural-audio.ts
+        │   │   └── workflow/
+        │   │       ├── expression-evaluator.ts
+        │   │       ├── index.ts
+        │   │       ├── workflow-executor.ts
+        │   │       ├── WorkflowEngine.ts
+        │   │       ├── core/
+        │   │       │   ├── ExpressionError.ts
+        │   │       │   ├── ExpressionParser.ts
+        │   │       │   ├── Workflow.ts
+        │   │       │   ├── WorkflowDataProxy.ts
+        │   │       │   └── WorkflowExecute.ts
+        │   │       ├── nodes/
+        │   │       │   ├── BaseNode.ts
+        │   │       │   ├── CodeNode.ts
+        │   │       │   ├── DialaMakeCallNode.ts
+        │   │       │   ├── HttpRequestNode.ts
+        │   │       │   ├── IfNode.ts
+        │   │       │   ├── index.ts
+        │   │       │   ├── SetNode.ts
+        │   │       │   └── WebhookNode.ts
+        │   │       └── types/
+        │   │           └── index.ts
+        │   ├── styles/
+        │   │   ├── automation.css
+        │   │   └── globals.css
+        │   └── types/
+        │       ├── calls.ts
+        │       ├── index.ts
+        │       └── waveform.ts
+        └── .claude/
+            └── settings.local.json

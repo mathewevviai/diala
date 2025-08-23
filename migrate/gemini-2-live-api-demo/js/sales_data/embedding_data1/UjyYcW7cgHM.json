@@ -1,0 +1,122 @@
+{
+  "source_video": "UjyYcW7cgHM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Reference something specific about the prospect or their business as the reason for the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Frame observed challenges or pain points as common for businesses similar to the prospect's.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Does that resonate with you at all?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Use to validate perceived pain points or observations."
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions designed to get the prospect to articulate their specific pain points and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'And how are you guys currently tackling that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Ask about the prospect's current approach to addressing their challenges."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Okay, so you're doing [current approach]... and how is that working out?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Follow-up question to understand the effectiveness of their current solution."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'If you were to fix that, what would be the impact?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Ask about the desired outcome or impact of solving the identified problem."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'What does success look like?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Alternative way to ask about the prospect's vision of a successful outcome."
+    },
+    {
+      "type": "technique",
+      "content": "Only introduce your solution after the prospect has confirmed pain points and discussed desired outcomes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Structure your solution introduction by referencing the prospect's specific struggles and desired outcomes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Would it be worth having a quick chat about that?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Call to action to propose a follow-up discussion or meeting."
+    },
+    {
+      "type": "technique",
+      "content": "Offer specific, limited options (e.g., days or times) when suggesting the next meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Okay, how about Tuesday or Thursday?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example phrase for offering scheduling options."
+    },
+    {
+      "type": "technique",
+      "content": "Aim to have the prospect speaking more than the sales agent during the discovery phase.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions to encourage the prospect to share more information and elaborate.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Follow a core conversation structure: Uncover pain, amplify pain, understand impact of solving pain, then position your solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Example phrases mapping to discovery structure: Uncover - 'Does that resonate?'; Amplify - 'How is that working?'; Impact - 'What does success look like?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on selling outcomes and solutions to problems, rather than listing product features.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Focus the conversation on the tangible business impact of solving the prospect's problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Examples of questions exploring business impact: 'What would the impact be on revenue, cost, or efficiency?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ensure a clear understanding of both the prospect's current situation and their desired future state.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Position your offering as the bridge that helps the prospect move from their current state to their desired state.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

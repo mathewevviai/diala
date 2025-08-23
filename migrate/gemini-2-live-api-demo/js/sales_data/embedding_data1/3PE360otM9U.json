@@ -1,0 +1,81 @@
+{
+  "source_video": "3PE360otM9U",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start your cold call by asking permission to speak briefly, like 'Would you be open to a quick chat about X?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Instead of asking 'How are you?', try 'Hope you're having a productive day' or 'Quick question for you'.",
+      "speaker_perspective": "sales agent",
+      "notes": "More professional or direct opening"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect says 'not interested', respond by asking 'What are you not interested in specifically?' to understand their objection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejections, but as requests for more information or clarification.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use open-ended questions starting with 'How', 'What', or 'Tell me about' to encourage the prospect to share information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Actively listen for the underlying need or problem the prospect mentions, even casually.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "After a prospect shares a problem, ask 'How does that impact you?' or 'What have you tried to do about that?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm your understanding of the prospect's needs by summarizing what they've told you before presenting a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on providing value and solving the prospect's problem, rather than just selling a product.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When discussing price, always link it back to the value or ROI the prospect will receive.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "After explaining pricing, use a soft closing question like 'How does that sound as a potential way forward?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Before ending the call, clearly define and agree upon the next steps and timeline.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "End the call by confirming the next action: 'So, based on our conversation, the next step is [action] on [date]. Does that work for you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Persistence in follow-up is key; many deals are closed after the initial contact.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Vary your follow-up methods (email, call, LinkedIn) and provide new value with each touch.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

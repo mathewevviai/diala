@@ -1,0 +1,18 @@
+{
+  "source_video": "5XBljs27WNk",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Alright, let me tell you in 30 seconds what I do. If you want to hang up, you can, or we can keep talking after there. Would that be fair?",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional opening/closing to gain permission to continue the conversation after a brief pitch."
+    },
+    {
+      "type": "technique",
+      "content": "Use a conditional statement to set expectations and gain agreement on the next step (continuing the conversation) based on the prospect's reaction to a brief pitch.",
+      "speaker_perspective": "sales agent",
+      "notes": "Related to conditional closing, applied to continuing the initial call."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

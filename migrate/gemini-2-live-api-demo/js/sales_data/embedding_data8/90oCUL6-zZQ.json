@@ -1,0 +1,18 @@
+{
+  "source_video": "90oCUL6-zZQ",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "Is that [Prospect Name]? Look, you are going to hate me, this is actually a cold call. Do you want to hang up now or let me have 30 seconds and then decide?",
+      "speaker_perspective": "sales agent",
+      "notes": "A conditional opener giving the prospect immediate control to disengage or grant limited time."
+    },
+    {
+      "type": "technique",
+      "content": "Using a conditional structure ('hang up now or let me have 30 seconds') as a cold call opener to give control to senior decision-makers, who are often resistant to being told what to do, eliciting a 'no' to hanging up.",
+      "speaker_perspective": "sales agent",
+      "notes": "Leverages psychology by presenting a choice where one option (hanging up) is less appealing due to the desire for control."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

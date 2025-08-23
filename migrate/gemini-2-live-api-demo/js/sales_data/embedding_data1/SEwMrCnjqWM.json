@@ -1,0 +1,43 @@
+{
+  "source_video": "SEwMrCnjqWM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start sales calls by asking for permission to continue or permission for a short amount of time.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Use variations like: 'Would you be opposed to a quick chat?' or 'Would you be open to hearing about X for 30 seconds?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Permission-based opening phrases"
+    },
+    {
+      "type": "mindset",
+      "content": "Frame rejection not as personal failure, but as the prospect simply saying 'no' to the specific proposition presented at that moment.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Lower pressure early in a meeting by stating it's okay if the prospect doesn't see a fit.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Say early in the conversation: 'If by the end of this, you don't feel comfortable, that's perfectly okay.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Anchoring phrase to build trust"
+    },
+    {
+      "type": "technique",
+      "content": "Shift the focus of the initial sales call from pitching to understanding the prospect's situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Discovery focus"
+    },
+    {
+      "type": "technique",
+      "content": "Prioritize asking questions and actively listening over delivering a canned pitch, especially early on.",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

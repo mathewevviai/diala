@@ -1,0 +1,48 @@
+{
+  "source_video": "cbGD5rm3uqI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Position a smaller, paid step (like developing a financial plan) as the immediate next step instead of the large final action (e.g., transferring accounts).",
+      "speaker_perspective": "sales agent",
+      "notes": "Manages the perceived size/cost of the ultimate goal."
+    },
+    {
+      "type": "technique",
+      "content": "Consider charging for the initial strategy/plan development to establish value and commitment early in the process.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Stipulate that necessary documents must be provided within a timeframe to proceed to the next conversation/step.",
+      "speaker_perspective": "sales agent",
+      "notes": "Adds structure and value to the process, managing expectations around effort vs. progress."
+    },
+    {
+      "type": "technique",
+      "content": "Introduce charging for an initial step only after prospects are comfortable with the process itself, rather than upfront.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gradually introduces cost after building trust in the process."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When asked 'What do you do?', respond: 'If I told you I helped companies eliminate the problems we've just discussed what would you say?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Reframes the service around problem elimination and value (ROI)."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When asked 'How do you do it?', respond: 'If I told you that now you wouldn't need me would you... you're gonna have to pay me a lot of money for'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Explicitly links the value/expertise/solution to the cost."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "After mentioning cost, pivot back by asking: 'If you saw my solution and genuinely believed it could fix those problems what would you do?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Shifts focus back to the potential ROI and outcome as the driver for action."
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

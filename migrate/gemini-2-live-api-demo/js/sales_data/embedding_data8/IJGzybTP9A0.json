@@ -1,0 +1,42 @@
+{
+  "source_video": "IJGzybTP9A0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says no, ask one last question to test if it's a real no or a failure in the process before moving on.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoids arguing, quickly disqualifies if genuinely not a fit."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "After a brief problem statement, ask permission to continue: 'Can I speak to you for maybe two more minutes?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gains explicit consent, controls time, sets clear next micro-step."
+    },
+    {
+      "type": "technique",
+      "content": "After identifying multiple potential problems, ask the prospect which one they would prioritize fixing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Gets prospect to commit to the importance of a specific issue, creating a condition for further discussion."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect doesn't recognize symptoms now, state you will call back in the future, implying the problems will likely develop.",
+      "speaker_perspective": "sales agent",
+      "notes": "Sets expectation for future engagement based on the condition of symptoms appearing."
+    },
+    {
+      "type": "technique",
+      "content": "Control the conversation from the start by being upfront it's a sales call and offering an immediate exit ('you can hang up or let me have 30 seconds').",
+      "speaker_perspective": "sales agent",
+      "notes": "Empowers prospect to opt-out early, reduces later 'think about it' objections based on feeling trapped."
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions before agreeing to meet with a prospect, shifting the power dynamic and setting conditions for the meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positions the salesperson as selective, reducing time wasted on non-buyers."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

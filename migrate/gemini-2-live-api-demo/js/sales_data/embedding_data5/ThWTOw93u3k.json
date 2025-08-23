@@ -1,0 +1,52 @@
+{
+  "source_video": "ThWTOw93u3k",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect states the objection: 'some of that does apply to us but um I think we're good... it would be a it'll be a waste of your time... send me an email... If you want to call me in six months time I'm very happy to take the call.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Classic brush-off combined with a future date."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Could I ask one last question then and I'll let you go?",
+      "speaker_perspective": "sales agent",
+      "notes": "Introduces a final clarifying question without pressure; referred to as the 'Columbo' technique."
+    },
+    {
+      "type": "technique",
+      "content": "Use a 'one last question' (Columbo) technique to extend the conversation slightly and uncover more information after an objection or brush-off.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What's likely to be different do you think in six months? Do you think one of those is going to be slightly exacerbated?",
+      "speaker_perspective": "sales agent",
+      "notes": "A clarifying question to understand the reason for the delay and potential future root cause/need."
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions about the future state or reasons for a future call to uncover the root cause of the current inability to proceed.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "Prospect's response to clarifying question: 'We're changing a little bit'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reveals the underlying reason or root cause for the potential change in 6 months."
+    },
+    {
+      "type": "mindset",
+      "content": "Just because someone has problems you can fix doesn't mean they're in a frame of mind at that moment in time to consider it. Use discovery to understand their current state.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights the need to understand the prospect's context, not just their problems."
+    },
+    {
+      "type": "technique",
+      "content": "After uncovering the root cause (e.g., 'We're changing'), qualify the lead based on this information. The objection helps determine if and when the next conversation should be specific.",
+      "speaker_perspective": "sales agent",
+      "notes": "Using discovered information to qualify and plan follow-up."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

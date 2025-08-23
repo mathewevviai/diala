@@ -1,0 +1,18 @@
+{
+  "source_video": "zbfOkhrgxH0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect expresses disinterest or says \"no,\" use soft probes like \"Really?\" or reflective questions to understand the underlying reason.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps diagnose the specific cause of disinterest, such as a preference or concern, rather than just accepting the 'no'."
+    },
+    {
+      "type": "example",
+      "content": "Prospect: \"No [to coffee].\" Sales Agent: \"Really?\" Prospect: Explains reason (avoids chemicals). Sales Agent: \"So, you like to keep everything the equilibrium?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Illustrates a soft probe to understand the specific reason for disinterest in a casual context."
+    }
+  ],
+  "focus_area": "Handling \"Not Interested\": Probe softly, diagnose if disinterest or timing"
+}

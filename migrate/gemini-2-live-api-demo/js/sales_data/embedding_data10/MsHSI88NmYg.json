@@ -1,0 +1,18 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When prospects mention free or general alternatives (like ChatGPT), frame your specialized solution's value by highlighting its specific focus and efficiency for their task (e.g., sales emails) compared to the general tool's broader but less refined capability.",
+      "speaker_perspective": "sales agent",
+      "notes": "Positioning a specialized tool against a free/general one by focusing on 'laser focus' and 'pre-refined' results, rather than attacking the general tool's ability."
+    },
+    {
+      "type": "example",
+      "content": "Responding to 'My employees can do this already with current AI and it's free' by saying free AI is 'more so writing really good seventh grade essays' and 'takes a lot of refining', while your tool has 'taken the time to do all that on the front end'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Direct example of framing specialized value (efficiency, refinement) against a free, general alternative without calling the alternative 'bad'."
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

@@ -1,0 +1,101 @@
+{
+  "source_video": "IY-RoiVLExs",
+  "entries": [
+    {
+      "type": "mindset",
+      "content": "Framing the switch to Linux as escaping a negative experience ('tortured by a window') to gain freedom and clarity ('escaped the windows cave, saw the sun').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Wait a minute, it does exactly what I wanted it to do.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlights core value proposition: user control and agency, implicitly contrasting with systems that don't."
+    },
+    {
+      "type": "technique",
+      "content": "Framing a core benefit (doing what you tell it) as something so fundamental it's shocking it's a 'selling point' in contrast to competitors.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Positioning competitor design choices (constant warnings, bloat) as catering to perceived user incompetence, contrasting with the directness of your offering.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "The bloat is real... spent like an hour trying to uninstall all the prepackaged BS that I don't want.",
+      "speaker_perspective": "sales agent",
+      "notes": "Concrete example of a competitor's negative trait (bloatware) used to highlight the value of its absence."
+    },
+    {
+      "type": "example",
+      "content": "Windows is like 'I know you paid $100... but I'm still going to put ads in here'.",
+      "speaker_perspective": "sales agent",
+      "notes": "Highlighting a competitor's perceived negative business practice (ads in paid software) to contrast value."
+    },
+    {
+      "type": "technique",
+      "content": "Framing competitor friction points (annoying defaults, difficulty changing settings) by highlighting the 'serenity, peace' of your own system.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Contrasting competitor's limited customization ('maybe change your wallpaper') with the deep flexibility of your own ('change reality itself').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Acknowledging a potential sacrifice (software compatibility) but immediately reframing it as 'worthy' because your system allows you to mitigate it through customization and alternatives.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "What you gain on Linux is so much more freedom.",
+      "speaker_perspective": "sales agent",
+      "notes": "Directly contrasts the value gained (freedom) against potential losses (specific tools)."
+    },
+    {
+      "type": "technique",
+      "content": "Framing a potential point of confusion (many choices) as a positive ('a wonderful thing that you can choose').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "On Windows if my computer is kind of slow you just kind of deal with it... On Linux it's like the world is your oyster, you can fix it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Contrasts passive acceptance of competitor's issues with active problem-solving enabled by your system."
+    },
+    {
+      "type": "technique",
+      "content": "Highlighting competitor inefficiency/annoyance (slow search, ads in search) by presenting your system's speed and directness as 'how it should be'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Framing competitor software installation as manual, risky, and ad-filled, contrasted with the simple, safe package management of your system.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Using examples of competitor system instability/inefficiency (overheating, kernel panics) to highlight the stability and resource management of your system.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Addressing a significant weakness (hardware support issues, requires effort) directly and honestly, managing expectations.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Framing your offering not just as a product, but a community-driven 'platform' that improves collectively, contrasting with stagnant commercial products.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Suggesting low-commitment ways to try the product (dual booting) to overcome fear of switching entirely.",
+      "speaker_perspective": "sales agent"
+    }
+  ],
+  "focus_area": "Competitive Objections: Unique value framing without attacking others"
+}

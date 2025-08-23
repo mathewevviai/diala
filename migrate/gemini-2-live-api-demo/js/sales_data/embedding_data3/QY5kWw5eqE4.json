@@ -1,0 +1,53 @@
+{
+  "source_video": "QY5kWw5eqE4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a client raises an objection, acknowledge their concern immediately to build rapport and show empathy.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Use clarifying questions to understand the root cause of an objection, like 'Could you tell me more about that?' or 'What specifically concerns you about X?'",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Isolate the objection to ensure it's the only barrier: 'Besides [this specific concern], is there anything else that would prevent you from moving forward today?'",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "For price objections, reframe the cost in terms of value delivered or return on investment over time.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "technique",
+      "content": "Share a brief success story or testimonial from a similar client who had the same initial objection but found success.",
+      "speaker_perspective": "sales agent",
+      "notes": "This is the 'feel-felt-found' concept."
+    },
+    {
+      "type": "mindset",
+      "content": "View objections not as rejection, but as requests for more information or clarification from the prospect.",
+      "speaker_perspective": "sales agent",
+      "notes": null
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'That's a valid point, and I appreciate you bringing it up.' (Use before addressing the objection)",
+      "speaker_perspective": "sales agent",
+      "notes": "Acknowledging phrase."
+    },
+    {
+      "type": "technique",
+      "content": "Summarize the benefits they gain, tying them directly to overcoming the stated objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connect solution back to their specific concern."
+    }
+  ]
+}

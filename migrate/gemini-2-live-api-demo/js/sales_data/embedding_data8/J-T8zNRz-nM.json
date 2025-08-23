@@ -1,0 +1,30 @@
+{
+  "source_video": "J-T8zNRz-nM",
+  "entries": [
+    {
+      "type": "sales_phrase",
+      "content": "I can either have 30 seconds I can hang up now, it's up to you what you'd like to do.",
+      "speaker_perspective": "sales agent",
+      "notes": "Offering a micro-commitment or alternative path early in the call."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for specific information when a contact has left, e.g., 'Who replaced them out of interest?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to identify the current relevant contact."
+    },
+    {
+      "type": "technique",
+      "content": "Ask for specific information about current roles, e.g., 'Who runs the show now?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to identify the decision-maker or relevant contact."
+    },
+    {
+      "type": "mindset",
+      "content": "Not sounding like a typical salesman helps in getting specific information from gatekeepers or prospects.",
+      "speaker_perspective": "sales agent",
+      "notes": "Builds rapport and reduces defensiveness, aiding information gathering."
+    }
+  ],
+  "focus_area": "Handling \"Think About It\": \"What specifically?\", Conditional closing"
+}

@@ -1,0 +1,71 @@
+{
+  "source_video": "PgklVvZB3DI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start by confirming the agreed-upon agenda or topic for the call or meeting.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask explicit, open-ended questions to understand the prospect's current process and challenges.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Drill down into the specific consequences or impact of the problems the prospect is facing.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focus on the business or personal pain points."
+    },
+    {
+      "type": "technique",
+      "content": "Use transition phrases to move from understanding problems to discussing potential solutions.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Present your solution by clearly linking its features or capabilities to the specific problems the prospect articulated.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connect features to benefits directly addressing their pain."
+    },
+    {
+      "type": "technique",
+      "content": "Periodically check for understanding and agreement throughout the conversation using questions like 'Does that make sense?' or 'How does that resonate with you?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the prospect's desired outcome or goal for solving their problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Handle objections by first acknowledging the concern, then clarifying, and finally addressing it directly.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Gain explicit commitment to the next steps before ending the call or meeting.",
+      "speaker_perspective": "sales agent",
+      "notes": "Ensure mutual agreement on actions and timelines."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'Walk me through how you currently handle X.'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for understanding the prospect's process."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'What happens when that occurs?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for exploring consequences of problems."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "'If you could solve X, what would that enable?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Used for understanding desired outcomes."
+    }
+  ]
+}

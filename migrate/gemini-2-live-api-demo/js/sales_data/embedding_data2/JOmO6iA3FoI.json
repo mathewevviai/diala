@@ -1,0 +1,61 @@
+{
+  "source_video": "JOmO6iA3FoI",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When cold calling, interrupt objections like 'I'm busy' or 'Just email me' immediately.",
+      "speaker_perspective": "sales agent",
+      "notes": "Interrupt the pattern before they finish the standard dismissal."
+    },
+    {
+      "type": "technique",
+      "content": "Immediately validate their stated reason for interruption (e.g., 'Totally understand you're busy').",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Follow validation with a concise, direct statement linking back to the call's purpose, e.g., 'The specific reason for calling was X'.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a low, confident vocal tone when interrupting and redirecting the conversation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Avoid sounding aggressive; project calm certainty."
+    },
+    {
+      "type": "technique",
+      "content": "When faced with 'Just email me', ask 'Out of curiosity, if I were to email it over, would that be to review on your own, or is it usually something you forward to someone else?'",
+      "speaker_perspective": "sales agent",
+      "notes": "This probes their process and identifies potential stakeholders."
+    },
+    {
+      "type": "technique",
+      "content": "If they say they review emails themselves, respond with a question like 'Got it. And typically, when you're reviewing solutions like this, what's usually top of mind for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Pivots back to discovery and understanding their needs/priorities."
+    },
+    {
+      "type": "technique",
+      "content": "If they say they forward emails, ask 'Okay, who would you typically forward something like this to?' or 'What's that person's title?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps identify the real decision-maker or influencer."
+    },
+    {
+      "type": "technique",
+      "content": "Use 'out of curiosity' or 'just curious' to soften probing questions and make them less confrontational.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "When handling objections, view them as requests for more information or clarification, not outright rejection.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After validating an interruption, re-state the core value proposition very briefly, linking it to a potential problem they face.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example: 'Totally understand you're busy. The specific reason for calling is we help companies like yours streamline X, especially when Y is a problem.'"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "source_video": "_cd5-NbEGmo",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it', identify if the root cause is value, trust, or money.",
+      "speaker_perspective": "sales agent",
+      "notes": "Diagnose the true reason behind the objection."
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'Usually when people need to think about it, it's for one of three reasons: value, trust, or money. Which is it for you?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Specific question to diagnose the 'think about it' objection."
+    },
+    {
+      "type": "technique",
+      "content": "If the 'think about it' objection is due to value, ask 'What specifically didn't make sense?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the 'think about it' objection is money-related, ask 'Totally understand that. Tell me a bit more about your budget?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize 'I need to think about it' is rarely the full reason; there's always a specific reason behind it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Understand that 'Just send me some more information' often means the prospect is not genuinely interested.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Respond to 'Send me more information' by asking 'What specifically are you looking for more information on?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Clarifying question to uncover true intent or specific need."
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect asks for more information on pricing, ask 'What specifically about the pricing do you want more information on?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "If the prospect requests 'general' information, reframe by explaining how it relates to their specific situation and needs.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connects back to relevance and value."
+    },
+    {
+      "type": "technique",
+      "content": "Instead of sending general information, offer a quick follow-up call to discuss relevance to their specific situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Alternative approach to the information request."
+    },
+    {
+      "type": "mindset",
+      "content": "Recognize that money objections like 'too expensive' or 'no budget' often indicate insufficient demonstrated value, not just a lack of funds.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When faced with a money objection, probe to understand the real reason behind it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Similar diagnostic approach as 'think about it'."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to 'It's too expensive' by asking 'What are you comparing it to?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Comparative question for price objection."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to 'We don't have the budget' by asking 'What budget did you have assigned for something like this?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Inquire about allocated budget."
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'What would make this a worthwhile investment?' to shift focus from cost to value and ROI.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask 'If budget wasn't an issue, is this something you would move forward with?' to isolate the money objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "Hypothetical question to test if price is the only barrier."
+    },
+    {
+      "type": "technique",
+      "content": "Respond to money objections by offering to break down the potential return on investment (ROI).",
+      "speaker_perspective": "sales agent",
+      "notes": "Address price directly through value."
+    }
+  ]
+}

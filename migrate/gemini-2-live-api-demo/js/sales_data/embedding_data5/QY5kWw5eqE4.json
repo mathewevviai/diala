@@ -1,0 +1,62 @@
+{
+  "source_video": "QY5kWw5eqE4",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Answer a question with a question to understand the true intent or scope of the inquiry.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Do you want me to tell you the truth or do you want me to tell you what I think you want to hear?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to clarify the desired level of honesty/candor when asked a question."
+    },
+    {
+      "type": "example",
+      "content": "When asked 'Where do you see yourself in 5 years?', clarify: 'Do you mean within this organization, just generally as a human being, or something else?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of using a clarifying question to narrow down the scope of an open-ended question."
+    },
+    {
+      "type": "technique",
+      "content": "Use questions to get the prospect to articulate the reason or value themselves, uncovering their perspective.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "After demonstrating a strength (answering with a question), ask the interviewer: 'What do you think is my number one job in a sales meeting?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Gets the prospect to state the core objective (like getting to the truth), reinforcing the value of the demonstrated skill."
+    },
+    {
+      "type": "technique",
+      "content": "Challenge the premise of a question to get to the root definition or understanding of a concept.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "example",
+      "content": "When asked about losing a sale, challenge the term: 'Do you believe you can lose a sale?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Leads to clarifying that you can't lose what you never had, reframing 'failure' as 'failure to disqualify'."
+    },
+    {
+      "type": "technique",
+      "content": "Ask a question designed to uncover the prospect's specific criteria for success and potential future objections upfront.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"If you offer me this job... what will I have done... for you to say hiring Benjamin was the best decision we made last year?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "A question designed to uncover the prospect's definition of success and potential future expectations/objections."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"Between now and when I leave this meeting, how can I demonstrate to you today here and now that I'm going to be able to do that?\"",
+      "speaker_perspective": "sales agent",
+      "notes": "Follow-up question to the 'success criteria' question, isolating what needs to be proven *now* to overcome potential future objections."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

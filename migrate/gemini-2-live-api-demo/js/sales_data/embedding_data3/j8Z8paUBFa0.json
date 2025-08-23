@@ -1,0 +1,41 @@
+{
+  "source_video": "j8Z8paUBFa0",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "When a prospect says 'I need to think about it,' recognize this is often a polite way of expressing a different, unstated objection.",
+      "speaker_perspective": "sales agent",
+      "notes": "The phrase 'I need to think about it' is rarely the actual reason for hesitation."
+    },
+    {
+      "type": "technique",
+      "content": "The primary goal when a prospect says 'I need to think about it' is to uncover the true, underlying reason for their hesitation or concern.",
+      "speaker_perspective": "sales agent",
+      "notes": "You cannot address an objection you don't know."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'I need to think about it,' respond by asking, 'What specifically do you need to think about?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A direct question to prompt clarification."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'I need to think about it,' ask, 'Is there anything specific that you're concerned about or that gives you pause?'",
+      "speaker_perspective": "sales agent",
+      "notes": "A softer way to probe for hidden concerns."
+    },
+    {
+      "type": "sales_phrase",
+      "content": "When a prospect says 'I need to think about it,' ask, 'If you were to decide not to move forward with this, what would be the main reason?'",
+      "speaker_perspective": "sales agent",
+      "notes": "Frames the question around the negative outcome to reveal the barrier."
+    },
+    {
+      "type": "technique",
+      "content": "Use probing questions to bring any unexpressed concerns, fears, or true objections to the surface, preventing the prospect from leaving without revealing the real issue.",
+      "speaker_perspective": "sales agent",
+      "notes": "Hidden objections prevent you from helping the prospect overcome their barrier."
+    }
+  ]
+}

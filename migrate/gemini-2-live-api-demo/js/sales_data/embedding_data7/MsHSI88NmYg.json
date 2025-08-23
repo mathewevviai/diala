@@ -1,0 +1,36 @@
+{
+  "source_video": "MsHSI88NmYg",
+  "entries": [
+    {
+      "type": "example",
+      "content": "Prospect objection: 'My employees can do this already with current AI and it's free.'",
+      "speaker_perspective": "prospect",
+      "notes": "Direct price/alternative objection"
+    },
+    {
+      "type": "technique",
+      "content": "Address the 'free alternative' objection by comparing free AI (like ChatGPT) as general, wordy, and requiring effort vs. a specialized tool as targeted, high quality, and saving time.",
+      "speaker_perspective": "sales agent",
+      "notes": "Handling 'Compared to what?' by highlighting value and specialization"
+    },
+    {
+      "type": "technique",
+      "content": "Frame the cost of the current problem (e.g., wasted training money on ineffective reps) to highlight the value of a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "ROI/Value framing against existing costs"
+    },
+    {
+      "type": "technique",
+      "content": "Hypothetically frame the value as potentially replacing underperforming staff with the system to provoke thought on ROI and cost savings.",
+      "speaker_perspective": "sales agent",
+      "notes": "Aggressive ROI framing against personnel costs"
+    },
+    {
+      "type": "technique",
+      "content": "Link the value proposition (e.g., more meetings, less staff) directly to the cost of the next step (e.g., time for a demo).",
+      "speaker_perspective": "sales agent",
+      "notes": "Value-based call to action after establishing potential ROI"
+    }
+  ],
+  "focus_area": "Handling Price Objections: Reframe to ROI, \"Compared to what?\", breakdown strategy"
+}

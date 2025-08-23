@@ -1,0 +1,90 @@
+{
+  "source_video": "q_xEXeADrk8",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Anchor the call by stating upfront, 'If by the end of this, you don't feel comfortable, that's perfectly okay. Just let me know,' to build trust.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Start a sales conversation by gathering information, not immediately pitching or selling.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use the phrase 'Help me understand' followed by an open-ended question to encourage the prospect to share their situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask clarifying questions like 'When you say [prospect's phrase], what do you mean by that?' to ensure understanding.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm you've understood by summarizing the prospect's points: 'So, if I understand correctly, you're saying... Is that right?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use phrases like 'Tell me more about that' to prompt the prospect to elaborate on a key point or challenge.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Probe for the specific 'why' behind a prospect's current approach or challenge.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "When a prospect mentions something you agree with or find interesting, use enthusiastic verbal cues like 'Okay!' or 'Gotcha!' to show engagement.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "After asking a question, allow for silence and wait for the prospect to answer fully before speaking again.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use 'Walk me through' questions to get a step-by-step understanding of their process or current situation.",
+      "speaker_agent": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Focus on truly listening to the prospect to understand their perspective and challenges deeply.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What does success look like in that area?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"What happens if you don't do anything about it?\"",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Ask questions that help the prospect articulate the potential negative consequences of inaction.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use reflective listening: repeat or rephrase what the prospect said to show you're processing their information.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Guide the prospect to reveal their pains and motivations through targeted questioning.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "\"So, what specifically prompted you to take this meeting?\"",
+      "speaker_perspective": "sales agent"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "source_video": "UjyYcW7cgHM",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Use the initial call to uncover if the prospect has problems or symptoms that your solution can fix.",
+      "speaker_perspective": "sales agent",
+      "notes": "Focuses on identifying the root cause of potential issues."
+    },
+    {
+      "type": "technique",
+      "content": "Uncover if the prospect has any intention of fixing the problem or has already tried to fix it.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps understand past attempts and current motivation related to the root cause."
+    },
+    {
+      "type": "technique",
+      "content": "Determine if the problem is costing the prospect money.",
+      "speaker_perspective": "sales agent",
+      "notes": "Quantifies the impact of the root cause, helps isolate 'cost' or 'ROI' objections."
+    },
+    {
+      "type": "technique",
+      "content": "Find out if the prospect believes fixing the problem would improve their situation.",
+      "speaker_perspective": "sales agent",
+      "notes": "Connects the root cause to desired outcomes, addressing 'status quo' objections."
+    },
+    {
+      "type": "technique",
+      "content": "Ascertain if the prospect is currently considering looking at solutions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Helps understand urgency and priority, addressing 'timing' objections."
+    },
+    {
+      "type": "technique",
+      "content": "Qualify if the prospect is willing to invite you to explore solutions further based on the uncovered needs.",
+      "speaker_perspective": "sales agent",
+      "notes": "Isolates willingness to engage after understanding the root cause."
+    }
+  ],
+  "focus_area": "Objection Discovery: Clarifying questions, isolation, root cause"
+}

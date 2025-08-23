@@ -1,0 +1,192 @@
+{
+  "source_video": "IY-RoiVLExs",
+  "entries": [
+    {
+      "type": "technique",
+      "content": "Start the call by confirming it's still an okay time to chat for a couple minutes.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "My goal on this call isn't necessarily to sell you.",
+      "speaker_perspective": "sales agent",
+      "notes": "Reduces pressure, sets low stakes."
+    },
+    {
+      "type": "technique",
+      "content": "Frame the call goal as seeing if a further conversation makes sense.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If it does make sense, cool. If it doesn't make sense, totally fine as well.",
+      "speaker_perspective": "sales agent",
+      "notes": "Offers an easy opt-out, builds trust."
+    },
+    {
+      "type": "technique",
+      "content": "Set expectations by stating you'll be asking questions to understand their situation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Is that okay with you?",
+      "speaker_perspective": "sales agent",
+      "notes": "Asks permission for the proposed call structure."
+    },
+    {
+      "type": "mindset",
+      "content": "You must earn the right to ask questions.",
+      "speaker_perspective": "sales agent",
+      "notes": "Build context and rapport before deep discovery."
+    },
+    {
+      "type": "technique",
+      "content": "Earn the right to ask questions by briefly stating the call's purpose and structure upfront.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use a concise 10-second opener: State why you're calling, who you help, and why you thought it might be worth chatting specifically with them.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Earn the right to pitch. Don't pitch until you truly understand the problem.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Earn the right to pitch by asking questions and confirming you understand their needs before presenting a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "The more questions you ask, the better you understand the problem, leading to a more effective pitch.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Asking questions serves two purposes: gathering information and building trust by showing you care.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Don't be afraid to ask follow-up questions to dig deeper into a response.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use silence effectively after asking a question; allow the prospect time to think and respond fully.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Confirm your understanding of their challenge before offering a solution.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So, if I understand correctly, the main issue is X?",
+      "speaker_perspective": "sales agent",
+      "notes": "Used to confirm understanding before transitioning."
+    },
+    {
+      "type": "technique",
+      "content": "Transition from discovery to pitch by summarizing their problem and briefly introducing how your solution addresses it.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Based on what you've told me, it sounds like [summarize problem]. We help companies like yours address this by [briefly intro solution]. Would you be open to hearing how?",
+      "speaker_perspective": "sales agent",
+      "notes": "Structured transition phrase."
+    },
+    {
+      "type": "technique",
+      "content": "Maintain control of the conversation flow by guiding it with questions, not by dictating.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Act as a consultant or doctor; diagnose the problem thoroughly before prescribing a solution.",
+      "speaker_perspective": "sales agent",
+      "notes": "Analogy for the sales role."
+    },
+    {
+      "type": "technique",
+      "content": "If a prospect gives a short answer, prompt them to elaborate with questions like 'Can you tell me more about that?' or 'What does that look like specifically?'",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Listen actively to understand, not just to wait for your turn to speak.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Use reflective listening: Briefly paraphrase what you heard to show you were paying attention.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "So, it sounds like X is a big priority for you right now.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of reflective listening."
+    },
+    {
+      "type": "technique",
+      "content": "If an objection is raised during discovery, acknowledge it but pivot back to understanding the full picture before addressing the objection directly.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "technique",
+      "content": "Clearly frame the proposed next step at the end of the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "If this makes sense, the next step would be a quick demo to show you how it works.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of framing next steps."
+    },
+    {
+      "type": "technique",
+      "content": "Confirm the prospect's commitment to the proposed next step.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Does that sound like a good plan?",
+      "speaker_perspective": "sales agent",
+      "notes": "Gaining agreement on next steps."
+    },
+    {
+      "type": "technique",
+      "content": "End the call on a positive and appreciative note, regardless of the outcome.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "sales_phrase",
+      "content": "Thanks for your time, I appreciate you sharing that with me.",
+      "speaker_perspective": "sales agent",
+      "notes": "Example of ending call positively."
+    },
+    {
+      "type": "technique",
+      "content": "Follow up promptly as promised after the call.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "tone_strategy",
+      "content": "Maintain a confident but not pushy tone throughout the conversation.",
+      "speaker_perspective": "sales agent"
+    },
+    {
+      "type": "mindset",
+      "content": "Be genuinely curious about the prospect's business and challenges.",
+      "speaker_perspective": "sales agent",
+      "notes": "Authentic curiosity aids discovery and rapport."
+    }
+  ]
+}
