@@ -56,6 +56,81 @@
    pip install -r requirements.txt
    ```
 
+## HuggingFace Models
+
+The backend uses several pre-trained models from HuggingFace for audio processing, speech recognition, and text generation. These models are automatically downloaded and cached when first used.
+
+### Cached Models
+
+The following models are currently cached in the system:
+
+1. **distil-whisper/distil-large-v3** (1.5GB)
+   - **Purpose**: Speech-to-text transcription
+   - **Use Case**: Transcribing audio files and real-time speech
+   - **Installation**: Automatically downloaded via `transformers` library
+
+2. **distilbert-base-uncased-finetuned-sst-2-english** (268MB)
+   - **Purpose**: Sentiment analysis
+   - **Use Case**: Analyzing sentiment in transcribed text
+   - **Installation**: Automatically downloaded via `transformers` library
+
+3. **emotion2vec/emotion2vec_plus_large** (1.9GB)
+   - **Purpose**: Emotion recognition from speech
+   - **Use Case**: Detecting emotions in voice recordings
+   - **Installation**: Automatically downloaded via `transformers` library
+
+4. **facebook/wav2vec2-large-960h-lv60-self** (2.5GB)
+   - **Purpose**: Speech recognition
+   - **Use Case**: Converting speech to text with high accuracy
+   - **Installation**: Automatically downloaded via `transformers` library
+
+5. **speechbrain/spkrec-ecapa-voxceleb** (89MB)
+   - **Purpose**: Speaker recognition/verification
+   - **Use Case**: Identifying and verifying speakers in audio
+   - **Installation**: Automatically downloaded via `speechbrain` library
+
+6. **t5-large** (3.0GB)
+   - **Purpose**: Text-to-text generation
+   - **Use Case**: Text processing and generation tasks
+   - **Installation**: Automatically downloaded via `transformers` library
+
+### Model Management
+
+**Total Cache Size**: ~9.3GB
+
+**To scan current cache:**
+```bash
+cd backend
+source venv/bin/activate
+hf cache scan
+```
+
+**To clear cache** (if needed):
+```bash
+cd backend
+source venv/bin/activate
+hf cache clean
+```
+
+**To pre-download all models** (optional):
+```bash
+cd backend
+source venv/bin/activate
+python -c "
+from transformers import pipeline
+import speechbrain
+# This will trigger downloads
+whisper = pipeline('automatic-speech-recognition', model='distil-whisper/distil-large-v3')
+sentiment = pipeline('sentiment-analysis', model='distilbert-base-uncased-finetuned-sst-2-english')
+t5 = pipeline('text2text-generation', model='t5-large')
+wav2vec = pipeline('automatic-speech-recognition', model='facebook/wav2vec2-large-960h-lv60-self')
+# SpeechBrain models download automatically when used
+"
+```
+
+### Cache Location
+Models are cached in: `~/.cache/huggingface/hub/`
+
 ## Environment Variables
 
 Create a `.env` file in the backend directory:
