@@ -43,7 +43,7 @@ We are primarily documenting and iterating on the onboarding flows. Start with t
 - Use the existing pages under `frontend/src/app/onboarding/` as your source of truth for the current UX.
 
 ## Git Workflow
-To commit and push changes to the main branch:
+To commit and push changes to the master branch:
 
 ```bash
 # Stage your changes
@@ -52,8 +52,8 @@ git add .
 # Commit with a descriptive message
 git commit -m "Your commit message here"
 
-# Push to main branch
-git push origin main
+# Push to master branch
+git push origin master
 ```
 
 For development commands and architecture, see `CLAUDE.md`. 
